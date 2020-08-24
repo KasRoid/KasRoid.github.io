@@ -327,10 +327,10 @@
         
         <item>
             <title>SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석</title>
-            <link>http://example.org/posts/20200730-swiftui-basics-create-projcet-and-analyze-codes/</link>
+            <link>http://example.org/posts/20200730-swiftui-basics-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EA%B8%B0%EB%B3%B8%EC%A0%9C%EA%B3%B5-%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D/</link>
             <pubDate>Thu, 30 Jul 2020 23:56:35 +0900</pubDate>
             
-            <guid>http://example.org/posts/20200730-swiftui-basics-create-projcet-and-analyze-codes/</guid>
+            <guid>http://example.org/posts/20200730-swiftui-basics-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EA%B8%B0%EB%B3%B8%EC%A0%9C%EA%B3%B5-%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D/</guid>
             <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
  SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
 첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
