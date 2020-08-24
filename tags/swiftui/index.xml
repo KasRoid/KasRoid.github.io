@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code with Coffee, Perfect</title>
-    <link>https://kasroid.github.io/</link>
-    <description>Recent content on Code with Coffee, Perfect</description>
+    <title>SwiftUI on Code with Coffee, Perfect</title>
+    <link>https://kasroid.github.io/tags/swiftui/</link>
+    <description>Recent content in SwiftUI on Code with Coffee, Perfect</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 25 Aug 2020 01:35:55 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2020 19:14:16 +2430</lastBuildDate>
     
-	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kasroid.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About Me</title>
-      <link>https://kasroid.github.io/about-me/</link>
-      <pubDate>Mon, 24 Aug 2020 17:04:22 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/about-me/</guid>
-      <description>This is About Me Page. I&amp;rsquo;m going to upload my career.</description>
-    </item>
     
     <item>
       <title>CocoaPods: 설치 및 라이브러리 적용하기</title>
