@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+ SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
+첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
+그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다." />
+<meta name="keywords" content="iOS, Swift, SwiftUI" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://example.org/posts/20200730-swiftui-basics-create-projcet-and-analyze-codes/" />
+
+
+    <title>
+        
+            SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석 :: Code with Coffee, Perfect  — iOS Developer
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+
+
+<meta itemprop="name" content="SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석">
+<meta itemprop="description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+ SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
+첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
+그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다.">
+<meta itemprop="datePublished" content="2020-07-30T23:56:35+09:00" />
+<meta itemprop="dateModified" content="2020-07-30T23:56:35+09:00" />
+<meta itemprop="wordCount" content="782">
+<meta itemprop="image" content="http://example.org/"/>
+
+
+
+<meta itemprop="keywords" content="SwiftUI," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/"/>
+
+<meta name="twitter:title" content="SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석"/>
+<meta name="twitter:description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+ SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
+첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
+그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다."/>
+
+
+
+    <meta property="og:title" content="SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석" />
+<meta property="og:description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+ SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
+첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
+그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/20200730-swiftui-basics-create-projcet-and-analyze-codes/" />
+<meta property="og:image" content="http://example.org/"/>
+<meta property="article:published_time" content="2020-07-30T23:56:35+09:00" />
+<meta property="article:modified_time" content="2020-07-30T23:56:35+09:00" /><meta property="og:site_name" content="Code with Coffee, Perfect" />
+
+
+
+
+    <meta property="article:section" content="Framework" />
+
+
+
+    <meta property="article:published_time" content="2020-07-30 23:56:35 &#43;0900 KST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/posts" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">Developer Kas</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="http://example.org/posts">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://example.org/posts/20200730-swiftui-basics-create-projcet-and-analyze-codes/">SwiftUI Basics: 프로젝트 생성 및 기본제공 코드 분석</a>
+      </h1>
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#view">View</a></li>
+    <li><a href="#previewprovider">PreviewProvider</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.</p>
+</blockquote>
+<p>SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.</p>
+<p>첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.</p>
+<p>그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcCRN8A%2FbtqGbOrehS5%2FOujyzIXf0LLRbDmAYyZWV1%2Fimg.png" alt="프로젝트를 생성하면 가장 처음 마주치는 화면"></p>
+<p>우측 상단에 위치한 Resume 버튼을 누르거나 Command + Option + P 를 누르면 SwiftUI 의 핵심기능 중 하나인 Preview 를 활성화 시킬 수 있습니다. 활성화가 정상적으로 되었다면 아이폰 화면 위에 &ldquo;Hello World&rdquo; 가 출력된 것을 볼 수 있습니다. 놀랍지 않나요?</p>
+<p>기존 Storyboard 처럼 단순히 Layout 을 생성 및 확인하는 것뿐만 아니라 실시간으로 코드와 반응하며 UI 가 변화합니다. 다음 포스트에서 함께 보겠지만 심지어 버튼을 눌러 Print 까지 출력이 가능합니다. <del>Wow</del></p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTBlYa%2FbtqGbaVQMPl%2FBJogbKg9zhKhb3GktLZZBk%2Fimg.png" alt="Preview 가 활성화 된 모습"></p>
+<hr>
+<h2 id="view">View</h2>
+<p>그럼 이제 코드를 한번 살펴볼게요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+    <span style="color:#66d9ef">var</span> body: some View {
+        Text(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
+    }
+}
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+        ContentView()
+    }
+}
+</code></pre></div><p>UIKit 과 달라도 너무 다르네요. 하지만 저는 위에서 본 Preview 의 성능에 감동을 받은 상태이니 새로운 것을 배울 마음의 준비가 되었습니다. 첫 줄을 보면 ContentView 는 View 를 상속받고 있습니다. 왠지 UIView 와 익숙할 것 같지만 혹시 모르니까 무엇인지 한번 알아보도록 하죠.
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FehkB31%2FbtqF7ug8I99%2FeQcsTKc0MQ0dnOKNgvjrpk%2Fimg.png" alt="Apple 공식 문서의 View"></p>
+<p>불과 3개월 전 처음 iOS 개발을 배우기 시작했을 때는 이 문서 보는게 정말 싫었습니다. 봐도 뭐가 뭔지 모르겠고 그냥 다른 블로그 찾아보는게 더 빠르고 쉬웠었거든요. 물론 지금도 이 문서 읽는 것만으로는 사용법을 완전히 익히기에는 부족하지만 그래도 모르는 것이 나타나면 일단 무조건 공식문서부터 찾아보는 습관을 들이고 있습니다. 계속 익숙해지려고 노력하니 조금씩 문서의 구성이나 읽는 방법을 알아가는 것 같아요. 좋은 iOS 개발자가 되려면 그 무엇보다 이 화면과 친해져야 할 것 같아요.</p>
+<p>아무튼!! 충격적인게 View 가 Class 도 아니고 Struct 도 아닌 Protocol 이었어요. 아니 어떻게 Protocol 을 저런식으로 사용하지?
+근데 또 곰곰히 생각해보면 ContentView 가 Struct 잖아요? 그럼 상속을 받지 못하는게 당연하니 Protocol 일 수 밖에 없었네요. UIKit 의 사용법에만 익숙한 상태라 생소하지만 아무튼 View 는 Protocol 이에요.</p>
+<p>Protocol 을 채택했다는건 무언가 필수로 구현해야하는게 있을 수도 있다는 소리잖아요? 그게 바로 저 body 부분입니다. body 부분은 computed property 의 형태로 되어있고 some View 타입을 return 받아야 한다고 알려주고 있어요. 지금 당장 some View 가 무엇인지 전부 파헤치기는 어려우니 뭐가 되었든 View 의 종류들이면 다 괜찮아라고 이해하고 넘어갈게요.</p>
+<p>body 의 return 값이 View 의 종류라면 괜찮다고 했는데 Text(&ldquo;Hello World&rdquo;) 부분이 오류가 나지않고 정상적으로 Preview 에 표시되었으니까 Text 도 View 의 일종이라는 것입니다. 확실하지 않으니까 이번에도 개발자 문서를 한번 보고 넘어가볼게요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbT0MOt%2FbtqF7KqxqVX%2FkqiXm3pfzK8sORVijMBAk0%2Fimg.png" alt="Apple 공식 문서의 Text"></p>
+<p>좌측 상단을 잘 보시면 Views and Controls 라고 적혀있죠? 즉 Text 는 View 나 Control 중 하나라는 뜻입니다. 그리고 설명을 보면 &ldquo;A view that displays one or more lines of read-only text&rdquo; 라고 명시하고 있습니다. 읽기 전용으로 쓸 수 있는 텍스트를 표시하는 View 라고 하네요. 상속을 받지도 Protocol 을 채택한 것도 아닌 것이 어떻게 View 로 구분될 수 있는건지는 잘 모르겠지만 공식 문서에서 View 라고 하니 일단 그렇게 알고 넘어가도록 합시다.</p>
+<hr>
+<h2 id="previewprovider">PreviewProvider</h2>
+<p>이제 두번째 문단을 살펴보도록 할게요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+        ContentView()
+    }
+}
+</code></pre></div><p>또 생소한 것들 투성입니다. 뭔지 모르겠으니까 제일 먼저 등장하는 PreviewProvider 를 찾아봅시다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdGRdYl%2FbtqF9lQ679z%2F4YQ8zIkOphSo4JBYpOVu9K%2Fimg.png" alt="Apple 공식 문서의 PreviewProvider">
+이번에도 Protocol 입니다. 어느새 조금 당연해졌죠??</p>
+<p>Xcode 에서 previews 를 생성하는 타입이라고 하네요. 정확히는 모르겠지만 우측의 Preview 에 관여하는 코드인 것은 확실합니다. 하지만 이것만으로는 조금 부족한 것 같으니까 PreviewProvider 가 어떤 방식으로 만들어진건지 내부 코드를 봐야할 것 같아요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">@available(iOS <span style="color:#ae81ff">13.0</span>, OSX <span style="color:#ae81ff">10.15</span>, tvOS <span style="color:#ae81ff">13.0</span>, watchOS <span style="color:#ae81ff">6.0</span>, <span style="color:#f92672">*</span>)
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">PreviewProvider</span> : _PreviewProvider {
+
+    <span style="color:#75715e">/// The type of the previews variable.</span>
+    associatedtype Previews : View
+
+    <span style="color:#75715e">/// Generates a collection of previews.</span>
+    <span style="color:#75715e">///</span>
+    <span style="color:#75715e">/// Example:</span>
+    <span style="color:#75715e">///</span>
+    <span style="color:#75715e">///     struct MyPreviews : PreviewProvider {</span>
+    <span style="color:#75715e">///         static var previews: some View {</span>
+    <span style="color:#75715e">///             return Group {</span>
+    <span style="color:#75715e">///                 GreetingView(&#34;Hello&#34;),</span>
+    <span style="color:#75715e">///                 GreetingView(&#34;Guten Tag&#34;),</span>
+    <span style="color:#75715e">///</span>
+    <span style="color:#75715e">///                 ForEach(otherGreetings, id: \.self) {</span>
+    <span style="color:#75715e">///                     GreetingView($0)</span>
+    <span style="color:#75715e">///                 }</span>
+    <span style="color:#75715e">///             }</span>
+    <span style="color:#75715e">///             .previewDevice(&#34;iPhone X&#34;)</span>
+    <span style="color:#75715e">///         }</span>
+    <span style="color:#75715e">///     }</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: <span style="color:#66d9ef">Self</span>.Previews { <span style="color:#66d9ef">get</span> }
+
+    <span style="color:#75715e">/// Returns which platform to run the provider on.</span>
+    <span style="color:#75715e">///</span>
+    <span style="color:#75715e">/// When `nil`, Xcode infers the platform based on the file the</span>
+    <span style="color:#75715e">/// `PreviewProvider` is defined in. This should only be provided when the</span>
+    <span style="color:#75715e">/// file is in targets that support multiple platforms.</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> platform: PreviewPlatform? { <span style="color:#66d9ef">get</span> }
+}
+</code></pre></div><p>Property 로 previews 와 platform 을 갖고 있어요. 오늘은 충분히 많은 새로운 내용을 배웠으니 platform 은 다음에 알아보는 것으로 하고 이번에는 previews 만 살펴보도록 할게요. 사용 예시가 나와있네요.</p>
+<p>Group 으로 View 들을 묶어 여러개를 표시할 수도 있고 .previewDevice modifier 를 사용해 표시되는 기기를 바꿔줄 수 도 있나봅니다. 이곳에 나와있지는 않지만 여러개의 previews 를 만들어 놓고 하나는 light 다른 하나는 dark 모드로 UI 를 확인해가며 작업하는 것도 가능합니다.</p>
+<p>이렇게 SwiftUI 를 시작하는데 있어 가장 기초적인 부분들을 훌어보았는데요. 다음 포스트에서는 SwiftUI 에 여러가지 View 를 추가하는 방법을 알아보도록 하겠습니다.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7" y2="7"></line>
+          </svg><span class="tag"><a href="http://example.org/tags/swiftui/">SwiftUI</a></span>
+        </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        782 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        2020-07-30 23:56 &#43;0900
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;caption=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;canonicalUrl=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;body=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f&amp;media=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f;description=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f&amp;title=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;summary=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;source=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f&amp;resubmit=true&amp;title=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f;title=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d%20http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f&amp;t=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=SwiftUI%20Basics%3a%20%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ea%b8%b0%eb%b3%b8%ec%a0%9c%ea%b3%b5%20%ec%bd%94%eb%93%9c%20%eb%b6%84%ec%84%9d&amp;url=http%3a%2f%2fexample.org%2fposts%2f20200730-swiftui-basics-create-projcet-and-analyze-codes%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="http://example.org/posts/20200731-swiftui-basics-text-%EC%99%80-image-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/">
+                <span class="button__icon">←</span>
+                <span class="button__text">SwiftUI Basics: Text 와 Image 생성하기</span>
+              </a>
+            </span>
+          
+
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="http://example.org/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>
