@@ -9,5 +9,77 @@
         <lastBuildDate>Tue, 25 Aug 2020 01:27:47 +0900</lastBuildDate>
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
+        <item>
+            <title>Homebrew 설치 및 기본 사용법 익히기</title>
+            <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</link>
+            <pubDate>Sun, 23 Aug 2020 16:48:19 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</guid>
+            <description>오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
+Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.</description>
+            <content type="html"><![CDATA[<p>오늘 소개할 <strong>Homebrew</strong> 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ</p>
+<p>Homebrew 는 <strong>macOS</strong> 의 <strong>Package Manager</strong> 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다. Homebrew 를 통해 프로그램을 설치하는게 편해봤자 얼마나 더 편하다고 굳이 이렇게 새로운 것을 배우기까지 해야하는지 의문이 들 수 있어요. 그래서 Homebrew 를 사용할 때와 사용하지 않을 때 우리가 프로그램을 설치하고 사용하기까지 거치는 과정들을 나열하고 차이점을 비교해 보겠습니다.</p>
+<ol>
+<li>구글 접속</li>
+<li>검색</li>
+<li>프로그램을 다운받을 수 있는 홈페이지 접속</li>
+<li>홈페이지에서 다운로드 링크를 찾기</li>
+<li>프로그램 다운로드</li>
+<li>다운로드 폴더에 들어가서 설치파일 실행</li>
+<li>설치과정 진행</li>
+<li>설치가 완료되고나면 다운로드 폴더에서 설치 파일 제거</li>
+</ol>
+<p>대부분 이런 과정들을 거쳐 프로그램을 설치하죠? 프로그램을 한개만 설치할 때는 이렇게 설치하는 방법도 나쁘진 않아요. 하지만 만약 10개를 설치해야한다면 어떨까요? 20개라면? 프로그램 설치가 비록 어려운 부분은 없지만 정말 귀찮은 일이지요. Homebrew 를 사용하면 최대 단 2번의 과정으로 위 과정들을 모두 끝낼 수 있습니다.</p>
+<ol>
+<li>다운로드받을 프로그램명 검색(optional)</li>
+<li>다운로드 명령 실행</li>
+</ol>
+<p>정말 이보다 간단할 수가 있을까요? 지금은 프로그램을 검색하는 과정까지 포함을 했지만 사실 우리가 다운받을 프로그램의 이름을 정확히 알고 있는 경우에는 검색조차도 필요가 없습니다. Terminal 에 커맨드 단 한줄 입력만으로 새로운 프로그램을 사용할 준비가 끝납니다.</p>
+<p>Homebrew 로 단순히 프로그램을 하나씩 설치하고 제거하는 것은 물론이고 만약 내가 설치해놓은 프로그램들을 리스트 형태로 만들어 두었다면(리스트를 만드는 기능도 Homebrew 에서 제공합니다) 한 번에 프로그램 수십개를 설치할 수도 있습니다. 리스트에 적힌 모든 목륵을 설치하라는 커맨드를 입력하고 우리는 커피 한잔하고 오면 프로그램들이 모두 설치되어 있는 것이죠 ㅎㅎㅎ</p>
+<p>어떤가요? 듣기만해도 매력이 뿜뿜하고 배우고 싶어지지 않나요?? ㅋㅋㅋㅋ</p>
+<hr>
+<h2 id="homebrew-설치하기">Homebrew 설치하기</h2>
+<p>이정도면 제 <strong>Homebrew</strong> 영업에 어느정도 넘어왔을테니 바로 설치를 한번 시작해볼게요. <del>안 넘어왔어도 그냥 보세요 ㅋㅋ</del></p>
+<p>먼저 Homebrew <a href="https://brew.sh">공식 홈페이지</a> 에 접속합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/90974084-e2a15100-e562-11ea-900d-d8b0ae41297d.png" alt="Homebrew Official Website"></p>
+<p>이렇게 생긴 홈페이지가 보이면 <strong>Install Homebrew</strong> 라고 적힌 부분의 아래 명령어를 <strong>Terminal</strong> 에서 실행합니다.</p>
+<pre><code class="language-Console" data-lang="Console">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+</code></pre><p>만약 Terminal 에 자물쇠 모양이 나타나며 비밀번호를 요구할 경우 비밀번호를 입력해주세요. 우리가 평소 웹사이트에서 비빌번호를 입력할 때처럼 실시간으로 비밀번호가 입력되는 상황이 Terminal 에서는 보이지 않지만 실제로는 비밀번호가 입력되고 있는 상황이니 전부 입력하고 리턴키를 누르면 됩니다.</p>
+<hr>
+<h2 id="homebrew-사용법-익히기">Homebrew 사용법 익히기</h2>
+<p>Homebrew 설치를 정상적으로 마쳤다면 이제 Terminal 에서 <code>brew</code> 명령어를 사용할 수 있게 됩니다. 그럼 Terminal 에 <code>brew</code> 라고 한번 입력해볼게요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91327134-1b118b00-e800-11ea-8620-0f5c9194a8ee.png" alt="Typed &lsquo;brew&rsquo; in Terminal"></p>
+<p>여러가지 명령어들이 많이 뜨네요 ㅎㅎ 생소한 명령어다보니 처음에는 조금 어렵게 느껴지더라도 그때그때 필요할 때 한번씩 찾아 쓰다보면 명령어들이 전부 쉬운편이라 금방 외워서 사용하게 되니 일부러 외울 필요는 없습니다. <del>우리는 영어 한마디 제대로 못하던 시절에도 수 많은 스타크래프트 치트키를 외워서 사용했었습니다 ㅎㅎ</del></p>
+<hr>
+<h3 id="프로그램-검색하기">프로그램 검색하기</h3>
+<p><strong>Homebrew</strong> 로 프로그램을 설치하기 위해서는 먼저 우리가 원하는 프로그램의 명칭을 정확하게 알아야 합니다. 프로그램 이름이 단어 하나로 구성된 경우에는 대부분 그 자체로 프로그램명이 되지만 이름에 띄어쓰기가 있는 경우 표기 방법이 조금 다를 수 있으니 먼저 검색을 한번 해보는 것이 좋습니다. 그럼 이번에는 예제로 구글 크롬을 검색해보도록 할게요.</p>
+<pre><code class="language-Console" data-lang="Console">brew search google chrome
+</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/91327195-2fee1e80-e800-11ea-87af-edeea42c8994.png" alt="Searched Google Chrome via Homebrew"></p>
+<p>검색 결과가 총 4개가 있네요. 딱 봐도 첫번째 결과가 우리가 찾는 구글 크롬인 것 같아요. 꽤 정확한 결과값이므로 이 단어로 바로 설치를 진행해도 되지만 정말 혹시 모르는 경우를 대비해서 이게 정확한 곳에서 다운로드 받는 것인지 확인해 볼 수 있습니다.</p>
+<pre><code class="language-Console" data-lang="Console">brew cask home google-chrome
+</code></pre><p><code>cask</code> 는 상용 프로그램이라는 뜻으로 일반 홈페이지에서 직접 다운로드 받는 프로그램을 의미합니다. 구글 크롬은 App Store 다운받거나 Terminal 에서 Tool 의 형태로 제공되는 것이 아닌 일반 브라우저에서 다운로드 받아 사용하는 상용 프로그램이니까 <code>cask</code> 에 속합니다. 그리고 <code>home</code> 은 다운받을 수 있는 홈페이지를 뜻합니다. 즉 구글 크롬을 다운받을 수 있는 홈페이지를 열라는 뜻이에요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91327244-409e9480-e800-11ea-8669-846d77935901.png" alt="Google Chrome Download Page"></p>
+<p>우리가 딱 원하는 페이지가 떳어요!! 그럼 이제 <code>google-chrome</code> 을 사용해 설치해볼게요.</p>
+<hr>
+<h3 id="프로그램-설치하기">프로그램 설치하기</h3>
+<p>설치방법은 매우 간단합니다.</p>
+<pre><code class="language-Console" data-lang="Console">brew cask install google-chrome
+</code></pre><p>잠깐 기다려주고나면 짜잔!! 설치가 모두 끝났고 이제 정상적으로 프로그램을 사용할 수 있게되었습니다.</p>
+<hr>
+<h3 id="설치된-프로그램-확인하기">설치된 프로그램 확인하기</h3>
+<p>우리가 설치한 프로그램의 목록도 brew 를 통해 간단히 나열하고 확인할 수가 있습니다. 다음 커맨드를 입력해 보세요.</p>
+<pre><code class="language-Console" data-lang="Console">brew cask list
+</code></pre><p>내 컴퓨터에 설치되어 있는 일반 프로그램의 리스트를 달라는 뜻이에요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91327307-4dbb8380-e800-11ea-9fa4-23be49d76475.png" alt="Installed Program List"></p>
+<p>방금 설치한 구글 크롬이 목록에 표시된다면 정상적으로 설치가 되었다는 뜻입니다. 저는 모든 프로그램들을 Homebrew 로 관리하고 있어서 이렇게 많이 뜬답니다 ㅎㅎㅎ</p>
+<h3 id="프로그램-삭제하기">프로그램 삭제하기</h3>
+<p>설치하는 방법을 알았으니 삭제는 당연히 세트메뉴로 배워야겠죠?</p>
+<pre><code class="language-Console" data-lang="Console">brew uninstall google-chrome
+</code></pre><p>네 끝입니다. 이렇게 <strong>Homebrew</strong> 가 프로그램 관리자 역할을 하며 우리 컴퓨터에 설치되어 있거나 설치할 모든 프로그램을 관리해주기 때문에 우리는 쓸데없는 시간낭비를 줄이고 다른 것들에 더 집중할 수 있습니다.</p>
+<p>다음 포스팅에서는 <strong>Homebrew</strong> 를 통해 내가 사용하는 프로그램들을 한번에 업데이트하는 방법과 내 컴퓨터에 깔려있는 모든 프로그램(Homebrew 를 통해 설치한)들의 리스트를 텍스트 파일형태로 저장하고 그 파일을 사용해 모든 프로그램을 한번에 설치할 수 있는 방법을 알아보겠습니다.</p>
+<p>Terminal 을 통해 프로그램을 설치하고 관리하는 것이 처음에는 익숙하지 않아 조금은 거부감이 들고 부담스러울 수 있지만 그냥 쓰다보면 정말 어려운거 없고 훨씬 편하다는 사실을 알게될거에요. 그럼 여러분들도 <strong>Homebrew</strong> 꼭 사용하길 바라겠습니다!</p>
+]]></content>
+        </item>
+        
     </channel>
 </rss>

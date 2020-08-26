@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homebrew on Code with Coffee, Perfect</title>
+    <link>https://kasroid.github.io/tags/homebrew/</link>
+    <description>Recent content in Homebrew on Code with Coffee, Perfect</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 23 Aug 2020 16:48:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://kasroid.github.io/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homebrew 설치 및 기본 사용법 익히기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</link>
+      <pubDate>Sun, 23 Aug 2020 16:48:19 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</guid>
+      <description>오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
+Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>
