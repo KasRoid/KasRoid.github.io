@@ -10,6 +10,179 @@
         <atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Sign in With Apple 구현하기: UIKit</title>
+            <link>https://kasroid.github.io/posts/ios/sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</link>
+            <pubDate>Sat, 29 Aug 2020 11:00:14 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/ios/sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</guid>
+            <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+ 이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
+ Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
+이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.</p>
+</blockquote>
+<p>이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~</p>
+<hr>
+<h2 id="apple-developer-documentation">Apple Developer Documentation</h2>
+<p>처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdNp10r%2FbtqGbjztlvZ%2FrKTcRAC7q3tuRBCHBKdlk0%2Fimg.png" alt="Apple 공식문서의 AuthenticationServices"></p>
+<p>이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요. 코드 구현에 유용한 정보는 없어보이니 공식 문서는 이정도로 넘어가는걸로하고 그냥 직접 구현하면서 알아보도록 할게요!</p>
+<hr>
+<h2 id="entitlement-파일-생성하기">Entitlement 파일 생성하기</h2>
+<p>먼저 새로운 프로젝트를 만들고 <strong>Signing &amp; Capabilities</strong> 카테고리로 넘어와 아래 이미지에서 빨간색 화살표로 표시된 <strong>+</strong> 버튼을 클릭해주세요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQ9xAs%2FbtqGe9vtmiM%2FPUSCeM3D4iJRlYtFnL37UK%2Fimg.png" alt="Entitlement 파일 생성 버튼"></p>
+<p>그러면 뭔가 익숙한 느낌의 새로운 창이 하나 뜹니다 ㅎㅎ 그러면 Sign 으로 검색하고 <strong>Sign In with Apple</strong> 을 찾아서 클릭해주세요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbX2AwO%2FbtqGbHN03xM%2Fgw9fns2jabKRU0wrUPbjD0%2Fimg.png" alt="Sign In with Apple 검색"></p>
+<p>참고로 Apple 에 개발자로 등록되지 않은 분들은 Sign In with Apple 이 검색되지 않을 수도 있어요. 이럴때는 <strong>Team</strong> 을 <strong>None</strong> 으로 설정하고 검색하면 보일거에요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCMq8p%2FbtqGiTUi4DT%2F3DwenpNzuxvcg2knHXrx8K%2Fimg.png" alt="Team 설정"></p>
+<p>이제 .entitlements 확장자를 가진 새로운 파일이 하나 생겼을 거에요. 뭔가 생소한 파일이죠?? 다행히 이곳에서 추가로 작업할 내용은 없습니다 ㅎㅎㅎ</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8r5Je%2FbtqGfNyWHmo%2FbVicWmEJervLR9kmDMLGgk%2Fimg.png" alt="entitlement 파일 스크린샷"></p>
+<hr>
+<h2 id="import-authenticationservices">Import AuthenticationServices</h2>
+<p>가장 먼저 우리가 해야할 일은 Apple 에서 로그인을 지원하기 위해 만든 인스턴스에 접근할 수 있도록 <strong>AuthenticationServices</strong> 를 import 해주어야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AuthenticationServices</span>
+</code></pre></div><hr>
+<h2 id="sign-in-with-apple-버튼-생성하기">Sign In with Apple 버튼 생성하기</h2>
+<p>이제 ViewController 에 <strong>Sign In with Apple</strong> 버튼을 생성해보도록 할게요. 여기서는 일반 UIButton 을 사용하는게 아니라 <code>ASAuthorizationAppleIDButton</code> 으로 인스턴스를 생성해야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> authorizationAppleIDButton = ASAuthorizationAppleIDButton()
+</code></pre></div><p>처음보는 코드니까 당연히 공식문서를 보고 넘어가야겠죠?</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUAOZc%2FbtqGchhnEQp%2FQNIIp0nE7sDyZVrj1PJgpK%2Fimg.png" alt="Apple 공식문서의 ASAuthorizationAppleIDButton"></p>
+<p>유저가 <strong>Sign In with Apple</strong> 을 시작할 수 있게 해주는 control 이라고 하네요. UIButton 처럼 <strong>UIControl</strong> 을 상속받고 있습니다. 그렇다면 어느정도 비슷한 성질을 가졌을 것 같네요. 이번엔 문서 아래쪽에 알아두면 좋을만한 내용이 있어 추가로 가져와봤어요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fby4wXT%2FbtqGcgJwtvl%2FbWF4zHNX90xWDbzdbPdxZK%2Fimg.png" alt="Apple 공식문서의 ASAuthorizationAppleIDButton 2"></p>
+<p>중간쯤에 Styling the Button 카테고리가 보이죠? 개발자가 <strong>cornerRadius</strong> 나 버튼의 <strong>style</strong> 을 일정 부분 수정할 수 있게 해놓은 것 같습니다. 이 부분은 나중에 시간날 때 직접 실험을 해보고 업데이트 하도록 할게요.</p>
+<p>그럼 이제 버튼을 화면의 중앙에 오도록 배치해봅시다. <code>ASAuthorizationAppleIDButton</code> 도 결국 버튼의 일종이므로 <code>.addTarget</code> method 를 사용해 원하는 Action 을 구현할 수 있도록 <code>@objc</code> method 와 연결해 주었습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AuthenticationServices</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+    <span style="color:#66d9ef">let</span> authorizationAppleIDButton = ASAuthorizationAppleIDButton()
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        configureUI()
+    }
+    
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setAdditionalPropertyAttributes()
+        setConstraints()
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAdditionalPropertyAttributes</span>() {
+        authorizationAppleIDButton.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleAuthorizationAppleIDButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setConstraints</span>() {
+        view.addSubview(authorizationAppleIDButton)
+        authorizationAppleIDButton.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        
+        NSLayoutConstraint.activate([
+            authorizationAppleIDButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            authorizationAppleIDButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleAuthorizationAppleIDButton</span>(<span style="color:#66d9ef">_</span> sender: ASAuthorizationAppleIDButton) {
+        print(<span style="color:#66d9ef">#function</span>)
+    }
+}
+</code></pre></div><p>여기까지 코드를 작성하고 시뮬레이터를 실행해보면 이렇게 중앙에 버튼이 배치되고 정상적으로 <code>handleAuthorizationAppleIDButton</code> 함수 내부에 구현해둔 print 가 실행되는 것을 볼 수 있을거에요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fnpd9X%2FbtqGdD5leqo%2FhodOCdFMtz8KpL1WuPZxOK%2Fimg.png" alt="Simulator 실행화면"></p>
+<hr>
+<h2 id="login-process-구현하기">Login Process 구현하기</h2>
+<p>이제 UI작업은 마쳤으니 실제로 로그인이 데이터 처리에 필요한 코드를 작성해 보겠습니다. 당연한 얘기지만 로그인 과정은 버튼이 눌렸을 때 실행되도록 하면 되니까 <code>handleAuthorizationAppleIDButton()</code> 함수에 코드를 작성할거에요.</p>
+<p>로그인 과정을 처리하기 위해서 우리가 필수로 생성하고 접근해야하는 인스턴스는 <code>ASAuthorizationAppleIDProvider</code> 입니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbiQElo%2FbtqGeufLNXc%2FO06TV2DYskSjliKPjZByt0%2Fimg.png" alt="Apple 공식문서의 ASAuthorizationAppleIDProvider"></p>
+<p>Apple ID 를 사용해서 로그인 인증 요청을 생성해주는 메커니즘이라고하네요. 이번에는 Overview 부분도 주의깊게 봐야합니다. 우리가 생성해야할 <strong>provider</strong>, <strong>request</strong>, <strong>controller</strong> 에 대한 정보들이 있거든요. 그럼 이 정보들을 바탕으로 코드를 한번 작성해봅시다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleAuthorizationAppleIDButton</span>(<span style="color:#66d9ef">_</span> sender: ASAuthorizationAppleIDButton) {
+    <span style="color:#66d9ef">let</span> provider = ASAuthorizationAppleIDProvider()
+    <span style="color:#66d9ef">let</span> request = provider.createRequest()
+    request.requestedScopes = [.fullName, .email]
+    <span style="color:#66d9ef">let</span> controller = ASAuthorizationController(authorizationRequests: [request])
+    controller.performRequests()
+}
+</code></pre></div><p>그냥 공식문서에 있는 것과 똑같이 작성했어요 ㅎㅎ Provider 를 통해 Request 를 생성하고 생성된 Request 를 Controller 에게 전달해줘서 Controller 가 요청을 실행하는 개념입니다.</p>
+<p>중간에 있는 <code>.requestedScopes</code> 는 우리가 유저로부터 전달받을 최소한의 정보를 요청할 수 있게 도와주는 method 입니다. 내부에 들어가보면 <strong>fullname</strong> 과 <strong>email</strong> 이렇게 최대 2가지만 요청할 수 있게 만들어져 있어요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcbMXgx%2FbtqGbrkxlPF%2FkyLMKbilgArt77K5EFp6SK%2Fimg.png" alt=".requestedScopes 의 내부코드"></p>
+<p>물론 이 2가지마저도 사용자가 거부하면 우리가 받을 수 있는 것은 유저의 identifier 뿐으로 이것으로 최소한의 식별만 가능하게 됩니다. 역시 개인의 보안을 중시하는 애플이에요 ㅎㅎ</p>
+<p>하지만 이것으로 끝은 아닙니다. 아직 유저가 로그인에 성공하거나 실패했을 때 처리를 하지 않았고, 로그인 요청 창을 띄울 페이지도 설정해주지 않았거든요. 이 부분을 처리하기 위해서는 <code>ASAuthorizationControllerDelegate</code> 와 <code>ASWebAuthenticationPresentationContextProviding</code> 을 채택해야합니다.</p>
+<p><code>ASAuthorizationControllerDelegate</code> 를 채택하고 나면 로그인이 성공적으로 처리되었을 때 호출될 <code>didCompleteWithAuthorization</code> 함수와 실패했을 때 호출될 <code>didCompleteWithError</code> 함수를 불러올 수 있게 됩니다.</p>
+<p>그리고 <code>ASWebAuthenticationPresentationContextProviding</code> 에는 필수 구현 함수인 <code>presentationAnchor()</code> 에서 사용자에게 로그인 요청을 띄울 윈도우를 설정해줄 수 있습니다. 우리는 현재 View 의 Window 에서 바로 실행되도록 만들거에요. 자 그럼 지금까지 얘기한 내용들을 바로 코드로 구현해볼게요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: ASAuthorizationControllerDelegate {
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">authorizationController</span>(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">authorizationController</span>(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    }
+}
+
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: ASAuthorizationControllerPresentationContextProviding {
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">presentationAnchor</span>(<span style="color:#66d9ef">for</span> controller: ASAuthorizationController) -&gt; ASPresentationAnchor {
+        <span style="color:#66d9ef">return</span> view.window!
+    }
+}
+</code></pre></div><p>이전에 만들어 두었던 <code>handleAuthorizationAppleIDButton()</code> 함수 내부의 controller 에게 <strong>delegate</strong> 와 <strong>provider</strong> 위임도 빼먹지 말고 꼭 해주세요!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">controller.delegate = <span style="color:#66d9ef">self</span>
+controller.presentationContextProvider = <span style="color:#66d9ef">self</span>
+</code></pre></div><p>이제 거의 끝이 보입니다!</p>
+<p>먼저 로그인 정보가 성공적으로 들어왔을 때에 대한 처리 코드를 작성해볼게요. 당연히 <code>didCompleteWithAuthorization</code> 함수에 작성해야겠죠? 이 함수는 호출되면 <strong>ASAuthorization</strong> 타입을 가진 parameter 와 함께 실행됩니다. 잠깐 <strong>ASAuthorization</strong> 에 대해 알아보자면&hellip;</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbCgyLl%2FbtqGebAC1fT%2FbJ3fc7my35fmd1tVd58IoK%2Fimg.png" alt="Apple 공식문서의 ASAuthorization"></p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPztcT%2FbtqGevS85Ix%2FfXlJdcPlgNF9OHEoDpQODk%2Fimg.png" alt="Apple 공식문서의 ASAuthorization 2"></p>
+<p>Controller 가 성공적으로 인증을 진행했을 때 캡슐화해서 전달해주는 정보라고하네요. 내부에 <strong>credential</strong> 이라고하는 property 가 있고 이것은 성공적으로 인증된 사용자의 정보라고 합니다.. 지금은 캡슐화가 되어있는 상태이므로 <strong>credential</strong> 정보에 접근하기 위해 <strong>ASAuthorizationAppleIDCredential</strong> 타입으로 캐스팅이 필요합니다. 생소한 타입이죠?</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAfI3n%2FbtqGe8XK9qT%2FUt5K1fhfdgYw86ola0aCkk%2Fimg.png" alt="Apple 공식문서의 ASAuthorizationAppleIDCredential"></p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbyG1aA%2FbtqGdthHid0%2Fef21K8UmkKpUkyitmZkGWk%2Fimg.png" alt="Apple 공식문서의 ASAuthorizationAppleIDCredential 2"></p>
+<p>설명을 보면 encapsulation 이라는 단어가 사라지고 Apple ID 를 사용해 성공적으로 인증된 결과라고 써져있어요. 이것으로 타입 캐스팅을하면 캡슐이 해제되고 우리가 원하는 정보들에 접근할 수 있게됩니다. 문서의 Getting Contact Information 카테고리에 <code>fullName</code> 과 <code>email</code> 이 적혀있고 우리가 접근할 수 있을 것 같아요. 그리고 <code>user</code> 라는 property 가 매우 중요한데 일종의 <strong>identifier</strong> 로 우리가 무조건 받을 수 있는 소중한 정보입니다. 이 값으로 우리는 유저가 누구인지 판단을 해야하거든요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">authorizationController</span>(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> appleIDCredential = authorization.credential <span style="color:#66d9ef">as</span>? ASAuthorizationAppleIDCredential {
+        <span style="color:#75715e">// Create an account in your system.</span>
+        <span style="color:#66d9ef">let</span> userIdentifier = appleIDCredential.user
+        <span style="color:#66d9ef">let</span> userFirstName = appleIDCredential.fullName?.givenName
+        <span style="color:#66d9ef">let</span> userLastName = appleIDCredential.fullName?.familyName
+        <span style="color:#66d9ef">let</span> userEmail = appleIDCredential.email
+}
+</code></pre></div><p>그리고 <code>fullName</code> 은 <code>.givenName</code> 과 <code>.familyName</code> 으로 나눠서 받을 수도 있어요. 이렇게 첫 가입절차에서 사용자의 정보를 가져오는 코드를 완성했습니다. 이제 사용자가 최초 가입 후 로그인을 마치고 다음 로그인 시부터 우리가 사용자를 식별하여 로그인을 수 있도록 도와주는 코드를 작성해보겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> appleIDProvider = ASAuthorizationAppleIDProvider()
+appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState, error) <span style="color:#66d9ef">in</span>
+    <span style="color:#66d9ef">switch</span> credentialState {
+    <span style="color:#66d9ef">case</span> .authorized:
+        <span style="color:#75715e">// The Apple ID credential is valid. Show Home UI Here</span>
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">case</span> .revoked:
+        <span style="color:#75715e">// The Apple ID credential is revoked. Show SignIn UI Here.</span>
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">case</span> .notFound:
+        <span style="color:#75715e">// No credential was found. Show SignIn UI Here.</span>
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">default</span>:
+        <span style="color:#66d9ef">break</span>
+    }
+}
+</code></pre></div><p><strong>authorized</strong> - 사용자의 identifier 가 <strong>정상적으로</strong> 인식되었을 경우<br>
+<strong>revoked</strong>- 사용자의 identifier 가 <strong>유효하지 않은</strong> 경우<br>
+<strong>notFoun</strong> - 사용자의 identifier 를 <strong>찾지 못한</strong> 경우</p>
+<p><strong>CredentialState</strong> 에는 경우의 수가 총 3가지가 있고 상황에 맞는 코드를 각 case 에 작성해주면 됩니다. 우리는 추가 작업이 필요하지 않으므로 따로 작성하지 않겠습니다.</p>
+<p>에러처리는 따로 작성해주지 않아도 무방하지만 그래도 에러발생 시 우리가 알 수 있도록 print 를 하나 남겨두겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">authorizationController</span>(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    print(error)
+}
+</code></pre></div><p>이제 앱을 한번 실행해볼게요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQav98%2FbtqGc8rpXao%2FLkKCEUV8dYrF1MplHwXM11%2Fimg.png" alt="Simulator 실행화면"></p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk1XaG%2FbtqGdEpVPLE%2F4KgZrwmU8MBhNkQoGJbqIk%2Fimg.png" alt="Simulator 실행화면 2"></p>
+<p>이렇게 가입이 정상적으로 진행됩니다. Print 로 내가 가입 시 제공한 정보(이메일 및 이름)들과 <strong>identifier</strong> 가 console 에 출력될거에요. 하지만 첫번째를 제외한 이후 로그인 부터는 <strong>identifier</strong> 만 print 되고 나머지는 <strong>nil</strong> 값이 들어옵니다. 그럼 이번 포스팅은 이것으로 마치겠습니다.</p>
+<hr>
+<h2 id="함께-참고하면-좋은-포스트">함께 참고하면 좋은 포스트</h2>
+<p><img src="" alt="Apple Sign In: 계정 로그아웃하기"></p>
+]]></content>
+        </item>
+        
+        <item>
             <title>CocoaPods: 설치 및 라이브러리 적용하기</title>
             <link>https://kasroid.github.io/posts/ios/20200823-cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
             <pubDate>Sun, 23 Aug 2020 19:14:16 +2430</pubDate>
