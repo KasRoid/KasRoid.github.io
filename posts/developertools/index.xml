@@ -10,6 +10,93 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Firebase: Xcode 프로젝트와 연동하기</title>
+            <link>https://kasroid.github.io/posts/developertools/20200829-firebase-xcode-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%99%80-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/</link>
+            <pubDate>Sat, 29 Aug 2020 09:56:46 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200829-firebase-xcode-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%99%80-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/</guid>
+            <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
+· Firebase 6.29.0
+· Swift 5.2.4
+ Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>본 포스팅은 이하 버전을 기준으로 작성되었습니다.<br>
+· Firebase 6.29.0<br>
+· Swift 5.2.4</p>
+</blockquote>
+<p><strong>Firebase</strong> 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요. 물론 결국엔 배우는게 목표지만&hellip;</p>
+<p>아무튼 Firebase 는 모바일 앱 개발자에게 백엔드 과정을 지원해주는 플랫폼 입니다.</p>
+<p>그럼 오늘은 Xcode 프로젝트와 Firebase 를 연동하는 방법을 알아보도록 하겠습니다. 이 포스팅을 작성하는 시점에서는 Firebase 가 Swift Package Manager 를 지원하지 않아 <strong>CocoaPods</strong> 를 통해 설치하게되므로 CocoaPods 에 익숙하지 않은 분들은 <a href="https://kasroid.github.io/posts/ios/20200823-cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/">CocoaPods: 설치 및 라이브러리 적용하기</a> 포스트를 먼저 읽고 와주세요 ㅎㅎ</p>
+<hr>
+<h2 id="firebase-와-친해지기">Firebase 와 친해지기</h2>
+<p><strong>Firebase</strong> 는 <strong>Google 아이디</strong> 만 있으면 특별히 가입할 필요도 없이 누구나 쉽게 사용할 수 있어요. 일단 <a href="https://firebase.google.com">Firebase 공식 홈페이지</a> 에 함께 접속해볼게요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fvf8Bs%2FbtqGqWQ7iVw%2FccvCdS3f3xAcMLlKS2BGnK%2Fimg.png" alt="Firebase 공식홈페이지"></p>
+<p>홈페이지에 접속하고 나면 이런 화면을 볼 수 있을거에요. 구글 아이디로 로그인이 되어있다면 우측 상단에는 본인의 프로필 사진도 보이게 됩니다 ㅎㅎ 만약에 정말 혹시라도 만약에 구글 아이디가 없으신 분들은 계정을 하나 만들어 주세요&hellip;</p>
+<p>그리고 프로필 사진 옆을 잘 보시면 <strong>콘솔로 이동</strong>이라는 항목이 보이시죠? 이걸 클릭해서 Firebase 프로젝트가 보이는 화면으로 들어가 봅시다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FFhSiP%2FbtqGqahD4vV%2FlcRt5W5EawLI2icFZb0PJk%2Fimg.png" alt="Firebase 프로젝트 화면"></p>
+<p>저는 이미 Firebase 를 통해 여러 프로젝트를 진행했기 때문에 2개의 프로젝트가 보이지만 여러분은 아마 + 버튼 하나만 보일거에요. 이 버튼으로 Firebase 의 프로젝트를 생성하고 <strong>Xcode 프로젝트</strong> 의 <strong>Bundle Identifier</strong> 를 이용해서 연결해주는 방식입니다. 연결이 되고나면 Xcode 프로젝트가 코드를 통해 Firebase 를 찾아가라는 명령을 받고 Firebase 서버에 접속하여 자신의 Bundle Identifier 값을 갖고있는 Firebase 의 프로젝트를 찾아가는 것이라고나 할까나&hellip; 아무튼 뭐 그렇습니다 ㅋㅋㅋ</p>
+<p>프로젝트를 만드는 순서는 지금 + 버튼을 눌러 Firebase 프로젝트 생성을 시작하고 중간에 Xcode 프로젝트의 Bundle Identifier 가 필요한 시점에 Xcode 프로젝트를 생성해도 되지만 어자피 이렇게 하면 프로젝트를 왔다갔다해야되서 번거로우니 저는 그냥 Xcode 프로젝트부터 생성하고 Firebase 를 생성하는 것을 선호합니다.</p>
+<hr>
+<h2 id="bundle-identifier-복하사기">Bundle Identifier 복하사기</h2>
+<p>그럼 Xcode 프로젝트를 생성하고 <strong>Bundle Identifier</strong> 를 복사해둘게요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHii4j%2FbtqGrh1DSnM%2FYcO2c87Ru8EdM2b8efry5k%2Fimg.png" alt="Xcode 프로젝트 첫화면"></p>
+<hr>
+<h2 id="firebase-프로젝트-생성하기">Firebase 프로젝트 생성하기</h2>
+<p>그럼 이제 + 버튼을 눌러 프로젝트를 생성해볼게요. 첫 화면은 프로젝트 명을 생성하는 화면입니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkS7P7%2FbtqGnZOPAm7%2FtCZkntJF702kKkbzeYIye0%2Fimg.png" alt="Firebase 프로젝트 생성화면"></p>
+<p>Xcode 프로젝트명과 달라도 괜찮습니다. 단순히 Firebase 홈페이지 내부적으로 관리하기 위한 이름이에요. 그래도 두 프로젝트가 서로 어느정도는 이름이 비슷해야 나중에 알아보기 쉬우니까 저는 똑같이 만들도록 할게요.</p>
+<p>그 다음으로는 <strong>Google Analytics</strong> 를 설정하는 페이지가 뜰거에요. 이걸 사용하게되면 내 앱에 접속하는 사용자의 다양한 정보들을 그래프와 수치로 받아볼 수 있게 됩니다. 반드시 사용해야하는 기능은 아니라 필요없는 상황에서는 그냥 끄고 사용하는 것도 괜찮습니다.</p>
+<p>이번에는 처음이니까 켜고 진행해보도록 할게요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fvr8Kt%2FbtqGqbARtJ7%2F1k0oAK1IrPKhoedHb4ce8k%2Fimg.png" alt="Firebase Google Analytics"></p>
+<p>다음 화면에서는 <strong>Google Analytics</strong> 에 어떤 계정을 사용할꺼냐 묻는데 어자피 하나밖에 없습니다. <strong>Defualt Account for Firebase</strong> 를 선택해주세요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbjPMjg%2FbtqGmQKWlMo%2FC22UxDvxgHU7GKqG1b0F70%2Fimg.png" alt="Google Analytics 계정 선택"></p>
+<p>그리고 프로젝트 생성을 누르면 잠시 로딩을 하고 프로젝트 내부화면으로 넘어가게 됩니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdOVlft%2FbtqGkWYZfyz%2F4hiwZ670vWw95VOZtKkZuK%2Fimg.png" alt="프로젝트 생성 중"></p>
+<hr>
+<h2 id="xcode-프로젝트와-연동하기">Xcode 프로젝트와 연동하기</h2>
+<p>최초로 <strong>Firebase</strong> 에서 프로젝트를 만든 경우에는 저하고 화면이 조금 다를 수 있지만 별로 어려운 부분은 없으니 잘 넘어오셔서 아래와 같은 화면에서 <strong>iOS</strong> 를 클릭해주세요. 우리는 iOS 앱을 개발하는 것이므로 iOS 를 선택하는 것입니다 ㅎㅎ</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbgBm7j%2FbtqGmQjW7pL%2FyO5XS6cW6MBe1sm2gLPhkk%2Fimg.png" alt="Firebase iOS 선택"></p>
+<p>이제 드디어 <strong>Xcode 프로젝트</strong>의 <strong>Bundle Identifier</strong> 가 필요한 시점이 왔어요. 가장 첫 텍스트필드에 값을 넣어주고 <strong>Register App</strong> 을 눌러줍니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbhIxri%2FbtqGpxKX38N%2F4nhZKuCv5UVfqRA9LZ88Ik%2Fimg.png" alt="Bundle ID 연결"></p>
+<p>그리고 이제 다음 화면에서 <strong>GoogleService-Info.plist</strong> 을 다운받아주세요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FosTE8%2FbtqGqQiX6RL%2FTCPsFP5Y3kfDEZ0Jvf8rLk%2Fimg.png" alt="GoogleService-Info.plist 다운로드"></p>
+<p>그리고 다운받은 파일을 <strong>Xcode 프로젝트</strong>에 드래그해서 아래 이미지처럼 옮겨 넣어줍니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcfkUuh%2FbtqGqbt6YgL%2F8HRaK0ueyYCvsw6ZQdWSW1%2Fimg.png" alt="Info.plist 파일 옮겨넣기"></p>
+<p>이때 알림창이 하나 뜨게되는데 꼭 첫번째 칸을 체크해주세요. Xcode 프로젝트의 폴더 내부로 실제 plist 파일을 <strong>복사</strong>한다는 의미입니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcAcny2%2FbtqGnITu7j4%2FCw8D3O87v4DnNNcVh0W7fK%2Fimg.png" alt="파일 복사 설정"></p>
+<p>다시 Firebase 홈페이지로 돌아와서 Next 를 누르면 이제 <strong>CocoaPods</strong> 을 통해 Firebase 사용에 필요한 파일들을 다운로드 받으라고 안내합니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQZxwt%2FbtqGmPkYglb%2Fe62ufnkDw35kZtNmOKuc70%2Fimg.png" alt="Firebase 구성파일 설치 안내"></p>
+<p>Xcode 프로젝트 폴더 내의 Podfile 에 <code>pod 'Firebase'</code> 을 입력해주세요. 여기서 막히는 분들은 포스팅 초반에 한번 언급한 <a href="http://localhost:1313/posts/ios/20200823-cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/">CocoaPods 튜토리얼</a> 을 참고해주세요.</p>
+<pre><code class="language-console" data-lang="console">pod 'Firebase'
+</code></pre><p>이렇게 <strong>CocoaPods</strong> 설치를 마쳤다면 다시 Next 를 눌러줍니다. 이제 Xcode 프로젝트의 <strong>AppDelegate</strong> 에서 우리가 필수적으로 작업해야 할 내용들을 안내하고 있네요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWLc1p%2FbtqGrdE7gUj%2F7zJy0IGsEal661No3QP2uK%2Fimg.png" alt="AppDelegate 작업 안내"></p>
+<p>더 이상 <strong>xcodeproj</strong> 파일은 사용할 수 없으므로 <strong>xcworkspace</strong> 파일을 열고 새롭게 생긴 파일들을 잘 인식할 수 있돌고 빌드를 한번 해줍니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Foe8x8%2FbtqGrjSG0TY%2FIWH9ES1MAZoMs3ZWke4lO1%2Fimg.png" alt="Finder 의 xcworkspace 파일"></p>
+<p>그리고 프로젝트 상단에 <strong>Firebase</strong> 를 <strong>import</strong> 해보면 오류없이 잘 인식하는 것을 확인할 수 있습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
+</code></pre></div><p>그리고 <code>application(didFinishLaunchingWithOptions:)</code> 함수 내부에 <code>FirebaseApp.configure()</code> 코드를 구현해줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+    FirebaseApp.configure()
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+</code></pre></div><p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdIkcCA%2FbtqGtDbQ8yB%2FQrQnd33Wx1diRnxM54WaFK%2Fimg.png" alt="Xcode 프로젝트 AppDelegate"></p>
+<p>다시 Firebase 홈페이지에서 Next 를 누르면 이런 화면이 뜨게되는데 이제 Xcode 에서 앱을 한번 실행합니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpPIkY%2FbtqGpxEaaYA%2Fu1QhRYIbaV0Vkhv8HZeb6K%2Fimg.png" alt="Firebase 연결상태 최종 확인"></p>
+<p>혹시라도 <code>FirebaseApp.configure()</code> 을 찾을 수 없다고 오류가 뜨는 분이 있다면 Xcode 를 먼저 껏다 켜주시고 그래도 안된다면 아래 코드를 추가로 import 해보세요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseCore</span>
+</code></pre></div><p>그리고 Firebase 가 정상적으로 연결되었다면 <strong>Xcode 콘솔</strong>에서 다음과 같은 메세지를 확인할 수 있습니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQFFR0%2FbtqGmPL4xjK%2Fd6HjKn5kBc8Z5AaytVKOVK%2Fimg.png" alt="Xcode Console 메세지 확인"></p>
+<p>Firebase 홈페이지에서는 시뮬레이터가 실행되고 조금 뒤에 이렇게 초록색 안내가 뜨며 아래 버튼들이 활성화됩니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcAI1IK%2FbtqGtD3ZwDg%2FhmU7UuCxU0FcMlOLgprUQ1%2Fimg.png" alt="Firebase 연결 성공화면"></p>
+<p>계속 이 화면에서 넘어가지지 않는다면 <strong>Skip this page</strong> 를 눌러 다음 화면으로 넘어가주세요. 그냥 넘어가도 전혀 문제 없습니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcM8wbx%2FbtqGmQjXDhJ%2Fj6t4uJSLSrlZclWo2ts7mk%2Fimg.png" alt="Firebase 연결 중 화면"></p>
+<p>자 이것으로 Firebase 연동을 완전히 마쳤습니다!</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPCpUD%2FbtqGtf3mohv%2FxzWXJqo4sTFnHGjSNltQC0%2Fimg.png" alt="Firebase 와 Xcode 프로젝트가 연결된 화면"></p>
+<p>오늘도 함께 공부하느라 수고 많으셨습니다. 개인 앱을 만드는 분들은 앞으로 많은 곳에서 <strong>Firebase</strong> 를 사용하게 될 수 있으니까 지금 이 과정은 눈감고도 할 수 있을만큼 익숙하게 알아두시는 것을 추천합니다.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Homebrew 설치 및 기본 사용법 익히기</title>
             <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</link>
             <pubDate>Sun, 23 Aug 2020 16:48:19 +0900</pubDate>
