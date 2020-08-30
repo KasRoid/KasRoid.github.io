@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Code with Coffee, Perfect</title>
+    <title>Tags on Mastering iOS</title>
     <link>https://kasroid.github.io/tags/</link>
-    <description>Recent content in Tags on Code with Coffee, Perfect</description>
+    <description>Recent content in Tags on Mastering iOS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 29 Aug 2020 16:12:11 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2020 02:36:53 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Vim</title>
       <link>https://kasroid.github.io/tags/vim/</link>
-      <pubDate>Sat, 29 Aug 2020 16:12:11 +0900</pubDate>
+      <pubDate>Sun, 30 Aug 2020 02:36:53 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/vim/</guid>
       <description></description>
