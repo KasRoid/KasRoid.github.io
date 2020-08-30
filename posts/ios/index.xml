@@ -11,10 +11,10 @@
         
         <item>
             <title>Sign in With Apple 구현하기: UIKit</title>
-            <link>https://kasroid.github.io/posts/ios/sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</link>
+            <link>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</link>
             <pubDate>Sat, 29 Aug 2020 11:00:14 +0900</pubDate>
             
-            <guid>https://kasroid.github.io/posts/ios/sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</guid>
+            <guid>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</guid>
             <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
  이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
  Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
@@ -386,7 +386,7 @@ appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState
 <hr>
 <h2 id="vstack">VStack</h2>
 <p>HStack 이 Horizontal Stack 이라고 했으니까 VStack 은 뭔지 감이 딱 오죠?? 바로 Vertical Stack 이겠네요. 그리고 본인 내부에 위치한 Object 들을 세로로 배치해 줄 것 같습니다. 그럼 기존에 작성해놓은 코드에서 알파벳 하나만 바꿔서 어떻게 되는지 볼까요?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">VStack {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">VStack {
     Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
     Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
 }

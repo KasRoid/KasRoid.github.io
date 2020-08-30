@@ -4,21 +4,31 @@
   
   <url>
     <loc>https://kasroid.github.io/</loc>
-    <lastmod>2020-08-29T11:00:14+09:00</lastmod>
+    <lastmod>2020-08-29T16:12:11+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-08-29T11:00:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/posts/ios/sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</loc>
-    <lastmod>2020-08-29T11:00:14+09:00</lastmod>
+    <lastmod>2020-08-29T16:12:11+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2020-08-29T16:12:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/vim/</loc>
+    <lastmod>2020-08-29T16:12:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-%E1%84%86%E1%85%B5%E1%86%BE-markdown-plugin-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</loc>
+    <lastmod>2020-08-29T16:12:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-uikit/</loc>
     <lastmod>2020-08-29T11:00:14+09:00</lastmod>
   </url>
   
@@ -73,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/</loc>
+    <loc>https://kasroid.github.io/posts/developertools/20200823-homebrew-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5-%E1%84%86%E1%85%B5%E1%86%BE-%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8-%E1%84%8B%E1%85%B5%E1%86%A8%E1%84%92%E1%85%B5%E1%84%80%E1%85%B5/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
   </url>
   
