@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mastering iOS</title>
+    <title>You are in Doyoung&#39;s brain now</title>
     <link>https://kasroid.github.io/</link>
-    <description>Recent content on Mastering iOS</description>
+    <description>Recent content on You are in Doyoung&#39;s brain now</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 30 Aug 2020 02:36:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 21:45:33 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vim: 여러가지 유용한 설정 적용하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</link>
+      <pubDate>Mon, 31 Aug 2020 21:45:33 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</guid>
+      <description>오늘은 Vim 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.
+Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
+이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요.</description>
+    </item>
     
     <item>
       <title>Vim: ColorScheme 적용 및 직접 색 변경하기</title>

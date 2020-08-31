@@ -1,13 +1,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Developer Tools on Mastering iOS</title>
+        <title>Developer Tools on You are in Doyoung&#39;s brain now</title>
         <link>https://kasroid.github.io/posts/developertools/</link>
-        <description>Recent content in Developer Tools on Mastering iOS</description>
+        <description>Recent content in Developer Tools on You are in Doyoung&#39;s brain now</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
         <lastBuildDate>Tue, 25 Aug 2020 01:27:47 +0900</lastBuildDate>
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Vim: 여러가지 유용한 설정 적용하기</title>
+            <link>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</link>
+            <pubDate>Mon, 31 Aug 2020 21:45:33 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</guid>
+            <description>오늘은 Vim 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.
+Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
+이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요.</description>
+            <content type="html"><![CDATA[<p>오늘은 <strong>Vim</strong> 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.</p>
+<p><strong>Vim</strong> 의 기본 설정은 macOS 기준 Home Directory 에 위치한 <code>.vimrc</code> 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. <code>cd</code> 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.</p>
+<p>이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요.</p>
+<hr>
+<h2 id="syntax-설정하기">Syntax 설정하기</h2>
+<p>저만 그런지 모르겠지만 제 경우에는 <strong>Vim</strong> 에서 새로운 파일을 열 때마다 <strong>Syntax</strong> 의 기본설정이 <strong>off</strong> 로 되어있습니다. 저는 보통 Syntax 를 활성화 시켜놓고 사용하는 것을 선호해서 매번 <code>:syntax on</code> 커맨드를 통해 활성화 시켜줘야 했는데요. <code>.vimrc</code> 파일에서 설정을 바꿔주면 기본세팅을 Syntax On 으로 변경할 수 있습니다. 바로 입력해볼게요.</p>
+<pre><code class="language-console" data-lang="console">syntax on
+</code></pre><p>네 이게 전부입니다. 쉽죠? ㅎㅎ  이제 파일을 저장하고 나서부터 새롭게 여는 파일들은 <strong>Syntax</strong> 설정이 활성화된채로 열리게 됩니다.</p>
+<hr>
+<h2 id="numbering-설정하기">Numbering 설정하기</h2>
+<p>보통 우리가 사용하는 IDE 프로그램들은 화면 좌측에 넘버링을 제공해서 우리가 총 몇 줄을 작성했는지 혹은 몇 번째 줄에서 작업하고 있는지 직관적으로 알 수 있게 되어있잖아요? <strong>Vim</strong> 에서도 당연히 지원하는 기능이며 간단하게 설정가능합니다. 그리고 참고로 현재 작성하는 코드들은 Vim 내의 Command mode 에서도 1회성으로 동일하게 사용할 수 있습니다.</p>
+<pre><code class="language-console" data-lang="console">set number
+</code></pre><p>코드를 입력하고 저장하면 이제 화면 좌측에서 넘버링을 확인할 수 있는데요. 이렇게 사용하는 것도 이전에는 확인할 수 없었던 넘버링을 확인할 수 있다는 점에서 충분히 좋긴하지만 <strong>Vim</strong> 을 사용하다보면 현재 줄을 기준으로 위 아래 특정 줄 수만큼 이동해야할 필요가 있는 경우가 많은데요. 내 커서가 있는 곳을 기준으로 위 아래로 각각 넘버링을 보여주는 기능도 지원합니다. 이렇게 글로는 이해가 조금 어렵지만 아래 스크린샷을 보면 한번에 무슨 뜻인지 알 수 있을거에요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91720743-96918480-ebd2-11ea-9e07-b5259365de17.png" alt="Relative Numbering 이 적용된 화면"></p>
+<p>어떤가요? <strong>Vim</strong> 을 쓸 때는 정말 유용할 것 같죠? 그럼 바로 설정해주도록 할게요.</p>
+<pre><code class="language-console" data-lang="console">set number relativenumber
+</code></pre><p>이제 저장하고 새로운 파일을 열어 커서를 움직여보면 좌측에 표시되는 숫자가 이전과는 다르게 유동적으로 변하게 되는 것을 확인할 수 있습니다.</p>
+<p>오늘 포스팅은 평소보다 조금 짧은 느낌이지만 앞으로 꾸준히 <strong>Vim</strong> 을 사용하면서 발견하는 유용한 설정을 이곳에 지속적으로 기록하고 업데이트할 계획입니다.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Vim: ColorScheme 적용 및 직접 색 변경하기</title>
@@ -172,7 +202,7 @@ git clone https://github.com/cespare/vim-toml.git
 <p>실패&hellip; 이번에도 역시 저에게 시련을 안겨주는군요. 어디 한번 해결해봅시다. 이것 저것 알아보다가 Preview 를 정상적으로 표시하기 위해서는 <strong>Markdown</strong> 이나 <strong>Grip</strong> 을 추가로 깔아야한다는 것을 알게되었습니다. <del>아니 이 정도면 그냥 VSCode 쓰는 것도..ㅋㅋㅋ</del>~</p>
 <p>근데 저희는 지금 Markdown 을 사용하는거니까 왠지 이름도 Markdown 인걸 설치하고 싶더라고요. 그래서 <strong>Hombrew</strong> 를 통해 Markdown 을 설치해보았습니다. 그리고 실행해보니!!</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91638428-90709c00-ea4a-11ea-8f6b-0a8731cdbbed.png" alt="한글이 깨지는 Markdown"></p>
-<p>아&hellip; 또 문제가 발생했어요. 역시 한번에 쉽게가면 재미가 없죠. 인코딩 문제인 것 같아 설정을 조금 건드려보았으나 번번히 실패하고 결국 <strong>Grip</strong> 을 깔았습니다. 이것도 Homebrew 에서 설치를 지원하더라고요. 역시 Homebrew 는 짱이에요. 말이 나온 김에 혹시 Homebrew 가 무엇인지 아직 잘 모르는 분들은 <a href="https://kasroid.github.io/posts/developertools/20200823-homebrew-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%9D%B5%ED%9E%88%EA%B8%B0/">Homebrew 설치 및 기본 사용법 익히기</a> 포스팅을 참고해주세요.</p>
+<p>아&hellip; 또 문제가 발생했어요. 역시 한번에 쉽게가면 재미가 없죠. 인코딩 문제인 것 같아 설정을 조금 건드려보았으나 번번히 실패하고 결국 <strong>Grip</strong> 을 깔았습니다. 이것도 Homebrew 에서 설치를 지원하더라고요. 역시 Homebrew 는 짱이에요. 말이 나온 김에 혹시 Homebrew 가 무엇인지 아직 잘 모르는 분들은 <a href="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/">Homebrew 설치 및 기본 사용법 익히기</a> 포스팅을 참고해주세요.</p>
 <pre><code class="language-console" data-lang="console">brew install grip
 </code></pre><p>하지만 Grip 의 경우에는 <code>.vimrc</code> 에 추가적으로 설정을 하나 더 추가 입력해야합니다.</p>
 <pre><code class="language-console" data-lang="console">let vim_markdown_preview_github = 1
@@ -199,7 +229,7 @@ git clone https://github.com/cespare/vim-toml.git
 </blockquote>
 <p><strong>Firebase</strong> 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요. 물론 결국엔 배우는게 목표지만&hellip;</p>
 <p>아무튼 Firebase 는 모바일 앱 개발자에게 백엔드 과정을 지원해주는 플랫폼 입니다.</p>
-<p>그럼 오늘은 Xcode 프로젝트와 Firebase 를 연동하는 방법을 알아보도록 하겠습니다. 이 포스팅을 작성하는 시점에서는 Firebase 가 Swift Package Manager 를 지원하지 않아 <strong>CocoaPods</strong> 를 통해 설치하게되므로 CocoaPods 에 익숙하지 않은 분들은 <a href="https://kasroid.github.io/posts/ios/20200823-cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/">CocoaPods: 설치 및 라이브러리 적용하기</a> 포스트를 먼저 읽고 와주세요 ㅎㅎ</p>
+<p>그럼 오늘은 Xcode 프로젝트와 Firebase 를 연동하는 방법을 알아보도록 하겠습니다. 이 포스팅을 작성하는 시점에서는 Firebase 가 Swift Package Manager 를 지원하지 않아 <strong>CocoaPods</strong> 를 통해 설치하게되므로 CocoaPods 에 익숙하지 않은 분들은 <a href="https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/">CocoaPods: 설치 및 라이브러리 적용하기</a> 포스트를 먼저 읽고 와주세요 ㅎㅎ</p>
 <hr>
 <h2 id="firebase-와-친해지기">Firebase 와 친해지기</h2>
 <p><strong>Firebase</strong> 는 <strong>Google 아이디</strong> 만 있으면 특별히 가입할 필요도 없이 누구나 쉽게 사용할 수 있어요. 일단 <a href="https://firebase.google.com">Firebase 공식 홈페이지</a> 에 함께 접속해볼게요.</p>
