@@ -14,10 +14,10 @@
     
     <item>
       <title>Vim: ColorScheme 적용 및 직접 색 변경하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200830-vim-colorscheme-%EC%A0%81%EC%9A%A9-%EB%B0%8F-%EC%A7%81%EC%A0%91-%EC%83%89-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0/</link>
+      <link>https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</link>
       <pubDate>Sun, 30 Aug 2020 02:36:53 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200830-vim-colorscheme-%EC%A0%81%EC%9A%A9-%EB%B0%8F-%EC%A7%81%EC%A0%91-%EC%83%89-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</guid>
       <description>이번에는 Vim 에서 외부 테마를 다운로드 받아 적용하고 Syntax Highlighting 색상을 좀 더 이쁘게 변경해보도록 하겠습니다. 그래도 Terminal 을 통해 글을 쓰려면 최소한 이정도는 갖춰야 조금 글 쓸 맛이 나잖아요?? ㅋㅋㅋ 그런데 지금 제가 사용하는 Vim 의 상태는&amp;hellip;
 이 모양입니다. 못봐줄 정도에요&amp;hellip; 원색을 너무 많이 사용해서 그런건지 오히려 눈에 방해가 되는 그런 느낌도 들고요. 난 이제 그만 여기서 탈출해야겠어
 그럼 본격적으로 설치해볼까요~

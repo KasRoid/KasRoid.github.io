@@ -14,10 +14,10 @@
     
     <item>
       <title>Firebase: Xcode 프로젝트와 연동하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200829-firebase-xcode-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%99%80-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/</link>
+      <link>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</link>
       <pubDate>Sat, 29 Aug 2020 09:56:46 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200829-firebase-xcode-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%99%80-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</guid>
       <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Firebase 6.29.0
 · Swift 5.2.4
