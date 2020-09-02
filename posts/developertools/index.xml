@@ -10,6 +10,117 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Vim: Plugins NERDTree</title>
+            <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</link>
+            <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</guid>
+            <description>Vim 을 쓰다보니 또 VSCode 보다 불편한 점을 발견할 수 있었는데요. 바로 VSCode 에서 애용하던 File Navigattion System 이 없다는 것이었습니다. 바로 이미지 좌측에 보이는 저것이에요.
+자주 여러 파일을 이동해야하는 경우에 Navigation System 이 없다는 이유만으로 자꾸 다시 VSCode 로 손이 가게 되더라고요. 그래서 Vim 에서는 해결방법이 없을지 찾아보다가 알게된 것이 바로 NERDTree 입니다. 바로 Vim 만의 파일탐색기 같은 것이에요. 제가 메인 텍스트 에디터로 Vim 을 사용하려는 이유 중 한가지가 작업을 할 때 Terminal 에서 키보드만으로 거의 모든 작업을 진행할 수 있다는 것인데요.</description>
+            <content type="html"><![CDATA[<p><strong>Vim</strong> 을 쓰다보니 또 <strong>VSCode</strong> 보다 불편한 점을 발견할 수 있었는데요. 바로 <strong>VSCode</strong> 에서 애용하던 File Navigattion System 이 없다는 것이었습니다. 바로 이미지 좌측에 보이는 저것이에요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91921999-d60dbd00-ed07-11ea-93fd-df3014b279f6.png" alt="VSCode 화면"></p>
+<p>자주 여러 파일을 이동해야하는 경우에 Navigation System 이 없다는 이유만으로 자꾸 다시 VSCode 로 손이 가게 되더라고요. 그래서 <strong>Vim</strong> 에서는 해결방법이 없을지 찾아보다가 알게된 것이 바로 <strong>NERDTree</strong> 입니다. 바로 <strong>Vim</strong> 만의 파일탐색기 같은 것이에요. 제가 메인 텍스트 에디터로 <strong>Vim</strong> 을 사용하려는 이유 중 한가지가 작업을 할 때 Terminal 에서 키보드만으로 거의 모든 작업을 진행할 수 있다는 것인데요. VSCode 를 사용하면 또 마우스를 사용해야 하다보면 여러가지 불편한 상황이 만들어졌습니다. <del>진정한 개발자는 마우스가 필요없는 것 아시죠?</del></p>
+<p>아무튼 그래서 바로 NERDTree 를 설치하기로 했어요.</p>
+<hr>
+<h2 id="nerdtree-설치하기">NERDTree 설치하기</h2>
+<p><strong>NERDTree</strong> 도 결국 일종의 Vim Plugin 이니까 <strong>Vundle</strong> 을 사용해서 간단하게 설치를 진행해보도록 하겠습니다. Vundle 설치가 익숙하지 않다면 <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">Vim: Vundle 및 Markdown Plugin 설치하기</a> 포스팅을 참고해주세요.</p>
+<p>먼저 <strong>NERDTree</strong> 설치를 위해서 <a href="https://github.com/preservim/nerdtree">NERDTree Github</a> 에 들어갑니다. 우리는 Vundle 로 설치를 하기로 했으니까 README 에서 Vundle 로 설치하는 방법을 찾아볼게요.</p>
+<pre><code class="language-console" data-lang="console">Plugin 'preservim/nerdtree'
+</code></pre><p>Vundle 도 계속 쓰다보니 Homebrew 만큼 편하고 좋은 툴인 것 같아요 ㅎㅎ 이렇게 설치도 끝났고 본격적으로 <strong>NERDTree</strong> 에 대해 함께 공부해보도록 할게요.</p>
+<hr>
+<h2 id="nerdtree-사용법-익히기">NERDTree 사용법 익히기</h2>
+<p><strong>NERDTree</strong> 를 사용하기 위해서는 기본적으로 <strong>Vim</strong> 을 실행해야 합니다. <del>Vim Plugin 이니까 당연하지</del> Vim 을 실행했다면 <code>:</code> 을 눌러 커맨드 모드로 진입하고 <code>NERDTree</code> 를 입력해볼게요. 대소문자를 정확히 입력해야 합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91923144-94324600-ed0a-11ea-9886-2a7b86840744.png" alt="NERDTree 실행 모습"></p>
+<p>오!! VSCode 에서 봤던 파일탐색기와 거의 비슷한게 생겼어요 ㅎㅎㅎ 파일 탐색은 화살표 키 또는 hjkl 로 가능합니다. 폴더나 파일을 열기 위해서는 <code>o</code> 키를 누르면 되고요. 파일을 열게되면 자동으로 커서가 파일로 옮겨지고 더 이상 <strong>NERDTree</strong> 에서 파일이동을 할 수가 없을텐데요. 이 때는 <code>Control + w + w</code> 를 눌러 창 간의 포커싱 이동이 가능합니다. 다시 돌아와서 <code>q</code> 를 눌러 창을 닫을 수도 있습니다. 이외에도 <code>?</code> 를 눌러 Bookmark 등 더 다양한 사용법을 확인해 볼 수 있습니다.</p>
+<p>이 정도면 VSCode 의 파일탐색기를 어느정도 대체할 수 있을 것 같아요. 그럼 마지막으로 <strong>NERDTree</strong> 사용 시 쓸만한 단축키들을 정리하고 프스팅 마치도록 하겠습니다.</p>
+<hr>
+<h2 id="유용한-단축키-모음">유용한 단축키 모음</h2>
+<h3 id="nerdtree-shortcuts">NERDTree Shortcuts</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="center">Shortcuts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">파일 및 폴더 열기</td>
+<td align="center">o</td>
+</tr>
+<tr>
+<td align="left">하위 폴더까지 전부 열기</td>
+<td align="center">O</td>
+</tr>
+<tr>
+<td align="left">미리보기 형식으로 열기</td>
+<td align="center">p</td>
+</tr>
+<tr>
+<td align="left">새로운 탭에서 파일 열기</td>
+<td align="center">t</td>
+</tr>
+<tr>
+<td align="left">가로 Split 으로 파일 열기</td>
+<td align="center">i</td>
+</tr>
+<tr>
+<td align="left">세로 Split 으로 파일 열기</td>
+<td align="center">s</td>
+</tr>
+<tr>
+<td align="left">NERDTree 줌, 줌아웃 하기</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td align="left">NERDTree 종료하기</td>
+<td align="center">q</td>
+</tr>
+</tbody>
+</table>
+<h3 id="control-windows">Control Windows</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="center">Shortcuts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">창 순환하기</td>
+<td align="center">ctrl + w + w</td>
+</tr>
+<tr>
+<td align="left">왼쪽 창으로 이동하기</td>
+<td align="center">ctrl + w + h</td>
+</tr>
+<tr>
+<td align="left">오른쪽 창으로 이동하기</td>
+<td align="center">ctrl + w + l</td>
+</tr>
+<tr>
+<td align="left">윗쪽 창으로 이동하기</td>
+<td align="center">ctrl + w + k</td>
+</tr>
+<tr>
+<td align="left">아랫쪽 창으로 이동하기</td>
+<td align="center">ctrl + w + j</td>
+</tr>
+<tr>
+<td align="left">이전 창으로 이동하기</td>
+<td align="center">ctrl + w + p</td>
+</tr>
+<tr>
+<td align="left">창 종료하기</td>
+<td align="center">ctrl + w + q</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+        </item>
+        
+        <item>
             <title>Vim: 여러가지 유용한 설정 적용하기</title>
             <link>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</link>
             <pubDate>Mon, 31 Aug 2020 21:45:33 +0900</pubDate>
