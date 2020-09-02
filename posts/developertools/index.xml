@@ -32,6 +32,7 @@
 <p><strong>NERDTree</strong> 를 사용하기 위해서는 기본적으로 <strong>Vim</strong> 을 실행해야 합니다. <del>Vim Plugin 이니까 당연하지</del> Vim 을 실행했다면 <code>:</code> 을 눌러 커맨드 모드로 진입하고 <code>NERDTree</code> 를 입력해볼게요. 대소문자를 정확히 입력해야 합니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91923144-94324600-ed0a-11ea-9886-2a7b86840744.png" alt="NERDTree 실행 모습"></p>
 <p>오!! VSCode 에서 봤던 파일탐색기와 거의 비슷한게 생겼어요 ㅎㅎㅎ 파일 탐색은 화살표 키 또는 hjkl 로 가능합니다. 폴더나 파일을 열기 위해서는 <code>o</code> 키를 누르면 되고요. 파일을 열게되면 자동으로 커서가 파일로 옮겨지고 더 이상 <strong>NERDTree</strong> 에서 파일이동을 할 수가 없을텐데요. 이 때는 <code>Control + w + w</code> 를 눌러 창 간의 포커싱 이동이 가능합니다. 다시 돌아와서 <code>q</code> 를 눌러 창을 닫을 수도 있습니다. 이외에도 <code>?</code> 를 눌러 Bookmark 등 더 다양한 사용법을 확인해 볼 수 있습니다.</p>
+<p>그리고 파일명을 바꾸거나 선택되어 있는 파일을 Finder 에서 확인하는 등의 다양한 옵션에 <code>m</code> 을 눌러서 접근할 수 있습니다. 이 중 원하는 옵션을 선택하거나 <code>esc</code> 키를 눌러서 종료해 주세요.</p>
 <p>이 정도면 VSCode 의 파일탐색기를 어느정도 대체할 수 있을 것 같아요. 그럼 마지막으로 <strong>NERDTree</strong> 사용 시 쓸만한 단축키들을 정리하고 프스팅 마치도록 하겠습니다.</p>
 <hr>
 <h2 id="유용한-단축키-모음">유용한 단축키 모음</h2>
@@ -67,6 +68,10 @@
 <tr>
 <td align="left">세로 Split 으로 파일 열기</td>
 <td align="center">s</td>
+</tr>
+<tr>
+<td align="left">메뉴 열기</td>
+<td align="center">m</td>
 </tr>
 <tr>
 <td align="left">NERDTree 줌, 줌아웃 하기</td>
