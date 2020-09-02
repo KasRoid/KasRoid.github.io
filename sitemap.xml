@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kasroid.github.io/tags/plugin/</loc>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-02T10:16:39+09:00</lastmod>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/vim/</loc>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</loc>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
   </url>
   
   <url>
@@ -13,23 +38,8 @@
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/</loc>
-    <lastmod>2020-09-02T10:16:39+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</loc>
     <lastmod>2020-08-31T21:45:33+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-08-30T02:36:53+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/vim/</loc>
-    <lastmod>2020-08-30T02:36:53+09:00</lastmod>
   </url>
   
   <url>

@@ -10,6 +10,32 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Vim Plugin: Vim Airline</title>
+            <link>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</link>
+            <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</guid>
+            <description>또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</description>
+            <content type="html"><![CDATA[<p>또 새로운 <strong>Vim Plugin</strong> 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 <strong>Vim</strong> 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 <strong>Vim-Airline</strong> 이라는 플러그인이에요. Vim 아래쪽에 <strong>Status Bar</strong> 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 <strong>Buffer</strong> 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</p>
+<p>![<a href="https://raw.githubusercontent.com/wiki/vim-airline/vim-airline/screenshots/demo.gif">Vim-Airline</a></p>
+<hr>
+<h3 id="vim-airline-설치하기">Vim-Airline 설치하기</h3>
+<p>먼저 <a href="https://github.com/vim-airline/vim-airline">Vim-Airline Github</a> 에 들어가 README 파일을 읽어보고 <strong>Vundle</strong> 로 Plugin 을 설치하도록 하겠습니다. Vundle 을 사용한 설치법은 <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">Vim: Vundle 및 Markdown Plugin 설치하기</a> 포스팅을 참고해주세요.</p>
+<p>첫번째 Plugin 은 Airline 그 자체를 설치하는 것이고, 두번째 Plugin 은 이것의 테마들을 설치하는거에요. 나중에 테마가 바꾸고 싶을 수 있으니 오늘 둘 다 설치를 해놓긴 하겠지만 테마를 바꾸는 방법은 다음에 알아보도록 하겠습니다.</p>
+<pre><code class="language-console" data-lang="console">Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+</code></pre><p>설치가 끝났다면 <code>.vimrc</code> 파일 아래쪽에 다음 코드도 읿력해주세요. 기본적으로 위쪽 Tab Bar 기능은 비활성화 상태이기 때문에 이것을 활성화 해주는 코드입니다. 혹시 나는 아래쪽 Status Bar 만 사용하는게 더 깔끔하고 좋다하면 이 코드는 그냥 스킵해주세요.</p>
+<pre><code class="language-console" data-lang="console">let g:airline#extensions#tabline#enabled = 1
+</code></pre><p>이제 <strong>Vim</strong> 을 실행해서 어떻게 바뀌었을지 확인해보도록 하겠습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91990383-9f1dc280-ed6c-11ea-9c4e-fbc90578a5ae.png" alt="Vim 실행화면"></p>
+<p>오!! 뭔가 확실히 화면이 더 풍성해졌어요. Vim 의 현재 모드와 Git, 파일명 등등 많은 정보를 아랫쪽 Status Bar 에서 확인할 수가 있네요. 그리고 윗쪽에도 Tab Bar 가 추가된 모습을 볼 수 있죠? 이제 이전에 우리가 함께 설치했던 <strong>NERDTree</strong> 를 사용해 새로운 파일을 하나 열어보겠습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91990390-a0e78600-ed6c-11ea-8920-099a40289b65.png" alt="Airline TabBar"></p>
+<p>이렇게 어떤 파일을 열고나면 Tab Bar 에 그 기록이 남게되고 <code>:</code> 를 눌러 커맨드 모드에 진입해서 <code>bn</code> 과 <code>bp</code> 커맨드를 사용해 파일간의 이동이 가능합니다. 이제 정말 외부적으로는 <strong>VSCode</strong> 에서 제가 자주 사용하던 기능들이 <strong>Vim</strong> 으로 들어왔습니다. 이렇게 가볍운 에디터가 Plugin 을 통해서 이 정도까지 강력한 기능들을 탑재할 수 있다는 것도 정말 놀랍네요.</p>
+<p>그럼 다음에 또 봴게요!!</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Vim Plugins: NERDTree</title>
             <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</link>
             <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
