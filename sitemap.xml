@@ -5,149 +5,179 @@
   <url>
     <loc>https://kasroid.github.io/tags/plugin/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/vim/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</loc>
+    <loc>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</loc>
+    <loc>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</loc>
     <lastmod>2020-09-02T10:16:39+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</loc>
     <lastmod>2020-08-31T21:45:33+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</loc>
     <lastmod>2020-08-30T02:36:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</loc>
     <lastmod>2020-08-29T16:12:11+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/</loc>
     <lastmod>2020-08-29T11:00:14+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/uikit/</loc>
     <lastmod>2020-08-29T11:00:14+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/firebase/</loc>
     <lastmod>2020-08-29T09:56:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</loc>
     <lastmod>2020-08-29T09:56:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/terminal/</loc>
     <lastmod>2020-08-26T12:14:32+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/swift/</loc>
     <lastmod>2020-08-25T01:35:55+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/untagged/</loc>
     <lastmod>2020-08-25T01:35:55+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/</loc>
     <lastmod>2020-08-25T01:27:47+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/</loc>
     <lastmod>2020-08-25T01:25:02+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/about-me/</loc>
     <lastmod>2020-08-24T17:04:22+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/homebrew/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</loc>
     <lastmod>2020-08-23T19:14:16+24:30</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/swiftui/</loc>
     <lastmod>2020-08-23T19:14:16+24:30</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200802-swiftui-basics-button-list/</loc>
     <lastmod>2020-08-02T01:42:41+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200731-swiftui-basics-stacks-spacer/</loc>
     <lastmod>2020-07-31T11:33:35+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/</loc>
     <lastmod>2020-07-31T10:38:35+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/ios/20200730-swiftui-basics-create-project-analyze-code/</loc>
     <lastmod>2020-07-30T23:56:35+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/blog/</loc>
+    <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/series/</loc>
+    <changefreq>weekly</changefreq>
   </url>
   
 </urlset>

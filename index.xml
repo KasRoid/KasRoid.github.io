@@ -14,19 +14,19 @@
     
     <item>
       <title>Vim Plugin: Vim Airline</title>
-      <link>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</link>
+      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</link>
       <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/vim-plugin-vim-airline/</guid>
+      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</guid>
       <description>또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</description>
     </item>
     
     <item>
-      <title>Vim Plugins: NERDTree</title>
-      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</link>
+      <title>Vim Plugin: NERDTree</title>
+      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</link>
       <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugins-nerdtree/</guid>
+      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</guid>
       <description>Vim 을 쓰다보니 또 VSCode 보다 불편한 점을 발견할 수 있었는데요. 바로 VSCode 에서 애용하던 File Navigattion System 이 없다는 것이었습니다. 바로 이미지 좌측에 보이는 저것이에요.
 자주 여러 파일을 이동해야하는 경우에 Navigation System 이 없다는 이유만으로 자꾸 다시 VSCode 로 손이 가게 되더라고요. 그래서 Vim 에서는 해결방법이 없을지 찾아보다가 알게된 것이 바로 NERDTree 입니다. 바로 Vim 만의 파일탐색기 같은 것이에요. 제가 메인 텍스트 에디터로 Vim 을 사용하려는 이유 중 한가지가 작업을 할 때 Terminal 에서 키보드만으로 거의 모든 작업을 진행할 수 있다는 것인데요.</description>
     </item>
