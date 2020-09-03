@@ -185,7 +185,7 @@ appleIDProvider.getCredentialState(forUserID: userIdentifier) { (credentialState
         <item>
             <title>CocoaPods: 설치 및 라이브러리 적용하기</title>
             <link>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</link>
-            <pubDate>Sun, 23 Aug 2020 19:14:16 +2430</pubDate>
+            <pubDate>Sun, 23 Aug 2020 19:14:16 +0900</pubDate>
             
             <guid>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</guid>
             <description>오늘은 CocoaPods 가 무엇인지 알아보도록 하겠습니다.

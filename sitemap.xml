@@ -123,6 +123,18 @@
   </url>
   
   <url>
+    <loc>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</loc>
+    <lastmod>2020-08-23T19:14:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/swiftui/</loc>
+    <lastmod>2020-08-23T19:14:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/tags/homebrew/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -131,18 +143,6 @@
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</loc>
-    <lastmod>2020-08-23T19:14:16+24:30</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/swiftui/</loc>
-    <lastmod>2020-08-23T19:14:16+24:30</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

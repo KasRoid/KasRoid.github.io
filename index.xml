@@ -97,6 +97,16 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     </item>
     
     <item>
+      <title>CocoaPods: 설치 및 라이브러리 적용하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</link>
+      <pubDate>Sun, 23 Aug 2020 19:14:16 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</guid>
+      <description>오늘은 CocoaPods 가 무엇인지 알아보도록 하겠습니다.
+개발을 할 때 모든 것을 스스로 만드는 것도 좋지만 필요에 따라 Library 를 써서 시간과 노력을 절약하고 다른 곳에 좀 더 신경을 쓰는 것이 좋을 때도 있을겁니다. 하지만 그렇게 Library 사용 빈도가 점점 늘게되면 나중에는 Library 를 찾거나 관리하는데 시간이 많이 소모되게 됩니다. 그럼 아무래도 Library 를 쓰는 의미가 많이 퇴색되겠죠? 그래서 Xcode 에서 이런 Library 관리를 쉽게 할 수 있도록 도와주는 것이 CocoaPods 입니다.</description>
+    </item>
+    
+    <item>
       <title>Homebrew 설치 및 기본 사용법 익히기</title>
       <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</link>
       <pubDate>Sun, 23 Aug 2020 16:48:19 +0900</pubDate>
@@ -104,16 +114,6 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
       <guid>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</guid>
       <description>오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
 Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.</description>
-    </item>
-    
-    <item>
-      <title>CocoaPods: 설치 및 라이브러리 적용하기</title>
-      <link>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</link>
-      <pubDate>Sun, 23 Aug 2020 19:14:16 +2430</pubDate>
-      
-      <guid>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</guid>
-      <description>오늘은 CocoaPods 가 무엇인지 알아보도록 하겠습니다.
-개발을 할 때 모든 것을 스스로 만드는 것도 좋지만 필요에 따라 Library 를 써서 시간과 노력을 절약하고 다른 곳에 좀 더 신경을 쓰는 것이 좋을 때도 있을겁니다. 하지만 그렇게 Library 사용 빈도가 점점 늘게되면 나중에는 Library 를 찾거나 관리하는데 시간이 많이 소모되게 됩니다. 그럼 아무래도 Library 를 쓰는 의미가 많이 퇴색되겠죠? 그래서 Xcode 에서 이런 Library 관리를 쉽게 할 수 있도록 도와주는 것이 CocoaPods 입니다.</description>
     </item>
     
     <item>
