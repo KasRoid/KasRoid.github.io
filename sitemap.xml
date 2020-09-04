@@ -3,37 +3,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kasroid.github.io/tags/keyboard-maestro/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/vim/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/tags/plugin/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/vim/</loc>
-    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
     <loc>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</loc>
-    <lastmod>2020-09-02T22:07:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-02T22:07:46+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -168,6 +180,11 @@
     <loc>https://kasroid.github.io/posts/ios/20200730-swiftui-basics-create-project-analyze-code/</loc>
     <lastmod>2020-07-30T23:56:35+09:00</lastmod>
     <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/google66ca37733946af8a/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

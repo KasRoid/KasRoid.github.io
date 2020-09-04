@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Sep 2020 22:07:46 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2020 11:32:51 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vim: Normal Mode 에서 자동으로 영문전환하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</link>
+      <pubDate>Fri, 04 Sep 2020 11:32:51 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</guid>
+      <description>Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.</description>
+    </item>
     
     <item>
       <title>Vim Plugin: Vim Airline</title>

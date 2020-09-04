@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요." />
-<meta name="keywords" content="iOS, Swift, Vim, Plugin" />
+<meta name="description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요." />
+<meta name="keywords" content="iOS, Swift, Vim, Keyboard Maestro" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/" />
+<link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/" />
 
 
     <title>
         
-            Vim Plugin: Vim Airline :: You are in part of Doyoung&#39;s brain right now  — Kas Song
+            Vim: Normal Mode 에서 자동으로 영문전환하기 :: You are in part of Doyoung&#39;s brain right now  — Kas Song
         
     </title>
 
@@ -32,32 +32,32 @@
 
 
 
-<meta itemprop="name" content="Vim Plugin: Vim Airline">
-<meta itemprop="description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.">
-<meta itemprop="datePublished" content="2020-09-02T22:07:46+09:00" />
-<meta itemprop="dateModified" content="2020-09-02T22:07:46+09:00" />
-<meta itemprop="wordCount" content="291">
+<meta itemprop="name" content="Vim: Normal Mode 에서 자동으로 영문전환하기">
+<meta itemprop="description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.">
+<meta itemprop="datePublished" content="2020-09-04T11:32:51+09:00" />
+<meta itemprop="dateModified" content="2020-09-04T11:32:51+09:00" />
+<meta itemprop="wordCount" content="390">
 <meta itemprop="image" content="https://kasroid.github.io"/>
 
 
 
-<meta itemprop="keywords" content="Vim,Plugin," />
+<meta itemprop="keywords" content="Vim,Keyboard Maestro," />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
-<meta name="twitter:title" content="Vim Plugin: Vim Airline"/>
-<meta name="twitter:description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요."/>
+<meta name="twitter:title" content="Vim: Normal Mode 에서 자동으로 영문전환하기"/>
+<meta name="twitter:description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요."/>
 
 
 
-    <meta property="og:title" content="Vim Plugin: Vim Airline" />
-<meta property="og:description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요." />
+    <meta property="og:title" content="Vim: Normal Mode 에서 자동으로 영문전환하기" />
+<meta property="og:description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/" />
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/" />
 <meta property="og:image" content="https://kasroid.github.io"/>
-<meta property="article:published_time" content="2020-09-02T22:07:46+09:00" />
-<meta property="article:modified_time" content="2020-09-02T22:07:46+09:00" /><meta property="og:site_name" content="You are in part of Doyoung&#39;s brain right now" />
+<meta property="article:published_time" content="2020-09-04T11:32:51+09:00" />
+<meta property="article:modified_time" content="2020-09-04T11:32:51+09:00" /><meta property="og:site_name" content="You are in part of Doyoung&#39;s brain right now" />
 
 
 
@@ -66,7 +66,7 @@
 
 
 
-    <meta property="article:published_time" content="2020-09-02 22:07:46 &#43;0900 KST" />
+    <meta property="article:published_time" content="2020-09-04 11:32:51 &#43;0900 KST" />
 
 
 
@@ -140,18 +140,16 @@
 
     <article>
       <h1 class="post-title">
-        <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/">Vim Plugin: Vim Airline</a>
+        <a href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/">Vim: Normal Mode 에서 자동으로 영문전환하기</a>
       </h1>
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
           <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#vim-airline-설치하기">Vim-Airline 설치하기</a></li>
-      </ul>
-    </li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#keyboard-maestro-소개">Keyboard Maestro 소개</a></li>
+    <li><a href="#esc-to-영문전환">ESC to 영문전환</a></li>
   </ul>
 </nav>
         </aside>
@@ -160,22 +158,27 @@
       
 
       <div class="post-content">
-        <p>또 새로운 <strong>Vim Plugin</strong> 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 <strong>Vim</strong> 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 <strong>Vim-Airline</strong> 이라는 플러그인이에요. Vim 아래쪽에 <strong>Status Bar</strong> 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 <strong>Buffer</strong> 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</p>
-<p>![<a href="https://raw.githubusercontent.com/wiki/vim-airline/vim-airline/screenshots/demo.gif">Vim-Airline</a></p>
+        <h2 id="intro">Intro</h2>
+<p>주력 Text Editor 로 <strong>Vim</strong> 을 사용하면서 매일 마주치는 문제점 하나가 바로 <strong>Insert Mode</strong> 에서 한글을 작성하다 <strong>Normal Mode</strong> 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 <strong>Vim</strong> 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 <strong>Insert Mode</strong> 에서 <strong>Normal Mode</strong> 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.</p>
+<p>당연히 <strong>Vim</strong> 에서 한글을 작성하시는 많은 분들이 비슷한 고충을 겪고 있고, 이에 대한 해결법이 많이 나와있는 상황이기는 합니다. 그 중 대표적인 해결법이 <strong><a href="https://www.hammerspoon.org">Hammerspoon</a></strong> 이라는 Automation 프로그램을 이용하는 방법인데요. 이것에 관한 글은 다른 여러 블로그에 자세히 나와있기도 하고 저는 제가 이미 사용하고 있는 <strong>Keyboard Maestro</strong> 라는 Automation 프로그램이 있기 때문에 혹시 Hammerspoon 으로 해결하고 싶은 분들은 다른 블로그 글을 찾아보시기 바랍니다.</p>
+<p>이번 포스팅에서는 <strong><a href="https://www.keyboardmaestro.com">Keyboard Maestro</a></strong> 로 해결해보도록 하겠습니다. 다만 조금 가격이 나가는 <strong>유료 프로그램</strong>이므로 글을 읽기 전 구매의사를 반드시 결정하시기 바랍니다. 정말 좋은 프로그램이니까 저는 추천하겠습니다 ㅎ</p>
 <hr>
-<h3 id="vim-airline-설치하기">Vim-Airline 설치하기</h3>
-<p>먼저 <a href="https://github.com/vim-airline/vim-airline">Vim-Airline Github</a> 에 들어가 README 파일을 읽어보고 <strong>Vundle</strong> 로 Plugin 을 설치하도록 하겠습니다. Vundle 을 사용한 설치법은 <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">Vim: Vundle 및 Markdown Plugin 설치하기</a> 포스팅을 참고해주세요.</p>
-<p>첫번째 Plugin 은 Airline 그 자체를 설치하는 것이고, 두번째 Plugin 은 이것의 테마들을 설치하는거에요. 나중에 테마가 바꾸고 싶을 수 있으니 오늘 둘 다 설치를 해놓긴 하겠지만 테마를 바꾸는 방법은 다음에 알아보도록 하겠습니다.</p>
-<pre><code class="language-console" data-lang="console">Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-</code></pre><p>설치가 끝났다면 <code>.vimrc</code> 파일 아래쪽에 다음 코드도 읿력해주세요. 기본적으로 위쪽 Tab Bar 기능은 비활성화 상태이기 때문에 이것을 활성화 해주는 코드입니다. 혹시 나는 아래쪽 Status Bar 만 사용하는게 더 깔끔하고 좋다하면 이 코드는 그냥 스킵해주세요.</p>
-<pre><code class="language-console" data-lang="console">let g:airline#extensions#tabline#enabled = 1
-</code></pre><p>이제 <strong>Vim</strong> 을 실행해서 어떻게 바뀌었을지 확인해보도록 하겠습니다.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/91990383-9f1dc280-ed6c-11ea-9c4e-fbc90578a5ae.png" alt="Vim 실행화면"></p>
-<p>오!! 뭔가 확실히 화면이 더 풍성해졌어요. Vim 의 현재 모드와 Git, 파일명 등등 많은 정보를 아랫쪽 Status Bar 에서 확인할 수가 있네요. 그리고 윗쪽에도 Tab Bar 가 추가된 모습을 볼 수 있죠? 이제 이전에 우리가 함께 설치했던 <strong>NERDTree</strong> 를 사용해 새로운 파일을 하나 열어보겠습니다.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/91990390-a0e78600-ed6c-11ea-8920-099a40289b65.png" alt="Airline TabBar"></p>
-<p>이렇게 어떤 파일을 열고나면 Tab Bar 에 그 기록이 남게되고 <code>:</code> 를 눌러 커맨드 모드에 진입해서 <code>bn</code> 과 <code>bp</code> 커맨드를 사용해 파일간의 이동이 가능합니다. 이제 정말 외부적으로는 <strong>VSCode</strong> 에서 제가 자주 사용하던 기능들이 <strong>Vim</strong> 으로 들어왔습니다. 이렇게 가볍운 에디터가 Plugin 을 통해서 이 정도까지 강력한 기능들을 탑재할 수 있다는 것도 정말 놀랍네요.</p>
-<p>그럼 다음에 또 봴게요!!</p>
+<h2 id="keyboard-maestro-소개">Keyboard Maestro 소개</h2>
+<p><strong><a href="https://www.keyboardmaestro.com">Keyboard Maestro</a></strong> 는 일종의 Automation 프로그램 입니다. 상당히 잘 만들어진 프로그램으로 여러가지 귀찮은 일들을 자동화할 수 있지만 여느 Automation 프로그램들만큼 난이도가 조금 있어 저는 기본적인 매크로들만 사용하고 있습니다. 그래도 돈 값은 충분히 하고 있는 것 같아요 ㅎㅎ 오늘 Terminal 에서 작동하는 자동 영문전환 스크립트를 작성하고나면 조금 더 돈값을 하게되겠군요 ㅋㅋㅋ 그럼 바로 세팅해볼게요.</p>
+<hr>
+<h2 id="esc-to-영문전환">ESC to 영문전환</h2>
+<p><strong>Keyboard Maestro</strong> 는 이렇게 생겼습니다. <code>+</code> 버튼을 눌러 폴더를 하나 추가하고 Terminal 에서는 <code>ESC</code> 키가 영문전환을 함께 수행하도록 세팅해볼게요. 이런 방식으로 세팅을 하면 특정 프로그램에서만 Automation 을 작동하게 할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92194914-b5c83480-eea6-11ea-8939-3a854203deb0.png" alt="Keyboard Maestro 폴더 세팅"></p>
+<p>다음에는 <code>+</code> 버튼을 눌러 새로운 Macro 를 추가합니다. 저는 매크로 이름을 <code>ESC to English</code> 라고 지었어요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92194918-b6f96180-eea6-11ea-8d04-d3f9525cdac9.png" alt="Macro 추가"></p>
+<p>Macro 가 Trigger 될 조건을 <strong>Hot Key Trigger</strong> 로 설정하고 <code>ESC</code> 를 Trigger Key 로 지정합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92194923-b8c32500-eea6-11ea-8d31-2475317e4bb9.png" alt="Trigger Key 추가"></p>
+<p>이제 <strong>Action</strong> 을 만들어주면 되는데요. <strong>Set Keyboard Layout</strong> 을 찾아 추가합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92195344-b0b7b500-eea7-11ea-96c4-a316d168b814.png" alt="Keyboard Layout Action 추가"></p>
+<p>다 그런 것인지는 모르겠지만 저는 기본 값이 한글로 변경되는 것으로 되어있어 영문으로 설정되도록 바꾸었고, 추가로 <strong>Type a Key Stroke</strong> 를 하나 더 추가했습니다. 추가 Key Stroke 를 설정해주지 않으면 <code>ESC</code> 키가 영문전환만 하게되고 본연의 역할을 잊게됩니다. 그러니까 꼭 추가해야해요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92195488-09874d80-eea8-11ea-894b-b9a23e460352.png" alt="영문설정 및 ESC 추가"></p>
+<p>이렇게 설정이 모두 끝났습니다. Keyboard Maestro 를 사용하니 정말 간단하게 해결되었어요 ㅎㅎㅎ <del>Keyboard Maestro 두번 쓰세요</del></p>
+<p>이제 당연히 잘되겠지하고 자신만만하게 <strong>Vim</strong> 에서 테스트를 해보았으나 전혀 작동을 하지 않았습니다. 작동을 하지않을 이유가 없는데 왜 이럴까하면서 10분 정도를 헤맸을까 프로그램 설정이 잘못되었다는 것을 알았는데 제가 사용하는 프로그램인 <strong>iTerm2</strong> 가 아닌 <strong>Terminal</strong> 로 설정해 놓았더라고요. <strong>iTerm2</strong> 로 변경하니 예상했던대로 잘 작동되었습니다. 여러분은 이런 실수하지 마세요~</p>
 
       </div>
     </article>
@@ -187,7 +190,7 @@ Plugin 'vim-airline/vim-airline-themes'
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
             <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span><span class="tag"><a href="https://kasroid.github.io/tags/plugin/">Plugin</a></span>
+          </svg><span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span><span class="tag"><a href="https://kasroid.github.io/tags/keyboard-maestro/">Keyboard Maestro</a></span>
         </p>
 
       <p>
@@ -198,7 +201,7 @@ Plugin 'vim-airline/vim-airline-themes'
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        291 Words
+        390 Words
       </p>
 
       <p>
@@ -208,13 +211,13 @@ Plugin 'vim-airline/vim-airline-themes'
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-02 22:07 &#43;0900
+        2020-09-04 11:32 &#43;0900
       </p>
     </div>
       <hr />
       <div class="sharing-buttons">
         
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
     </div>
@@ -222,7 +225,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
       <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
@@ -231,7 +234,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Vim%20Plugin%3a%20Vim%20Airline&amp;caption=Vim%20Plugin%3a%20Vim%20Airline&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;caption=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
   <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
@@ -240,7 +243,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=Vim%20Plugin%3a%20Vim%20Airline&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+<a class="resp-sharing-button__link" href="mailto:?subject=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
     </div>
@@ -248,7 +251,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f;description=Vim%20Plugin%3a%20Vim%20Airline" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f;description=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
   <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
     </div>
@@ -256,7 +259,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f&amp;title=Vim%20Plugin%3a%20Vim%20Airline&amp;summary=Vim%20Plugin%3a%20Vim%20Airline&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;title=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;summary=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
     </div>
@@ -264,7 +267,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f&amp;resubmit=true&amp;title=Vim%20Plugin%3a%20Vim%20Airline" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;resubmit=true&amp;title=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
     </div>
@@ -272,7 +275,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f;title=Vim%20Plugin%3a%20Vim%20Airline" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f;title=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
     </div>
@@ -280,7 +283,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=Vim%20Plugin%3a%20Vim%20Airline%20https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0%20https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </div>
@@ -288,7 +291,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f&amp;t=Vim%20Plugin%3a%20Vim%20Airline" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;t=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
     </div>
@@ -296,7 +299,7 @@ Plugin 'vim-airline/vim-airline-themes'
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Vim%20Plugin%3a%20Vim%20Airline&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200902-vim-plugin-vim-airline%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Vim%3a%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
     </div>
@@ -314,18 +317,11 @@ Plugin 'vim-airline/vim-airline-themes'
 
         <div class="pagination__buttons">
           
-            <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Vim: Normal Mode 에서 자동으로 영문전환하기</span>
-              </a>
-            </span>
-          
 
           
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/">
-                <span class="button__text">Vim Plugin: NERDTree</span>
+              <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/">
+                <span class="button__text">Vim Plugin: Vim Airline</span>
                 <span class="button__icon">→</span>
               </a>
             </span>
