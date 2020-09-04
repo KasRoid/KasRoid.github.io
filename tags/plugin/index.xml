@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Vim Plugin: Vim Airline</title>
+      <title>Vim Plugin - Vim Airline</title>
       <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</link>
       <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
       
@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>Vim Plugin: NERDTree</title>
+      <title>Vim Plugin - NERDTree</title>
       <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</link>
       <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
       
@@ -32,7 +32,7 @@
     </item>
     
     <item>
-      <title>Vim: 여러가지 유용한 설정 적용하기</title>
+      <title>Vim - 여러가지 유용한 설정 적용하기</title>
       <link>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</link>
       <pubDate>Mon, 31 Aug 2020 21:45:33 +0900</pubDate>
       
@@ -43,7 +43,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     </item>
     
     <item>
-      <title>Vim: Vundle 및 Markdown Plugin 설치하기</title>
+      <title>Vim - Vundle 및 Markdown Plugin 설치하기</title>
       <link>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</link>
       <pubDate>Sat, 29 Aug 2020 16:12:11 +0900</pubDate>
       
