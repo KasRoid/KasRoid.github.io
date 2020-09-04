@@ -3,19 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kasroid.github.io/tags/keyboard-maestro/</loc>
-    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <loc>https://kasroid.github.io/tags/firebase/</loc>
+    <lastmod>2020-09-04T22:32:07+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/import-firebase-in-xcode/</loc>
+    <lastmod>2020-09-04T22:32:07+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <lastmod>2020-09-04T22:32:07+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2020-09-04T22:32:07+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-04T22:32:07+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/keyboard-maestro/</loc>
     <lastmod>2020-09-04T11:32:51+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -28,12 +46,6 @@
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</loc>
-    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-04T11:32:51+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -83,24 +95,6 @@
   <url>
     <loc>https://kasroid.github.io/tags/uikit/</loc>
     <lastmod>2020-08-29T11:00:14+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/firebase/</loc>
-    <lastmod>2020-08-29T09:56:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</loc>
-    <lastmod>2020-08-29T09:56:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/posts/terminal/</loc>
-    <lastmod>2020-08-26T12:14:32+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -155,6 +149,12 @@
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</loc>
     <lastmod>2020-08-23T16:48:19+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/20200810-firebase-connecting-xcode-project/</loc>
+    <lastmod>2020-08-10T01:19:46+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

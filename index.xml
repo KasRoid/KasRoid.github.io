@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 04 Sep 2020 11:32:51 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2020 22:32:07 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Firebase - Xcode 와 연동하기</title>
+      <link>https://kasroid.github.io/posts/ios/import-firebase-in-xcode/</link>
+      <pubDate>Fri, 04 Sep 2020 22:32:07 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/import-firebase-in-xcode/</guid>
+      <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
+· Swift 5.2.4
+· Firebase 6.29.0
+ Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.</description>
+    </item>
     
     <item>
       <title>Vim - Normal Mode 에서 자동으로 영문전환하기</title>
@@ -73,7 +85,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     </item>
     
     <item>
-      <title>Sign in With Apple 구현하기: UIKit</title>
+      <title>System - Sign in With Apple 구현하기 with UIKit</title>
       <link>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/</link>
       <pubDate>Sat, 29 Aug 2020 11:00:14 +0900</pubDate>
       
@@ -82,18 +94,6 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
  이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
  Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
 이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요.</description>
-    </item>
-    
-    <item>
-      <title>Firebase - Xcode 프로젝트와 연동하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</link>
-      <pubDate>Sat, 29 Aug 2020 09:56:46 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/posts/developertools/20200829-firebase-connecting-xcode-project/</guid>
-      <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
-· Firebase 6.29.0
-· Swift 5.2.4
- Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.</description>
     </item>
     
     <item>
@@ -123,6 +123,18 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
       <guid>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</guid>
       <description>오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
 Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Firebase - Xcode 프로젝트와 연동하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200810-firebase-connecting-xcode-project/</link>
+      <pubDate>Mon, 10 Aug 2020 01:19:46 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200810-firebase-connecting-xcode-project/</guid>
+      <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
+· Firebase 6.29.0
+· Swift 5.2.4
+ Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.</description>
     </item>
     
     <item>
