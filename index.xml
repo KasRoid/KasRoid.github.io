@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 04 Sep 2020 11:32:51 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2020 22:22:20 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sign in With Google 구현하기 With UIKit</title>
+      <link>https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/</link>
+      <pubDate>Fri, 04 Sep 2020 22:22:20 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/</guid>
+      <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
+ Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
+CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요.</description>
+    </item>
     
     <item>
       <title>Vim - Normal Mode 에서 자동으로 영문전환하기</title>
