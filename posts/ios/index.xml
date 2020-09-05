@@ -10,6 +10,107 @@
         <atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>UIKit - UITableView 를 Grouped Style 로 지정했을 때 생기는 Footer 없에기</title>
+            <link>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</link>
+            <pubDate>Sat, 05 Sep 2020 16:17:28 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</guid>
+            <description>Intro UITableView 를 별 다른 설정없이 인스턴스화해서 사용해보면 Style 기본값이 .plain 으로 설정되어 있어 Header 를 사용하는 경우 스크롤을 하더라도 바로 사라지는 것이 아니라 계속 남아있게 되는데요. 이것을 해결하려면 tableView 의 Style 을 .grouped 로 지정해주면 Header 가 다른 셀들과 같은 방식으로 스크롤되게 됩니다.
+그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었어요.</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p><strong>UITableView</strong> 를 별 다른 설정없이 인스턴스화해서 사용해보면 Style 기본값이 <code>.plain</code> 으로 설정되어 있어 Header 를 사용하는 경우 스크롤을 하더라도 바로 사라지는 것이 아니라 계속 남아있게 되는데요. 이것을 해결하려면 tableView 의 Style 을 <code>.grouped</code> 로 지정해주면 Header 가 다른 셀들과 같은 방식으로 스크롤되게 됩니다.</p>
+<p>그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었어요. 그런데 오늘 프로젝트를 진행하면서 같은 상황을 또 마주치게 되어 확실히 해결하는 방법을 공부해보았습니다.</p>
+<hr>
+<h2 id="기본-세팅">기본 세팅</h2>
+<p>간단하게 연습해보기 위해 ViewController 에 <strong>Grouped Style</strong> 로 <strong>UITableView</strong> 를 하나 올려놓았어요. 그리고 <code>tableView(_:viewForHeaderInSection:)</code> 를 구현하고 회색 BackgroundColor 를 가진 뷰를 리턴했습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, viewForHeaderInSection section: Int) -&gt; UIView? {
+    <span style="color:#66d9ef">let</span> view = UIView()
+    view.backgroundColor = .gray
+    <span style="color:#66d9ef">return</span> view
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, heightForHeaderInSection section: Int) -&gt; CGFloat {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>
+}
+</code></pre></div><p><code>.plain</code> Style 에서 이렇게 구현했다면 Header 만 생성되었을텐데요. Apple 이  기본세팅을 왜 이렇게 해놓았는지 모르겠지만 <code>.grouped</code> Style 에서는 자동적으로 Footer 뷰까지 생성이 됩니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92301833-efca3100-efa1-11ea-98ff-6bcbefa43124.png" alt="Footer 뷰가 자동적으로 생성된 모습"></p>
+<p>우리는 분명히 <strong>Header</strong> 를 <strong>회색</strong>으로 지정해 놓았는데 빨간색 화살표로 표시된 부분에 우리는 생성한적 없는 다른 뷰가 하나 있잖아요? 저게 바로 <strong>Footer</strong> 입니다. 자동으로 생성되었어요. 처음에는 저게 Footer 라는 사실을 몰라서 더 많이 헤맸던 것 같아요. 알고나니 해결법이 정말 간단했습니다. 그럼 코드를 작성해볼게요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">tableView.tableFooterView = UIView(frame: .zero)
+tableView.sectionFooterHeight = <span style="color:#ae81ff">0</span>
+</code></pre></div><p>직접 <strong>UIView</strong> 를 생성해 <strong>Footer 뷰로 지정</strong>해주고 <strong>높이를 0</strong> 으로 바꿔주었어요. 이유는 알 수 없지만 기본적으로 제공되는 Footer 의 높이를 0 으로 바꾸는 방법은 통하지 않더라고요. 이제 이렇게 세팅하고 Simulator 를 실행해 볼게요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92301942-da093b80-efa2-11ea-801f-7a48e6d965fa.png" alt="Footer 뷰가 사라진 모습"></p>
+<p>오!! 사라졌어요. 처음부터 기본값이 이렇게 세팅되어 있었다면 더 편했겠지만 굳이 그렇게하지 않은 이유가 분명 Apple 에게는 있을거에요. 그럴거에요.</p>
+<hr>
+<h2 id="entire-code">Entire Code</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+    <span style="color:#66d9ef">let</span> tableView = UITableView(frame: .zero, style: .grouped)
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        configureUI()
+    }
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setAttributes()
+        setContraints()
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+        tableView.dataSource = <span style="color:#66d9ef">self</span>
+        tableView.delegate = <span style="color:#66d9ef">self</span>
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.sectionFooterHeight = <span style="color:#ae81ff">0</span>
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+}
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UITableViewDataSource {
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    }
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        <span style="color:#66d9ef">return</span> UITableViewCell()
+    }
+}
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UITableViewDelegate {
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">numberOfSections</span>(<span style="color:#66d9ef">in</span> tableView: UITableView) -&gt; Int {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>
+    }
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, viewForHeaderInSection section: Int) -&gt; UIView? {
+        <span style="color:#66d9ef">let</span> view = UIView()
+        view.backgroundColor = .gray
+        <span style="color:#66d9ef">return</span> view
+    }
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, heightForHeaderInSection section: Int) -&gt; CGFloat {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>
+    }
+}
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
             <title>CocoaPods - 명령어 알아보기</title>
             <link>https://kasroid.github.io/posts/ios/20200905-cocoapods-basic-commands/</link>
             <pubDate>Sat, 05 Sep 2020 11:06:30 +0900</pubDate>
