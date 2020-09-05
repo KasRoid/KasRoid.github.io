@@ -10,7 +10,66 @@
         <atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Sign in With Google 구현하기 With UIKit</title>
+            <title>CocoaPods - 명령어 알아보기</title>
+            <link>https://kasroid.github.io/posts/ios/20200905-cocoapods-basic-commands/</link>
+            <pubDate>Sat, 05 Sep 2020 11:06:30 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/ios/20200905-cocoapods-basic-commands/</guid>
+            <description>Intro CocoaPods - 설치 및 라이브러리 적용하기 포스팅에서 간단하게 CocoaPods 를 설치하고 Library 를 적용하는 법가지 알아보았었는데요. 이번에는 CocoaPods 에서 사용할 수 있는 커맨드들을 같이 한번 공부해보도록 하겠습니다.
+ Podfile 생성하기 우리가 CocoaPods 를 설치하는 이유는 외부 라이브러리를 적용해서 사용하기 위해서잖아요? 그렇다면 가장 먼저할 일은 당연히 어떤 라이브러리를 설치하고 싶은지 CocoaPods 에게 알려주는 것입니다. 그래서 CocoaPods 는 그 목록을 Podfile 을 통해서 받게되는데요. 다음은 이 Podfile 을 생성하는 명령어입니다.
+pod init 설치를 희망하는 프로젝트 폴더 내에서 위 커맨드를 실행해보면 Podfile 이 생성된 것을 확인할 수 있을거에요.</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p><a href="https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/">CocoaPods - 설치 및 라이브러리 적용하기</a> 포스팅에서 간단하게 <strong>CocoaPods</strong> 를 설치하고 Library 를 적용하는 법가지 알아보았었는데요. 이번에는 CocoaPods 에서 사용할 수 있는 커맨드들을 같이 한번 공부해보도록 하겠습니다.</p>
+<hr>
+<h2 id="podfile-생성하기">Podfile 생성하기</h2>
+<p>우리가 <strong>CocoaPods</strong> 를 설치하는 이유는 외부 라이브러리를 적용해서 사용하기 위해서잖아요? 그렇다면 가장 먼저할 일은 당연히 어떤 라이브러리를 설치하고 싶은지 CocoaPods 에게 알려주는 것입니다. 그래서 CocoaPods 는 그 목록을 <strong>Podfile</strong> 을 통해서 받게되는데요. 다음은 이 Podfile 을 생성하는 명령어입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">pod <span style="color:#66d9ef">init</span>
+</code></pre></div><p>설치를 희망하는 프로젝트 폴더 내에서 위 커맨드를 실행해보면 <strong>Podfile</strong> 이 생성된 것을 확인할 수 있을거에요.</p>
+<hr>
+<h2 id="library-설치하기">Library 설치하기</h2>
+<p>설치는 우리가 이미 한 번 사용해 본 명령어에요. 프로젝트에 설치하고 싶은 Library 목록을 <strong>Podfile</strong> 에 입력하고 macOS 터미널에서 <code>pod install</code> 을 실행해주면 나머지는 CocoaPods 가 알아서 처리해줍니다.</p>
+<pre><code class="language-console" data-lang="console">pod install
+</code></pre><p>여기서 <strong>중요</strong>하게 알고넘어가야 할 부분이 하나 있습니다. 만약에 우리가 이미 <code>pod intall</code> 을 통해 라이브러리들을 설치했는데 나중에 알고보니 빠뜨린게 있다거나 프로젝트 상황이 바뀌어 추가적으로 라이브러리를 설치해야한다면 어떻게 해야할까요? 그때도 <code>pod instala</code> 하나만 알고 있으면 됩니다.</p>
+<p>프로젝트 폴더에서 <strong>Pods 폴더</strong>와 <strong>Podfile.lock</strong> 파일을 삭제하고 <strong>Podfile</strong> 에 추가적으로 설치하고 싶은 Library 를 작성하고(완전히 새롭게 설치하는 개념이니 기존에 설치했었던 라이브러리 목록도 당연히 있어야 합니다.) <code>pod install</code> 을 실해주면 끝입니다. 그리고 CocoaPods 관련 오류가 발생했을 때도 이 방법으로 재설치를 하면 해결되는 경우도 많으니 꼭 기억해두세요!</p>
+<hr>
+<h2 id="library-버전-업데이트">Library 버전 업데이트</h2>
+<p>프로젝트의 진행이 오래되었거나하는 등의 이유로 적용된 Library 의 버전이 구버전이라면 <code>pod update</code> 를 통해 최신 버전으로 업데이트 할 수 있습니다. 그러나 버전이 바뀌게 되면 이전에는 잘 작동했던 코드들이 더 이상 정상적으로 동작하지 않아 손을 많이 봐줘야 할 수도 있다는 점은 꼭 염두해두세요.</p>
+<pre><code class="language-console" data-lang="console">pod update
+</code></pre><p>그리고 추가적으로 새로운 Library 를 설치하고자할 때는 이 명령어로는 아무것도 할 수 없습니다. <code>pod update</code> 는 이미 설치되어있는 Library 즉 <strong>Podfile.lock</strong> 에 기재되어있는 것들에 대한 버전을 관리하는 명령어일 뿐입니다. 새로운 라이브러리 설치는 <strong>pod install</strong> 을 통해서만 진행할 수 있습니다.</p>
+<hr>
+<h2 id="repo-업데이트">Repo 업데이트</h2>
+<p><strong>CocoaPods</strong> 에는 모든 라이브러리의 리스트를 관리하는 <strong>Repo</strong> 라는 저장소가 있습니다. 그리고 Repo 안에는 <strong>Spec</strong> 이 존재하며 Spec  은 각 라이브러리에 대한 필수정보들을 보관합니다. 그리고 이렇게 Repo 내의 라이브러리 Spec 업데이트를 다음 명령어를 통해 실행할 수 있습니다.</p>
+<pre><code class="language-console" data-lang="console">pod repo update
+</code></pre><p>이렇게만해서는 무엇을 업데이트 하는건지 아직 잘 감이 오지 않잖아요? 스펙은 각 라이브러리에 대해 아래와 같은 정보들을 보관하고 있습니다. 이 내용들을 최신 버전으로 만드는 것이 pod repo update 명령어라고 생각해주세요.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbk4dd3%2FbtqGrBr0Xud%2FG4Kr8YsDLlGJWOYwG3uKu1%2Fimg.png" alt="Pod Spec File"></p>
+<p>그래서 이걸 언제사용하느냐? 저도 아직 정확히는 모릅니다 ㅎㅎㅎ;;;</p>
+<p>그러니까 일단 지금은 <strong>CocoaPods 관련 오류</strong>가 발생했을 때 실행해주면 해결되는 경우가 있다 이렇게 알려드릴게요.</p>
+<hr>
+<h2 id="내-시스템에-설치된-cocoapods-버전-확인하기">내 시스템에 설치된 CocoaPods 버전 확인하기</h2>
+<p>협업을 하면서 여러가지 오류를 마주치다보면 협업하는 사람과 내 CocoaPods 의 버전이 달라서 발생하는 오류인 경우도 있습니다. 이럴 때는 서로 <strong>같은 버전</strong>의 CocoaPods 를 사용하고 있는지 확인해 주세요.</p>
+<pre><code class="language-console" data-lang="console">pod --version
+</code></pre><hr>
+<h2 id="library-검색하기">Library 검색하기</h2>
+<p>CocoaPods 의 홈페이지에서만 라이브러리의 목록을 확인할 수 있는 것은 아닙니다. 터미널에서도 손쉽게 Library 확인이 가능합니다.</p>
+<pre><code class="language-console" data-lang="console">pod search QUERY
+</code></pre><p><strong>QUERY</strong> 라고 써진 자리에 우리가 검색하고 싶은 Library 의 이름을 입력하면 Terminal 에서 결과를 확인할 수 있습니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAaSwu%2FbtqGkjNgZD8%2F8yJKkpCH1wqnwH7us5f4q1%2Fimg.png" alt="Terminal 에서 Library 검색"></p>
+<p>이렇게 결과가 표시됩니다. 각 검색결과의 3번째 줄에 우리가 <strong>Podfile</strong> 의 입력에 필요한 정보가 있고 이외에도 꼭 필요한 정보들만 보여주니 터미널에서 검색하는게 훨씬 더 직관적이고 편리한 느낌이네요.</p>
+<hr>
+<h2 id="cache-확인하기">Cache 확인하기</h2>
+<p>우리가 설치했던 라이브러리의 캐시를 확인할 수 있는 명령어 입니다. 저도 이 포스팅을 작성하려고 공부하면서 처음 알게된 명령어에요. 그냥 이런게 있다 정도만 알아두고 솔직히 별로 쓸 일은 없지 않을까 그런 생각을 합니다.</p>
+<pre><code class="language-console" data-lang="console">pod cache list
+</code></pre><hr>
+<h2 id="cache-청소하기">Cache 청소하기</h2>
+<p>위에서 확인한 캐시 목록에 있는 데이터를 전부 지우는 명령어입니다. 그래서 이걸 굳이 왜지울까요?? 캐시의 특성상 특별히 오류가 발생하지 않거나 용량을 무지막지하게 잡아먹는 상황이 아니라면 그냥 놔두는게 더 좋을 것 같아요.</p>
+<pre><code class="language-console" data-lang="console">pod cache clean --all
+</code></pre><hr>
+<p>이렇게 <strong>CocoaPods</strong> 에서 제공하는 CLI 커맨드를 공부해보았습니다. 필수로 사용하거나 자주 쓸만한 명령어들도 있었고 거의 사용하지 않을 것 같은 명령어들도 있었던 것 같아요. 이외에도 수많은 명령어들이 있지만 지금 당장 우리한테 필요하지 않기 때문에 나중에 차차 공부할 일이 있다면 이 곳에 업데이트 하도록 하겠습니다.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Firebase - Sign in with Google 구현하기 with UIKit</title>
             <link>https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/</link>
             <pubDate>Fri, 04 Sep 2020 22:22:20 +0900</pubDate>
             
