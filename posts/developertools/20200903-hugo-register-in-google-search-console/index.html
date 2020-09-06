@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요." />
-<meta name="keywords" content="iOS, Swift, Vim, Keyboard Maestro" />
+<meta name="description" content="Intro 우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 SEO(Search Engine Optimization) 라 불리는 검색 엔진 최적화에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다." />
+<meta name="keywords" content="iOS, Swift, Hugo, Blog" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/" />
+<link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/" />
 
 
     <title>
         
-            Vim - Normal Mode 에서 자동으로 영문전환하기 :: You are in part of Doyoung&#39;s brain right now  — Kas Song
+            Hugo - 블로그 Google Search Console 에 등록하기 :: You are in part of Doyoung&#39;s brain right now  — Kas Song
         
     </title>
 
@@ -32,32 +32,32 @@
 
 
 
-<meta itemprop="name" content="Vim - Normal Mode 에서 자동으로 영문전환하기">
-<meta itemprop="description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.">
-<meta itemprop="datePublished" content="2020-09-04T11:32:51+09:00" />
-<meta itemprop="dateModified" content="2020-09-04T11:32:51+09:00" />
-<meta itemprop="wordCount" content="390">
+<meta itemprop="name" content="Hugo - 블로그 Google Search Console 에 등록하기">
+<meta itemprop="description" content="Intro 우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 SEO(Search Engine Optimization) 라 불리는 검색 엔진 최적화에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다.">
+<meta itemprop="datePublished" content="2020-09-03T15:07:41+09:00" />
+<meta itemprop="dateModified" content="2020-09-03T15:07:41+09:00" />
+<meta itemprop="wordCount" content="489">
 <meta itemprop="image" content="https://kasroid.github.io"/>
 
 
 
-<meta itemprop="keywords" content="Vim,Keyboard Maestro," />
+<meta itemprop="keywords" content="Hugo,Blog," />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
-<meta name="twitter:title" content="Vim - Normal Mode 에서 자동으로 영문전환하기"/>
-<meta name="twitter:description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요."/>
+<meta name="twitter:title" content="Hugo - 블로그 Google Search Console 에 등록하기"/>
+<meta name="twitter:description" content="Intro 우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 SEO(Search Engine Optimization) 라 불리는 검색 엔진 최적화에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다."/>
 
 
 
-    <meta property="og:title" content="Vim - Normal Mode 에서 자동으로 영문전환하기" />
-<meta property="og:description" content="Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요." />
+    <meta property="og:title" content="Hugo - 블로그 Google Search Console 에 등록하기" />
+<meta property="og:description" content="Intro 우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 SEO(Search Engine Optimization) 라 불리는 검색 엔진 최적화에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/" />
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/" />
 <meta property="og:image" content="https://kasroid.github.io"/>
-<meta property="article:published_time" content="2020-09-04T11:32:51+09:00" />
-<meta property="article:modified_time" content="2020-09-04T11:32:51+09:00" /><meta property="og:site_name" content="You are in part of Doyoung&#39;s brain right now" />
+<meta property="article:published_time" content="2020-09-03T15:07:41+09:00" />
+<meta property="article:modified_time" content="2020-09-03T15:07:41+09:00" /><meta property="og:site_name" content="You are in part of Doyoung&#39;s brain right now" />
 
 
 
@@ -66,7 +66,7 @@
 
 
 
-    <meta property="article:published_time" content="2020-09-04 11:32:51 &#43;0900 KST" />
+    <meta property="article:published_time" content="2020-09-03 15:07:41 &#43;0900 KST" />
 
 
 
@@ -132,7 +132,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        2 minutes
+        3 minutes
 
         
       </p>
@@ -140,7 +140,7 @@
 
     <article>
       <h1 class="post-title">
-        <a href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/">Vim - Normal Mode 에서 자동으로 영문전환하기</a>
+        <a href="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/">Hugo - 블로그 Google Search Console 에 등록하기</a>
       </h1>
         <hr />
         <aside id="toc">
@@ -148,8 +148,12 @@
           <nav id="TableOfContents">
   <ul>
     <li><a href="#intro">Intro</a></li>
-    <li><a href="#keyboard-maestro-소개">Keyboard Maestro 소개</a></li>
-    <li><a href="#esc-to-영문전환">ESC to 영문전환</a></li>
+    <li><a href="#google-seo">Google SEO</a>
+      <ul>
+        <li><a href="#google-analytics-등록하기">Google Analytics 등록하기</a></li>
+        <li><a href="#google-search-console-설정하기">Google Search Console 설정하기</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </aside>
@@ -159,26 +163,42 @@
 
       <div class="post-content">
         <h2 id="intro">Intro</h2>
-<p>주력 Text Editor 로 <strong>Vim</strong> 을 사용하면서 매일 마주치는 문제점 하나가 바로 <strong>Insert Mode</strong> 에서 한글을 작성하다 <strong>Normal Mode</strong> 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 <strong>Vim</strong> 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 <strong>Insert Mode</strong> 에서 <strong>Normal Mode</strong> 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.</p>
-<p>당연히 <strong>Vim</strong> 에서 한글을 작성하시는 많은 분들이 비슷한 고충을 겪고 있고, 이에 대한 해결법이 많이 나와있는 상황이기는 합니다. 그 중 대표적인 해결법이 <strong><a href="https://www.hammerspoon.org">Hammerspoon</a></strong> 이라는 Automation 프로그램을 이용하는 방법인데요. 이것에 관한 글은 다른 여러 블로그에 자세히 나와있기도 하고 저는 제가 이미 사용하고 있는 <strong>Keyboard Maestro</strong> 라는 Automation 프로그램이 있기 때문에 혹시 Hammerspoon 으로 해결하고 싶은 분들은 다른 블로그 글을 찾아보시기 바랍니다.</p>
-<p>이번 포스팅에서는 <strong><a href="https://www.keyboardmaestro.com">Keyboard Maestro</a></strong> 로 해결해보도록 하겠습니다. 다만 조금 가격이 나가는 <strong>유료 프로그램</strong>이므로 글을 읽기 전 구매의사를 반드시 결정하시기 바랍니다. 정말 좋은 프로그램이니까 저는 추천하겠습니다 ㅎ</p>
+<p>우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 <strong>SEO(Search Engine Optimization)</strong> 라 불리는 <strong>검색 엔진 최적화</strong>에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다.</p>
+<p>그런데 <strong>Hugo</strong> 블로그는 모든 서비스의 주체자가 우리잖아요? 이게 개인의 취향대로 모든 것을 커스터마이징 할 수 있다는 장점이 있기도 하지만 그만큼 기업에서 서비스하는 블로그를 사용할 때보다 신경써야할 것이 더 많다는 뜻이기도 합니다. 우리가 블로그 페이지들을 생성하고 그것을 웹페이지로 만든다고해도 따로 검색엔진 서비스에 블로그 주소를 등록하지 않으면 아무리 검색해도 우리 블로그를 찾을 수가 없습니다.</p>
+<p>이번 포스팅은 총 3회 분으로 연재될 예정이며</p>
+<ul>
+<li>Google Search Console</li>
+<li>Naver Search Advisor</li>
+<li>다음검색 등록</li>
+</ul>
+<p>순으로 포스팅 될 계획입니다.</p>
 <hr>
-<h2 id="keyboard-maestro-소개">Keyboard Maestro 소개</h2>
-<p><strong><a href="https://www.keyboardmaestro.com">Keyboard Maestro</a></strong> 는 일종의 Automation 프로그램 입니다. 상당히 잘 만들어진 프로그램으로 여러가지 귀찮은 일들을 자동화할 수 있지만 여느 Automation 프로그램들만큼 난이도가 조금 있어 저는 기본적인 매크로들만 사용하고 있습니다. 그래도 돈 값은 충분히 하고 있는 것 같아요 ㅎㅎ 오늘 Terminal 에서 작동하는 자동 영문전환 스크립트를 작성하고나면 조금 더 돈값을 하게되겠군요 ㅋㅋㅋ 그럼 바로 세팅해볼게요.</p>
-<hr>
-<h2 id="esc-to-영문전환">ESC to 영문전환</h2>
-<p><strong>Keyboard Maestro</strong> 는 이렇게 생겼습니다. <code>+</code> 버튼을 눌러 폴더를 하나 추가하고 Terminal 에서는 <code>ESC</code> 키가 영문전환을 함께 수행하도록 세팅해볼게요. 이런 방식으로 세팅을 하면 특정 프로그램에서만 Automation 을 작동하게 할 수 있습니다.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/92194914-b5c83480-eea6-11ea-8939-3a854203deb0.png" alt="Keyboard Maestro 폴더 세팅"></p>
-<p>다음에는 <code>+</code> 버튼을 눌러 새로운 Macro 를 추가합니다. 저는 매크로 이름을 <code>ESC to English</code> 라고 지었어요.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/92194918-b6f96180-eea6-11ea-8d04-d3f9525cdac9.png" alt="Macro 추가"></p>
-<p>Macro 가 Trigger 될 조건을 <strong>Hot Key Trigger</strong> 로 설정하고 <code>ESC</code> 를 Trigger Key 로 지정합니다.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/92194923-b8c32500-eea6-11ea-8d31-2475317e4bb9.png" alt="Trigger Key 추가"></p>
-<p>이제 <strong>Action</strong> 을 만들어주면 되는데요. <strong>Set Keyboard Layout</strong> 을 찾아 추가합니다.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/92195344-b0b7b500-eea7-11ea-96c4-a316d168b814.png" alt="Keyboard Layout Action 추가"></p>
-<p>다 그런 것인지는 모르겠지만 저는 기본 값이 한글로 변경되는 것으로 되어있어 영문으로 설정되도록 바꾸었고, 추가로 <strong>Type a Key Stroke</strong> 를 하나 더 추가했습니다. 추가 Key Stroke 를 설정해주지 않으면 <code>ESC</code> 키가 영문전환만 하게되고 본연의 역할을 잊게됩니다. 그러니까 꼭 추가해야해요.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/92195488-09874d80-eea8-11ea-894b-b9a23e460352.png" alt="영문설정 및 ESC 추가"></p>
-<p>이렇게 설정이 모두 끝났습니다. Keyboard Maestro 를 사용하니 정말 간단하게 해결되었어요 ㅎㅎㅎ <del>Keyboard Maestro 두번 쓰세요</del></p>
-<p>이제 당연히 잘되겠지하고 자신만만하게 <strong>Vim</strong> 에서 테스트를 해보았으나 전혀 작동을 하지 않았습니다. 작동을 하지않을 이유가 없는데 왜 이럴까하면서 10분 정도를 헤맸을까 프로그램 설정이 잘못되었다는 것을 알았는데 제가 사용하는 프로그램인 <strong>iTerm2</strong> 가 아닌 <strong>Terminal</strong> 로 설정해 놓았더라고요. <strong>iTerm2</strong> 로 변경하니 예상했던대로 잘 작동되었습니다. 여러분은 이런 실수하지 마세요~</p>
+<h2 id="google-seo">Google SEO</h2>
+<p>가장 먼저 Google 에 블로그 주소를 등록하는 절차를 진행해보도록 할게요. 구글에 주소를 등록하기 위해서는 <strong>Google Analytics</strong> 와 <strong>Google Search Console</strong> 두 곳에서 작업이 필요합니다.</p>
+<h3 id="google-analytics-등록하기">Google Analytics 등록하기</h3>
+<p><a href="http://analytics.google.com">Google Analytics</a> 에 접속해 볼게요. 일단 등록을 하기 전에 Analytics 가 어떤 역할을 하는지 간단하게 알아봅시다. 우리가 Analytics 에 등록하는 이유는 단순히 검색에 노출되기 위해서 그런 것이 아니에요. Analytics 에 등록함으로써 다음과 같은 유용한 정보들을 확인할 수 있고, 이에 따라 더 전략적으로 블로그를 운영할 수 있게 됩니다.</p>
+<ul>
+<li>블로그 방문자 수</li>
+<li>블로그 방문자들의 연령대와 성별</li>
+<li>블로그 방문 시 사용한 디바이스</li>
+<li>블로그를  찾아 들어오게된 경로</li>
+<li>내 블로그에서 인기있는 페이지</li>
+</ul>
+<p>기본적으로 파악할 수 있는 정보들은 이정도가 있고 당연히 이외에도 훨씬 많은 정보를 확인할 수가 있습니다. 이제 등록을 하기 위해 <strong>admin</strong> 메뉴를 클릭합니다. 저는 이미 Tistory 블로그를 운영하고 있고 이 블로그가 Google Analytics 에 등록되어 있어 처음 시작하는 분들과는 보이는 화면이 조금 다를 수 있습니다. 그래도 전체적인 흐름은 동일하니까 잘 따라와주세요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92192211-772f7b80-eea0-11ea-8e6d-b5bf34dce5db.png" alt="Admin 메뉴"></p>
+<p>다음으로 <strong>Create Property</strong> 버튼을 누르고 내 블로그 정보를 기입하여 Property 를 생성합니다. 생성이 되면 <strong>Tracking ID</strong>(UA-123456789-1 형식) 을 확인할 수 있고 이 ID 를 우리 블로그에 입력해야 합니다.</p>
+<p>이제 Hugo 구성 파일 중 <code>config.toml</code> 파일을 열어 <code>googleAnalytics</code> 변수를 생성하고 ID 를 입력합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">googleAnalytics</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">UA</span><span style="color:#ae81ff">-123456789-1</span>
+</code></pre></div><p>위 ID 는 예시이므로 작동하지 않고 여러분이 발급받은 <strong>Tracking ID</strong> 를 입력해주세요. 입력이 완료되면 당연히 블로그를 재발행 해주어야 합니다. 작동 확인 방법으로는 <strong>Google Analytics</strong> 는 실시간으로 접속자를 감지하므로 이후에 내가 블로그에 접속하더라도 접속자 숫자가 올라가는 모습을 확인할 수 있습니다. <del>쩌는데??</del></p>
+<h3 id="google-search-console-설정하기">Google Search Console 설정하기</h3>
+<p>이제 Google 검색에 실제로 노출될 수 있도록 등록하는 작업을 진행해 보겠습니다. <a href="https://search.google.com/search-console/about?hl=ko">Google Search Console</a> 에 접속하고 <strong>시작하기</strong> 버튼을 눌러주세요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92307351-c96fba00-efd0-11ea-8d51-1877f5a932ec.png" alt="Google Search Console 입장화면"></p>
+<p>이제 아래와 같은 화면이 보일텐데요. 이곳에서 <strong>Add property</strong> 버튼을 눌러주세요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92307402-2b302400-efd1-11ea-8270-5b4bc51ed755.png" alt="Add property 버튼"></p>
+<p>다음으로 나타나는 화면에서는 <strong>URL Prefix</strong> 를 선택하고 내 블로그 주소를 입력합니다. 이제 <strong>html</strong> 파일을 다운로드 받아 Hugo 구성파일 중 public 폴더에 넣어준 뒤 블로그를 재발행합니다. 수분 내로 소유권 확인이 가능합니다.</p>
+<p>마지막으로 <code>sitemap.xml</code> 파일을 제출해주면 끝입니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92307571-62530500-efd2-11ea-8273-8ce3049d89c0.png" alt="sitemap.xml 제출화면"></p>
+<p>좌측 메뉴에서 Sitemaps 를 선택하면 나타나는 주소창에 <code>sitemap.xml</code> 을 입력해주세요. 내 Hugo 디렉토리의 <strong>public</strong> 폴더 안에 기본적으로 들어있는 파일이므로 문제 없이 등록이 됩니다. 다만 이게 블로그 테마에 따라 없는 경우가 있을 수도 있다고 하는데 없을 경우에는 직접 작성을 해줘야 한다고 하네요. 저는 있었으므로 직접 작성하는 방법은 패스하도록 할게요.</p>
 
       </div>
     </article>
@@ -190,7 +210,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
             <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span><span class="tag"><a href="https://kasroid.github.io/tags/keyboard-maestro/">Keyboard Maestro</a></span>
+          </svg><span class="tag"><a href="https://kasroid.github.io/tags/hugo/">Hugo</a></span><span class="tag"><a href="https://kasroid.github.io/tags/blog/">Blog</a></span>
         </p>
 
       <p>
@@ -201,7 +221,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        390 Words
+        489 Words
       </p>
 
       <p>
@@ -211,13 +231,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-04 11:32 &#43;0900
+        2020-09-03 15:07 &#43;0900
       </p>
     </div>
       <hr />
       <div class="sharing-buttons">
         
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
     </div>
@@ -225,7 +245,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
       <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
@@ -234,7 +254,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;caption=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;caption=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
   <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
@@ -243,7 +263,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+<a class="resp-sharing-button__link" href="mailto:?subject=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
     </div>
@@ -251,7 +271,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f;description=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f;description=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
   <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
     </div>
@@ -259,7 +279,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;title=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;summary=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f&amp;title=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;summary=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
     </div>
@@ -267,7 +287,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;resubmit=true&amp;title=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f&amp;resubmit=true&amp;title=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
     </div>
@@ -275,7 +295,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f;title=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f;title=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
     </div>
@@ -283,7 +303,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0%20https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0%20https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </div>
@@ -291,7 +311,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f&amp;t=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f&amp;t=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
     </div>
@@ -299,7 +319,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Vim%20-%20Normal%20Mode%20%ec%97%90%ec%84%9c%20%ec%9e%90%eb%8f%99%ec%9c%bc%eb%a1%9c%20%ec%98%81%eb%ac%b8%ec%a0%84%ed%99%98%ed%95%98%ea%b8%b0&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200904-vim-switching-language-inputs%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Hugo%20-%20%eb%b8%94%eb%a1%9c%ea%b7%b8%20Google%20Search%20Console%20%ec%97%90%20%eb%93%b1%eb%a1%9d%ed%95%98%ea%b8%b0&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fdevelopertools%2f20200903-hugo-register-in-google-search-console%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
     </div>
@@ -318,17 +338,17 @@
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/">
+              <a href="https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Hugo - 블로그 Naver Search Advisor 에 등록하기</span>
+                <span class="button__text">Vim - Normal Mode 에서 자동으로 영문전환하기</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/">
-                <span class="button__text">Hugo - 블로그 Google Search Console 에 등록하기</span>
+              <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/">
+                <span class="button__text">Vim Plugin - Vim Airline</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

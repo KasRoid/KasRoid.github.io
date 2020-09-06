@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 05 Sep 2020 16:17:28 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2020 13:09:05 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo - 블로그 Naver Search Advisor 에 등록하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</link>
+      <pubDate>Sun, 06 Sep 2020 13:09:05 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</guid>
+      <description>Intro 이번 포스팅은 블로그 검색 등록하기 시리즈 2회분 Naver Search Advisor 입니다. 전체적인 흐름은 Google 에 등록할 때와 비슷하니까 이전 포스팅에서 넘어온 분들은 진행이 조금 더 수월할 것 같아요. 그럼 바로 시작할게요.
+ Naver Search Advisor Naver Search Advisor 에 접속합니다. 다음과 같은 화면이 보이네요.
+스크롤을 조금 아래로 내려 웹마스터 도구 사용하기 버튼을 눌러주세요.
+이용동의 화면은 언제나처럼 읽지 않고 동의버튼을 눌러주고요 ㅋㅋㅋ 이거 읽는 분 손?
+다음 화면에서는 내 블로그 주소를 입력하고 검색창 가장 우측에(x 표시 옆) 다음으로 넘어가기 같지 않은 버튼을 눌러주세요.</description>
+    </item>
     
     <item>
       <title>UIKit - UITableView 를 Grouped Style 로 지정했을 때 생기는 Footer 없에기</title>
@@ -51,6 +64,15 @@ CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면
       
       <guid>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</guid>
       <description>Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.</description>
+    </item>
+    
+    <item>
+      <title>Hugo - 블로그 Google Search Console 에 등록하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/</link>
+      <pubDate>Thu, 03 Sep 2020 15:07:41 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/</guid>
+      <description>Intro 우리가 블로그를 작성하는 이유가 여러가지 있겠지만 그 중에 하나는 내가 아는 정보들을 다른 사람들과 공유하고자 하는 목적이 있잖아요. 그래서 오늘은 Hugo 로 블로그를 관리할 때 반드시 설정해주어야 할 부분 중 하나인 SEO(Search Engine Optimization) 라 불리는 검색 엔진 최적화에 대해 함께 공부해보도록 하겠습니다. Tistory 나 Naver 같은 블로그를 사용하면 이런 처리들을 우리가 직접할 필요가 없어서 생소할 수도 있는 부분이에요. 하지만 이 곳들도 우리가 직접하지 않을 뿐 뒤에서는 같은 처리를 해주고 있답니다.</description>
     </item>
     
     <item>
@@ -210,6 +232,15 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
       
       <guid>https://kasroid.github.io/google66ca37733946af8a/</guid>
       <description>google-site-verification: google66ca37733946af8a.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://kasroid.github.io/naver4322329b60b9ef8fa8632e9af72cd83b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kasroid.github.io/naver4322329b60b9ef8fa8632e9af72cd83b/</guid>
+      <description>naver-site-verification: naver4322329b60b9ef8fa8632e9af72cd83b.</description>
     </item>
     
   </channel>

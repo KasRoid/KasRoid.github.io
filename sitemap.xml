@@ -3,14 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kasroid.github.io/tags/blgo/</loc>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/hugo/</loc>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</loc>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-05T16:17:28+09:00</lastmod>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-05T16:17:28+09:00</lastmod>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -28,12 +52,6 @@
   
   <url>
     <loc>https://kasroid.github.io/tags/uitableview/</loc>
-    <lastmod>2020-09-05T16:17:28+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-05T16:17:28+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -77,6 +95,18 @@
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</loc>
     <lastmod>2020-09-04T11:32:51+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/blog/</loc>
+    <lastmod>2020-09-03T15:07:41+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/</loc>
+    <lastmod>2020-09-03T15:07:41+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -208,6 +238,11 @@
   
   <url>
     <loc>https://kasroid.github.io/google66ca37733946af8a/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/naver4322329b60b9ef8fa8632e9af72cd83b/</loc>
     <priority>0</priority>
   </url>
   
