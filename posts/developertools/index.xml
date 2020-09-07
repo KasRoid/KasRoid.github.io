@@ -10,6 +10,30 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Vim - 코드블럭에 Swift Syntax 적용하기</title>
+            <link>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</link>
+            <pubDate>Mon, 07 Sep 2020 02:46:53 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
+            <description>Intro 그래도 명색이 iOS 개발자인데 여태 Vim 을 사용할 때 Swift Syntax Highlighting 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 Vim 에 Swift Syntax 를 적용할 수 있는 방법을 공부해볼까 합니다. Plugin 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.
+ Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
+ swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p>그래도 명색이 iOS 개발자인데 여태 <strong>Vim</strong> 을 사용할 때 <strong>Swift Syntax Highlighting</strong> 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 <strong>Vim</strong> 에 <strong>Swift Syntax</strong> 를 적용할 수 있는 방법을 공부해볼까 합니다. <strong>Plugin</strong> 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.</p>
+<hr>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>이번 포스팅에서 <strong>Plugin</strong> 을 설치하는 과정은 <strong>Vundle</strong> 로 진행되므로 만약 <strong>Vundle</strong> 에 익숙하지 않다면 <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">Vim - Vundle 및 Markdown Plugin 설치하기</a> 포스팅을 먼저 참고해주세요.</p>
+<hr>
+<h2 id="swiftvim-설치하기">swift.vim 설치하기</h2>
+<p><strong>Swift Syntax</strong> 를 적용하기 위해서는 <strong><a href="https://vimawesome.com/plugin/swift-vim-red">swift.vim</a></strong> Plugin 을 설치해야 합니다. <code>.vimrc</code> 파일에 <code>Plugin 'keith/swift.vim'</code> 를 입력하고 설치를 진행하도록 하겠습니다.</p>
+<pre><code class="language-console" data-lang="console">Plugin 'keith/swift.vim'
+</code></pre><p>설치를 끝내고 기존에 작성했던 포스팅 중 <strong>Swift Syntax</strong> 를 사용한 글에 다시 들어가보니 깔끔하게 적용되는 모습이네요. 오늘은 별다른 우여곡절없이 성공한 것 같아 기쁩니다 ㅎㅎㅎ</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92331705-98b48100-f0b3-11ea-9e26-fd6adeb2a126.png" alt="Swift Syntax 가 적용된 모습"></p>
+<p>확실히 <strong>Syntax</strong> 가 적용되었을 때랑 아닌 경우는 가독성의 차이가 많이나는 것 같아요. 그러니까 저처럼 <strong>Vim</strong> 으로 블로그를 작성한다거나 하는 상황이 아니더라도 <strong>iOS</strong> 를 공부하고 있다면 미리 설치해 놓는 것을 추천할게요~</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Hugo - 블로그 Naver Search Advisor 에 등록하기</title>
             <link>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</link>
             <pubDate>Sun, 06 Sep 2020 13:09:05 +0900</pubDate>

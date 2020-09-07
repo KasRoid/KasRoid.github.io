@@ -3,6 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kasroid.github.io/posts/</loc>
+    <lastmod>2020-09-07T02:46:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</loc>
+    <lastmod>2020-09-07T02:46:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-07T02:46:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/tags/blgo/</loc>
     <lastmod>2020-09-06T13:09:05+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -21,19 +39,7 @@
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
     <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-06T13:09:05+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
