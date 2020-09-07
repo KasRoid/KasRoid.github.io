@@ -10,19 +10,21 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Terminal - 기본적인 사용법 및 커맨드 알아보기</title>
+            <title>Terminal - 기본적인 사용법 알아보기</title>
             <link>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</link>
             <pubDate>Mon, 07 Sep 2020 11:49:00 +0900</pubDate>
             
             <guid>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</guid>
-            <description>Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀게 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 것이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip; 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋을 것 같아서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 같이 공부해봐요~
-오늘은 커맨드가 무엇인지, 그리고 알아두면 좋을만한 기본적인 커맨드를 공부해 볼게요.</description>
+            <description>Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip;
+그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
+그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요.</description>
             <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
-<p>제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀게 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 것이 <strong>Terminal</strong> 이 아닐까 싶습니다. <strong>Git</strong> 만 사용하려고해도 <strong>Terminal</strong> 을 사용해야 하잖아요? <del>대체방법이 없는 것은 아니지만&hellip;</del> 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋을 것 같아서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 같이 공부해봐요~</p>
-<p>오늘은 커맨드가 무엇인지, 그리고 알아두면 좋을만한 기본적인 커맨드를 공부해 볼게요.</p>
+<p>제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 <strong>Terminal</strong> 이 아닐까 싶습니다. <strong>Git</strong> 만 사용하려고해도 <strong>Terminal</strong> 을 사용해야 하잖아요? <del>대체방법이 없는 것은 아니지만&hellip;</del></p>
+<p>그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~</p>
+<p>그럼 <strong>Terminal</strong> 의 커맨드는 <strong>어떻게 구성</strong>되는지, 그리고 알아두면 좋을만한 매우 <strong>기초적인 커맨드</strong>를 공부해 볼게요.</p>
 <hr>
-<h2 id="commands-란">Commands 란?</h2>
-<p>실제로 커맨드를 사용해보기 전에 간단하게 커맨드가 무엇인지 공부해보겠습니다. 언제나 이런건 재미가 없지만 그래도 기본기가 중요하니까요 ㅎㅎ</p>
+<h2 id="commands-는-어떻게-구성될까요">Commands 는 어떻게 구성될까요?</h2>
+<p>실제로 <strong>Terminal</strong> 에서 커맨드를 사용해보기 전에 간단하게 커맨드가 어떻게 구성되는지 공부해보겠습니다. 언제나 이렇게 기초적인 것들은 재미가 없지만 그래도 기본기가 중요하니까요 ㅎㅎ</p>
 <h3 id="commands-의-3가지-종류">Commands 의 3가지 종류</h3>
 <p>커맨드에는 크게 3 가지 종류가 있습니다.</p>
 <ul>
