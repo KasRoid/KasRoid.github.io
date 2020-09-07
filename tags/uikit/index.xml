@@ -19,7 +19,7 @@
       
       <guid>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</guid>
       <description>Intro UITableView 를 별 다른 설정없이 인스턴스화해서 사용해보면 Style 기본값이 .plain 으로 설정되어 있어 Header 를 사용하는 경우 스크롤을 하더라도 바로 사라지는 것이 아니라 계속 남아있게 되는데요. 이것을 해결하려면 tableView 의 Style 을 .grouped 로 지정해주면 Header 가 다른 셀들과 같은 방식으로 스크롤되게 됩니다.
-그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었어요.</description>
+그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었거든요.</description>
     </item>
     
     <item>

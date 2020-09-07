@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vundle on You are in part of Doyoung&#39;s brain right now</title>
+    <link>https://kasroid.github.io/tags/vundle/</link>
+    <description>Recent content in Vundle on You are in part of Doyoung&#39;s brain right now</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 07 Sep 2020 02:46:53 +0900</lastBuildDate>
+    
+	<atom:link href="https://kasroid.github.io/tags/vundle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim - 코드블럭에 Swift Syntax 적용하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</link>
+      <pubDate>Mon, 07 Sep 2020 02:46:53 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
+      <description>Intro 그래도 명색이 iOS 개발자인데 여태 Vim 을 사용할 때 Swift Syntax Highlighting 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 Vim 에 Swift Syntax 를 적용할 수 있는 방법을 공부해볼까 합니다. Plugin 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.
+ Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
+ swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
+    </item>
+    
+  </channel>
+</rss>

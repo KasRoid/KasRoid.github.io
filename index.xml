@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Sep 2020 02:46:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 11:49:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terminal - 기본적인 사용법 및 커맨드 알아보기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</link>
+      <pubDate>Mon, 07 Sep 2020 11:49:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</guid>
+      <description>Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀게 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 것이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip; 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋을 것 같아서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 같이 공부해봐요~
+오늘은 커맨드가 무엇인지, 그리고 알아두면 좋을만한 기본적인 커맨드를 공부해 볼게요.</description>
+    </item>
     
     <item>
       <title>Vim - 코드블럭에 Swift Syntax 적용하기</title>
@@ -43,7 +53,7 @@
       
       <guid>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</guid>
       <description>Intro UITableView 를 별 다른 설정없이 인스턴스화해서 사용해보면 Style 기본값이 .plain 으로 설정되어 있어 Header 를 사용하는 경우 스크롤을 하더라도 바로 사라지는 것이 아니라 계속 남아있게 되는데요. 이것을 해결하려면 tableView 의 Style 을 .grouped 로 지정해주면 Header 가 다른 셀들과 같은 방식으로 스크롤되게 됩니다.
-그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었어요.</description>
+그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었거든요.</description>
     </item>
     
     <item>

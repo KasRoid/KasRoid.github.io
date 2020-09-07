@@ -4,6 +4,36 @@
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
+    <lastmod>2020-09-07T11:49:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2020-09-07T11:49:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/terminal/</loc>
+    <lastmod>2020-09-07T11:49:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</loc>
+    <lastmod>2020-09-07T11:49:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-07T11:49:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/vim/</loc>
     <lastmod>2020-09-07T02:46:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -15,7 +45,7 @@
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/</loc>
+    <loc>https://kasroid.github.io/tags/vundle/</loc>
     <lastmod>2020-09-07T02:46:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -34,12 +64,6 @@
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</loc>
-    <lastmod>2020-09-06T13:09:05+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/</loc>
     <lastmod>2020-09-06T13:09:05+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -88,12 +112,6 @@
   
   <url>
     <loc>https://kasroid.github.io/tags/keyboard-maestro/</loc>
-    <lastmod>2020-09-04T11:32:51+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/vim/</loc>
     <lastmod>2020-09-04T11:32:51+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
