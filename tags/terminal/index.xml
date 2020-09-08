@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Sep 2020 11:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 08:28:46 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terminal - Mac 의 파일권한 시스템 이해하기</title>
+      <link>https://kasroid.github.io/posts/developertools/terminal-understanding-of-organization-of-files-in-mac/</link>
+      <pubDate>Tue, 08 Sep 2020 08:28:46 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/terminal-understanding-of-organization-of-files-in-mac/</guid>
+      <description>Intro Mac 시스템 내부의 모든 파일은 User 라고하는 파일의 관리자가 명시되어 있으며, 관리자 외의 다른 User 는 파일의 읽기 및 쓰기 권한에 제한을 받을 수 있습니다. 사실 맥북같은 경우 혼자 사용하기 때문에 이런 권한들에 대해 거의 관심을 가져본 적이 없지만, 그래도 기본 개념정도로 알아두고 지나가면 좋을 것 같아 정리를 해볼려고요! ㅎㅎ
+ Finder 에서 User 및 권한 확인하기 먼저 내 맥북에는 어떤 User 가 있는지 확인을 해보겠습니다. Finder 를 열고 최상위 루트로 가보면 아래 스크린샷처럼 유저 목록이 보일거에요.</description>
+    </item>
     
     <item>
       <title>Terminal - 기본적인 사용법 알아보기</title>
