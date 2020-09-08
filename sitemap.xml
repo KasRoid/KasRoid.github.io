@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-09-08T08:28:46+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
     <loc>https://kasroid.github.io/posts/</loc>
     <lastmod>2020-09-08T08:28:46+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -22,12 +28,6 @@
   
   <url>
     <loc>https://kasroid.github.io/posts/developertools/terminal-understanding-of-organization-of-files-in-mac/</loc>
-    <lastmod>2020-09-08T08:28:46+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/</loc>
     <lastmod>2020-09-08T08:28:46+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
