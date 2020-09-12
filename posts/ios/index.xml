@@ -10,11 +10,183 @@
         <atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>UIKit - UITableView 셀 크기가 자동으로 세팅되도록 구현하기</title>
+            <link>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</link>
+            <pubDate>Tue, 08 Sep 2020 11:14:25 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</guid>
+            <description>Intro UITableView 를 사용하면서 그동안은 항상 RowHeight 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 자동으로 세팅하는 방법에 대해 공부를 해봅니다 ㅎㅎ
+ Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
+기본 세팅은 아래 코드를 참고하세요.
+ViewController.swift
+import UIKit class ViewController: UIViewController { // MARK:- Properties private let tableView = UITableView() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { view.</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p><strong>UITableView</strong> 를 사용하면서 그동안은 항상 <strong>RowHeight</strong> 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 <strong>자동으로 세팅하는 방법</strong>에 대해 공부를 해봅니다 ㅎㅎ</p>
+<hr>
+<h2 id="setup">Setup</h2>
+<p>실습을 위해 <strong>UITableViewCell</strong> 을 상속받은 <strong>CustomTableViewCell</strong> 을 생성하고 ViewController 위에 <strong>TableView</strong> 를 올려놓았습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92996302-8ddf6d80-f545-11ea-9c19-cada61c47b01.png" alt="Simulator Setup"></p>
+<p><strong>기본 세팅</strong>은 아래 코드를 참고하세요.</p>
+<p><strong>ViewController.swift</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> tableView = UITableView()
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        configureUI()
+    }
+    
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        view.backgroundColor = .blue
+        setContraints()
+        setAttributes()
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+        tableView.register(CustomTableViewCell.<span style="color:#66d9ef">self</span>, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.dataSource = <span style="color:#66d9ef">self</span>
+        tableView.delegate = <span style="color:#66d9ef">self</span>
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+
+}
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UITableViewDataSource {
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">30</span>
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">tableView</span>(<span style="color:#66d9ef">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, <span style="color:#66d9ef">for</span>: indexPath) <span style="color:#66d9ef">as</span>? CustomTableViewCell <span style="color:#66d9ef">else</span> { fatalError() }
+        <span style="color:#66d9ef">return</span> cell
+    }
+}
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UITableViewDelegate {
+    
+}
+</code></pre></div><p><strong>CustomTableViewCell.swift</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomTableViewCell</span>: UITableViewCell {
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> identifier = <span style="color:#e6db74">&#34;CustomTableViewCell&#34;</span>
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
+    }
+
+    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+        fatalError(<span style="color:#e6db74">&#34;init(coder:) has not been implemented&#34;</span>)
+    }
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setContraints()
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+
+    }
+
+}
+</code></pre></div><hr>
+<h2 id="cell-autolayout-구현하기">Cell AutoLayout 구현하기</h2>
+<p><strong>TableView</strong> 는 <strong>ScrollView</strong> 를 상속받아서 만들어졌기 때문인지 <strong>ScrollView</strong> 와 비슷한 속성을 지니고 있는데요. <strong>Constraints</strong> 를 확실하게 잡아주면 스크롤이 가능하도록 스스로 크기를 조절하고, <strong>Cell</strong> 역시도 <code>topAnchor</code> 와 <code>bottomAnchor</code> 를 잡고 내부 컨텐츠의 <code>heightAnchor</code> 가 잡혀있다면 스스로 크기를 조절하게 됩니다.</p>
+<p>그럼 우리가 생성해놓은 <strong>CustomTableViewCell</strong> 에 색을 입힌 <strong>UIView</strong> 를 2 개 배치하고, 이 View 들의 크기에 따라 <strong>Cell 의 크기가 자동적으로</strong> 변할 수 있도록 구현해보겠습니다.</p>
+<p><strong>CustomTableViewCell.swift</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomTableViewCell</span>: UITableViewCell {
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> identifier = <span style="color:#e6db74">&#34;CustomTableViewCell&#34;</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> upperView = UIView()
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> lowerView = UIView()
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
+    }
+
+    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+        fatalError(<span style="color:#e6db74">&#34;init(coder:) has not been implemented&#34;</span>)
+    }
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setContraints()
+        setAttributes()
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+        upperView.backgroundColor = .red
+        lowerView.backgroundColor = .blue
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+        [upperView, lowerView].forEach {
+            <span style="color:#66d9ef">self</span>.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        }
+
+        NSLayoutConstraint.activate([
+            upperView.topAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.topAnchor, constant: <span style="color:#ae81ff">20</span>),
+            upperView.leadingAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.leadingAnchor, constant: <span style="color:#ae81ff">20</span>),
+            upperView.trailingAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>),
+            upperView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">100</span>),
+
+            lowerView.topAnchor.constraint(equalTo: upperView.bottomAnchor, constant: <span style="color:#ae81ff">10</span>),
+            lowerView.leadingAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.leadingAnchor, constant: <span style="color:#ae81ff">20</span>),
+            lowerView.trailingAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>),
+            lowerView.bottomAnchor.constraint(equalTo: <span style="color:#66d9ef">self</span>.bottomAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>),
+            lowerView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">150</span>),
+        ])
+    }
+}
+</code></pre></div><p>이렇게 코드를 입력하고 Simulator 를 실행시켜보면 우리가 별도의 설정이나 작업을 하지 않았는데도, 스스로 내부에 위치한 View 들의 높이를 계산하여 Cell 의 높이를 조절한 것을 알 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/92999751-6943bf80-f55e-11ea-9d2b-ca3c414c5922.png" alt="Simulator 실행화면"></p>
+<p>잘 늘어난게 보이네요 ㅎㅎㅎ 생각보다 너무 쉽지 않았나요? 그동안은 <strong>RowHeight</strong> 를 직접 설정하는 방법으로 <strong>TableView</strong> 를 구현했었지만 이제부터는 <strong>Cell</strong> 이 스스로 높이를 조절하는 방향으로 View 를 짜게될 것 같습니다. 이 방법이 훨씬 편하고 유연성이 있는 것 같아요 ㅎㅎ</p>
+<hr>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>이렇게 <strong>TableView</strong> 를 사용할 때 <strong>Cell 의 크기를 자동으로</strong> 설정할 수 있게하는 방법을 알아보았는데요.</p>
+<p>핵심 내용을 정리해보면</p>
+<ul>
+<li>TableView 에는 별도의 설정이 필요없다.</li>
+<li>Cell 내부에 위치한 View 의 <code>topAnchor</code> 와 <code>bottomAnchor</code> 를 확실하게 잡아준다.</li>
+<li>View 의 <code>heightAnchor</code> 또한 확실하게 잡는다.</li>
+</ul>
+<p>이 정도로 요약해볼 수 있을 것 같네요. 무언가 정상적으로 작동하지 않을 때는 위 3 가지를 먼저 확인해보면 좋을 것 같습니다.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>UIKit - UITableView 를 Grouped Style 로 지정했을 때 생기는 Footer 없에기</title>
-            <link>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</link>
+            <link>https://kasroid.github.io/posts/ios/20200905-uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</link>
             <pubDate>Sat, 05 Sep 2020 16:17:28 +0900</pubDate>
             
-            <guid>https://kasroid.github.io/posts/ios/uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</guid>
+            <guid>https://kasroid.github.io/posts/ios/20200905-uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</guid>
             <description>Intro UITableView 를 별 다른 설정없이 인스턴스화해서 사용해보면 Style 기본값이 .plain 으로 설정되어 있어 Header 를 사용하는 경우 스크롤을 하더라도 바로 사라지는 것이 아니라 계속 남아있게 되는데요. 이것을 해결하려면 tableView 의 Style 을 .grouped 로 지정해주면 Header 가 다른 셀들과 같은 방식으로 스크롤되게 됩니다.
 그런데 이렇게 사용하면 문제점이 하나 발생하는데 우리는 Footer 가 필요없고 Header 만 필요한 경우에도 자동적으로 Footer 까지 생성되는 상황이 발생하는거에요. 이것 때문에 골치를 여러번 썩으면서도 공부해서 해결하기보다 바쁘다는 핑계로 여태까지 우회하는 방법으로 해결을 했었거든요.</description>
             <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
