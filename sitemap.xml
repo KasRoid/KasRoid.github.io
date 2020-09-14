@@ -4,24 +4,42 @@
   
   <url>
     <loc>https://kasroid.github.io/</loc>
-    <lastmod>2020-09-08T11:14:25+09:00</lastmod>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-08T11:14:25+09:00</lastmod>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-08T11:14:25+09:00</lastmod>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</loc>
+    <loc>https://kasroid.github.io/tags/uikit/</loc>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/uitextfield/</loc>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/uitextfield-limits-number-of-text-detecting-backspace-event/</loc>
+    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</loc>
     <lastmod>2020-09-08T11:14:25+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -83,12 +101,6 @@
   <url>
     <loc>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</loc>
     <lastmod>2020-09-06T13:09:05+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/uikit/</loc>
-    <lastmod>2020-09-05T16:17:28+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

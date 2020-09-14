@@ -7,17 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 08 Sep 2020 11:14:25 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 20:03:41 +0900</lastBuildDate>
     
 	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>UITextField - 입력글자수 제한 및 백스페이스 감지하기</title>
+      <link>https://kasroid.github.io/posts/ios/uitextfield-limits-number-of-text-detecting-backspace-event/</link>
+      <pubDate>Mon, 14 Sep 2020 20:03:41 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/uitextfield-limits-number-of-text-detecting-backspace-event/</guid>
+      <description>Intro UITextField 를 아이디나 비밀번호를 사용자로부터 입력받을 때 사용하게되면 글자수 제한을 두어야하는 경우가 있는데요. 이 때 글자수 입력을 제한할 수 있는 방법에 대해 알아보도록 하겠습니다.
+ Prerequisite 테스트를 위해 새로운 프로젝트를 하나 생성하고 UITextField 하나를 View 의 중앙에 올려보았습니다.
+import UIKit class ViewController: UIViewController { private var textField = UITextField() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { setContraints() setAttributes() } private func setAttributes() { textField.</description>
+    </item>
+    
+    <item>
       <title>UIKit - UITableView 셀 크기가 자동으로 세팅되도록 구현하기</title>
-      <link>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</link>
+      <link>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</link>
       <pubDate>Tue, 08 Sep 2020 11:14:25 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</guid>
+      <guid>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</guid>
       <description>Intro UITableView 를 사용하면서 그동안은 항상 RowHeight 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 자동으로 세팅하는 방법에 대해 공부를 해봅니다 ㅎㅎ
  Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
 기본 세팅은 아래 코드를 참고하세요.

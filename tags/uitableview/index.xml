@@ -14,10 +14,10 @@
     
     <item>
       <title>UIKit - UITableView 셀 크기가 자동으로 세팅되도록 구현하기</title>
-      <link>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</link>
+      <link>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</link>
       <pubDate>Tue, 08 Sep 2020 11:14:25 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/ios/uitableview-self-sizing-cells/</guid>
+      <guid>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</guid>
       <description>Intro UITableView 를 사용하면서 그동안은 항상 RowHeight 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 자동으로 세팅하는 방법에 대해 공부를 해봅니다 ㅎㅎ
  Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
 기본 세팅은 아래 코드를 참고하세요.
