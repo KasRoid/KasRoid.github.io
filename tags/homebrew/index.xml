@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 23 Aug 2020 16:48:19 +0900</lastBuildDate>
-    
-	<atom:link href="https://kasroid.github.io/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 23 Aug 2020 16:48:19 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homebrew - 설치 및 기본 사용법 익히기</title>
       <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</link>

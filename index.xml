@@ -7,20 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 20:03:41 +0900</lastBuildDate>
-    
-	<atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Sep 2020 20:03:41 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>UITextField - 입력글자수 제한 및 백스페이스 감지하기</title>
-      <link>https://kasroid.github.io/posts/ios/uitextfield-limits-number-of-text-detecting-backspace-event/</link>
+      <title>UIKit - UITextField 입력글자수 제한 및 백스페이스 감지하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/</link>
       <pubDate>Mon, 14 Sep 2020 20:03:41 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/ios/uitextfield-limits-number-of-text-detecting-backspace-event/</guid>
+      <guid>https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/</guid>
       <description>Intro UITextField 를 아이디나 비밀번호를 사용자로부터 입력받을 때 사용하게되면 글자수 제한을 두어야하는 경우가 있는데요. 이 때 글자수 입력을 제한할 수 있는 방법에 대해 알아보도록 하겠습니다.
  Prerequisite 테스트를 위해 새로운 프로젝트를 하나 생성하고 UITextField 하나를 View 의 중앙에 올려보았습니다.
 import UIKit class ViewController: UIViewController { private var textField = UITextField() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { setContraints() setAttributes() } private func setAttributes() { textField.</description>
+    </item>
+    
+    <item>
+      <title>Ranger - CLI File Browser 설치 및 사용법</title>
+      <link>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</link>
+      <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</guid>
+      <description>Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
+그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐.</description>
     </item>
     
     <item>

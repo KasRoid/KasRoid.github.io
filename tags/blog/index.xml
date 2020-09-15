@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 06 Sep 2020 13:09:05 +0900</lastBuildDate>
-    
-	<atom:link href="https://kasroid.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 06 Sep 2020 13:09:05 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo - 블로그 Naver Search Advisor 에 등록하기</title>
       <link>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</link>

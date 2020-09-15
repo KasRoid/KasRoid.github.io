@@ -10,6 +10,163 @@
         <atom:link href="https://kasroid.github.io/posts/developertools/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Ranger - CLI File Browser 설치 및 사용법</title>
+            <link>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</link>
+            <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</guid>
+            <description>Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
+그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐.</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p><strong>GUI</strong> 환경 대신 <strong>Terminal</strong> 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 <strong>File Browsing</strong> 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 <strong>Tool</strong> 이 있는 경우가 아니라면 모든 작업을 <strong>Terminal</strong> 에서 해결하려고 하는데 <strong>File Browsing</strong> 만큼은 아직도 <strong>Finder</strong> 에 의존할 때가 많습니다. <strong>파일명을 변경</strong>하거나 <strong>복사, 이동</strong>하는 작업이 <strong>Terminal</strong> 에서는 좀 불편하더라고요.</p>
+<p>그럼 잘 만들어놓은 <strong>Finder</strong> 를 놔두고 왜 굳이 <strong>Terminal</strong> 에서 작업을 하려고 하느냐. 바로 <strong>Workflow</strong> 때문입니다. 제가 애초에 <strong>Terminal</strong> 을 주력으로 쓰게된 이유도 이곳에서는 모든 작업을 창 전환 없이 <strong>키보드만으로도</strong> 진행할 수 있기 때문이죠.</p>
+<p>그래서 <strong>CLI</strong> 환경에서 쓸만한 <strong>File Browser</strong> 를 찾다보니 후보가 <strong>Ranger</strong> 와 <strong>Midnight Commander</strong> 로 추려지더라고요. 둘 다 꽤 유명한 프로그램이지만 그래도 사용자의 수가 인지도면에서는 <strong>Midnight Commander</strong> 가 우위였지만, 저는 좀 더 미려한 인터페이스와 최신 기능을 탑재한 <strong>Ranger</strong> 를 사용하기로 결정했습니다. 그럼 바로 설치를 진행해 볼게요.</p>
+<hr>
+<h2 id="installation">Installation</h2>
+<p><strong><a href="https://github.com/ranger/ranger">Ranger Github</a></strong> 의 <strong>README</strong> 에서 여러가지 정보를 확인할 수 있습니다만, 제가 원하는 설치방법은 기재되어 있지 않아 구글링으로 <strong><a href="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/">Homebrew</a></strong> 로 설치할 수 있는 방법을 검색 해보니 역시 가능했습니다.</p>
+<pre><code class="language-console" data-lang="console">brew install ranger
+</code></pre><p>간단하게 설치를 마치고나면 바로 <strong>Terminal</strong> 에서 <code>ranger</code> 라는 커맨드를 사용할 수 있게됩니다.</p>
+<hr>
+<h2 id="basics">Basics</h2>
+<p>그럼 <code>ranger</code> 커맨드를 입력해 <strong>File Browser</strong> 를 실행시켜볼게요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93020756-d8cab500-f619-11ea-8146-db4c561394f9.png" alt="Rnager 가 실행된 모습"></p>
+<p>그냥 보기만해도 어떻게 사용해야할지 감이 오네요 ㅎㅎ 정말 직관적이고 깔끔한 인터페이스인 것 같아요. 역시 <strong>Ranger</strong> 를 선택하길 잘한 것 같네요 ㅋㅋㅋ</p>
+<p>기본 조작법을 잠깐 살펴보자면 기본 <strong>Vim</strong> 키인 <strong>h, j, k, l</strong> 나 <strong>방향키</strong> 로 기본 조작을 할 수 있으며, 심지어 <strong>마우스</strong> 로도 조작이 가능합니다. <del>근데 마우스 조작할거면 그냥 Finder 를 썼지&hellip;</del></p>
+<hr>
+<h2 id="config-파일-생성-및-관리하기">Config 파일 생성 및 관리하기</h2>
+<p><strong>Ranger</strong> 역시도 <strong>Vim</strong> 과 비슷하게 <code>rc.config</code> 라는 파일을 통해 여러가지 세팅을 저장하고 사용할 수 있습니다. <strong>Vim</strong> 에서 세팅을 한번 이상 해본 분이라면 익숙할거에요 ㅎㅎ 다만 <strong>Ranger</strong> 를 방금 설치했다면 원래 이 설정파일이 위치해야하는 <code>~/.config/ranger/</code> 경로에 저처럼 어떤 파일도 없을거에요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021381-3a405300-f61d-11ea-838b-111d4b3aa947.png" alt="Ranger 설정파일이 없는 화면"></p>
+<p>이곳에 설정과 관련된 파일들이 있어야하는데 이렇게 아무 것도 없습니다. 그럼 우리가 직접 커맨드를 실행해 설정파일들을 생성해보겠습니다.</p>
+<pre><code class="language-console" data-lang="console">$ ranger --copy-config=all
+</code></pre><p>이렇게 입력을 하면 여러가지 파일이 생성되고 이 중 우리가 설정에 사용하게 될 파일은 <code>rc.config</code> 파일입니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021371-36accc00-f61d-11ea-8a0b-981f527f9131.png" alt="Ranger 설정파일이 생성된 화면"></p>
+<p>이제 파일이 생성되었으니까 직접 한번 여러가지 기본 설정들을 진행해보도록 하겠습니다.</p>
+<hr>
+<h2 id="image-preview-기능-추가하기">Image Preview 기능 추가하기</h2>
+<p><strong>Rnager</strong> 를 막 설치했다면 기본 세팅으로는 <strong>Finder</strong> 에서 처럼 이미지 미리 보기가 사용이 안되는데요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021768-8db3a080-f61f-11ea-877c-6a0ece18a7d8.png" alt="Finder 의 미리보기"></p>
+<p>이렇게 <strong>Image</strong> 를 미리 확인할 수 있으면 매번 어떤 파일인지 확인하는 수고가 덜어지고 시간도 훨씬 절약되잖아요? 그래서 이 기능을 <strong>Ranger</strong> 에서도 사용할 수 있도록 세팅을 하려고 합니다.</p>
+<p>그럼 세팅을 위해 우리가 조금 전 생성한 <code>rc.config</code> 파일을 <strong>Vim</strong> 으로 열어볼게요. <strong>Vim</strong> 이 익숙하지 않다면 당연히 <strong>Vim</strong> 외 어떤 텍스트 에디터로 열어도 괜찮습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021737-665cd380-f61f-11ea-8c6d-d292a4a67682.png" alt="rc.config 파일 첫 화면"></p>
+<p>헐.. 텅 비어있을 줄 알았는데 초깃값들이 무언가 많네요. 대략적으로 설명하자면 <strong>여러가지 단축키</strong> 설정들이며 이 곳을 수정해 본인이 원하는 단축키를 사용할 수도 있습니다. 저희는 Image Preview 를 구현하는게 목표니까 이건 넘어가도록하고&hellip;</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021731-61981f80-f61f-11ea-93f3-ce764c5db167.png" alt="rc.config preview_image 화면"></p>
+<p>검색을 통해 <code>set preview_images false</code> 라고 입력되어 있는 부분을 찾아 <code>set preview_images true</code> 로 변경해 주세요. 일단 우리는 <strong>Ranger</strong> 에게 <strong>Preview</strong> 기능을 사용하고 싶다고 알려줬습니다. 하지만 이게 끝이 아니라 어떤 방식으로 사용할건지를 최종적으로 한번 더 확인시켜줘야하는데요. 이 방법에는 여러가지가 있지만 저는 <strong>iTerm2</strong> 라는 <strong>Application</strong> 에서 제공하는 기능을 이용해 <strong>Preview</strong> 기능을 활성화해보도록 할게요.</p>
+<p>이번에는 <code>set preview_images_method</code> 라고 입력되어 있는 부분을 찾아볼게요. 기본값은 <code>w3m</code> 으로 되어 있을텐데 저는 이 코드를 코멘트 처리하고 <code>set preview_images_method iterm2</code> 를 새롭게 입력했습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/93021738-66f56a00-f61f-11ea-8c8d-dd5c1fd1bc52.png" alt="rc.config preview_images_method 화면"></p>
+<p><strong>Preview</strong> 가 화면 우측에 잘 표시되는 것을 볼 수가 있네요!!</p>
+<hr>
+<h2 id="shortcuts">Shortcuts</h2>
+<p>추가적으로 앞으로 <strong>Ranger</strong> 를 사용하면서 자주 쓸만한 단축키들을 정리해봤어요. <strong>Vim</strong> 에 익숙하다면 대부분 금방 적응할 수 있을만한 단축키네요!</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Title</th>
+<th style="text-align:right">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">파일 이름 변경하기</td>
+<td style="text-align:right"><strong>cr</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 이름 앞쪽에서부터 변경</td>
+<td style="text-align:right"><strong>I</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 이름 뒷쪽에서부터 변경</td>
+<td style="text-align:right"><strong>A</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 복사하기</td>
+<td style="text-align:right"><strong>yy</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 잘라내기</td>
+<td style="text-align:right"><strong>dd</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 붙여넣기</td>
+<td style="text-align:right"><strong>pp</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 및 폴더 삭제하기</td>
+<td style="text-align:right"><strong>dD</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 개별 선택</td>
+<td style="text-align:right"><strong>space</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 전체 선택</td>
+<td style="text-align:right"><strong>v</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 선택 전체 해제</td>
+<td style="text-align:right"><strong>uv</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">숨김파일 보이기 설정 토글</td>
+<td style="text-align:right"><strong>zh</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">경로를 Home 으로 이동</td>
+<td style="text-align:right"><strong>gh</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">선택된 폴더의 사이즈 확인</td>
+<td style="text-align:right"><strong>dc</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Parent 폴더에서 위,아래 이동</td>
+<td style="text-align:right"><strong>[</strong> , <strong>]</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">새로운 탭 생성하기</td>
+<td style="text-align:right"><strong>control + n</strong> or <strong>gn</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">현재 탭 닫기</td>
+<td style="text-align:right"><strong>control + w</strong> or <strong>gc</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">다음 탭으로 이동</td>
+<td style="text-align:right"><strong>tab</strong> or <strong>gt</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">이전 탭으로 이동</td>
+<td style="text-align:right"><strong>shift + tab</strong> or ** <strong>gT</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">파일 및 폴더의 경로 Bookmark</td>
+<td style="text-align:right"><strong>m + { x }</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Bookmark 찾아가기</td>
+<td style="text-align:right"><strong>` + { x }</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Shell 커맨드 사용하기</td>
+<td style="text-align:right"><strong>!</strong> or <strong>s</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">무거운 작업 로드에서 탈출</td>
+<td style="text-align:right"><strong>J</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">종료하기</td>
+<td style="text-align:right"><strong>q</strong></td>
+</tr>
+</tbody>
+</table>
+<p>더 많은 단축키는 <a href="http://dquinton.github.io/debian-install/files/ranger-keybinds_quinton.pdf">이곳</a>을 참조하세요.</p>
+<hr>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>오늘은 <strong>Terminal</strong> 에서 <strong>File Browsing</strong> 을 좀 더 편하게 할 수 있도록 공부를 해보았는데요. 이렇게 <strong>Terminal</strong> 과 점점 더 친해지는 것 같아 기분이 좋습니다. 여러분들도 <strong>Terminal</strong> 과 빨리 친해지길 바랍니다! 다른 이유도 많지만 일단 <strong>Terminal</strong> 이 간지나잖아요!!</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Terminal - Mac 의 파일권한 시스템 이해하기</title>
             <link>https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/</link>
             <pubDate>Tue, 08 Sep 2020 08:28:46 +0900</pubDate>
@@ -361,46 +518,46 @@ Plugin 'vim-airline/vim-airline-themes'
 <table>
 <thead>
 <tr>
-<th align="left">Title</th>
-<th align="center">Shortcuts</th>
+<th style="text-align:left">Title</th>
+<th style="text-align:center">Shortcuts</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">파일 및 폴더 열기</td>
-<td align="center">o</td>
+<td style="text-align:left">파일 및 폴더 열기</td>
+<td style="text-align:center">o</td>
 </tr>
 <tr>
-<td align="left">하위 폴더까지 전부 열기</td>
-<td align="center">O</td>
+<td style="text-align:left">하위 폴더까지 전부 열기</td>
+<td style="text-align:center">O</td>
 </tr>
 <tr>
-<td align="left">미리보기 형식으로 열기</td>
-<td align="center">p</td>
+<td style="text-align:left">미리보기 형식으로 열기</td>
+<td style="text-align:center">p</td>
 </tr>
 <tr>
-<td align="left">새로운 탭에서 파일 열기</td>
-<td align="center">t</td>
+<td style="text-align:left">새로운 탭에서 파일 열기</td>
+<td style="text-align:center">t</td>
 </tr>
 <tr>
-<td align="left">가로 Split 으로 파일 열기</td>
-<td align="center">i</td>
+<td style="text-align:left">가로 Split 으로 파일 열기</td>
+<td style="text-align:center">i</td>
 </tr>
 <tr>
-<td align="left">세로 Split 으로 파일 열기</td>
-<td align="center">s</td>
+<td style="text-align:left">세로 Split 으로 파일 열기</td>
+<td style="text-align:center">s</td>
 </tr>
 <tr>
-<td align="left">메뉴 열기</td>
-<td align="center">m</td>
+<td style="text-align:left">메뉴 열기</td>
+<td style="text-align:center">m</td>
 </tr>
 <tr>
-<td align="left">NERDTree 줌, 줌아웃 하기</td>
-<td align="center">A</td>
+<td style="text-align:left">NERDTree 줌, 줌아웃 하기</td>
+<td style="text-align:center">A</td>
 </tr>
 <tr>
-<td align="left">NERDTree 종료하기</td>
-<td align="center">q</td>
+<td style="text-align:left">NERDTree 종료하기</td>
+<td style="text-align:center">q</td>
 </tr>
 </tbody>
 </table>
@@ -408,38 +565,38 @@ Plugin 'vim-airline/vim-airline-themes'
 <table>
 <thead>
 <tr>
-<th align="left">Title</th>
-<th align="center">Shortcuts</th>
+<th style="text-align:left">Title</th>
+<th style="text-align:center">Shortcuts</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">창 순환하기</td>
-<td align="center">ctrl + w + w</td>
+<td style="text-align:left">창 순환하기</td>
+<td style="text-align:center">ctrl + w + w</td>
 </tr>
 <tr>
-<td align="left">왼쪽 창으로 이동하기</td>
-<td align="center">ctrl + w + h</td>
+<td style="text-align:left">왼쪽 창으로 이동하기</td>
+<td style="text-align:center">ctrl + w + h</td>
 </tr>
 <tr>
-<td align="left">오른쪽 창으로 이동하기</td>
-<td align="center">ctrl + w + l</td>
+<td style="text-align:left">오른쪽 창으로 이동하기</td>
+<td style="text-align:center">ctrl + w + l</td>
 </tr>
 <tr>
-<td align="left">윗쪽 창으로 이동하기</td>
-<td align="center">ctrl + w + k</td>
+<td style="text-align:left">윗쪽 창으로 이동하기</td>
+<td style="text-align:center">ctrl + w + k</td>
 </tr>
 <tr>
-<td align="left">아랫쪽 창으로 이동하기</td>
-<td align="center">ctrl + w + j</td>
+<td style="text-align:left">아랫쪽 창으로 이동하기</td>
+<td style="text-align:center">ctrl + w + j</td>
 </tr>
 <tr>
-<td align="left">이전 창으로 이동하기</td>
-<td align="center">ctrl + w + p</td>
+<td style="text-align:left">이전 창으로 이동하기</td>
+<td style="text-align:center">ctrl + w + p</td>
 </tr>
 <tr>
-<td align="left">창 종료하기</td>
-<td align="center">ctrl + w + q</td>
+<td style="text-align:left">창 종료하기</td>
+<td style="text-align:center">ctrl + w + q</td>
 </tr>
 </tbody>
 </table>
