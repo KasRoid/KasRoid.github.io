@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 20:03:41 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/uikit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Sep 2020 19:04:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/uikit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</title>
+      <link>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</link>
+      <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</guid>
+      <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
+ Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+ 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.</description>
+    </item>
+    
     <item>
       <title>UIKit - UITextField 입력글자수 제한 및 백스페이스 감지하기</title>
       <link>https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/</link>
@@ -17,17 +28,6 @@
       <description>Intro UITextField 를 아이디나 비밀번호를 사용자로부터 입력받을 때 사용하게되면 글자수 제한을 두어야하는 경우가 있는데요. 이 때 글자수 입력을 제한할 수 있는 방법에 대해 알아보도록 하겠습니다.
  Prerequisite 테스트를 위해 새로운 프로젝트를 하나 생성하고 UITextField 하나를 View 의 중앙에 올려보았습니다.
 import UIKit class ViewController: UIViewController { private var textField = UITextField() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { setContraints() setAttributes() } private func setAttributes() { textField.</description>
-    </item>
-    
-    <item>
-      <title>WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</title>
-      <link>https://kasroid.github.io/posts/ios/uikit-search-address-with-kakao/</link>
-      <pubDate>Sat, 12 Sep 2020 10:24:53 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/posts/ios/uikit-search-address-with-kakao/</guid>
-      <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.</description>
     </item>
     
     <item>

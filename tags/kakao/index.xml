@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 12 Sep 2020 10:24:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/kakao/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Sep 2020 19:04:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/kakao/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</title>
-      <link>https://kasroid.github.io/posts/ios/uikit-search-address-with-kakao/</link>
-      <pubDate>Sat, 12 Sep 2020 10:24:53 +0900</pubDate>
+      <link>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</link>
+      <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/ios/uikit-search-address-with-kakao/</guid>
+      <guid>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</guid>
       <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
  Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
  서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.</description>

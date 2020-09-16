@@ -4,25 +4,43 @@
   
   <url>
     <loc>https://kasroid.github.io/</loc>
-    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/kakao/</loc>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/uikit/</loc>
-    <lastmod>2020-09-14T20:03:41+09:00</lastmod>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/webkit/</loc>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</loc>
+    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -53,24 +71,6 @@
   <url>
     <loc>https://kasroid.github.io/tags/terminal/</loc>
     <lastmod>2020-09-13T09:53:32+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/kakao/</loc>
-    <lastmod>2020-09-12T10:24:53+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/tags/webkit/</loc>
-    <lastmod>2020-09-12T10:24:53+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://kasroid.github.io/posts/ios/uikit-search-address-with-kakao/</loc>
-    <lastmod>2020-09-12T10:24:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
