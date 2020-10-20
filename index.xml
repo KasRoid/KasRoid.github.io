@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 16 Sep 2020 19:04:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Oct 2020 21:34:44 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UIKit - Delegate Pattern 이해하기</title>
+      <link>https://kasroid.github.io/posts/ios/uikit-delegate-pattern/</link>
+      <pubDate>Sat, 10 Oct 2020 21:34:44 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/uikit-delegate-pattern/</guid>
+      <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
+ Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~</description>
+    </item>
+    
     <item>
       <title>WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</title>
       <link>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</link>

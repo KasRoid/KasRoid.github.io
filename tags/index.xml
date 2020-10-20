@@ -7,22 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 16 Sep 2020 19:04:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Oct 2020 21:34:44 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Kakao</title>
-      <link>https://kasroid.github.io/tags/kakao/</link>
-      <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
+      <title>Delegate</title>
+      <link>https://kasroid.github.io/tags/delegate/</link>
+      <pubDate>Sat, 10 Oct 2020 21:34:44 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/tags/kakao/</guid>
+      <guid>https://kasroid.github.io/tags/delegate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>UIKit</title>
       <link>https://kasroid.github.io/tags/uikit/</link>
-      <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
+      <pubDate>Sat, 10 Oct 2020 21:34:44 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/uikit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kakao</title>
+      <link>https://kasroid.github.io/tags/kakao/</link>
+      <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/tags/kakao/</guid>
       <description></description>
     </item>
     

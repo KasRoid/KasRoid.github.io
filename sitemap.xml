@@ -3,31 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kasroid.github.io/</loc>
-    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <loc>https://kasroid.github.io/tags/delegate/</loc>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
-    <loc>https://kasroid.github.io/tags/kakao/</loc>
-    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/</loc>
-    <lastmod>2020-09-16T19:04:53+09:00</lastmod>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://kasroid.github.io/tags/uikit/</loc>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/posts/ios/uikit-delegate-pattern/</loc>
+    <lastmod>2020-10-10T21:34:44+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://kasroid.github.io/tags/kakao/</loc>
     <lastmod>2020-09-16T19:04:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
