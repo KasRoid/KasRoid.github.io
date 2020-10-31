@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+ Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+ Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
+<meta name="keywords" content="iOS, Swift, DatePicker" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://kasroid.github.io/posts/ios/uikit-date-picker/" />
+
+
+    <title>
+        
+            UIKit - Date Picker 사용하기, iOS 14 변경사항 정리 :: Developer Kas  — Part of My Brain
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+
+
+<meta itemprop="name" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리">
+<meta itemprop="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+ Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+ Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.">
+<meta itemprop="datePublished" content="2020-10-30T17:12:51+09:00" />
+<meta itemprop="dateModified" content="2020-10-30T17:12:51+09:00" />
+<meta itemprop="wordCount" content="845">
+<meta itemprop="image" content="https://kasroid.github.io"/>
+
+
+
+<meta itemprop="keywords" content="DatePicker," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kasroid.github.io"/>
+
+<meta name="twitter:title" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리"/>
+<meta name="twitter:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+ Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+ Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다."/>
+
+
+
+    <meta property="og:title" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리" />
+<meta property="og:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+ Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+ Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/uikit-date-picker/" />
+<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="article:published_time" content="2020-10-30T17:12:51+09:00" />
+<meta property="article:modified_time" content="2020-10-30T17:12:51+09:00" /><meta property="og:site_name" content="Developer Kas" />
+
+
+
+
+    <meta property="article:section" content="UIKit" />
+
+
+
+    <meta property="article:published_time" content="2020-10-30 17:12:51 &#43;0900 KST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/posts" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">Developer Kas</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kasroid.github.io/posts/ios/uikit-date-picker/">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</a>
+      </h1>
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#prerequisite">Prerequisite</a></li>
+    <li><a href="#basics">Basics</a>
+      <ul>
+        <li><a href="#datepicker-style">DatePicker Style</a></li>
+        <li><a href="#datepicker-mode">DatePicker Mode</a></li>
+        <li><a href="#locale">Locale</a></li>
+        <li><a href="#minuteinterval">minuteInterval</a></li>
+        <li><a href="#date">Date</a></li>
+        <li><a href="#setdate">setDate</a></li>
+        <li><a href="#minimumdate-maximumdate">minimumDate, maximumDate</a></li>
+        <li><a href="#calendar-timezone">Calendar, timeZone</a></li>
+      </ul>
+    </li>
+    <li><a href="#wrap-up">Wrap Up</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p>본 포스팅은 다음 버전을 기준으로 작성되었습니다.</p>
+<ul>
+<li>Swift 5.3</li>
+<li>iOS 14.1</li>
+</ul>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>이전 포스트에서 <code>Date</code> 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 <code>DatePicker</code> 에 대해 같이 공부해보겠습니다.</p>
+<p><strong>iOS 14 가 업데이트 되면서</strong> 기존까지와는 다른 스타일의 <code>DatePicker</code> 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ
+아무튼 공부하는 김에 이 새로운 스타일의 <code>DatePicker</code> 도 함께 알아보도록 할게요.</p>
+<hr>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>먼저 실습을 위해 간단하게 <strong>ViewController</strong> 위에 <code>DatePicker</code> 를 올려놓았습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> datePicker = UIDatePicker()
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        configureUI()
+    }
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setAttributes()
+        setContraints()
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+        datePicker.preferredDatePickerStyle = .automatic
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleDatePicker(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .valueChanged)
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+        view.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
+            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
+            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+    
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+    <span style="color:#66d9ef">@objc</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleDatePicker</span>(<span style="color:#66d9ef">_</span> sender: UIDatePicker) {
+        print(sender.date)
+    }
+}
+</code></pre></div><p>기본적인 <strong>레이아웃 및 Target 작업</strong>을 진행해 주었습니다.</p>
+<p><code>DatePicker</code> 는 <strong>Intrinsic Size</strong> 로 <strong>Height 값</strong>을 갖고 있으므로 따로 높이를 지정해 줄 필요가 없습니다.
+즉 넓이를 세팅해주고 <strong>Picker</strong> 가 올라갈 위치만 잡아주면 된다는거에요. 그리고 <code>DatePicker</code> 를 <strong>Target Action</strong> 으로 구현하고자 할 때는 <code>.valueChanged</code> 옵션을 써야한다는 것을 꼭 기억하세요.</p>
+<hr>
+<h2 id="basics">Basics</h2>
+<p>그럼 <code>DatePicker</code> 에서 사용할 수 있는 기본적인 method 에 관해 함께 공부해보겠습니다.</p>
+<h3 id="datepicker-style">DatePicker Style</h3>
+<p>iOS 14가 업데이트 되면서 <code>DatePicker</code> 에 새로운 스타일이 추가되었다고 했는데요. 먼저 어떤 스타일들이 있는지 함께 확인해보도록 하겠습니다.
+종류는 <strong>총 3가지</strong>가 존재하며 기본값은 <code>.automatic</code> 으로 되어있어 시스템이 현재 뷰에 가장 알맞은 스타일을 선택해 준다고해요. <del>자동으로하면 나는 항상 compact 만 되는 것 같던데??</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.preferredDatePickerStyle = .automatic
+</code></pre></div><p>일단은 <code>.automatic</code> 상태로 코드를 작성해 놓았습니다. 이제 이걸 하나씩 바꿔가며 어떻게 바뀌는지 살펴볼거에요.</p>
+<h4 id="compact">.compact</h4>
+<p>아무것도 설정하지 않으면 이게 기본값처럼 실행되는 것으로 봐서는 이게 <strong>Apple</strong> 에서 가장 추천하는 최신 스타일이 아닌가해요.
+다른 <strong>DatePicker 스타일</strong>에 비해서 정말 심플하기도 하고, 공간도 덜 차지한다는 장점이 있는 디자인입니다.
+시간이 적혀있는 <strong>label</strong> 을 사용자가 탭하여 원하는 값으로 수정할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766445-b2c18b80-1b59-11eb-9fcb-38d362673fdb.png" alt="compact 스타일"></p>
+<h4 id="inline">.inline</h4>
+<p>이건 <code>.compact</code> 스타일에서 탭하면 보이는 달력을 미리 펼쳐놓은 형태에요.
+그동안 <strong>Apple</strong> 에서 기본적으로 제공하는 캘린더가 없었다고 생각해보면, 이걸 어떻게 사용하느냐에 따라서 어느정도 간단한 기능의 캘린더는 대체할 수도 있지 않을까 생각이 드네요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766447-b48b4f00-1b59-11eb-8c6d-256b758f0eaa.png" alt="inline 스타일"></p>
+<h4 id="wheel">.wheel</h4>
+<p>익숙한 스타일이죠. 우리가 자주 썼었던 예전 스타일의 <code>DatePicker</code> 도 계속 사용할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766449-b5bc7c00-1b59-11eb-8b1e-d2daf9c76113.png" alt="wheel 스타일"></p>
+<p>이제 앱을 실행시켜서 원하는 날짜를 <code>DatePicker</code> 에서 골라보세요. <strong>Console</strong> 에 시간이 정상적으로 출력됩니다. 근데 혹시 한가지 이상한 점을 눈치채셨나요?</p>
+<p>콘솔에 출력되는 시간이 <strong>DatePicker</strong> 에서 고른 시각과 다르게 나오고 있어요. 이건 코드에 잘못된 부분이 있는게 아니라 기본적으로 표시되는 시간이 <strong>GMT Format</strong> 을 따르기 때문인데요.</p>
+<p>나중에 <code>NSDateFormatter</code> 를 사용해서 우리가 원하는 시간대로 출력되도록 바꿔줄 수 있습니다.
+<strong>DateFormatter</strong> 까지 알아보려면 포스트가 너무 길어지니 일단 지금은 그냥 넘어가고 다음에 더 자세히 알아보기로 해요 ㅎㅎ</p>
+<hr>
+<h3 id="datepicker-mode">DatePicker Mode</h3>
+<p><code>.preferredDatePickerStyle</code> 이 새롭게 제공되는 기능이라면, 이전부터 제공되던 <code>.datePickerMode</code> 라는 기능도 있습니다.</p>
+<p>모드로는 <strong>총 4가지</strong>의 옵션이 존재합니다.</p>
+<ul>
+<li>.dateAndTime</li>
+<li>.date</li>
+<li>.time</li>
+<li>.countDownTimer</li>
+</ul>
+<p>처음 3 가지는 이름만 봐도 비슷하다는게 느껴지나요? 날짜와 시간을 모두 고르게할지 날짜 혹은 시간만 선택할 수 있도록 할지 결정해주는 것입니다.
+<code>.countDownTimer</code> 만 조금 다른데요. 이건 method 이름처럼 사용자에게 타이머 기능을 제공하고자 할 때 사용할 수 있는 인터페이스 입니다.</p>
+<hr>
+<h3 id="locale">Locale</h3>
+<p><code>.locale</code> 은 <code>DatePicker</code> 에 사용하는 국가를 입력할 수 있습니다. 아무런 설정도 건드리지 않으면 아이폰 기본설정을 사용합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+</code></pre></div><p>한국으로 설정이 필요하다면 이렇게 코드를 입력하세요.</p>
+<hr>
+<h3 id="minuteinterval">minuteInterval</h3>
+<p><code>.minuteInterval</code> 은 사용자가 스크롤을 돌려 시간을 설정할 때 나타나는 분 단위 간격을 조절할 수 있습니다. 기본값은 1분으로 되어있고요. 최대 30분까지 입력이 가능합니다.
+이 설정을 사용할 때는 1시간은 60분이니까 60의 약수 내에서 입력하도록 하세요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.minuteInterval = <span style="color:#ae81ff">5</span>
+</code></pre></div><p>이렇게 설정하면 분 단위 설정이 5분 간격으로 가능합니다.</p>
+<hr>
+<h3 id="date">Date</h3>
+<p>최초에 선택되어 있는 날짜를 설정할 수가 있는 method 에요! 단 <strong>DatePicker</strong> 의 Mode 가 <code>.countDownTimer</code> 로 설정되어 있을 때는 작동하지 않습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.date = Date(timeIntervalSinceNow: <span style="color:#f92672">-</span><span style="color:#ae81ff">3600</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><p>이렇게 코드를 입력하면 <strong>DatePicker</strong> 가 현재 날짜를 기준으로 3일 전의 날짜로 선택되어 시작합니다.</p>
+<hr>
+<h3 id="setdate">setDate</h3>
+<p><code>.date</code> 의 역할을 포함하고, 추가로 애니메이션 작동 여부를 설정하는 역할을 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.setDate(Date(), animated: <span style="color:#66d9ef">true</span>)
+</code></pre></div><p>여러가지 실험을 해봤지만 어느 부분에서 애니메이션이 작동하는지 확인하기가 어렵더라고요&hellip; 나중에 혹시 알아내게 된다면 업데이트 하겠습니다.. 아무튼 이 애니메이션의 기본값은 <code>false</code> 라고 합니다.</p>
+<hr>
+<h3 id="minimumdate-maximumdate">minimumDate, maximumDate</h3>
+<p>사용자가 선택할 수 있는 날짜나 시간을 한정할 수 있게 도와주는 method 입니다.</p>
+<p><code>.wheel</code> 모드에서는 사용자가 우리가 지정해놓은 한계 이상으로 스크롤을 했을 경우 처음 기본값 상태로 되돌아오게 됩니다.
+그리고 새로나온 <code>.compact</code> 나 <code>.inline</code> 모드에서는 선택할 수 있는 날짜가 <strong>연한 회색으로 비활성화</strong>되는 방식으로 사용자에게 이 날짜는 선택할 수 없다는 것을 직관적으로 알 수 있게 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> components = DateComponents()
+components.day = <span style="color:#ae81ff">10</span>
+<span style="color:#66d9ef">let</span> maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+components.day = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>
+<span style="color:#66d9ef">let</span> minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+
+datePicker.maximumDate = maxDate
+datePicker.minimumDate = minDate
+</code></pre></div><p>위 코드를 입력하면 현재 날짜를 기준으로 앞뒤 10일까지만 선택이 가능해집니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97772023-24afca00-1b86-11eb-8638-fee75e87c416.png" alt="시뮬레이터 실행결과"></p>
+<p>현재 날짜를 기준으로 10일 이전의 날짜가 회색으로 표시되며 비활성화 된 것이 보이죠? ㅎㅎ</p>
+<hr>
+<h3 id="calendar-timezone">Calendar, timeZone</h3>
+<p><code>.calendar</code>, <code>.timeZone</code> 에 대한 설정은 스토리보드에서는 불가능하고 코드로만 설정이 가능한데요. 저는 코드파라 사실 불편함이 없더라고요 ㅎㅎㅎ 아무튼 이 설정에 대해서는 자세히 설명하지 않겠습니다.</p>
+<p><strong>Calendar</strong> 가 아직 익숙하지 않다면 <strong><a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">UIKit - Calendar 와 Date 기초 익히기</a></strong> 포스팅을 참고해주세요.</p>
+<hr>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>오늘은 <strong>iOS 14</strong> 에서 새롭게 리뉴얼된 <code>DatePicker</code> 에 대해 공부해보았는데요. 날짜를 다루는데 어느정도 익숙한 분이라면 크게 어렵게 느낄만한 부분은 없었던 것 같네요.
+이렇게 하나하나 파헤쳐보는게 바로 <strong>개발의 맛</strong> 아닐까요?</p>
+<p>다음 포스트에서는 오늘 이런 모드가 있다 얘기만 하고 넘어간 <code>DatePicker</code> 의 <code>.countDownTimer</code> 모드를 사용해 타이머를 만드는 방법에 대해 알아보도록 하겠습니다~!</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7" y2="7"></line>
+          </svg><span class="tag"><a href="https://kasroid.github.io/tags/datepicker/">DatePicker</a></span>
+        </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        845 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        2020-10-30 17:12 &#43;0900
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;caption=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f;description=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f&amp;title=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;summary=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f&amp;resubmit=true&amp;title=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f;title=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac%20https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f&amp;t=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=UIKit%20-%20Date%20Picker%20%ec%82%ac%ec%9a%a9%ed%95%98%ea%b8%b0%2c%20iOS%2014%20%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad%20%ec%a0%95%eb%a6%ac&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2fuikit-date-picker%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">
+                <span class="button__text">UIKit - Calendar 와 Date 기초 익히기</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

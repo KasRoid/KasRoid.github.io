@@ -10,6 +10,159 @@
         <atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</title>
+            <link>https://kasroid.github.io/posts/ios/uikit-date-picker/</link>
+            <pubDate>Fri, 30 Oct 2020 17:12:51 +0900</pubDate>
+            
+            <guid>https://kasroid.github.io/posts/ios/uikit-date-picker/</guid>
+            <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+ Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+ Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>본 포스팅은 다음 버전을 기준으로 작성되었습니다.</p>
+<ul>
+<li>Swift 5.3</li>
+<li>iOS 14.1</li>
+</ul>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>이전 포스트에서 <code>Date</code> 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 <code>DatePicker</code> 에 대해 같이 공부해보겠습니다.</p>
+<p><strong>iOS 14 가 업데이트 되면서</strong> 기존까지와는 다른 스타일의 <code>DatePicker</code> 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ
+아무튼 공부하는 김에 이 새로운 스타일의 <code>DatePicker</code> 도 함께 알아보도록 할게요.</p>
+<hr>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>먼저 실습을 위해 간단하게 <strong>ViewController</strong> 위에 <code>DatePicker</code> 를 올려놓았습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> datePicker = UIDatePicker()
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        configureUI()
+    }
+
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+        setAttributes()
+        setContraints()
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+        datePicker.preferredDatePickerStyle = .automatic
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleDatePicker(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .valueChanged)
+    }
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+        view.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
+            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
+            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+    
+    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+    <span style="color:#66d9ef">@objc</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleDatePicker</span>(<span style="color:#66d9ef">_</span> sender: UIDatePicker) {
+        print(sender.date)
+    }
+}
+</code></pre></div><p>기본적인 <strong>레이아웃 및 Target 작업</strong>을 진행해 주었습니다.</p>
+<p><code>DatePicker</code> 는 <strong>Intrinsic Size</strong> 로 <strong>Height 값</strong>을 갖고 있으므로 따로 높이를 지정해 줄 필요가 없습니다.
+즉 넓이를 세팅해주고 <strong>Picker</strong> 가 올라갈 위치만 잡아주면 된다는거에요. 그리고 <code>DatePicker</code> 를 <strong>Target Action</strong> 으로 구현하고자 할 때는 <code>.valueChanged</code> 옵션을 써야한다는 것을 꼭 기억하세요.</p>
+<hr>
+<h2 id="basics">Basics</h2>
+<p>그럼 <code>DatePicker</code> 에서 사용할 수 있는 기본적인 method 에 관해 함께 공부해보겠습니다.</p>
+<h3 id="datepicker-style">DatePicker Style</h3>
+<p>iOS 14가 업데이트 되면서 <code>DatePicker</code> 에 새로운 스타일이 추가되었다고 했는데요. 먼저 어떤 스타일들이 있는지 함께 확인해보도록 하겠습니다.
+종류는 <strong>총 3가지</strong>가 존재하며 기본값은 <code>.automatic</code> 으로 되어있어 시스템이 현재 뷰에 가장 알맞은 스타일을 선택해 준다고해요. <del>자동으로하면 나는 항상 compact 만 되는 것 같던데??</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.preferredDatePickerStyle = .automatic
+</code></pre></div><p>일단은 <code>.automatic</code> 상태로 코드를 작성해 놓았습니다. 이제 이걸 하나씩 바꿔가며 어떻게 바뀌는지 살펴볼거에요.</p>
+<h4 id="compact">.compact</h4>
+<p>아무것도 설정하지 않으면 이게 기본값처럼 실행되는 것으로 봐서는 이게 <strong>Apple</strong> 에서 가장 추천하는 최신 스타일이 아닌가해요.
+다른 <strong>DatePicker 스타일</strong>에 비해서 정말 심플하기도 하고, 공간도 덜 차지한다는 장점이 있는 디자인입니다.
+시간이 적혀있는 <strong>label</strong> 을 사용자가 탭하여 원하는 값으로 수정할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766445-b2c18b80-1b59-11eb-9fcb-38d362673fdb.png" alt="compact 스타일"></p>
+<h4 id="inline">.inline</h4>
+<p>이건 <code>.compact</code> 스타일에서 탭하면 보이는 달력을 미리 펼쳐놓은 형태에요.
+그동안 <strong>Apple</strong> 에서 기본적으로 제공하는 캘린더가 없었다고 생각해보면, 이걸 어떻게 사용하느냐에 따라서 어느정도 간단한 기능의 캘린더는 대체할 수도 있지 않을까 생각이 드네요.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766447-b48b4f00-1b59-11eb-8c6d-256b758f0eaa.png" alt="inline 스타일"></p>
+<h4 id="wheel">.wheel</h4>
+<p>익숙한 스타일이죠. 우리가 자주 썼었던 예전 스타일의 <code>DatePicker</code> 도 계속 사용할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97766449-b5bc7c00-1b59-11eb-8b1e-d2daf9c76113.png" alt="wheel 스타일"></p>
+<p>이제 앱을 실행시켜서 원하는 날짜를 <code>DatePicker</code> 에서 골라보세요. <strong>Console</strong> 에 시간이 정상적으로 출력됩니다. 근데 혹시 한가지 이상한 점을 눈치채셨나요?</p>
+<p>콘솔에 출력되는 시간이 <strong>DatePicker</strong> 에서 고른 시각과 다르게 나오고 있어요. 이건 코드에 잘못된 부분이 있는게 아니라 기본적으로 표시되는 시간이 <strong>GMT Format</strong> 을 따르기 때문인데요.</p>
+<p>나중에 <code>NSDateFormatter</code> 를 사용해서 우리가 원하는 시간대로 출력되도록 바꿔줄 수 있습니다.
+<strong>DateFormatter</strong> 까지 알아보려면 포스트가 너무 길어지니 일단 지금은 그냥 넘어가고 다음에 더 자세히 알아보기로 해요 ㅎㅎ</p>
+<hr>
+<h3 id="datepicker-mode">DatePicker Mode</h3>
+<p><code>.preferredDatePickerStyle</code> 이 새롭게 제공되는 기능이라면, 이전부터 제공되던 <code>.datePickerMode</code> 라는 기능도 있습니다.</p>
+<p>모드로는 <strong>총 4가지</strong>의 옵션이 존재합니다.</p>
+<ul>
+<li>.dateAndTime</li>
+<li>.date</li>
+<li>.time</li>
+<li>.countDownTimer</li>
+</ul>
+<p>처음 3 가지는 이름만 봐도 비슷하다는게 느껴지나요? 날짜와 시간을 모두 고르게할지 날짜 혹은 시간만 선택할 수 있도록 할지 결정해주는 것입니다.
+<code>.countDownTimer</code> 만 조금 다른데요. 이건 method 이름처럼 사용자에게 타이머 기능을 제공하고자 할 때 사용할 수 있는 인터페이스 입니다.</p>
+<hr>
+<h3 id="locale">Locale</h3>
+<p><code>.locale</code> 은 <code>DatePicker</code> 에 사용하는 국가를 입력할 수 있습니다. 아무런 설정도 건드리지 않으면 아이폰 기본설정을 사용합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+</code></pre></div><p>한국으로 설정이 필요하다면 이렇게 코드를 입력하세요.</p>
+<hr>
+<h3 id="minuteinterval">minuteInterval</h3>
+<p><code>.minuteInterval</code> 은 사용자가 스크롤을 돌려 시간을 설정할 때 나타나는 분 단위 간격을 조절할 수 있습니다. 기본값은 1분으로 되어있고요. 최대 30분까지 입력이 가능합니다.
+이 설정을 사용할 때는 1시간은 60분이니까 60의 약수 내에서 입력하도록 하세요.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.minuteInterval = <span style="color:#ae81ff">5</span>
+</code></pre></div><p>이렇게 설정하면 분 단위 설정이 5분 간격으로 가능합니다.</p>
+<hr>
+<h3 id="date">Date</h3>
+<p>최초에 선택되어 있는 날짜를 설정할 수가 있는 method 에요! 단 <strong>DatePicker</strong> 의 Mode 가 <code>.countDownTimer</code> 로 설정되어 있을 때는 작동하지 않습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.date = Date(timeIntervalSinceNow: <span style="color:#f92672">-</span><span style="color:#ae81ff">3600</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><p>이렇게 코드를 입력하면 <strong>DatePicker</strong> 가 현재 날짜를 기준으로 3일 전의 날짜로 선택되어 시작합니다.</p>
+<hr>
+<h3 id="setdate">setDate</h3>
+<p><code>.date</code> 의 역할을 포함하고, 추가로 애니메이션 작동 여부를 설정하는 역할을 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.setDate(Date(), animated: <span style="color:#66d9ef">true</span>)
+</code></pre></div><p>여러가지 실험을 해봤지만 어느 부분에서 애니메이션이 작동하는지 확인하기가 어렵더라고요&hellip; 나중에 혹시 알아내게 된다면 업데이트 하겠습니다.. 아무튼 이 애니메이션의 기본값은 <code>false</code> 라고 합니다.</p>
+<hr>
+<h3 id="minimumdate-maximumdate">minimumDate, maximumDate</h3>
+<p>사용자가 선택할 수 있는 날짜나 시간을 한정할 수 있게 도와주는 method 입니다.</p>
+<p><code>.wheel</code> 모드에서는 사용자가 우리가 지정해놓은 한계 이상으로 스크롤을 했을 경우 처음 기본값 상태로 되돌아오게 됩니다.
+그리고 새로나온 <code>.compact</code> 나 <code>.inline</code> 모드에서는 선택할 수 있는 날짜가 <strong>연한 회색으로 비활성화</strong>되는 방식으로 사용자에게 이 날짜는 선택할 수 없다는 것을 직관적으로 알 수 있게 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> components = DateComponents()
+components.day = <span style="color:#ae81ff">10</span>
+<span style="color:#66d9ef">let</span> maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+components.day = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>
+<span style="color:#66d9ef">let</span> minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+
+datePicker.maximumDate = maxDate
+datePicker.minimumDate = minDate
+</code></pre></div><p>위 코드를 입력하면 현재 날짜를 기준으로 앞뒤 10일까지만 선택이 가능해집니다.</p>
+<p><img src="https://user-images.githubusercontent.com/41736472/97772023-24afca00-1b86-11eb-8638-fee75e87c416.png" alt="시뮬레이터 실행결과"></p>
+<p>현재 날짜를 기준으로 10일 이전의 날짜가 회색으로 표시되며 비활성화 된 것이 보이죠? ㅎㅎ</p>
+<hr>
+<h3 id="calendar-timezone">Calendar, timeZone</h3>
+<p><code>.calendar</code>, <code>.timeZone</code> 에 대한 설정은 스토리보드에서는 불가능하고 코드로만 설정이 가능한데요. 저는 코드파라 사실 불편함이 없더라고요 ㅎㅎㅎ 아무튼 이 설정에 대해서는 자세히 설명하지 않겠습니다.</p>
+<p><strong>Calendar</strong> 가 아직 익숙하지 않다면 <strong><a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">UIKit - Calendar 와 Date 기초 익히기</a></strong> 포스팅을 참고해주세요.</p>
+<hr>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>오늘은 <strong>iOS 14</strong> 에서 새롭게 리뉴얼된 <code>DatePicker</code> 에 대해 공부해보았는데요. 날짜를 다루는데 어느정도 익숙한 분이라면 크게 어렵게 느낄만한 부분은 없었던 것 같네요.
+이렇게 하나하나 파헤쳐보는게 바로 <strong>개발의 맛</strong> 아닐까요?</p>
+<p>다음 포스트에서는 오늘 이런 모드가 있다 얘기만 하고 넘어간 <code>DatePicker</code> 의 <code>.countDownTimer</code> 모드를 사용해 타이머를 만드는 방법에 대해 알아보도록 하겠습니다~!</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>UIKit - Calendar 와 Date 기초 익히기</title>
             <link>https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/</link>
             <pubDate>Mon, 26 Oct 2020 22:57:17 +0900</pubDate>
