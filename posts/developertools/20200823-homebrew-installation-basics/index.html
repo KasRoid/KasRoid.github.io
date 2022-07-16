@@ -7,7 +7,7 @@
 <meta name="author" content="">
 <meta name="description" content="오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
 Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다." />
-<meta name="keywords" content="iOS, Swift, Homebrew" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Homebrew" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/" />
@@ -15,36 +15,36 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 
     <title>
         
-            Homebrew - 설치 및 기본 사용법 익히기 :: Developer Kas  — Part of My Brain
+            Homebrew - 설치 및 기본 사용법 익히기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Homebrew - 설치 및 기본 사용법 익히기">
 <meta itemprop="description" content="오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
-Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.">
-<meta itemprop="datePublished" content="2020-08-23T16:48:19+09:00" />
+Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다."><meta itemprop="datePublished" content="2020-08-23T16:48:19+09:00" />
 <meta itemprop="dateModified" content="2020-08-23T16:48:19+09:00" />
-<meta itemprop="wordCount" content="759">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="759"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Homebrew," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -58,10 +58,10 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 <meta property="og:description" content="오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
 Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-08-23T16:48:19+09:00" />
-<meta property="article:modified_time" content="2020-08-23T16:48:19+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-08-23T16:48:19+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -79,9 +79,27 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -89,7 +107,7 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -103,7 +121,7 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -114,13 +132,6 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -146,6 +157,10 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/">Homebrew - 설치 및 기본 사용법 익히기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -194,39 +209,39 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 <p>먼저 Homebrew <a href="https://brew.sh">공식 홈페이지</a> 에 접속합니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/90974084-e2a15100-e562-11ea-900d-d8b0ae41297d.png" alt="Homebrew Official Website"></p>
 <p>이렇게 생긴 홈페이지가 보이면 <strong>Install Homebrew</strong> 라고 적힌 부분의 아래 명령어를 <strong>Terminal</strong> 에서 실행합니다.</p>
-<pre><code class="language-Console" data-lang="Console">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
-</code></pre><p>만약 Terminal 에 자물쇠 모양이 나타나며 비밀번호를 요구할 경우 비밀번호를 입력해주세요. 우리가 평소 웹사이트에서 비빌번호를 입력할 때처럼 실시간으로 비밀번호가 입력되는 상황이 Terminal 에서는 보이지 않지만 실제로는 비밀번호가 입력되고 있는 상황이니 전부 입력하고 리턴키를 누르면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&#34;
+</span></span></code></pre></div><p>만약 Terminal 에 자물쇠 모양이 나타나며 비밀번호를 요구할 경우 비밀번호를 입력해주세요. 우리가 평소 웹사이트에서 비빌번호를 입력할 때처럼 실시간으로 비밀번호가 입력되는 상황이 Terminal 에서는 보이지 않지만 실제로는 비밀번호가 입력되고 있는 상황이니 전부 입력하고 리턴키를 누르면 됩니다.</p>
 <hr>
 <h2 id="homebrew-사용법-익히기">Homebrew 사용법 익히기</h2>
 <p>Homebrew 설치를 정상적으로 마쳤다면 이제 Terminal 에서 <code>brew</code> 명령어를 사용할 수 있게 됩니다. 그럼 Terminal 에 <code>brew</code> 라고 한번 입력해볼게요.</p>
-<p><img src="https://user-images.githubusercontent.com/41736472/91327134-1b118b00-e800-11ea-8620-0f5c9194a8ee.png" alt="Typed &lsquo;brew&rsquo; in Terminal"></p>
+<p><img src="https://user-images.githubusercontent.com/41736472/91327134-1b118b00-e800-11ea-8620-0f5c9194a8ee.png" alt="Typed &amp;lsquo;brew&amp;rsquo; in Terminal"></p>
 <p>여러가지 명령어들이 많이 뜨네요 ㅎㅎ 생소한 명령어다보니 처음에는 조금 어렵게 느껴지더라도 그때그때 필요할 때 한번씩 찾아 쓰다보면 명령어들이 전부 쉬운편이라 금방 외워서 사용하게 되니 일부러 외울 필요는 없습니다. <del>우리는 영어 한마디 제대로 못하던 시절에도 수 많은 스타크래프트 치트키를 외워서 사용했었습니다 ㅎㅎ</del></p>
 <hr>
 <h3 id="프로그램-검색하기">프로그램 검색하기</h3>
 <p><strong>Homebrew</strong> 로 프로그램을 설치하기 위해서는 먼저 우리가 원하는 프로그램의 명칭을 정확하게 알아야 합니다. 프로그램 이름이 단어 하나로 구성된 경우에는 대부분 그 자체로 프로그램명이 되지만 이름에 띄어쓰기가 있는 경우 표기 방법이 조금 다를 수 있으니 먼저 검색을 한번 해보는 것이 좋습니다. 그럼 이번에는 예제로 구글 크롬을 검색해보도록 할게요.</p>
-<pre><code class="language-Console" data-lang="Console">brew search google chrome
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/91327195-2fee1e80-e800-11ea-87af-edeea42c8994.png" alt="Searched Google Chrome via Homebrew"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>brew search google chrome
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/91327195-2fee1e80-e800-11ea-87af-edeea42c8994.png" alt="Searched Google Chrome via Homebrew"></p>
 <p>검색 결과가 총 4개가 있네요. 딱 봐도 첫번째 결과가 우리가 찾는 구글 크롬인 것 같아요. 꽤 정확한 결과값이므로 이 단어로 바로 설치를 진행해도 되지만 정말 혹시 모르는 경우를 대비해서 이게 정확한 곳에서 다운로드 받는 것인지 확인해 볼 수 있습니다.</p>
-<pre><code class="language-Console" data-lang="Console">brew cask home google-chrome
-</code></pre><p><code>cask</code> 는 상용 프로그램이라는 뜻으로 일반 홈페이지에서 직접 다운로드 받는 프로그램을 의미합니다. 구글 크롬은 App Store 다운받거나 Terminal 에서 Tool 의 형태로 제공되는 것이 아닌 일반 브라우저에서 다운로드 받아 사용하는 상용 프로그램이니까 <code>cask</code> 에 속합니다. 그리고 <code>home</code> 은 다운받을 수 있는 홈페이지를 뜻합니다. 즉 구글 크롬을 다운받을 수 있는 홈페이지를 열라는 뜻이에요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>brew cask home google-chrome
+</span></span></code></pre></div><p><code>cask</code> 는 상용 프로그램이라는 뜻으로 일반 홈페이지에서 직접 다운로드 받는 프로그램을 의미합니다. 구글 크롬은 App Store 다운받거나 Terminal 에서 Tool 의 형태로 제공되는 것이 아닌 일반 브라우저에서 다운로드 받아 사용하는 상용 프로그램이니까 <code>cask</code> 에 속합니다. 그리고 <code>home</code> 은 다운받을 수 있는 홈페이지를 뜻합니다. 즉 구글 크롬을 다운받을 수 있는 홈페이지를 열라는 뜻이에요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91327244-409e9480-e800-11ea-8669-846d77935901.png" alt="Google Chrome Download Page"></p>
 <p>우리가 딱 원하는 페이지가 떳어요!! 그럼 이제 <code>google-chrome</code> 을 사용해 설치해볼게요.</p>
 <hr>
 <h3 id="프로그램-설치하기">프로그램 설치하기</h3>
 <p>설치방법은 매우 간단합니다.</p>
-<pre><code class="language-Console" data-lang="Console">brew cask install google-chrome
-</code></pre><p>잠깐 기다려주고나면 짜잔!! 설치가 모두 끝났고 이제 정상적으로 프로그램을 사용할 수 있게되었습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>brew cask install google-chrome
+</span></span></code></pre></div><p>잠깐 기다려주고나면 짜잔!! 설치가 모두 끝났고 이제 정상적으로 프로그램을 사용할 수 있게되었습니다.</p>
 <hr>
 <h3 id="설치된-프로그램-확인하기">설치된 프로그램 확인하기</h3>
 <p>우리가 설치한 프로그램의 목록도 brew 를 통해 간단히 나열하고 확인할 수가 있습니다. 다음 커맨드를 입력해 보세요.</p>
-<pre><code class="language-Console" data-lang="Console">brew cask list
-</code></pre><p>내 컴퓨터에 설치되어 있는 일반 프로그램의 리스트를 달라는 뜻이에요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>brew cask list
+</span></span></code></pre></div><p>내 컴퓨터에 설치되어 있는 일반 프로그램의 리스트를 달라는 뜻이에요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91327307-4dbb8380-e800-11ea-9fa4-23be49d76475.png" alt="Installed Program List"></p>
 <p>방금 설치한 구글 크롬이 목록에 표시된다면 정상적으로 설치가 되었다는 뜻입니다. 저는 모든 프로그램들을 Homebrew 로 관리하고 있어서 이렇게 많이 뜬답니다 ㅎㅎㅎ</p>
 <h3 id="프로그램-삭제하기">프로그램 삭제하기</h3>
 <p>설치하는 방법을 알았으니 삭제는 당연히 세트메뉴로 배워야겠죠?</p>
-<pre><code class="language-Console" data-lang="Console">brew uninstall google-chrome
-</code></pre><p>네 끝입니다. 이렇게 <strong>Homebrew</strong> 가 프로그램 관리자 역할을 하며 우리 컴퓨터에 설치되어 있거나 설치할 모든 프로그램을 관리해주기 때문에 우리는 쓸데없는 시간낭비를 줄이고 다른 것들에 더 집중할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Console" data-lang="Console"><span style="display:flex;"><span>brew uninstall google-chrome
+</span></span></code></pre></div><p>네 끝입니다. 이렇게 <strong>Homebrew</strong> 가 프로그램 관리자 역할을 하며 우리 컴퓨터에 설치되어 있거나 설치할 모든 프로그램을 관리해주기 때문에 우리는 쓸데없는 시간낭비를 줄이고 다른 것들에 더 집중할 수 있습니다.</p>
 <p>다음 포스팅에서는 <strong>Homebrew</strong> 를 통해 내가 사용하는 프로그램들을 한번에 업데이트하는 방법과 내 컴퓨터에 깔려있는 모든 프로그램(Homebrew 를 통해 설치한)들의 리스트를 텍스트 파일형태로 저장하고 그 파일을 사용해 모든 프로그램을 한번에 설치할 수 있는 방법을 알아보겠습니다.</p>
 <p>Terminal 을 통해 프로그램을 설치하고 관리하는 것이 처음에는 익숙하지 않아 조금은 거부감이 들고 부담스러울 수 있지만 그냥 쓰다보면 정말 어려운거 없고 훨씬 편하다는 사실을 알게될거에요. 그럼 여러분들도 <strong>Homebrew</strong> 꼭 사용하길 바라겠습니다!</p>
 
@@ -236,12 +251,22 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/homebrew/">Homebrew</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/homebrew/">Homebrew</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/developer-tools/">Developer Tools</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -261,7 +286,13 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-08-23 16:48 &#43;0900
+        
+          2020-08-23 16:48 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -359,27 +390,30 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Vim - Vundle 및 Markdown Plugin 설치하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Vim - Vundle 및 Markdown Plugin 설치하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -389,22 +423,8 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -414,22 +434,7 @@ Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

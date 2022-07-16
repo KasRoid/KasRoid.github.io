@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
- Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
 import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: ." />
-<meta name="keywords" content="iOS, Swift, DatePicker" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, DatePicker" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/" />
@@ -17,59 +17,59 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 
     <title>
         
-            UIKit - Date Picker 를 이용해 Timer 구현하기 :: Developer Kas  — Part of My Brain
+            UIKit - Date Picker 를 이용해 Timer 구현하기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="UIKit - Date Picker 를 이용해 Timer 구현하기">
 <meta itemprop="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
- Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
-import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: .">
-<meta itemprop="datePublished" content="2020-11-07T10:42:13+09:00" />
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: ."><meta itemprop="datePublished" content="2020-11-07T10:42:13+09:00" />
 <meta itemprop="dateModified" content="2020-11-07T10:42:13+09:00" />
-<meta itemprop="wordCount" content="615">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="619"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="DatePicker," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="UIKit - Date Picker 를 이용해 Timer 구현하기"/>
 <meta name="twitter:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
- Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
 import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: ."/>
 
 
 
     <meta property="og:title" content="UIKit - Date Picker 를 이용해 Timer 구현하기" />
 <meta property="og:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
- Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
 import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-11-07T10:42:13+09:00" />
-<meta property="article:modified_time" content="2020-11-07T10:42:13+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-11-07T10:42:13+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -87,9 +87,27 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -97,7 +115,7 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -111,7 +129,7 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -122,13 +140,6 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -154,6 +165,10 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/">UIKit - Date Picker 를 이용해 Timer 구현하기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -191,76 +206,76 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 <h2 id="prerequisite">Prerequisite</h2>
 <p>타이머 구현 및 실습을 위해 <code>DatePicker</code> 를 배치하고, 상단에는 <strong>타이머의 남은 시간을 표시</strong>할 <code>UILabel</code> 을,
 하단에는 사용자가 설정한 시간을 기준으로 <strong>타이머 구동을 시작</strong>할 <code>UIButton</code> 을 배치했습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CountDownViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">let</span> label = UILabel()
-    <span style="color:#66d9ef">let</span> picker = UIDatePicker()
-    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-    
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        setAttributes()
-        setContraints()
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        label.text = <span style="color:#e6db74">&#34;0&#34;</span>
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">30</span>)
-        
-        picker.datePickerMode = .countDownTimer
-        
-        button.setTitle(<span style="color:#e6db74">&#34;Start&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [label, picker, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.bottomAnchor.constraint(equalTo: picker.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>),
-            
-            picker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            picker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
-            picker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
-            
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.topAnchor.constraint(equalTo: picker.bottomAnchor, constant: <span style="color:#ae81ff">150</span>)
-        ])
-    }
-    
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        print(picker.countDownDuration)
-        print(<span style="color:#66d9ef">#function</span>)
-    }
-}
-</code></pre></div><p>이제 <strong>Simulator</strong> 를 실행하고 버튼을 눌러보면 <strong>Console</strong> 에 사용자가 선택한 시간이 출력되는 것을 확인할 수 있어요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CountDownViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> label = UILabel()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> picker = UIDatePicker()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        label.textColor = .black
+</span></span><span style="display:flex;"><span>        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        picker.datePickerMode = .countDownTimer
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Start&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [label, picker, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            label.bottomAnchor.constraint(equalTo: picker.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            picker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+</span></span><span style="display:flex;"><span>            picker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            picker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            button.topAnchor.constraint(equalTo: picker.bottomAnchor, constant: <span style="color:#ae81ff">150</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        print(picker.countDownDuration)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#66d9ef">#function</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이제 <strong>Simulator</strong> 를 실행하고 버튼을 눌러보면 <strong>Console</strong> 에 사용자가 선택한 시간이 출력되는 것을 확인할 수 있어요.</p>
 <hr>
 <h2 id="analyzing-methods">Analyzing Methods</h2>
 <p>이제 <code>DatePicker</code> 의 설정을 실습에 맞게 바꿔주고, <strong>Timer</strong> 기능을 수행할 코드를 작성해보도록 할게요.</p>
 <h3 id="countdown-duration-조절하기">CountDown Duration 조절하기</h3>
 <p>이 옵션은 <code>datePicker</code> 가 <code>.countdownTimer</code> 로 설정되어 있을 때만 사용할 수 있고, <strong>최초에 설정되어 있는 값</strong>을 조절할 수 있습니다.
 <strong>초 단위</strong> 설정이 가능하기는 하지만 화면에 표시될 때는 <strong>분 단위</strong>로 표시되기 때문에 <strong>60의 배수</strong>로 설정해주세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">picker.countDownDuration = <span style="color:#ae81ff">600</span>
-</code></pre></div><p>앱을 실행하자마자 기본 시간이 10분으로 설정되어 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>picker.countDownDuration = <span style="color:#ae81ff">600</span>
+</span></span></code></pre></div><p>앱을 실행하자마자 기본 시간이 10분으로 설정되어 있습니다.</p>
 <hr>
 <h3 id="minute-선택-간격-조절하기">Minute 선택 간격 조절하기</h3>
 <p>사용자가 <code>datePicker</code> 를 스크롤하며 선택할 수 있는 옵션을 제어합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">picker.minuteInterval = <span style="color:#ae81ff">5</span>
-</code></pre></div><p>이 옵션을 적용하고 실행해보면 타이머가 <strong>5분 간격으로 선택</strong>되는 것을 확인할 수 있을거에요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>picker.minuteInterval = <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>이 옵션을 적용하고 실행해보면 타이머가 <strong>5분 간격으로 선택</strong>되는 것을 확인할 수 있을거에요.</p>
 <hr>
 <h3 id="timer-기능-구현하기">Timer 기능 구현하기</h3>
 <p><code>DatePicker</code> 자체는 타이머 기능을 수행할 수 있는 어떤 옵션도 없습니다. 단지 인터페이스의 역할만 수행할 뿐이에요.</p>
@@ -268,117 +283,127 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 버튼이 눌렸을 때 사용자가 설정한 시간을 입력받아 해당 값을 기준으로 타이머 기능을 만들어주도록 하겠습니다.</p>
 <p>먼저 타이머가 <strong>0초가 되었을 때</strong> 알람을 실행하도록 만들어볼게요.
 <code>AudioServicesPlaySystemSound</code> 를 사용해 기본 사운드를 재생하고 이 method 를 사용하기 위해 <code>AVFoundation</code> 을 <strong>import</strong> 합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AVFoundation</span>
-</code></pre></div><p>사용자가 설정한 값을 <strong>입력받을 변수</strong>가 하나 필요합니다. <strong>ViewController</strong> 상단에 변수를 하나 생성하도록 할게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> duration: Int = <span style="color:#ae81ff">0</span>
-</code></pre></div><p>이제 버튼과 연결해 놓은 함수에 타이머와 관련된 코드를 작성하겠습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">@objc</span>
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-    duration = Int(picker.countDownDuration)
-    label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
-    
-    Timer.scheduledTimer( withTimeInterval: <span style="color:#ae81ff">1</span>, repeats: <span style="color:#66d9ef">true</span>) {
-        (timer) <span style="color:#66d9ef">in</span>
-        <span style="color:#66d9ef">self</span>.duration <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
-        <span style="color:#66d9ef">self</span>.label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">self</span>.duration == <span style="color:#ae81ff">0</span> {
-            timer.invalidate()
-            AudioServicesPlaySystemSound(<span style="color:#ae81ff">1315</span>)
-        }
-    }
-}
-</code></pre></div><p><code>Timer</code> 는 반드시 직접 종료해주어야 하는 것을 잊지마세요. 해제는 <code>.invalidate</code> method 를 사용해 구현할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AVFoundation</span>
+</span></span></code></pre></div><p>사용자가 설정한 값을 <strong>입력받을 변수</strong>가 하나 필요합니다. <strong>ViewController</strong> 상단에 변수를 하나 생성하도록 할게요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> duration: Int = <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>이제 버튼과 연결해 놓은 함수에 타이머와 관련된 코드를 작성하겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>    duration = Int(picker.countDownDuration)
+</span></span><span style="display:flex;"><span>    label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Timer.scheduledTimer( withTimeInterval: <span style="color:#ae81ff">1</span>, repeats: <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        (timer) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.duration <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">self</span>.duration == <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>            timer.invalidate()
+</span></span><span style="display:flex;"><span>            AudioServicesPlaySystemSound(<span style="color:#ae81ff">1315</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>Timer</code> 는 반드시 직접 종료해주어야 하는 것을 잊지마세요. 해제는 <code>.invalidate</code> method 를 사용해 구현할 수 있습니다.</p>
 <hr>
 <h2 id="wrap-up">Wrap Up</h2>
 <p>이렇게 <code>DatePicker</code> 를 <code>.countDownTimer</code> 모드로 사용할 수 있는 방법과, <code>Timer</code> 인스턴스와 연계해 실제로 타이머 기능을 구현할 수 있는 방법에 대해 공부해보았습니다.
 이제 <code>DatePicker</code> 의 주요 기능들에 대해 충분히 공부했으니 필요한 프로젝트에 적용해 보세요!</p>
 <hr>
 <h2 id="entire-code">Entire Code</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AVFoundation</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CountDownViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">let</span> label = UILabel()
-    <span style="color:#66d9ef">let</span> picker = UIDatePicker()
-    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
-    <span style="color:#66d9ef">var</span> duration: Int = <span style="color:#ae81ff">0</span>
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-    
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        setAttributes()
-        setContraints()
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        label.text = <span style="color:#e6db74">&#34;0&#34;</span>
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">30</span>)
-        
-        picker.datePickerMode = .countDownTimer
-        picker.countDownDuration = <span style="color:#ae81ff">60</span>
-        picker.minuteInterval = <span style="color:#ae81ff">1</span>
-        
-        button.setTitle(<span style="color:#e6db74">&#34;Start&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [label, picker, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.bottomAnchor.constraint(equalTo: picker.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>),
-            
-            picker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            picker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
-            picker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
-            
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.topAnchor.constraint(equalTo: picker.bottomAnchor, constant: <span style="color:#ae81ff">150</span>)
-        ])
-    }
-    
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        duration = Int(picker.countDownDuration)
-        label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
-        
-        Timer.scheduledTimer( withTimeInterval: <span style="color:#ae81ff">1</span>, repeats: <span style="color:#66d9ef">true</span>) {
-            (timer) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">self</span>.duration <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
-            <span style="color:#66d9ef">self</span>.label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
-            
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">self</span>.duration == <span style="color:#ae81ff">0</span> {
-                timer.invalidate()
-                AudioServicesPlaySystemSound(<span style="color:#ae81ff">1315</span>)
-            }
-        }
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AVFoundation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CountDownViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> label = UILabel()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> picker = UIDatePicker()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> duration: Int = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        label.textColor = .black
+</span></span><span style="display:flex;"><span>        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        picker.datePickerMode = .countDownTimer
+</span></span><span style="display:flex;"><span>        picker.countDownDuration = <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>        picker.minuteInterval = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Start&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [label, picker, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            label.bottomAnchor.constraint(equalTo: picker.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            picker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+</span></span><span style="display:flex;"><span>            picker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            picker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            button.topAnchor.constraint(equalTo: picker.bottomAnchor, constant: <span style="color:#ae81ff">150</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        duration = Int(picker.countDownDuration)
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Timer.scheduledTimer( withTimeInterval: <span style="color:#ae81ff">1</span>, repeats: <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>            (timer) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">self</span>.duration <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">self</span>.label.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.duration<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">self</span>.duration == <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>                timer.invalidate()
+</span></span><span style="display:flex;"><span>                AudioServicesPlaySystemSound(<span style="color:#ae81ff">1315</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
       </div>
     </article>
 
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/datepicker/">DatePicker</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/datepicker/">DatePicker</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/uikit/">UIKit</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -388,7 +413,7 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        615 Words
+        619 Words
       </p>
 
       <p>
@@ -398,7 +423,13 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-11-07 10:42 &#43;0900
+        
+          2020-11-07 10:42 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -496,27 +527,30 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/">
-                <span class="button__text">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/">
+                    <span class="button__text">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -526,22 +560,8 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -551,22 +571,7 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

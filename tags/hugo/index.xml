@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Developer Kas</title>
+    <title>Hugo on SDY</title>
     <link>https://kasroid.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on Developer Kas</description>
+    <description>Recent content in Hugo on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -15,7 +15,7 @@
       
       <guid>https://kasroid.github.io/posts/developertools/20200906-hugo-register-in-naver-search-advisor/</guid>
       <description>Intro 이번 포스팅은 블로그 검색 등록하기 시리즈 2회분 Naver Search Advisor 입니다. 전체적인 흐름은 Google 에 등록할 때와 비슷하니까 이전 포스팅에서 넘어온 분들은 진행이 조금 더 수월할 것 같아요. 그럼 바로 시작할게요.
- Naver Search Advisor Naver Search Advisor 에 접속합니다. 다음과 같은 화면이 보이네요.
+Naver Search Advisor Naver Search Advisor 에 접속합니다. 다음과 같은 화면이 보이네요.
 스크롤을 조금 아래로 내려 웹마스터 도구 사용하기 버튼을 눌러주세요.
 이용동의 화면은 언제나처럼 읽지 않고 동의버튼을 눌러주고요 ㅋㅋㅋ 이거 읽는 분 손?
 다음 화면에서는 내 블로그 주소를 입력하고 검색창 가장 우측에(x 표시 옆) 다음으로 넘어가기 같지 않은 버튼을 눌러주세요.</description>

@@ -8,7 +8,7 @@
 <meta name="description" content="Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip;
 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
 그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요." />
-<meta name="keywords" content="iOS, Swift, Terminal" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Terminal" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/" />
@@ -16,37 +16,37 @@
 
     <title>
         
-            Terminal - 기본적인 사용법 알아보기 :: Developer Kas  — Part of My Brain
+            Terminal - 기본적인 사용법 알아보기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Terminal - 기본적인 사용법 알아보기">
 <meta itemprop="description" content="Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&hellip;
 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
-그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요.">
-<meta itemprop="datePublished" content="2020-09-07T11:49:00+09:00" />
+그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요."><meta itemprop="datePublished" content="2020-09-07T11:49:00+09:00" />
 <meta itemprop="dateModified" content="2020-09-07T11:49:00+09:00" />
-<meta itemprop="wordCount" content="623">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="623"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Terminal," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -62,10 +62,10 @@
 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
 그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-07T11:49:00+09:00" />
-<meta property="article:modified_time" content="2020-09-07T11:49:00+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-09-07T11:49:00+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -83,9 +83,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -93,7 +111,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -107,7 +125,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -118,13 +136,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -150,6 +161,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/">Terminal - 기본적인 사용법 알아보기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -199,50 +214,50 @@
 <p>그동안 복잡해만 보였던 커맨드들도 결국 다 이 3 가지 종류 중에 하나일 뿐입니다. 그러니까 너무 어렵게 생각할 필요가 없어요~</p>
 <h3 id="syntax-of-commands">Syntax of Commands</h3>
 <p>그리고 이런 커맨드들은 다음과 같은 규칙을 따릅니다.</p>
-<pre><code class="language-console" data-lang="console">Command (-option) (something)
-</code></pre><p>조금 전 읽었던 3 가지 종류의 커맨드를 모두 이런 형태로 사용할 수가 있습니다. 단 <strong>option</strong> 과 <strong>something</strong> 모두 입력해야 할 경우에는 순서가 중요하고, 그렇지 않은 경우 커맨드에 따라 <code>-option</code> 이나 <code>something</code> 을 생략할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Command (-option) (something)
+</span></span></code></pre></div><p>조금 전 읽었던 3 가지 종류의 커맨드를 모두 이런 형태로 사용할 수가 있습니다. 단 <strong>option</strong> 과 <strong>something</strong> 모두 입력해야 할 경우에는 순서가 중요하고, 그렇지 않은 경우 커맨드에 따라 <code>-option</code> 이나 <code>something</code> 을 생략할 수 있습니다.</p>
 <hr>
 <h2 id="기본적인-커맨드-알아보기">기본적인 커맨드 알아보기</h2>
 <h3 id="whoami">whoami</h3>
 <p><strong>Terminal</strong> 을 실행하고 제일 먼저 우리가 사용하는 컴퓨터의 사용자가 누군지 알아볼게요. <code>whoami</code> 를 입력하면 현재 컴퓨터의 사용자를 확인할 수 있습니다.</p>
-<pre><code class="language-console" data-lang="console">$ whoami
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92347092-d17f4500-f109-11ea-84c2-668b516ca612.png" alt="whoami 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ whoami
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92347092-d17f4500-f109-11ea-84c2-668b516ca612.png" alt="whoami 결과"></p>
 <p>사용자명이 잘 뜨네요 ㅎㅎ <code>whoami</code> 커맨드는 다른 옵션이나 추가정보가 없어도 혼자서 작동할 수 있는 커맨드라는 것을 알 수 있어요.</p>
 <h3 id="pwd">pwd</h3>
 <p>다음으로는 우리의 현재 위치한 폴더의 경로를 알아보겠습니다. <code>pwd</code> 를 입력해보세요.</p>
-<pre><code class="language-console" data-lang="console">$ pwd
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92347721-efe64000-f10b-11ea-8149-e490b7325a8d.png" alt="pwd 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ pwd
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92347721-efe64000-f10b-11ea-8149-e490b7325a8d.png" alt="pwd 결과"></p>
 <p>현재 저는 <code>/Users/kas</code> 라는 위치에 있어요. 그래도 나름 <strong>Terminal</strong> 을 몇 개월간 사용해왔는데 이 명령어는 잘 쓰지 않게 되더라고요. 굳이 이 명령어가 없어도 <strong>iTerm2</strong> 에서 status bar 설정을 통해 내 위치가 계속 표시되게 할 수 있어서 그런가봐요.</p>
 <h3 id="ls">ls</h3>
 <p>그리고 마지막으로 <code>ls</code> 커맨드 사용해 현재 내가 위치한 곳에 있는 파일 및 폴더 등을 확인할 수 있습니다.</p>
-<pre><code class="language-console" data-lang="console">$ ls
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92347971-8c104700-f10c-11ea-8f76-5837da00a8d9.png" alt="ls 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ ls
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92347971-8c104700-f10c-11ea-8f76-5837da00a8d9.png" alt="ls 결과"></p>
 <p>하지만 이 방식으로는 <strong>숨겨진 폴더 및 파일</strong>을 확인할 수 없는데요. 이 때 사용할 수 있는 명령어로는 <code>ls -a</code> 가 있습니다. <code>-a</code> 처럼 <code>-</code> 가 붙는 경우는 커맨드에 일종의 옵션을 부여했다라고 생각하면 됩니다. 여기서는  All Files 를 의미하는 a 옵션을 주었기 때문에 숨김파일도 볼 수 있다라고 생각하면 좋을 것 같아요.</p>
-<pre><code class="language-console" data-lang="console">$ ls -a
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92348213-5e77cd80-f10d-11ea-986c-2971722fb5f9.png" alt="ls -a 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ ls -a
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92348213-5e77cd80-f10d-11ea-986c-2971722fb5f9.png" alt="ls -a 결과"></p>
 <p>이전보다 훨씬 뭐가 많아졌죠?? 일반적인 사용자들이 함부로 건들면 시스템이 꼬일 수도 있는 파일들이라 이렇게 숨겨져있는거에요. 우리 눈에만 보이지 않았을 뿐 사실 보이는 것 보다 더 많은 파일들이 숨어있답니다.</p>
 <h3 id="date">date</h3>
 <p>이제 오늘 날짜를 확인해 볼게요. <code>date</code> 라고 입력해보세요.</p>
-<pre><code class="language-console" data-lang="console">$ date
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92348414-042b3c80-f10e-11ea-9661-3e855c8dc565.png" alt="date 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ date
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92348414-042b3c80-f10e-11ea-9661-3e855c8dc565.png" alt="date 결과"></p>
 <p>간단하면서도 유용한 명령어에요 ㅎㅎ</p>
 <h3 id="cal">cal</h3>
 <p><strong>캘린더</strong>를 <strong>확인</strong>하는 방법도 있습니다. <code>cal</code> 커맨드를 입력해보세요. 현재 날짜가 속한 달의 캘린더를 확인할 수 있습니다.</p>
-<pre><code class="language-console" data-lang="console">$ cal
-</code></pre><p>이번 달이 아니라 원하는 특정 월의 캘린더를 확인하고 싶다면 <code>cal</code> 커맨드에 이어 월, 연도 순으로 입력하면 됩니다. 처음으로 옵션이 아닌 다른 값을 커맨드와 함께 입력했어요. 이게 우리가 위해서 보았었던 <code>something</code> 입니다.</p>
-<pre><code class="language-console" data-lang="console">$ cal 09 2020
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92349902-5e2e0100-f112-11ea-813d-ae3cfba1d5e8.png" alt="cal month"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ cal
+</span></span></code></pre></div><p>이번 달이 아니라 원하는 특정 월의 캘린더를 확인하고 싶다면 <code>cal</code> 커맨드에 이어 월, 연도 순으로 입력하면 됩니다. 처음으로 옵션이 아닌 다른 값을 커맨드와 함께 입력했어요. 이게 우리가 위해서 보았었던 <code>something</code> 입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ cal <span style="color:#ae81ff">09</span> <span style="color:#ae81ff">2020</span>
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92349902-5e2e0100-f112-11ea-813d-ae3cfba1d5e8.png" alt="cal month"></p>
 <p><strong>연도만 입력</strong>하면 해당 년에 속하는 12개월치 캘린더가 출력됩니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/92349905-5f5f2e00-f112-11ea-8f22-26dd7c1200a1.png" alt="cal year"></p>
 <h3 id="echo">echo</h3>
 <p>우리가 프로그래밍을 배울 때 보통 <strong>&ldquo;Hello World&rdquo;</strong> 를 어떻게 출력하는지 부터 배우잖아요? <strong>Terminal</strong> 에서도 <strong>&ldquo;hello&rdquo;</strong> 를 한번 출력해볼게요.</p>
-<pre><code class="language-console" data-lang="console">$ echo &quot;hello&quot;
-</code></pre><p><img src="https://user-images.githubusercontent.com/41736472/92348497-3d63ac80-f10e-11ea-933e-03a441eefa05.png" alt="echo 결과"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span></code></pre></div><p><img src="https://user-images.githubusercontent.com/41736472/92348497-3d63ac80-f10e-11ea-933e-03a441eefa05.png" alt="echo 결과"></p>
 <p><code>echo</code> 는 일단 대부분의 프로그래밍 언어에서 사용하는 <code>print</code> 에 대응하는 커맨드라고 생각하면 좋을 것 같아요.</p>
 <h3 id="say">say</h3>
 <p>거의 사용할 일은 없지만 <code>say</code> 라는 커맨드도 있어요. 커맨드 뒤에 입력되는 글을 소리내서 읽어줍니다.</p>
-<pre><code class="language-console" data-lang="console">$ say &quot;hello there&quot;
-</code></pre><p>여러분 사용하는 컴퓨터의 목소리를 들어본 적이 있었나요? ㅋㅋㅋ Siri 말고 또 다른 친구가 있었어요. <del>이중인격?</del></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ say <span style="color:#e6db74">&#34;hello there&#34;</span>
+</span></span></code></pre></div><p>여러분 사용하는 컴퓨터의 목소리를 들어본 적이 있었나요? ㅋㅋㅋ Siri 말고 또 다른 친구가 있었어요. <del>이중인격?</del></p>
 <p>이렇게 <strong>Terminal</strong> 에서 커맨드를 사용하는데 있어 알아두면 유용하게 사용할 수 있을만한 내용들을 공부해보았습니다. 마지막으로 배운 내용들을 한눈에 살펴볼 수 있도록 정리하고 포스팅 마칠게요. 오늘도 읽느라 수고 많으셨습니다!</p>
 <hr>
 <h2 id="wrap-up">Wrap Up</h2>
@@ -295,12 +310,22 @@
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/terminal/">Terminal</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/terminal/">Terminal</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/developer-tools/">Developer Tools</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -320,7 +345,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-07 11:49 &#43;0900
+        
+          2020-09-07 11:49 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -418,34 +449,37 @@
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Terminal - Mac 의 파일권한 시스템 이해하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Terminal - Mac 의 파일권한 시스템 이해하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/">
-                <span class="button__text">Vim - 코드블럭에 Swift Syntax 적용하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/">
+                    <span class="button__text">Vim - 코드블럭에 Swift Syntax 적용하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -455,22 +489,8 @@
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -480,22 +500,7 @@
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

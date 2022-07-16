@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요." />
-<meta name="keywords" content="iOS, Swift, Vim, Plugin" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Vim, Plugin" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/" />
@@ -14,35 +14,35 @@
 
     <title>
         
-            Vim Plugin - Vim Airline :: Developer Kas  — Part of My Brain
+            Vim Plugin - Vim Airline :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Vim Plugin - Vim Airline">
-<meta itemprop="description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.">
-<meta itemprop="datePublished" content="2020-09-02T22:07:46+09:00" />
+<meta itemprop="description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요."><meta itemprop="datePublished" content="2020-09-02T22:07:46+09:00" />
 <meta itemprop="dateModified" content="2020-09-02T22:07:46+09:00" />
-<meta itemprop="wordCount" content="291">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="291"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Vim,Plugin," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -54,10 +54,10 @@
     <meta property="og:title" content="Vim Plugin - Vim Airline" />
 <meta property="og:description" content="또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-02T22:07:46+09:00" />
-<meta property="article:modified_time" content="2020-09-02T22:07:46+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-09-02T22:07:46+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -75,9 +75,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -85,7 +103,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -99,7 +117,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -110,13 +128,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -142,6 +153,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/">Vim Plugin - Vim Airline</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -166,11 +181,11 @@
 <h3 id="vim-airline-설치하기">Vim-Airline 설치하기</h3>
 <p>먼저 <a href="https://github.com/vim-airline/vim-airline">Vim-Airline Github</a> 에 들어가 README 파일을 읽어보고 <strong>Vundle</strong> 로 Plugin 을 설치하도록 하겠습니다. Vundle 을 사용한 설치법은 <a href="https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/">Vim: Vundle 및 Markdown Plugin 설치하기</a> 포스팅을 참고해주세요.</p>
 <p>첫번째 Plugin 은 Airline 그 자체를 설치하는 것이고, 두번째 Plugin 은 이것의 테마들을 설치하는거에요. 나중에 테마가 바꾸고 싶을 수 있으니 오늘 둘 다 설치를 해놓긴 하겠지만 테마를 바꾸는 방법은 다음에 알아보도록 하겠습니다.</p>
-<pre><code class="language-console" data-lang="console">Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-</code></pre><p>설치가 끝났다면 <code>.vimrc</code> 파일 아래쪽에 다음 코드도 읿력해주세요. 기본적으로 위쪽 Tab Bar 기능은 비활성화 상태이기 때문에 이것을 활성화 해주는 코드입니다. 혹시 나는 아래쪽 Status Bar 만 사용하는게 더 깔끔하고 좋다하면 이 코드는 그냥 스킵해주세요.</p>
-<pre><code class="language-console" data-lang="console">let g:airline#extensions#tabline#enabled = 1
-</code></pre><p>이제 <strong>Vim</strong> 을 실행해서 어떻게 바뀌었을지 확인해보도록 하겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Plugin &#39;vim-airline/vim-airline&#39;
+</span></span><span style="display:flex;"><span>Plugin &#39;vim-airline/vim-airline-themes&#39;
+</span></span></code></pre></div><p>설치가 끝났다면 <code>.vimrc</code> 파일 아래쪽에 다음 코드도 읿력해주세요. 기본적으로 위쪽 Tab Bar 기능은 비활성화 상태이기 때문에 이것을 활성화 해주는 코드입니다. 혹시 나는 아래쪽 Status Bar 만 사용하는게 더 깔끔하고 좋다하면 이 코드는 그냥 스킵해주세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>let g:airline#extensions#tabline#enabled = 1
+</span></span></code></pre></div><p>이제 <strong>Vim</strong> 을 실행해서 어떻게 바뀌었을지 확인해보도록 하겠습니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91990383-9f1dc280-ed6c-11ea-9c4e-fbc90578a5ae.png" alt="Vim 실행화면"></p>
 <p>오!! 뭔가 확실히 화면이 더 풍성해졌어요. Vim 의 현재 모드와 Git, 파일명 등등 많은 정보를 아랫쪽 Status Bar 에서 확인할 수가 있네요. 그리고 윗쪽에도 Tab Bar 가 추가된 모습을 볼 수 있죠? 이제 이전에 우리가 함께 설치했던 <strong>NERDTree</strong> 를 사용해 새로운 파일을 하나 열어보겠습니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91990390-a0e78600-ed6c-11ea-8920-099a40289b65.png" alt="Airline TabBar"></p>
@@ -183,12 +198,23 @@ Plugin 'vim-airline/vim-airline-themes'
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span><span class="tag"><a href="https://kasroid.github.io/tags/plugin/">Plugin</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/plugin/">Plugin</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/developer-tools/">Developer Tools</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -208,7 +234,13 @@ Plugin 'vim-airline/vim-airline-themes'
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-02 22:07 &#43;0900
+        
+          2020-09-02 22:07 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -306,34 +338,37 @@ Plugin 'vim-airline/vim-airline-themes'
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Hugo - 블로그 Google Search Console 에 등록하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200903-hugo-register-in-google-search-console/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Hugo - 블로그 Google Search Console 에 등록하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/">
-                <span class="button__text">Vim Plugin - NERDTree</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/">
+                    <span class="button__text">Vim Plugin - NERDTree</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -343,22 +378,8 @@ Plugin 'vim-airline/vim-airline-themes'
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -368,22 +389,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

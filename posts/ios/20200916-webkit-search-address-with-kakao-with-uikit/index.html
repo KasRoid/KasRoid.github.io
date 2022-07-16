@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요." />
-<meta name="keywords" content="iOS, Swift, UIKit, WebKit, Kakao" />
+Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요." />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, UIKit, WebKit, Kakao" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/" />
@@ -16,56 +16,56 @@
 
     <title>
         
-            WebKit - 카카오 우편번호 서비스 구현하기 with UIKit :: Developer Kas  — Part of My Brain
+            WebKit - 카카오 우편번호 서비스 구현하기 with UIKit :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="WebKit - 카카오 우편번호 서비스 구현하기 with UIKit">
 <meta itemprop="description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.">
-<meta itemprop="datePublished" content="2020-09-16T19:04:53+09:00" />
+Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요."><meta itemprop="datePublished" content="2020-09-16T19:04:53+09:00" />
 <meta itemprop="dateModified" content="2020-09-16T19:04:53+09:00" />
-<meta itemprop="wordCount" content="1678">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="1685"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="UIKit,WebKit,Kakao," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="WebKit - 카카오 우편번호 서비스 구현하기 with UIKit"/>
 <meta name="twitter:description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요."/>
+Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요."/>
 
 
 
     <meta property="og:title" content="WebKit - 카카오 우편번호 서비스 구현하기 with UIKit" />
 <meta property="og:description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요." />
+Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-16T19:04:53+09:00" />
-<meta property="article:modified_time" content="2020-09-16T19:04:53+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-09-16T19:04:53+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -85,9 +85,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -95,7 +113,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -109,7 +127,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -120,13 +138,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -152,6 +163,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/">WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -209,78 +224,78 @@
 <p><img src="https://user-images.githubusercontent.com/41736472/93221486-cc289700-f7a8-11ea-8e79-6f7b53f52fdd.png" alt="index.html 입력 장면"></p>
 <p>이제 웹페이지 구현에 필요한 <strong>html</strong>  코드를 입력하면 됩니다. 포스팅 초반에 보았던 <strong>공식 카카오 우편번호 서비스 웹페이지</strong>를 보면 <strong>통합로딩방식</strong> 항목을 찾을 수 있고 이걸 갖다 붙여넣으면 바로 구현이 되긴하지만 <strong>POP-UP</strong> 방식으로 구현된다는 문제점이 있습니다.</p>
 <p>그래서 주소를 입력했을 때 팝업 방식이 아닌 페이지가 바로 보일 수 있도록 구현된 코드가 필요합니다. <code>index.html</code> 본문에 아래 코드를 입력하고 저장해주세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
-
-&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ko&#34;</span>&gt;
-  &lt;<span style="color:#f92672">head</span>&gt;
-    &lt;<span style="color:#f92672">title</span>&gt;주소 찾기&lt;/<span style="color:#f92672">title</span>&gt;
-    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,height=device-height,initial-scale=1.0&#34;</span>/&gt;
-  &lt;/<span style="color:#f92672">head</span>&gt;
-  &lt;<span style="color:#f92672">body</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;execDaumPostcode()&#34;</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;layer&#34;</span> <span style="color:#a6e22e">style </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; &#34;</span>&gt;
-  &lt;/<span style="color:#f92672">div</span>&gt;
-  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-  &lt;<span style="color:#f92672">script</span>&gt;
-    window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;message&#34;</span>, <span style="color:#a6e22e">onReceivedPostMessage</span>, <span style="color:#66d9ef">false</span>);
-
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onReceivedPostMessage</span>(<span style="color:#a6e22e">event</span>){
-      <span style="color:#75715e">//..ex deconstruct event into action &amp; params
-</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">action</span>;
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">params</span>;
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;onReceivedPostMessage &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">event</span>);
-    }
-
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onReceivedActivityMessageViaJavascriptInterface</span>(<span style="color:#a6e22e">json</span>){
-      <span style="color:#75715e">//..ex deconstruct data into action &amp; params
-</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">json</span>);
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">action</span>;
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">params</span>;
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;onReceivedActivityMessageViaJavascriptInterface &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">event</span>);
-    }
-
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">postMessageToiOS</span>(<span style="color:#a6e22e">postData</span>) {
-        window.<span style="color:#a6e22e">webkit</span>.<span style="color:#a6e22e">messageHandlers</span>.<span style="color:#a6e22e">callBackHandler</span>.<span style="color:#a6e22e">postMessage</span>(<span style="color:#a6e22e">postData</span>);
-    }
-
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">element_layer</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;layer&#39;</span>);
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">execDaumPostcode</span>() {
-      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">daum</span>.<span style="color:#a6e22e">Postcode</span>({
-        <span style="color:#a6e22e">oncomplete</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>) {
-          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-
-          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) {
-            <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">autoJibunAddress</span>
-          } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">autoJibunAddress</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) {
-            <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">jibunAddress</span>
-          }
-
-          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">postData</span> <span style="color:#f92672">=</span> {
-              <span style="color:#a6e22e">roadAddress</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">roadAddress</span>,
-              <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">jibunAddress</span>,
-              <span style="color:#a6e22e">zonecode</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">zonecode</span>
-          };
-          window.<span style="color:#a6e22e">postMessageToiOS</span>(<span style="color:#a6e22e">postData</span>);
-        },
-        <span style="color:#a6e22e">width</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>,
-        <span style="color:#a6e22e">height</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>
-      }).<span style="color:#a6e22e">embed</span>(<span style="color:#a6e22e">element_layer</span>);
-      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;block&#39;</span>;
-      <span style="color:#a6e22e">initLayerPosition</span>();
-    }
-
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initLayerPosition</span>(){
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> (window.<span style="color:#a6e22e">innerWidth</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span>);
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> (window.<span style="color:#a6e22e">innerHeight</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span>);
-      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
-      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">height</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
-      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> (((window.<span style="color:#a6e22e">innerWidth</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">width</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
-      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">=</span> (((window.<span style="color:#a6e22e">innerHeight</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
-    }
-  &lt;/<span style="color:#f92672">script</span>&gt;
-  &lt;/<span style="color:#f92672">body</span>&gt;
-&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>적용되는데 시간이 조금 필요하기 때문에 잠시 기다리고나서 <strong>Github Pages</strong> 주소로 들어가보면 우리가 구현하고자 했던 <strong>카카오 우편번호 서비스</strong> 화면이 보일거에요!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ko&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;주소 찾기&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,height=device-height,initial-scale=1.0&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;execDaumPostcode()&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;layer&#34;</span> <span style="color:#a6e22e">style </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; &#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;message&#34;</span>, <span style="color:#a6e22e">onReceivedPostMessage</span>, <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onReceivedPostMessage</span>(<span style="color:#a6e22e">event</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//..ex deconstruct event into action &amp; params
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">action</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">params</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;onReceivedPostMessage &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">event</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onReceivedActivityMessageViaJavascriptInterface</span>(<span style="color:#a6e22e">json</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//..ex deconstruct data into action &amp; params
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">json</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">action</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">params</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;onReceivedActivityMessageViaJavascriptInterface &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">event</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">postMessageToiOS</span>(<span style="color:#a6e22e">postData</span>) {
+</span></span><span style="display:flex;"><span>        window.<span style="color:#a6e22e">webkit</span>.<span style="color:#a6e22e">messageHandlers</span>.<span style="color:#a6e22e">callBackHandler</span>.<span style="color:#a6e22e">postMessage</span>(<span style="color:#a6e22e">postData</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">element_layer</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;layer&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">execDaumPostcode</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">daum</span>.<span style="color:#a6e22e">Postcode</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">oncomplete</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">autoJibunAddress</span>
+</span></span><span style="display:flex;"><span>          } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">autoJibunAddress</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">jibunAddress</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">postData</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">roadAddress</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">roadAddress</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">jibunAddress</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">jibunAddress</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">zonecode</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">zonecode</span>
+</span></span><span style="display:flex;"><span>          };
+</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">postMessageToiOS</span>(<span style="color:#a6e22e">postData</span>);
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">height</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100%&#39;</span>
+</span></span><span style="display:flex;"><span>      }).<span style="color:#a6e22e">embed</span>(<span style="color:#a6e22e">element_layer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;block&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">initLayerPosition</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initLayerPosition</span>(){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> (window.<span style="color:#a6e22e">innerWidth</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> (window.<span style="color:#a6e22e">innerHeight</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">height</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> (((window.<span style="color:#a6e22e">innerWidth</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">width</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element_layer</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">=</span> (((window.<span style="color:#a6e22e">innerHeight</span> <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>적용되는데 시간이 조금 필요하기 때문에 잠시 기다리고나서 <strong>Github Pages</strong> 주소로 들어가보면 우리가 구현하고자 했던 <strong>카카오 우편번호 서비스</strong> 화면이 보일거에요!</p>
 <p>혹시 계속 기다려봐도 안된다면 <strong>Repo</strong> 의 이름을 한번 변경해주세요. 분명히 잘못된 부분이 없는데 계속 페이지 오류가 뜨길래 <strong>Repo</strong> 이름을 바꿔보니까 이후부터 웹페이지가 정상적으로 뜨기 시작했습니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93221498-d054b480-f7a8-11ea-87d9-7be75386d1cc.png" alt="우편번호 서비스 Github Pages"></p>
 <p>잘 나오나요~? ㅎㅎ 이제 <strong>Xcode</strong> 에서 <strong>WebKit</strong> 을 이용해 이 페이지를 띄워주면 됩니다.</p>
@@ -290,70 +305,70 @@
 <hr>
 <h4 id="setup-view">Setup View</h4>
 <p><strong>View</strong> 위에 <strong>Button</strong> 과 <strong>Label</strong> 을 하나씩 올려놓았어요. <strong>Button</strong> 을 누르면 <strong>카카오 우편번호 서비스</strong> 창이 뜨고, 이곳에서 주소를 입력받은 뒤 <strong>Label</strong> 에 표시될 수 있도록 <strong>데이터를 전달</strong>해 볼거에요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
-    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
-    <span style="color:#66d9ef">let</span> label = UILabel()
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        setContraints()
-        setAttributes()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        button.setTitle(<span style="color:#e6db74">&#34;Button&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-	button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-
-        label.text = <span style="color:#e6db74">&#34;Label&#34;</span>
-        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">20</span>)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [button, label].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">40</span>),
-        ])
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        print(<span style="color:#66d9ef">#function</span>)
-    }
-}
-</code></pre></div><p>코드를 작성하고 <strong>Simulator</strong> 를 실행해보면 이렇게 보입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton(type: .system)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> label = UILabel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Button&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>	button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;Label&#34;</span>
+</span></span><span style="display:flex;"><span>        label.font = UIFont.systemFont(ofSize: <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [button, label].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+</span></span><span style="display:flex;"><span>            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">40</span>),
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        print(<span style="color:#66d9ef">#function</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>코드를 작성하고 <strong>Simulator</strong> 를 실행해보면 이렇게 보입니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93291970-688d8080-f81f-11ea-9c6e-d3596e8e3fa0.png" alt="Simulator 실행화면"></p>
 <hr>
 <h4 id="카카오-우편번호-서비스-구현하기">카카오 우편번호 서비스 구현하기</h4>
 <p>기본적인 뷰 세팅은 마쳤으니 본격적으로 <strong>우편번호 서비스</strong> 구현을 위한 코드를 작성해보도록 할게요. 서비스가 보여질 새로운 <code>UIViewController</code> 를 하나 생성해줍니다. 저는 <code>KakaoZipCodeVC</code> 라고 만들었어요~</p>
 <p>이제 이곳에 조금 전 <strong>Github Pages</strong> 를 사용해 미리 만들어둔 페이지를 <strong>WebView</strong> 를 사용해서 띄워줄거에요. 그러니까 <strong>WebView</strong> 를 사용하기 위해 <code>WebKit</code> 을 <strong>import</strong> 해주도록 할게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WebKit</span>
-</code></pre></div><p>그리고 <code>WKWebView</code> 인스턴스를 optional 로 미리 하나 생성하고, <strong>webView</strong> 가 로딩될 동안 보여줄 <code>UIActivityIndicatorView</code> 도 인스턴스를 생성하겠습니다. 나중에 사용자가 선택한 주소를 저장할 변수도 하나 생성할게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> webView: WKWebView?
-<span style="color:#66d9ef">let</span> indicator = UIActivityIndicatorView(style: .medium)
-<span style="color:#66d9ef">var</span> address = <span style="color:#e6db74">&#34;&#34;</span>
-</code></pre></div><p>인스턴스 생성까지 마쳤고 <strong>Java Script</strong> 를 읽을 수 있게 도와주는 <code>WKUserContentController</code> 를 생성해야합니다. 처음보는 클래스니까 <strong>공식문서</strong>를 먼저 한번 볼까요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WebKit</span>
+</span></span></code></pre></div><p>그리고 <code>WKWebView</code> 인스턴스를 optional 로 미리 하나 생성하고, <strong>webView</strong> 가 로딩될 동안 보여줄 <code>UIActivityIndicatorView</code> 도 인스턴스를 생성하겠습니다. 나중에 사용자가 선택한 주소를 저장할 변수도 하나 생성할게요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> webView: WKWebView?
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> indicator = UIActivityIndicatorView(style: .medium)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> address = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span></code></pre></div><p>인스턴스 생성까지 마쳤고 <strong>Java Script</strong> 를 읽을 수 있게 도와주는 <code>WKUserContentController</code> 를 생성해야합니다. 처음보는 클래스니까 <strong>공식문서</strong>를 먼저 한번 볼까요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93293054-07b37780-f822-11ea-9d54-7d1b898ac528.png" alt="WKUserContentController 공식문서"></p>
 <p>특별한 내용은 없고 <strong>Java Script</strong> 가 메세지를 Post 할 수 있게 도와준다고 나와있네요. 우리가 <strong>Github Pages</strong> 에 작성한 <strong>html</strong> 이 <strong>Java Script</strong> 를 불러오는 내용이니까 이걸 쓰는게 맞을 것 같아요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> contentController = WKUserContentController()
-</code></pre></div><p>인스턴스를 생성해줬으니 이제 <strong>Java Script</strong> 가 보내는 메세지를 읽을 수 있어야 합니다. 여기서 메세지란 사용자가 선택한 정보가 무엇인지 우리가 받는 것을 뜻하겠죠?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> contentController = WKUserContentController()
+</span></span></code></pre></div><p>인스턴스를 생성해줬으니 이제 <strong>Java Script</strong> 가 보내는 메세지를 읽을 수 있어야 합니다. 여기서 메세지란 사용자가 선택한 정보가 무엇인지 우리가 받는 것을 뜻하겠죠?</p>
 <p>아무튼 이 메세지를 받으려면 <code>WKUserContentController</code> 가 제공하는 <code>add(_:name:)</code> method 를 사용해야 하는데요.</p>
 <p>이 method 를 사용하기 위해서는 <code>WKScriptMessageHandler</code> 프로토콜을 채택해주어야 합니다. 그리고 이 프로토콜을 채택하면 <strong>필수적으로</strong> 구현해야하는 <code>userContentController(_:didReceive:)</code> method 도 구현하도록 할게요.</p>
 <p>프로토콜을 채택하기 전에 <code>add(_:name:)</code> method 의 공식문서를 잠시 살펴봤는데&hellip;</p>
@@ -362,184 +377,197 @@
 <hr>
 <h4 id="wkscriptmessagehandler-프로토콜-채택">WKScriptMessageHandler 프로토콜 채택</h4>
 <p><code>WKScriptMessageHandler</code> 를 채택하고 필수함수를 구현했습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKScriptMessageHandler {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userContentController</span>(<span style="color:#66d9ef">_</span> userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-
-    }
-}
-</code></pre></div><p>직접 실험을 해보니 이 함수가 <strong>호출되는 타이밍</strong>은 유저가 주소를 검색하고 어떤 값을 <strong>최종적으로 선택했을 때</strong> 호출되게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKScriptMessageHandler {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userContentController</span>(<span style="color:#66d9ef">_</span> userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>직접 실험을 해보니 이 함수가 <strong>호출되는 타이밍</strong>은 유저가 주소를 검색하고 어떤 값을 <strong>최종적으로 선택했을 때</strong> 호출되게 됩니다.</p>
 <p>프로토콜을 채택했으니 <code>add(_:name:)</code> method 를 사용할 수 있게 되었어요. 다시 <code>contentController</code> 를 인스턴스화 한곳으로 돌아가 코드를 입력해주세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">contentController.add(<span style="color:#66d9ef">self</span>, name: <span style="color:#e6db74">&#34;callBackHandler&#34;</span>)
-</code></pre></div><p>이제 초반에 optional 로 생성해두었던 <code>WKWebView</code> 를 인스턴스화 해주어야하는데요. 그 전에 먼저 방금 생성한 <code>contentController</code> 를 <code>WKWebView</code> 와 연결할 수 있도록 도와주는 <code>WKWebViewConfiguration</code> 이 필요합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> configuration = WKWebViewConfiguration()
-configuration.userContentController = contentController
-</code></pre></div><p><code>webView</code> 를 인스턴스화 해줍니다. 레이아웃은 아래에서 오토레이아웃으로 잡을거니까 <code>.zero</code> 로 세팅하고 방금 만들어둔 <code>configuration</code> 을 연결합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">webView = WKWebView(frame: .zero, configuration: configuration)
-</code></pre></div><p><code>webView</code> 가 로드될 때 <strong>indicator</strong> 를 보여줄 수 있도록 <code>WKNavigationDelegate</code> 프로토콜을 채택하고 코드를 구현해보겠습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKNavigationDelegate {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        indicator.startAnimating()
-    }
-
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didFinish navigation: WKNavigation!) {
-        indicator.stopAnimating()
-    }
-}
-</code></pre></div><p>함수의 <strong>Parameter</strong> 이름만 봐도 알 수 있듯이</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>contentController.add(<span style="color:#66d9ef">self</span>, name: <span style="color:#e6db74">&#34;callBackHandler&#34;</span>)
+</span></span></code></pre></div><p>이제 초반에 optional 로 생성해두었던 <code>WKWebView</code> 를 인스턴스화 해주어야하는데요. 그 전에 먼저 방금 생성한 <code>contentController</code> 를 <code>WKWebView</code> 와 연결할 수 있도록 도와주는 <code>WKWebViewConfiguration</code> 이 필요합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> configuration = WKWebViewConfiguration()
+</span></span><span style="display:flex;"><span>configuration.userContentController = contentController
+</span></span></code></pre></div><p><code>webView</code> 를 인스턴스화 해줍니다. 레이아웃은 아래에서 오토레이아웃으로 잡을거니까 <code>.zero</code> 로 세팅하고 방금 만들어둔 <code>configuration</code> 을 연결합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>webView = WKWebView(frame: .zero, configuration: configuration)
+</span></span></code></pre></div><p><code>webView</code> 가 로드될 때 <strong>indicator</strong> 를 보여줄 수 있도록 <code>WKNavigationDelegate</code> 프로토콜을 채택하고 코드를 구현해보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKNavigationDelegate {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+</span></span><span style="display:flex;"><span>        indicator.startAnimating()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didFinish navigation: WKNavigation!) {
+</span></span><span style="display:flex;"><span>        indicator.stopAnimating()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>함수의 <strong>Parameter</strong> 이름만 봐도 알 수 있듯이</p>
 <ul>
 <li><code>webView(_:didStartProvisionalNavigation:)</code> 는 <code>webView</code> 의 <strong>로드가 시작될 때</strong></li>
 <li><code>webView(_:didFinish:)</code> 는 <code>webView</code> 의 <strong>로드가 끝날 때</strong></li>
 </ul>
 <p>각각 호출되게 됩니다. 그러니까 <strong>indicator</strong> 는 각각의 함수에 시작과 끝을 세팅하면 되겠죠?</p>
 <p><strong>Delegate</strong> 위임도 잊지말고 해주세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">webView?.navigationDelegate = <span style="color:#66d9ef">self</span>
-</code></pre></div><p>이제 <code>webView</code> 가 우편번호 서비스 웹페이지를 띄울 수 있도록 <strong>URL</strong> 만 전달해주면 됩니다. <strong>guard</strong> 문을 사용해 optional 을 unwrapping 해주고 <code>URLRequest</code> 를 생성해 <code>webView</code> 가 해당 <strong>URL 을 load</strong> 할 수 있도록 넘겨줍니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#e6db74">&#34;https://kasroid.github.io/Kakao-Postcode/&#34;</span>),
-    <span style="color:#66d9ef">let</span> webView = webView
-    <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-<span style="color:#66d9ef">let</span> request = URLRequest(url: url)
-webView.load(request)
-indicator.startAnimating()
-</code></pre></div><p>마지막으로 오토레이아웃을 잡고 <strong>Simulator</strong> 를 실행시켜 보도록할게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> webView = webView <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-view.addSubview(webView)
-webView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-
-webView.addSubview(indicator)
-indicator.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-
-NSLayoutConstraint.activate([
-    webView.topAnchor.constraint(equalTo: view.topAnchor),
-    webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-    webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-    webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-    indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
-    indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor),
-])
-</code></pre></div><p>한가지 더!! <code>ViewController</code> 로 돌아가 <code>handleButton</code> 함수에 <code>KakaoZipCodeVC</code> 를 <strong>Present</strong> 할 수 있도록 구현합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> nextVC = KakaoZipCodeVC()
-present(nextVC, animated: <span style="color:#66d9ef">true</span>)
-</code></pre></div><p>이제 <strong>Simulator</strong> 를 실행시키고 <strong>Button</strong> 을 눌러보세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>webView?.navigationDelegate = <span style="color:#66d9ef">self</span>
+</span></span></code></pre></div><p>이제 <code>webView</code> 가 우편번호 서비스 웹페이지를 띄울 수 있도록 <strong>URL</strong> 만 전달해주면 됩니다. <strong>guard</strong> 문을 사용해 optional 을 unwrapping 해주고 <code>URLRequest</code> 를 생성해 <code>webView</code> 가 해당 <strong>URL 을 load</strong> 할 수 있도록 넘겨줍니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#e6db74">&#34;https://kasroid.github.io/Kakao-Postcode/&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> webView = webView
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> request = URLRequest(url: url)
+</span></span><span style="display:flex;"><span>webView.load(request)
+</span></span><span style="display:flex;"><span>indicator.startAnimating()
+</span></span></code></pre></div><p>마지막으로 오토레이아웃을 잡고 <strong>Simulator</strong> 를 실행시켜 보도록할게요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> webView = webView <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>view.addSubview(webView)
+</span></span><span style="display:flex;"><span>webView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>webView.addSubview(indicator)
+</span></span><span style="display:flex;"><span>indicator.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>    webView.topAnchor.constraint(equalTo: view.topAnchor),
+</span></span><span style="display:flex;"><span>    webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+</span></span><span style="display:flex;"><span>    webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+</span></span><span style="display:flex;"><span>    webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
+</span></span><span style="display:flex;"><span>    indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor),
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><p>한가지 더!! <code>ViewController</code> 로 돌아가 <code>handleButton</code> 함수에 <code>KakaoZipCodeVC</code> 를 <strong>Present</strong> 할 수 있도록 구현합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> nextVC = KakaoZipCodeVC()
+</span></span><span style="display:flex;"><span>present(nextVC, animated: <span style="color:#66d9ef">true</span>)
+</span></span></code></pre></div><p>이제 <strong>Simulator</strong> 를 실행시키고 <strong>Button</strong> 을 눌러보세요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93296433-29b0f800-f82a-11ea-9ac3-862baa7461e0.png" alt="Simulator 실행 화면"></p>
 <p>Success!!</p>
 <hr>
 <h4 id="데이터-전달하기">데이터 전달하기</h4>
 <p>정상적으로 우편번호 서비스를 띄우는데 성공했으니 이제 사용자가 입력한 데이터를 받아올 일만 남았습니다.</p>
 <p><code>userContentController(_:didReceive:)</code> 함수 내부에 코드를 구현할게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> data = message.body <span style="color:#66d9ef">as</span>? [String: Any] {
-    address = data[<span style="color:#e6db74">&#34;roadAddress&#34;</span>] <span style="color:#66d9ef">as</span>? String ?? <span style="color:#e6db74">&#34;&#34;</span>
-}
-<span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> previousVC = presentingViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-previousVC.label.text = address
-<span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-</code></pre></div><p>지금은 <strong>&ldquo;roadAddress&rdquo;</strong> 라는 항목만 추출했지만 <code>message.body</code> 를 print 해보면 다음과 같은 값들을 가져오는 것을 확인할 수가 있습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#960050;background-color:#1e0010">jibunAddress</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#f92672">&#34;\Uacbd\Uae30 \Uc131\Ub0a8\Uc2dc \Ubd84\Ub2f9\Uad6c \Uc6b4\Uc911\Ub3d9 1017-3&#34;</span><span style="color:#960050;background-color:#1e0010">;</span>
-    <span style="color:#960050;background-color:#1e0010">roadAddress</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#34;\Uacbd\Uae30 \Uc131\Ub0a8\Uc2dc \Ubd84\Ub2f9\Uad6c \Ud310\Uad50\Ub85c 35&#34;</span><span style="color:#960050;background-color:#1e0010">;</span>
-    <span style="color:#960050;background-color:#1e0010">zonecode</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#ae81ff">13467</span><span style="color:#960050;background-color:#1e0010">;</span>
-}
-</code></pre></div><p>필요에 따라 <strong>지번 주소</strong>, <strong>도로명 주소</strong>, <strong>우편번호</strong>를 가져와서 사용할 수 있어요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> data = message.body <span style="color:#66d9ef">as</span>? [String: Any] {
+</span></span><span style="display:flex;"><span>    address = data[<span style="color:#e6db74">&#34;roadAddress&#34;</span>] <span style="color:#66d9ef">as</span>? String ?? <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> previousVC = presentingViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>previousVC.label.text = address
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span></code></pre></div><p>지금은 <strong>&ldquo;roadAddress&rdquo;</strong> 라는 항목만 추출했지만 <code>message.body</code> 를 print 해보면 다음과 같은 값들을 가져오는 것을 확인할 수가 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">jibunAddress</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#f92672">&#34;\Uacbd\Uae30 \Uc131\Ub0a8\Uc2dc \Ubd84\Ub2f9\Uad6c \Uc6b4\Uc911\Ub3d9 1017-3&#34;</span><span style="color:#960050;background-color:#1e0010">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">roadAddress</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#34;\Uacbd\Uae30 \Uc131\Ub0a8\Uc2dc \Ubd84\Ub2f9\Uad6c \Ud310\Uad50\Ub85c 35&#34;</span><span style="color:#960050;background-color:#1e0010">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">zonecode</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#ae81ff">13467</span><span style="color:#960050;background-color:#1e0010">;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>필요에 따라 <strong>지번 주소</strong>, <strong>도로명 주소</strong>, <strong>우편번호</strong>를 가져와서 사용할 수 있어요.</p>
 <p>이제 <strong>Simulator</strong> 를 실행하고 원하는 주소를 검색한 뒤에 클릭하면 내가 선택한 데이터가 <code>ViewController</code> 의 <code>label</code> 로 전달되는 것을 확인할 수 있습니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93297329-05eeb180-f82c-11ea-8417-1d5e5a55cdcc.gif" alt="Simulator 실행화면"></p>
 <hr>
 <h2 id="wrap-up">Wrap Up</h2>
 <p>처음 시도할 떄는 조금 복잡하게 느껴질 수 있지만 한번만 잘 따라해보면 그렇게까지 어려운 내용은 아니에요. <del>워낙 어려운게 많아야지&hellip;</del></p>
 <p><strong>Github Pages</strong> 로 한번 구현해두면 계속해서 사용할 수 있으니 꼭 한번 만들어두고 앞으로 다양한 곳에서 활용해보세요. 그럼 오늘도 공부하느라 수고 많으셨습니다!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WebKit</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: UIViewController {
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
-    <span style="color:#66d9ef">var</span> webView: WKWebView?
-    <span style="color:#66d9ef">let</span> indicator = UIActivityIndicatorView(style: .medium)
-    <span style="color:#66d9ef">var</span> address = <span style="color:#e6db74">&#34;&#34;</span>
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        view.backgroundColor = .white
-        setAttributes()
-        setContraints()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        <span style="color:#66d9ef">let</span> contentController = WKUserContentController()
-        contentController.add(<span style="color:#66d9ef">self</span>, name: <span style="color:#e6db74">&#34;callBackHandler&#34;</span>)
-
-        <span style="color:#66d9ef">let</span> configuration = WKWebViewConfiguration()
-        configuration.userContentController = contentController
-
-        webView = WKWebView(frame: .zero, configuration: configuration)
-        <span style="color:#66d9ef">self</span>.webView?.navigationDelegate = <span style="color:#66d9ef">self</span>
-
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#e6db74">&#34;https://kasroid.github.io/Kakao-Postcode/&#34;</span>),
-            <span style="color:#66d9ef">let</span> webView = webView
-            <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        <span style="color:#66d9ef">let</span> request = URLRequest(url: url)
-        webView.load(request)
-        indicator.startAnimating()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> webView = webView <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        view.addSubview(webView)
-        webView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-
-        webView.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-
-        NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
-            indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor),
-        ])
-    }
-}
-
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKScriptMessageHandler {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userContentController</span>(<span style="color:#66d9ef">_</span> userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> data = message.body <span style="color:#66d9ef">as</span>? [String: Any] {
-            address = data[<span style="color:#e6db74">&#34;roadAddress&#34;</span>] <span style="color:#66d9ef">as</span>? String ?? <span style="color:#e6db74">&#34;&#34;</span>
-        }
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> previousVC = presentingViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        previousVC.label.text = address
-        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-    }
-}
-
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKNavigationDelegate {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        indicator.startAnimating()
-    }
-
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didFinish navigation: WKNavigation!) {
-        indicator.stopAnimating()
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WebKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Properties</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> webView: WKWebView?
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> indicator = UIActivityIndicatorView(style: .medium)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> address = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Lifecycle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        view.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> contentController = WKUserContentController()
+</span></span><span style="display:flex;"><span>        contentController.add(<span style="color:#66d9ef">self</span>, name: <span style="color:#e6db74">&#34;callBackHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> configuration = WKWebViewConfiguration()
+</span></span><span style="display:flex;"><span>        configuration.userContentController = contentController
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        webView = WKWebView(frame: .zero, configuration: configuration)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.webView?.navigationDelegate = <span style="color:#66d9ef">self</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#e6db74">&#34;https://kasroid.github.io/Kakao-Postcode/&#34;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> webView = webView
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> request = URLRequest(url: url)
+</span></span><span style="display:flex;"><span>        webView.load(request)
+</span></span><span style="display:flex;"><span>        indicator.startAnimating()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> webView = webView <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        view.addSubview(webView)
+</span></span><span style="display:flex;"><span>        webView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        webView.addSubview(indicator)
+</span></span><span style="display:flex;"><span>        indicator.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            webView.topAnchor.constraint(equalTo: view.topAnchor),
+</span></span><span style="display:flex;"><span>            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+</span></span><span style="display:flex;"><span>            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+</span></span><span style="display:flex;"><span>            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
+</span></span><span style="display:flex;"><span>            indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor),
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKScriptMessageHandler {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userContentController</span>(<span style="color:#66d9ef">_</span> userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> data = message.body <span style="color:#66d9ef">as</span>? [String: Any] {
+</span></span><span style="display:flex;"><span>            address = data[<span style="color:#e6db74">&#34;roadAddress&#34;</span>] <span style="color:#66d9ef">as</span>? String ?? <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> previousVC = presentingViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        previousVC.label.text = address
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">KakaoZipCodeVC</span>: WKNavigationDelegate {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+</span></span><span style="display:flex;"><span>        indicator.startAnimating()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webView</span>(<span style="color:#66d9ef">_</span> webView: WKWebView, didFinish navigation: WKNavigation!) {
+</span></span><span style="display:flex;"><span>        indicator.stopAnimating()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
       </div>
     </article>
 
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/uikit/">UIKit</a></span><span class="tag"><a href="https://kasroid.github.io/tags/webkit/">WebKit</a></span><span class="tag"><a href="https://kasroid.github.io/tags/kakao/">Kakao</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/uikit/">UIKit</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/webkit/">WebKit</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/kakao/">Kakao</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/ios/">iOS</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/categories/webkit/">WebKit</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -549,7 +577,7 @@ previousVC.label.text = address
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1678 Words
+        1685 Words
       </p>
 
       <p>
@@ -559,7 +587,13 @@ previousVC.label.text = address
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-16 19:04 &#43;0900
+        
+          2020-09-16 19:04 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -657,34 +691,37 @@ previousVC.label.text = address
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/">
-                <span class="button__icon">←</span>
-                <span class="button__text">UIKit - Delegate Pattern 이해하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">UIKit - Delegate Pattern 이해하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/">
-                <span class="button__text">UIKit - UITextField 입력글자수 제한 및 백스페이스 감지하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/">
+                    <span class="button__text">UIKit - UITextField 입력글자수 제한 및 백스페이스 감지하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -694,22 +731,8 @@ previousVC.label.text = address
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -719,22 +742,7 @@ previousVC.label.text = address
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

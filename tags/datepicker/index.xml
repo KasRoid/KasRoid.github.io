@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DatePicker on Developer Kas</title>
+    <title>DatePicker on SDY</title>
     <link>https://kasroid.github.io/tags/datepicker/</link>
-    <description>Recent content in DatePicker on Developer Kas</description>
+    <description>Recent content in DatePicker on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -15,8 +15,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/</guid>
       <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
- Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
 import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: .</description>
     </item>
     
@@ -27,9 +27,9 @@ import UIKit class CountDownViewController: UIViewController { let label = UILab
       
       <guid>https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/</guid>
       <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
 iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
- Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.</description>
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.</description>
     </item>
     
   </channel>

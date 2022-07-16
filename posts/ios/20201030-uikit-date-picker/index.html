@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
 iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
- Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
-<meta name="keywords" content="iOS, Swift, DatePicker" />
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, DatePicker" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/" />
@@ -17,59 +17,59 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
 
     <title>
         
-            UIKit - Date Picker 사용하기, iOS 14 변경사항 정리 :: Developer Kas  — Part of My Brain
+            UIKit - Date Picker 사용하기, iOS 14 변경사항 정리 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리">
 <meta itemprop="description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
 iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
- Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.">
-<meta itemprop="datePublished" content="2020-10-30T17:12:51+09:00" />
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다."><meta itemprop="datePublished" content="2020-10-30T17:12:51+09:00" />
 <meta itemprop="dateModified" content="2020-10-30T17:12:51+09:00" />
-<meta itemprop="wordCount" content="845">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="847"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="DatePicker," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리"/>
 <meta name="twitter:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
 iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
- Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다."/>
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다."/>
 
 
 
     <meta property="og:title" content="UIKit - Date Picker 사용하기, iOS 14 변경사항 정리" />
 <meta property="og:description" content="본 포스팅은 다음 버전을 기준으로 작성되었습니다.
- Swift 5.3 iOS 14.1   Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
 iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
- Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-10-30T17:12:51+09:00" />
-<meta property="article:modified_time" content="2020-10-30T17:12:51+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-10-30T17:12:51+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -87,9 +87,27 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -97,7 +115,7 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -111,7 +129,7 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -122,13 +140,6 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -154,6 +165,10 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -196,48 +211,48 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
 <hr>
 <h2 id="prerequisite">Prerequisite</h2>
 <p>먼저 실습을 위해 간단하게 <strong>ViewController</strong> 위에 <code>DatePicker</code> 를 올려놓았습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> datePicker = UIDatePicker()
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        setAttributes()
-        setContraints()
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        datePicker.preferredDatePickerStyle = .automatic
-        datePicker.datePickerMode = .dateAndTime
-        datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
-        datePicker.timeZone = .autoupdatingCurrent
-        datePicker.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleDatePicker(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .valueChanged)
-    }
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        view.addSubview(datePicker)
-        datePicker.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        NSLayoutConstraint.activate([
-            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
-            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
-            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
-    }
-    
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleDatePicker</span>(<span style="color:#66d9ef">_</span> sender: UIDatePicker) {
-        print(sender.date)
-    }
-}
-</code></pre></div><p>기본적인 <strong>레이아웃 및 Target 작업</strong>을 진행해 주었습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> datePicker = UIDatePicker()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        datePicker.preferredDatePickerStyle = .automatic
+</span></span><span style="display:flex;"><span>        datePicker.datePickerMode = .dateAndTime
+</span></span><span style="display:flex;"><span>        datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+</span></span><span style="display:flex;"><span>        datePicker.timeZone = .autoupdatingCurrent
+</span></span><span style="display:flex;"><span>        datePicker.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleDatePicker(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .valueChanged)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        view.addSubview(datePicker)
+</span></span><span style="display:flex;"><span>        datePicker.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleDatePicker</span>(<span style="color:#66d9ef">_</span> sender: UIDatePicker) {
+</span></span><span style="display:flex;"><span>        print(sender.date)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>기본적인 <strong>레이아웃 및 Target 작업</strong>을 진행해 주었습니다.</p>
 <p><code>DatePicker</code> 는 <strong>Intrinsic Size</strong> 로 <strong>Height 값</strong>을 갖고 있으므로 따로 높이를 지정해 줄 필요가 없습니다.
 즉 넓이를 세팅해주고 <strong>Picker</strong> 가 올라갈 위치만 잡아주면 된다는거에요. 그리고 <code>DatePicker</code> 를 <strong>Target Action</strong> 으로 구현하고자 할 때는 <code>.valueChanged</code> 옵션을 써야한다는 것을 꼭 기억하세요.</p>
 <hr>
@@ -246,8 +261,8 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
 <h3 id="datepicker-style">DatePicker Style</h3>
 <p>iOS 14가 업데이트 되면서 <code>DatePicker</code> 에 새로운 스타일이 추가되었다고 했는데요. 먼저 어떤 스타일들이 있는지 함께 확인해보도록 하겠습니다.
 종류는 <strong>총 3가지</strong>가 존재하며 기본값은 <code>.automatic</code> 으로 되어있어 시스템이 현재 뷰에 가장 알맞은 스타일을 선택해 준다고해요. <del>자동으로하면 나는 항상 compact 만 되는 것 같던데??</del></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.preferredDatePickerStyle = .automatic
-</code></pre></div><p>일단은 <code>.automatic</code> 상태로 코드를 작성해 놓았습니다. 이제 이걸 하나씩 바꿔가며 어떻게 바뀌는지 살펴볼거에요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>datePicker.preferredDatePickerStyle = .automatic
+</span></span></code></pre></div><p>일단은 <code>.automatic</code> 상태로 코드를 작성해 놓았습니다. 이제 이걸 하나씩 바꿔가며 어떻게 바뀌는지 살펴볼거에요.</p>
 <h4 id="compact">.compact</h4>
 <p>아무것도 설정하지 않으면 이게 기본값처럼 실행되는 것으로 봐서는 이게 <strong>Apple</strong> 에서 가장 추천하는 최신 스타일이 아닌가해요.
 다른 <strong>DatePicker 스타일</strong>에 비해서 정말 심플하기도 하고, 공간도 덜 차지한다는 장점이 있는 디자인입니다.
@@ -279,38 +294,38 @@ iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePic
 <hr>
 <h3 id="locale">Locale</h3>
 <p><code>.locale</code> 은 <code>DatePicker</code> 에 사용하는 국가를 입력할 수 있습니다. 아무런 설정도 건드리지 않으면 아이폰 기본설정을 사용합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
-</code></pre></div><p>한국으로 설정이 필요하다면 이렇게 코드를 입력하세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>datePicker.locale = Locale(identifier: <span style="color:#e6db74">&#34;ko-KR&#34;</span>)
+</span></span></code></pre></div><p>한국으로 설정이 필요하다면 이렇게 코드를 입력하세요.</p>
 <hr>
 <h3 id="minuteinterval">minuteInterval</h3>
 <p><code>.minuteInterval</code> 은 사용자가 스크롤을 돌려 시간을 설정할 때 나타나는 분 단위 간격을 조절할 수 있습니다. 기본값은 1분으로 되어있고요. 최대 30분까지 입력이 가능합니다.
 이 설정을 사용할 때는 1시간은 60분이니까 60의 약수 내에서 입력하도록 하세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.minuteInterval = <span style="color:#ae81ff">5</span>
-</code></pre></div><p>이렇게 설정하면 분 단위 설정이 5분 간격으로 가능합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>datePicker.minuteInterval = <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>이렇게 설정하면 분 단위 설정이 5분 간격으로 가능합니다.</p>
 <hr>
 <h3 id="date">Date</h3>
 <p>최초에 선택되어 있는 날짜를 설정할 수가 있는 method 에요! 단 <strong>DatePicker</strong> 의 Mode 가 <code>.countDownTimer</code> 로 설정되어 있을 때는 작동하지 않습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.date = Date(timeIntervalSinceNow: <span style="color:#f92672">-</span><span style="color:#ae81ff">3600</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
-</code></pre></div><p>이렇게 코드를 입력하면 <strong>DatePicker</strong> 가 현재 날짜를 기준으로 3일 전의 날짜로 선택되어 시작합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>datePicker.date = Date(timeIntervalSinceNow: <span style="color:#f92672">-</span><span style="color:#ae81ff">3600</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>이렇게 코드를 입력하면 <strong>DatePicker</strong> 가 현재 날짜를 기준으로 3일 전의 날짜로 선택되어 시작합니다.</p>
 <hr>
 <h3 id="setdate">setDate</h3>
 <p><code>.date</code> 의 역할을 포함하고, 추가로 애니메이션 작동 여부를 설정하는 역할을 합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">datePicker.setDate(Date(), animated: <span style="color:#66d9ef">true</span>)
-</code></pre></div><p>여러가지 실험을 해봤지만 어느 부분에서 애니메이션이 작동하는지 확인하기가 어렵더라고요&hellip; 나중에 혹시 알아내게 된다면 업데이트 하겠습니다.. 아무튼 이 애니메이션의 기본값은 <code>false</code> 라고 합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>datePicker.setDate(Date(), animated: <span style="color:#66d9ef">true</span>)
+</span></span></code></pre></div><p>여러가지 실험을 해봤지만 어느 부분에서 애니메이션이 작동하는지 확인하기가 어렵더라고요&hellip; 나중에 혹시 알아내게 된다면 업데이트 하겠습니다.. 아무튼 이 애니메이션의 기본값은 <code>false</code> 라고 합니다.</p>
 <hr>
 <h3 id="minimumdate-maximumdate">minimumDate, maximumDate</h3>
 <p>사용자가 선택할 수 있는 날짜나 시간을 한정할 수 있게 도와주는 method 입니다.</p>
 <p><code>.wheel</code> 모드에서는 사용자가 우리가 지정해놓은 한계 이상으로 스크롤을 했을 경우 처음 기본값 상태로 되돌아오게 됩니다.
 그리고 새로나온 <code>.compact</code> 나 <code>.inline</code> 모드에서는 선택할 수 있는 날짜가 <strong>연한 회색으로 비활성화</strong>되는 방식으로 사용자에게 이 날짜는 선택할 수 없다는 것을 직관적으로 알 수 있게 합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> components = DateComponents()
-components.day = <span style="color:#ae81ff">10</span>
-<span style="color:#66d9ef">let</span> maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
-components.day = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>
-<span style="color:#66d9ef">let</span> minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
-
-datePicker.maximumDate = maxDate
-datePicker.minimumDate = minDate
-</code></pre></div><p>위 코드를 입력하면 현재 날짜를 기준으로 앞뒤 10일까지만 선택이 가능해집니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> components = DateComponents()
+</span></span><span style="display:flex;"><span>components.day = <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+</span></span><span style="display:flex;"><span>components.day = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> minDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>datePicker.maximumDate = maxDate
+</span></span><span style="display:flex;"><span>datePicker.minimumDate = minDate
+</span></span></code></pre></div><p>위 코드를 입력하면 현재 날짜를 기준으로 앞뒤 10일까지만 선택이 가능해집니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/97772023-24afca00-1b86-11eb-8638-fee75e87c416.png" alt="시뮬레이터 실행결과"></p>
 <p>현재 날짜를 기준으로 10일 이전의 날짜가 회색으로 표시되며 비활성화 된 것이 보이죠? ㅎㅎ</p>
 <hr>
@@ -329,12 +344,22 @@ datePicker.minimumDate = minDate
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/datepicker/">DatePicker</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/datepicker/">DatePicker</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/uikit/">UIKit</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -344,7 +369,7 @@ datePicker.minimumDate = minDate
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        845 Words
+        847 Words
       </p>
 
       <p>
@@ -354,7 +379,13 @@ datePicker.minimumDate = minDate
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-10-30 17:12 &#43;0900
+        
+          2020-10-30 17:12 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -452,34 +483,37 @@ datePicker.minimumDate = minDate
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/">
-                <span class="button__icon">←</span>
-                <span class="button__text">UIKit - Date Picker 를 이용해 Timer 구현하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">UIKit - Date Picker 를 이용해 Timer 구현하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">
-                <span class="button__text">UIKit - Calendar 와 Date 기초 익히기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">
+                    <span class="button__text">UIKit - Calendar 와 Date 기초 익히기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -489,22 +523,8 @@ datePicker.minimumDate = minDate
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -514,22 +534,7 @@ datePicker.minimumDate = minDate
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

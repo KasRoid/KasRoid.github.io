@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vim on Developer Kas</title>
+    <title>Vim on SDY</title>
     <link>https://kasroid.github.io/tags/vim/</link>
-    <description>Recent content in Vim on Developer Kas</description>
+    <description>Recent content in Vim on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -15,8 +15,8 @@
       
       <guid>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
       <description>Intro 그래도 명색이 iOS 개발자인데 여태 Vim 을 사용할 때 Swift Syntax Highlighting 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 Vim 에 Swift Syntax 를 적용할 수 있는 방법을 공부해볼까 합니다. Plugin 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.
- Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
- swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
+Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
+swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
       <description>이번에는 Vim 에서 외부 테마를 다운로드 받아 적용하고 Syntax Highlighting 색상을 좀 더 이쁘게 변경해보도록 하겠습니다. 그래도 Terminal 을 통해 글을 쓰는데 최소한 어느정도는 이뻐야 글 쓸 맛이 더 나겠죠?? ㅋㅋㅋ 그런데 지금 제가 사용하는 Vim 의 상태는&amp;hellip;
 이 모양입니다. 한 숨이 나옵니다&amp;hellip; 원색을 너무 많이 사용해서 그런건지 오히려 눈에 방해가 되는 그런 느낌도 들고요. 난 이제 그만 여기서 탈출해야겠어
 그럼 본격적으로 설치해볼까요~
- 테마 고르기 먼저 구글에서 Vim ColorScheme 을 검색해 여러분 스타일에 맞는 테마를 찾아보세요.</description>
+테마 고르기 먼저 구글에서 Vim ColorScheme 을 검색해 여러분 스타일에 맞는 테마를 찾아보세요.</description>
     </item>
     
     <item>

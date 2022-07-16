@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UIKit on Developer Kas</title>
+    <title>UIKit on SDY</title>
     <link>https://kasroid.github.io/tags/uikit/</link>
-    <description>Recent content in UIKit on Developer Kas</description>
+    <description>Recent content in UIKit on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -15,7 +15,7 @@
       
       <guid>https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/</guid>
       <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~</description>
+Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~</description>
     </item>
     
     <item>
@@ -25,8 +25,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/</guid>
       <description>본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
- 서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.</description>
+Intro 저는 요새 Market Kurly 앱을 클론하는 프로젝트를 진행하고 있는데요. 회원가입 부분에서 Kakao 우편변호 찾기 기능을 지원하더라고요. 사용자로서는 분명히 사용해본 경험이 있는 것 같은데 막상 구현하는 방법은 배운적도 생각해본 적도 없었습니다 ㅎㅎ 어쨌든 중요한건 지금 어떻게든 구현을 해야한다는 것이고, 마켓컬리앱이 아니더라도 회원가입을 필요로하는 서비스라면 많이 지원하고 있는 기능이니까 잘 공부해서 정리해두면 나중에 쓸데가 많을 것 같아 포스팅을 남깁니다.
+서비스 확인하기 Kakao 우편번호 서비스 웹페이지 에 접속해보면 평소 우리가 회원가입을 할 때 자주 볼 수 있었던 화면이 하나 보일거에요.</description>
     </item>
     
     <item>
@@ -36,8 +36,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200914-uitextfield-limits-number-of-text-detecting-backspace-event/</guid>
       <description>Intro UITextField 를 아이디나 비밀번호를 사용자로부터 입력받을 때 사용하게되면 글자수 제한을 두어야하는 경우가 있는데요. 이 때 글자수 입력을 제한할 수 있는 방법에 대해 알아보도록 하겠습니다.
- Prerequisite 테스트를 위해 새로운 프로젝트를 하나 생성하고 UITextField 하나를 View 의 중앙에 올려보았습니다.
-import UIKit class ViewController: UIViewController { private var textField = UITextField() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { setContraints() setAttributes() } private func setAttributes() { textField.</description>
+Prerequisite 테스트를 위해 새로운 프로젝트를 하나 생성하고 UITextField 하나를 View 의 중앙에 올려보았습니다.
+import UIKit class ViewController: UIViewController { private var textField = UITextField() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK: - UI private func configureUI() { setContraints() setAttributes() } private func setAttributes() { textField.</description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ import UIKit class ViewController: UIViewController { private var textField = UI
       
       <guid>https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/</guid>
       <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
- Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
+Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
 CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요.</description>
     </item>
     
@@ -68,8 +68,8 @@ CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면
       
       <guid>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/</guid>
       <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
- Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
+이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
+Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
 이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요.</description>
     </item>
     

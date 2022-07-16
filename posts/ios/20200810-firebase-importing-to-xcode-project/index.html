@@ -8,8 +8,8 @@
 <meta name="description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Firebase 6.29.0
 · Swift 5.2.4
- Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요." />
-<meta name="keywords" content="iOS, Swift, Firebase" />
+Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요." />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Firebase" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/" />
@@ -17,38 +17,38 @@
 
     <title>
         
-            Firebase - Xcode 프로젝트와 연동하기 :: Developer Kas  — Part of My Brain
+            Firebase - Xcode 프로젝트와 연동하기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Firebase - Xcode 프로젝트와 연동하기">
 <meta itemprop="description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Firebase 6.29.0
 · Swift 5.2.4
- Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.">
-<meta itemprop="datePublished" content="2020-08-10T01:19:46+09:00" />
+Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요."><meta itemprop="datePublished" content="2020-08-10T01:19:46+09:00" />
 <meta itemprop="dateModified" content="2020-08-10T01:19:46+09:00" />
-<meta itemprop="wordCount" content="733">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="733"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Firebase," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -56,7 +56,7 @@
 <meta name="twitter:description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Firebase 6.29.0
 · Swift 5.2.4
- Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요."/>
+Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요."/>
 
 
 
@@ -64,12 +64,12 @@
 <meta property="og:description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Firebase 6.29.0
 · Swift 5.2.4
- Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요." />
+Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-08-10T01:19:46+09:00" />
-<meta property="article:modified_time" content="2020-08-10T01:19:46+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-08-10T01:19:46+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -87,9 +87,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -97,7 +115,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -111,7 +129,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -122,13 +140,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -154,6 +165,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/">Firebase - Xcode 프로젝트와 연동하기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -220,24 +235,24 @@
 <p>다시 Firebase 홈페이지로 돌아와서 Next 를 누르면 이제 <strong>CocoaPods</strong> 을 통해 Firebase 사용에 필요한 파일들을 다운로드 받으라고 안내합니다.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQZxwt%2FbtqGmPkYglb%2Fe62ufnkDw35kZtNmOKuc70%2Fimg.png" alt="CocoaPods 다운로드 안내"></p>
 <p>Xcode 프로젝트 폴더 내의 Podfile 에 pod &lsquo;Firebase&rsquo; 을 입력해주세요. 여기서 막히는 분들은 위의 CocoaPods 튜토리얼을 참고해주세요.</p>
-<pre><code class="language-console" data-lang="console">pod 'Firebase'
-</code></pre><p>이렇게 CocoaPods 설치를 마쳤다면 다시 Next 를 눌러줍니다. 이제 Xcode 프로젝트의 <strong>Appdelegate</strong> 에서 우리가 필수적으로 작업해야 할 내용들을 안내하고 있네요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>pod &#39;Firebase&#39;
+</span></span></code></pre></div><p>이렇게 CocoaPods 설치를 마쳤다면 다시 Next 를 눌러줍니다. 이제 Xcode 프로젝트의 <strong>Appdelegate</strong> 에서 우리가 필수적으로 작업해야 할 내용들을 안내하고 있네요.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWLc1p%2FbtqGrdE7gUj%2F7zJy0IGsEal661No3QP2uK%2Fimg.png" alt="AppDelegate 입력안내"></p>
 <p>더 이상 xcodeproj 파일은 사용할 수 없으므로 <strong>xcworkspace</strong> 파일을 열고 새롭게 생긴 파일들을 잘 인식할 수 있돌고 빌드를 한번 해줍니다.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Foe8x8%2FbtqGrjSG0TY%2FIWH9ES1MAZoMs3ZWke4lO1%2Fimg.png" alt="Finder 의 xcworkspace 파일"></p>
 <p>그리고 프로젝트 상단에 Firebase 를 import 해보면 오류없이 잘 인식하는 것을 확인할 수 있습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
-</code></pre></div><p>그리고<code>application(didFinishLaunchingWithOptions)</code>함수 내부에 <code>FirebaseApp.configure()</code> 코드를 구현해줍니다.</p>
-<pre><code class="language-console" data-lang="console">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
-    FirebaseApp.configure()
-    return true
-}
-</code></pre><p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdIkcCA%2FbtqGtDbQ8yB%2FQrQnd33Wx1diRnxM54WaFK%2Fimg.png" alt="Xcode 의 AppDelegate 파일"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
+</span></span></code></pre></div><p>그리고<code>application(didFinishLaunchingWithOptions)</code>함수 내부에 <code>FirebaseApp.configure()</code> 코드를 구현해줍니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+</span></span><span style="display:flex;"><span>    FirebaseApp.configure()
+</span></span><span style="display:flex;"><span>    return true
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdIkcCA%2FbtqGtDbQ8yB%2FQrQnd33Wx1diRnxM54WaFK%2Fimg.png" alt="Xcode 의 AppDelegate 파일"></p>
 <p>다시 <strong>Firebase 홈페이지</strong>에서 Next 를 누르면 이런 화면이 뜨게되는데 이제 Xcode 에서 앱을 한번 실행합니다.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpPIkY%2FbtqGpxEaaYA%2Fu1QhRYIbaV0Vkhv8HZeb6K%2Fimg.png" alt="Firebase 프로젝트 설정 마지막 화면"></p>
 <p>혹시라도 <code>FirebaseApp.configure()</code> 을 찾을 수 없다고 오류가 뜨는 분이 있다면 Xcode 를 먼저 껏다 켜주시고 그래도 안된다면 아래 코드를 추가로 import 해보세요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseCore</span>
-</code></pre></div><p>그리고 Firebase 가 정상적으로 연결되었다면 <strong>Xcode 콘솔</strong>에서 다음과 비슷한 메세지를 확인할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FirebaseCore</span>
+</span></span></code></pre></div><p>그리고 Firebase 가 정상적으로 연결되었다면 <strong>Xcode 콘솔</strong>에서 다음과 비슷한 메세지를 확인할 수 있습니다.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQFFR0%2FbtqGmPL4xjK%2Fd6HjKn5kBc8Z5AaytVKOVK%2Fimg.png" alt="Firebase Console 화면"></p>
 <p>시뮬레이터가 실행되고 조금 기다리다보면 이렇게 초록색 안내가 뜨며 아래 버튼들이 활성화되는데 만약 아무리 기다려봐도 로딩이 끝나지 않는다면 그냥 넘어가도 아무문제 없습니다.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcAI1IK%2FbtqGtD3ZwDg%2FhmU7UuCxU0FcMlOLgprUQ1%2Fimg.png" alt="Firebase 연결 성공화면"></p>
@@ -253,12 +268,22 @@
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/firebase/">Firebase</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/firebase/">Firebase</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/ios/">iOS</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -278,7 +303,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-08-10 01:19 &#43;0900
+        
+          2020-08-10 01:19 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -376,34 +407,37 @@
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/">
-                <span class="button__icon">←</span>
-                <span class="button__text">CocoaPods - 설치 및 라이브러리 적용하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">CocoaPods - 설치 및 라이브러리 적용하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20200802-swiftui-basics-button-list/">
-                <span class="button__text">SwiftUI Basics - Button 과 List 생성하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200802-swiftui-basics-button-list/">
+                    <span class="button__text">SwiftUI Basics - Button 과 List 생성하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -413,22 +447,8 @@
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -438,22 +458,7 @@
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

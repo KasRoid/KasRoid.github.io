@@ -7,7 +7,7 @@
 <meta name="author" content="">
 <meta name="description" content="Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
 그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐." />
-<meta name="keywords" content="iOS, Swift, Terminal, Ranger" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Terminal, Ranger" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/" />
@@ -15,36 +15,36 @@
 
     <title>
         
-            Ranger - CLI File Browser 설치 및 사용법 :: Developer Kas  — Part of My Brain
+            Ranger - CLI File Browser 설치 및 사용법 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Ranger - CLI File Browser 설치 및 사용법">
 <meta itemprop="description" content="Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
-그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐.">
-<meta itemprop="datePublished" content="2020-09-13T09:53:32+09:00" />
+그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐."><meta itemprop="datePublished" content="2020-09-13T09:53:32+09:00" />
 <meta itemprop="dateModified" content="2020-09-13T09:53:32+09:00" />
-<meta itemprop="wordCount" content="710">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="710"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Terminal,Ranger," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -58,10 +58,10 @@
 <meta property="og:description" content="Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
 그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-13T09:53:32+09:00" />
-<meta property="article:modified_time" content="2020-09-13T09:53:32+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-09-13T09:53:32+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -79,9 +79,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -89,7 +107,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -103,7 +121,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -114,13 +132,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -146,6 +157,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/">Ranger - CLI File Browser 설치 및 사용법</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -173,8 +188,8 @@
 <hr>
 <h2 id="installation">Installation</h2>
 <p><strong><a href="https://github.com/ranger/ranger">Ranger Github</a></strong> 의 <strong>README</strong> 에서 여러가지 정보를 확인할 수 있습니다만, 제가 원하는 설치방법은 기재되어 있지 않아 구글링으로 <strong><a href="https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/">Homebrew</a></strong> 로 설치할 수 있는 방법을 검색 해보니 역시 가능했습니다.</p>
-<pre><code class="language-console" data-lang="console">brew install ranger
-</code></pre><p>간단하게 설치를 마치고나면 바로 <strong>Terminal</strong> 에서 <code>ranger</code> 라는 커맨드를 사용할 수 있게됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>brew install ranger
+</span></span></code></pre></div><p>간단하게 설치를 마치고나면 바로 <strong>Terminal</strong> 에서 <code>ranger</code> 라는 커맨드를 사용할 수 있게됩니다.</p>
 <hr>
 <h2 id="basics">Basics</h2>
 <p>그럼 <code>ranger</code> 커맨드를 입력해 <strong>File Browser</strong> 를 실행시켜볼게요.</p>
@@ -186,8 +201,8 @@
 <p><strong>Ranger</strong> 역시도 <strong>Vim</strong> 과 비슷하게 <code>rc.config</code> 라는 파일을 통해 여러가지 세팅을 저장하고 사용할 수 있습니다. <strong>Vim</strong> 에서 세팅을 한번 이상 해본 분이라면 익숙할거에요 ㅎㅎ 다만 <strong>Ranger</strong> 를 방금 설치했다면 원래 이 설정파일이 위치해야하는 <code>~/.config/ranger/</code> 경로에 저처럼 어떤 파일도 없을거에요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93021381-3a405300-f61d-11ea-838b-111d4b3aa947.png" alt="Ranger 설정파일이 없는 화면"></p>
 <p>이곳에 설정과 관련된 파일들이 있어야하는데 이렇게 아무 것도 없습니다. 그럼 우리가 직접 커맨드를 실행해 설정파일들을 생성해보겠습니다.</p>
-<pre><code class="language-console" data-lang="console">$ ranger --copy-config=all
-</code></pre><p>이렇게 입력을 하면 여러가지 파일이 생성되고 이 중 우리가 설정에 사용하게 될 파일은 <code>rc.config</code> 파일입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>$ ranger --copy-config<span style="color:#f92672">=</span>all
+</span></span></code></pre></div><p>이렇게 입력을 하면 여러가지 파일이 생성되고 이 중 우리가 설정에 사용하게 될 파일은 <code>rc.config</code> 파일입니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/93021371-36accc00-f61d-11ea-8a0b-981f527f9131.png" alt="Ranger 설정파일이 생성된 화면"></p>
 <p>이제 파일이 생성되었으니까 직접 한번 여러가지 기본 설정들을 진행해보도록 하겠습니다.</p>
 <hr>
@@ -319,12 +334,23 @@
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/terminal/">Terminal</a></span><span class="tag"><a href="https://kasroid.github.io/tags/ranger/">Ranger</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/terminal/">Terminal</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/ranger/">Ranger</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/developer-tools/">Developer Tools</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -344,7 +370,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-09-13 09:53 &#43;0900
+        
+          2020-09-13 09:53 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -442,27 +474,30 @@
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/">
-                <span class="button__text">Terminal - Mac 의 파일권한 시스템 이해하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/">
+                    <span class="button__text">Terminal - Mac 의 파일권한 시스템 이해하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -472,22 +507,8 @@
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -497,22 +518,7 @@
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

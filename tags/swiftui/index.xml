@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SwiftUI on Developer Kas</title>
+    <title>SwiftUI on SDY</title>
     <link>https://kasroid.github.io/tags/swiftui/</link>
-    <description>Recent content in SwiftUI on Developer Kas</description>
+    <description>Recent content in SwiftUI on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -25,8 +25,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200802-swiftui-basics-button-list/</guid>
       <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Button 과 List (UIKit 의 UITableView 와 동일) 를 생성하는 방법을 공부해보도록 할게요. SwiftUI 에서는 Button 과 List 를 구현하는 코드도 단 몇 줄이면 충분합니다. 이게 다 오토레이아웃이 자동 적용되서 그런것 같아요.
- Button 이전에 공부할 때 Text 가 View 라고했었으니까 Button 도 당연히 View 의 일종일거라 생각하고 따로 찾아보진 않으려고 했거든요? 근데 그래도 공식문서를 한번쯤 보는게 예의가 아닐까 싶어 찾아보니 View 가 아니였습니다.</description>
+이번 포스팅에서는 Button 과 List (UIKit 의 UITableView 와 동일) 를 생성하는 방법을 공부해보도록 할게요. SwiftUI 에서는 Button 과 List 를 구현하는 코드도 단 몇 줄이면 충분합니다. 이게 다 오토레이아웃이 자동 적용되서 그런것 같아요.
+Button 이전에 공부할 때 Text 가 View 라고했었으니까 Button 도 당연히 View 의 일종일거라 생각하고 따로 찾아보진 않으려고 했거든요? 근데 그래도 공식문서를 한번쯤 보는게 예의가 아닐까 싶어 찾아보니 View 가 아니였습니다.</description>
     </item>
     
     <item>
@@ -36,8 +36,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200731-swiftui-basics-stacks-spacer/</guid>
       <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- SwiftUI 에서는 자동으로 뷰의 레이아웃을 잡아주는 기능이 매우 강화되면서 Stacks 의 사용이 더 중요해졌습니다. Stack 은 현재 총 3종류가 있으며 HStack, VStack, ZStack 으로 구성됩니다. 함께 공식 개발자 문서를 보려고 했는데 너무 간단하게 나와있어서 의미가 없을 것 같아요 ㅎ 그냥 하나씩 알아보죠 ㅎㅎㅎ
- HStack HStack 은 Horizontal Stack 으로 우리가 뷰를 가로로 배치할 수 있게 도와주는 View 입니다. 사용법도 이보다 쉬울 수가 없어요.</description>
+SwiftUI 에서는 자동으로 뷰의 레이아웃을 잡아주는 기능이 매우 강화되면서 Stacks 의 사용이 더 중요해졌습니다. Stack 은 현재 총 3종류가 있으며 HStack, VStack, ZStack 으로 구성됩니다. 함께 공식 개발자 문서를 보려고 했는데 너무 간단하게 나와있어서 의미가 없을 것 같아요 ㅎ 그냥 하나씩 알아보죠 ㅎㅎㅎ
+HStack HStack 은 Horizontal Stack 으로 우리가 뷰를 가로로 배치할 수 있게 도와주는 View 입니다. 사용법도 이보다 쉬울 수가 없어요. 그냥 HStack 을 중괄호로 열고 그 안에 원하는 내용을 넣으면 됩니다.</description>
     </item>
     
     <item>
@@ -47,8 +47,8 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/</guid>
       <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
- Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &amp;ldquo;Hello World&amp;rdquo; 가 써져있으니까요.
+이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
+Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &amp;ldquo;Hello World&amp;rdquo; 가 써져있으니까요.
 그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?</description>
     </item>
     
@@ -59,7 +59,7 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200730-swiftui-basics-create-project-analyze-code/</guid>
       <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
+SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 다르게 확연히 간단해졌습니다.
 첫 눈에 바로 들어오는 특징으로는 인스턴스를 생성 시에 더 이상 UI 접두사를 붙이지 않아도 된다는 것이네요. 그리고 내부적으로 바뀐 큰 차이점은 UIKit 의 인스턴스들은 대부분 class 형태로 구성되어있던 것과 다르게 SwiftUI 의 인스턴스들은 대부분 struct 형태로 구현되어있습니다.
 그럼 프로젝트를 생성하고 달라진 점들을 직접 살펴보는 것이 좋겠어요. 프로젝트 생성 시 User Interface 를 SwiftUI 로 설정하고 시작하게 되면 다음과 같은 화면이 보입니다.</description>
     </item>

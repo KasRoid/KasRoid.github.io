@@ -8,7 +8,7 @@
 <meta name="description" content="오늘은 Vim 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.
 Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
 이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요." />
-<meta name="keywords" content="iOS, Swift, Vim, Plugin" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Vim, Plugin" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/" />
@@ -16,37 +16,37 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 
     <title>
         
-            Vim - 여러가지 유용한 설정 적용하기 :: Developer Kas  — Part of My Brain
+            Vim - 여러가지 유용한 설정 적용하기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Vim - 여러가지 유용한 설정 적용하기">
 <meta itemprop="description" content="오늘은 Vim 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.
 Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
-이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요.">
-<meta itemprop="datePublished" content="2020-08-31T21:45:33+09:00" />
+이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요."><meta itemprop="datePublished" content="2020-08-31T21:45:33+09:00" />
 <meta itemprop="dateModified" content="2020-08-31T21:45:33+09:00" />
-<meta itemprop="wordCount" content="309">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="309"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Vim,Plugin," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
@@ -62,10 +62,10 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
 이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-08-31T21:45:33+09:00" />
-<meta property="article:modified_time" content="2020-08-31T21:45:33+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-08-31T21:45:33+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -83,9 +83,27 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -93,7 +111,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -107,7 +125,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -118,13 +136,6 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -150,6 +161,10 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/">Vim - 여러가지 유용한 설정 적용하기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -171,17 +186,17 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 <hr>
 <h2 id="syntax-설정하기">Syntax 설정하기</h2>
 <p>저만 그런지 모르겠지만 제 경우에는 <strong>Vim</strong> 에서 새로운 파일을 열 때마다 <strong>Syntax</strong> 의 기본설정이 <strong>off</strong> 로 되어있습니다. 저는 보통 Syntax 를 활성화 시켜놓고 사용하는 것을 선호해서 매번 <code>:syntax on</code> 커맨드를 통해 활성화 시켜줘야 했는데요. <code>.vimrc</code> 파일에서 설정을 바꿔주면 기본세팅을 Syntax On 으로 변경할 수 있습니다. 바로 입력해볼게요.</p>
-<pre><code class="language-console" data-lang="console">syntax on
-</code></pre><p>네 이게 전부입니다. 쉽죠? ㅎㅎ  이제 파일을 저장하고 나서부터 새롭게 여는 파일들은 <strong>Syntax</strong> 설정이 활성화된채로 열리게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>syntax on
+</span></span></code></pre></div><p>네 이게 전부입니다. 쉽죠? ㅎㅎ  이제 파일을 저장하고 나서부터 새롭게 여는 파일들은 <strong>Syntax</strong> 설정이 활성화된채로 열리게 됩니다.</p>
 <hr>
 <h2 id="numbering-설정하기">Numbering 설정하기</h2>
 <p>보통 우리가 사용하는 IDE 프로그램들은 화면 좌측에 넘버링을 제공해서 우리가 총 몇 줄을 작성했는지 혹은 몇 번째 줄에서 작업하고 있는지 직관적으로 알 수 있게 되어있잖아요? <strong>Vim</strong> 에서도 당연히 지원하는 기능이며 간단하게 설정가능합니다. 그리고 참고로 현재 작성하는 코드들은 Vim 내의 Command mode 에서도 1회성으로 동일하게 사용할 수 있습니다.</p>
-<pre><code class="language-console" data-lang="console">set number
-</code></pre><p>코드를 입력하고 저장하면 이제 화면 좌측에서 넘버링을 확인할 수 있는데요. 이렇게 사용하는 것도 이전에는 확인할 수 없었던 넘버링을 확인할 수 있다는 점에서 충분히 좋긴하지만 <strong>Vim</strong> 을 사용하다보면 현재 줄을 기준으로 위 아래 특정 줄 수만큼 이동해야할 필요가 있는 경우가 많은데요. 내 커서가 있는 곳을 기준으로 위 아래로 각각 넘버링을 보여주는 기능도 지원합니다. 이렇게 글로는 이해가 조금 어렵지만 아래 스크린샷을 보면 한번에 무슨 뜻인지 알 수 있을거에요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>set number
+</span></span></code></pre></div><p>코드를 입력하고 저장하면 이제 화면 좌측에서 넘버링을 확인할 수 있는데요. 이렇게 사용하는 것도 이전에는 확인할 수 없었던 넘버링을 확인할 수 있다는 점에서 충분히 좋긴하지만 <strong>Vim</strong> 을 사용하다보면 현재 줄을 기준으로 위 아래 특정 줄 수만큼 이동해야할 필요가 있는 경우가 많은데요. 내 커서가 있는 곳을 기준으로 위 아래로 각각 넘버링을 보여주는 기능도 지원합니다. 이렇게 글로는 이해가 조금 어렵지만 아래 스크린샷을 보면 한번에 무슨 뜻인지 알 수 있을거에요.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/91720743-96918480-ebd2-11ea-9e07-b5259365de17.png" alt="Relative Numbering 이 적용된 화면"></p>
 <p>어떤가요? <strong>Vim</strong> 을 쓸 때는 정말 유용할 것 같죠? 그럼 바로 설정해주도록 할게요.</p>
-<pre><code class="language-console" data-lang="console">set number relativenumber
-</code></pre><p>이제 저장하고 새로운 파일을 열어 커서를 움직여보면 좌측에 표시되는 숫자가 이전과는 다르게 유동적으로 변하게 되는 것을 확인할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>set number relativenumber
+</span></span></code></pre></div><p>이제 저장하고 새로운 파일을 열어 커서를 움직여보면 좌측에 표시되는 숫자가 이전과는 다르게 유동적으로 변하게 되는 것을 확인할 수 있습니다.</p>
 <p>오늘 포스팅은 평소보다 조금 짧은 느낌이지만 앞으로 꾸준히 <strong>Vim</strong> 을 사용하면서 발견하는 유용한 설정을 이곳에 지속적으로 기록하고 업데이트할 계획입니다.</p>
 
       </div>
@@ -190,12 +205,23 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span><span class="tag"><a href="https://kasroid.github.io/tags/plugin/">Plugin</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/vim/">Vim</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/plugin/">Plugin</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/developer-tools/">Developer Tools</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -215,7 +241,13 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-08-31 21:45 &#43;0900
+        
+          2020-08-31 21:45 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -313,34 +345,37 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Vim Plugin - NERDTree</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Vim Plugin - NERDTree</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/">
-                <span class="button__text">Vim - ColorScheme 적용 및 직접 색 변경하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/">
+                    <span class="button__text">Vim - ColorScheme 적용 및 직접 색 변경하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -350,22 +385,8 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -375,22 +396,7 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

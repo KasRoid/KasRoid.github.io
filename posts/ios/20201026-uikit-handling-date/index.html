@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Intro App 을 만들다보면 날짜를 다뤄야하는 상황을 종종 마주치게 되는데요. 그동안은 원하는 정보를 적당히 구글에서 찾아 문제를 해결하고 따로 공부하는 시간을 가져본 적이 없었습니다. 날짜는 여러가지 앱에서 사용되는 빈도가 높은만큼 제대로 공부하고 지나가면 앞으로 도움이 많이 될 것 같아 공부해 봅니다.
- Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ" />
-<meta name="keywords" content="iOS, Swift, Date" />
+Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, Date" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/" />
@@ -15,53 +15,53 @@
 
     <title>
         
-            UIKit - Calendar 와 Date 기초 익히기 :: Developer Kas  — Part of My Brain
+            UIKit - Calendar 와 Date 기초 익히기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="UIKit - Calendar 와 Date 기초 익히기">
 <meta itemprop="description" content="Intro App 을 만들다보면 날짜를 다뤄야하는 상황을 종종 마주치게 되는데요. 그동안은 원하는 정보를 적당히 구글에서 찾아 문제를 해결하고 따로 공부하는 시간을 가져본 적이 없었습니다. 날짜는 여러가지 앱에서 사용되는 빈도가 높은만큼 제대로 공부하고 지나가면 앞으로 도움이 많이 될 것 같아 공부해 봅니다.
- Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ">
-<meta itemprop="datePublished" content="2020-10-26T22:57:17+09:00" />
+Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ"><meta itemprop="datePublished" content="2020-10-26T22:57:17+09:00" />
 <meta itemprop="dateModified" content="2020-10-26T22:57:17+09:00" />
-<meta itemprop="wordCount" content="883">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="883"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="Date," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="UIKit - Calendar 와 Date 기초 익히기"/>
 <meta name="twitter:description" content="Intro App 을 만들다보면 날짜를 다뤄야하는 상황을 종종 마주치게 되는데요. 그동안은 원하는 정보를 적당히 구글에서 찾아 문제를 해결하고 따로 공부하는 시간을 가져본 적이 없었습니다. 날짜는 여러가지 앱에서 사용되는 빈도가 높은만큼 제대로 공부하고 지나가면 앞으로 도움이 많이 될 것 같아 공부해 봅니다.
- Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ"/>
+Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ"/>
 
 
 
     <meta property="og:title" content="UIKit - Calendar 와 Date 기초 익히기" />
 <meta property="og:description" content="Intro App 을 만들다보면 날짜를 다뤄야하는 상황을 종종 마주치게 되는데요. 그동안은 원하는 정보를 적당히 구글에서 찾아 문제를 해결하고 따로 공부하는 시간을 가져본 적이 없었습니다. 날짜는 여러가지 앱에서 사용되는 빈도가 높은만큼 제대로 공부하고 지나가면 앞으로 도움이 많이 될 것 같아 공부해 봅니다.
- Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ" />
+Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-10-26T22:57:17+09:00" />
-<meta property="article:modified_time" content="2020-10-26T22:57:17+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-10-26T22:57:17+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -79,9 +79,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -89,7 +107,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -103,7 +121,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -114,13 +132,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -146,6 +157,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">UIKit - Calendar 와 Date 기초 익히기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -202,35 +217,35 @@
 </ul>
 <p>정말 2번째와 3번째 방법이 비슷해보이죠? 아래 코드처럼 캘린더를 인스턴스화하고 print 를 찍어가며 설정을 바꿔보면 차이점이 좀 더 명확해집니다.</p>
 <p><code>.current</code> 를 사용한 캘린더는 설정에서 캘린더 종류를 바꿔도 적용되지 않고 <code>.autoupdatingCurrent</code> 는 적용이 됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> customCalendar = Calendar(identifier: .gregorian) <span style="color:#75715e">// 직접 캘린더의 종류를 설정, enum 형태로 만들어져 있어 gregorian 외에도 다양한 종류의 캘린더를 확인할 수 있음</span>
-<span style="color:#66d9ef">let</span> systemCalendar = Calendar.current <span style="color:#75715e">// 사용자의 아이폰 설정 캘린더 정보를 가져와서 사용하지만, 날짜가 로드된 이후 사용자가 설정에서 변경하는 내용은 적용되지 않음</span>
-<span style="color:#66d9ef">let</span> autoUpdatingSystemCalendar = Calendar.autoupdatingCurrent <span style="color:#75715e">// 아이폰에서 설정되어 있는 달력을 기준으로 값을 리턴</span>
-</code></pre></div><p>이렇게 3가지 방법을 사용해 달력을 생성할 수 있지만, 특별한 이유가 없다면 <code>.current</code> 나 <code>.autoupdatingCurrent</code> 를 통해 사용자가 아이폰에서 설정해 놓은 달력을 기준으로 사용하는 것이 좋습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> customCalendar = Calendar(identifier: .gregorian) <span style="color:#75715e">// 직접 캘린더의 종류를 설정, enum 형태로 만들어져 있어 gregorian 외에도 다양한 종류의 캘린더를 확인할 수 있음</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> systemCalendar = Calendar.current <span style="color:#75715e">// 사용자의 아이폰 설정 캘린더 정보를 가져와서 사용하지만, 날짜가 로드된 이후 사용자가 설정에서 변경하는 내용은 적용되지 않음</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> autoUpdatingSystemCalendar = Calendar.autoupdatingCurrent <span style="color:#75715e">// 아이폰에서 설정되어 있는 달력을 기준으로 값을 리턴</span>
+</span></span></code></pre></div><p>이렇게 3가지 방법을 사용해 달력을 생성할 수 있지만, 특별한 이유가 없다면 <code>.current</code> 나 <code>.autoupdatingCurrent</code> 를 통해 사용자가 아이폰에서 설정해 놓은 달력을 기준으로 사용하는 것이 좋습니다.</p>
 <hr>
 <h3 id="date-생성하기">Date 생성하기</h3>
 <p>이제 <strong>Date</strong> 를 구현하는 방법을 알아보겠습니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/97507339-5840f780-19c0-11eb-94c2-668b9242773f.png" alt="공식문서의 Date"></p>
 <p>시간은 각 나라마다 다를 수 있는데 만약 별도로 <strong>TimeZone</strong> 을 명시하지 않는다면 사용자의 아이폰 기본설정을 따라가게 됩니다.
 그럼 현재 날짜를 값으로 갖고있는 변수를 만들어 볼까요?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> now = Date()
-</code></pre></div><p>정말 간단하네요. 이제 <code>now</code> 를 <strong>print</strong> 해보면 현재 날짜가 출력되는 것을 확인할 수 있을거에요. <code>Date</code> 를 인스턴스화 하는 것만으로도 현재 날짜에 접근할 수 있게됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> now = Date()
+</span></span></code></pre></div><p>정말 간단하네요. 이제 <code>now</code> 를 <strong>print</strong> 해보면 현재 날짜가 출력되는 것을 확인할 수 있을거에요. <code>Date</code> 를 인스턴스화 하는 것만으로도 현재 날짜에 접근할 수 있게됩니다.</p>
 <hr>
 <h3 id="timeinterval-알아보기">TimeInterval 알아보기</h3>
 <p>특정 시간만큼 지난 시각을 <strong>Date</strong> 로 만들고 싶다면 <code>Date(timeIntervalSinceReferenceDate:)</code> method 를 사용해 이동하고 싶은 시간을 초로 설정할 수 있습니다.
 하지만 이 <strong>method</strong> 를 사용하기 전에 반드시 알고 지나가야할 개념이 하나 있는데요. 바로 <code>TimeInterval</code> 입니다.</p>
 <p><img src="https://user-images.githubusercontent.com/41736472/97507178-faacab00-19bf-11eb-90a4-31620e7e0549.png" alt="공식문서의 TimeInterval"></p>
 <p><code>TimeInterval</code> 은 <strong>Swift</strong> 의 기본 타입 중 하나인 <strong>Double</strong> 이 <strong>Type Alias</strong> 된 형태로 단독적으로 사용하는 경우는 거의 없는 것 같고&hellip; 주로 <strong>Date</strong> 와 연계하여 사용됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> oneSec = TimeInterval(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">// 1초</span>
-<span style="color:#66d9ef">let</span> oneMin = TimeInterval(<span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1분</span>
-<span style="color:#66d9ef">let</span> oneHour = TimeInterval(oneMin <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1시간</span>
-<span style="color:#66d9ef">let</span> oneDay = TimeInterval(oneHour <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1일</span>
-</code></pre></div><p><strong>TimeInterval</strong> 을 사용해 현재의 1분 후를 <strong>Date</strong> 로 생성해 볼게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> oneMinuteAfter = Date(timeIntervalSinceReferenceDate: <span style="color:#ae81ff">60</span>)
-</code></pre></div><p>쉽네요 ㅎㅎㅎ 1시간은 60분이니까 <strong>3600초</strong>를 값으로 넣어주면 됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> oneHourAfter = Date(timeIntervalSinceReferenceDate: <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>)
-</code></pre></div><p>여태까지는 시간을 미래로만 이동했으니 이제 과거로 돌아가 볼게요. 1시간 전으로 날짜를 세팅하려면 <strong>TimeInterval 값을 음수로</strong> 바꿔주면 됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> oneHourBefore = Date(timeIntervalSinceReferenceDate: <span style="color:#f92672">-</span><span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>)
-</code></pre></div><p>지금 예시에서는 하드코딩 형태로 직접 값을 입력했지만 <strong>TimeInterval</strong> 형태로 변수를 생성하고 해당 변수를 값으로 넣어줄 수도 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneSec = TimeInterval(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">// 1초</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneMin = TimeInterval(<span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1분</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneHour = TimeInterval(oneMin <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1시간</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneDay = TimeInterval(oneHour <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>) <span style="color:#75715e">// 1일</span>
+</span></span></code></pre></div><p><strong>TimeInterval</strong> 을 사용해 현재의 1분 후를 <strong>Date</strong> 로 생성해 볼게요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneMinuteAfter = Date(timeIntervalSinceReferenceDate: <span style="color:#ae81ff">60</span>)
+</span></span></code></pre></div><p>쉽네요 ㅎㅎㅎ 1시간은 60분이니까 <strong>3600초</strong>를 값으로 넣어주면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneHourAfter = Date(timeIntervalSinceReferenceDate: <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>)
+</span></span></code></pre></div><p>여태까지는 시간을 미래로만 이동했으니 이제 과거로 돌아가 볼게요. 1시간 전으로 날짜를 세팅하려면 <strong>TimeInterval 값을 음수로</strong> 바꿔주면 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneHourBefore = Date(timeIntervalSinceReferenceDate: <span style="color:#f92672">-</span><span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>)
+</span></span></code></pre></div><p>지금 예시에서는 하드코딩 형태로 직접 값을 입력했지만 <strong>TimeInterval</strong> 형태로 변수를 생성하고 해당 변수를 값으로 넣어줄 수도 있습니다.</p>
 <hr>
 <h3 id="datecomponents-사용하기">DateComponents 사용하기</h3>
 <p>지금까지 <strong>현재 날짜를 기준으로 특정 시간만큼 이동하는 방법</strong>을 알아보았고, 이제 직접 <strong>원하는 날짜를 지정</strong>하여 값을 캘린더에 넣어주는 방법을 공부해보겠습니다.
@@ -238,22 +253,22 @@
 <p><img src="https://user-images.githubusercontent.com/41736472/97507495-a48c3780-19c0-11eb-999d-2ef591e719b6.png" alt="공식문서의 DateComponents"></p>
 <p><strong>DateComponents</strong> 안에는 연월일 등 시간에 관련된 여러가지 속성이 들어있으며 그 값을 우리가 지정할 수가 있습니다.
 그럼 <strong>DateComponents</strong> 를 인스턴스화 시켜 <strong>customDateComponents</strong> 라는 변수를 생성하고 1988년 8월 5일을 날짜로 세팅한 뒤 캘린더에 넣도록 하겠습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> customDateComponents = DateComponents()
-customDateComponents.year = <span style="color:#ae81ff">1988</span>
-customDateComponents.month = <span style="color:#ae81ff">8</span>
-customDateComponents.day = <span style="color:#ae81ff">5</span>
-<span style="color:#66d9ef">let</span> customDateComponentsDate = autoUpdatingSystemCalendar.date(from: customDateComponents)
-</code></pre></div><p><code>customDateComponentsDate</code> 를 print 해보면 1988년 8월 5일이 출력되는 것을 확인할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> customDateComponents = DateComponents()
+</span></span><span style="display:flex;"><span>customDateComponents.year = <span style="color:#ae81ff">1988</span>
+</span></span><span style="display:flex;"><span>customDateComponents.month = <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>customDateComponents.day = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> customDateComponentsDate = autoUpdatingSystemCalendar.date(from: customDateComponents)
+</span></span></code></pre></div><p><code>customDateComponentsDate</code> 를 print 해보면 1988년 8월 5일이 출력되는 것을 확인할 수 있습니다.</p>
 <p>이제 캘린더에서 <strong>필요한 값만 가져오는 방법</strong>을 알아볼게요.
 <code>dateComponents</code> method 를 사용해 여러가지 값들을 한번에 가져오거나, <code>component</code> method 를 사용해 값 하나만을 가져올 수도 있습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> components = autoUpdatingSystemCalendar.dateComponents([.year, .month, .day, .hour], from: now)
-<span style="color:#66d9ef">let</span> year = autoUpdatingSystemCalendar.component(.year, from: now)
-<span style="color:#66d9ef">let</span> month = autoUpdatingSystemCalendar.component(.month, from: now)
-<span style="color:#66d9ef">let</span> day = autoUpdatingSystemCalendar.component(.day, from: now)
-</code></pre></div><p>마지막으로 <strong>두 날짜 사이의 간격</strong>을 일 수로 가져오는 방법을 알아보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> components = autoUpdatingSystemCalendar.dateComponents([.year, .month, .day, .hour], from: now)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> year = autoUpdatingSystemCalendar.component(.year, from: now)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> month = autoUpdatingSystemCalendar.component(.month, from: now)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> day = autoUpdatingSystemCalendar.component(.day, from: now)
+</span></span></code></pre></div><p>마지막으로 <strong>두 날짜 사이의 간격</strong>을 일 수로 가져오는 방법을 알아보겠습니다.</p>
 <p>조금 전 만들어두었던 <code>customDateComponentsDate</code> 와 현재 날짜 사이의 간격을 알아볼게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> days = autoUpdatingSystemCalendar.dateComponents([.day], from: customDateComponentsDate!, to: now).day
-</code></pre></div><p><code>.day</code> 를 사용하지 않고 print 를 해보면 <strong>day</strong> 와 <strong>isLeapMonth</strong>  두가지가 출력되는 것을 볼 수가 있고, 우리는 그 중 day 값에 접근해 일 수 만 가져오게 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> days = autoUpdatingSystemCalendar.dateComponents([.day], from: customDateComponentsDate!, to: now).day
+</span></span></code></pre></div><p><code>.day</code> 를 사용하지 않고 print 를 해보면 <strong>day</strong> 와 <strong>isLeapMonth</strong>  두가지가 출력되는 것을 볼 수가 있고, 우리는 그 중 day 값에 접근해 일 수 만 가져오게 할 수 있습니다.</p>
 <hr>
 <h2 id="wrap-up">Wrap Up</h2>
 <p>이렇게 <code>Calendar</code> 와 <code>Date</code> 에 관한 기본적인 내용을 공부해 보았는데요. 처음 접하는 내용이다보니 생소한 부분은 있었지만 그렇게 어려운 내용은 아니었던 것 같습니다.
@@ -265,12 +280,22 @@ customDateComponents.day = <span style="color:#ae81ff">5</span>
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/date/">Date</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/date/">Date</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/uikit/">UIKit</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -290,7 +315,13 @@ customDateComponents.day = <span style="color:#ae81ff">5</span>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-10-26 22:57 &#43;0900
+        
+          2020-10-26 22:57 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -388,34 +419,37 @@ customDateComponents.day = <span style="color:#ae81ff">5</span>
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/">
-                <span class="button__icon">←</span>
-                <span class="button__text">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/">
-                <span class="button__text">UIKit - Delegate Pattern 이해하기</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/">
+                    <span class="button__text">UIKit - Delegate Pattern 이해하기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -425,22 +459,8 @@ customDateComponents.day = <span style="color:#ae81ff">5</span>
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -450,22 +470,7 @@ customDateComponents.day = <span style="color:#ae81ff">5</span>
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

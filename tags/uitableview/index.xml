@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UITableView on Developer Kas</title>
+    <title>UITableView on SDY</title>
     <link>https://kasroid.github.io/tags/uitableview/</link>
-    <description>Recent content in UITableView on Developer Kas</description>
+    <description>Recent content in UITableView on SDY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
@@ -15,10 +15,10 @@
       
       <guid>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</guid>
       <description>Intro UITableView 를 사용하면서 그동안은 항상 RowHeight 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 자동으로 세팅하는 방법에 대해 공부를 해봅니다 ㅎㅎ
- Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
+Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
 기본 세팅은 아래 코드를 참고하세요.
 ViewController.swift
-import UIKit class ViewController: UIViewController { // MARK:- Properties private let tableView = UITableView() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK:- UI private func configureUI() { view.</description>
+import UIKit class ViewController: UIViewController { // MARK: - Properties private let tableView = UITableView() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK: - UI private func configureUI() { view.</description>
     </item>
     
     <item>

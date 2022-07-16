@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
- Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &amp;ldquo;Hello World&amp;rdquo; 가 써져있으니까요.
+이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
+Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &amp;ldquo;Hello World&amp;rdquo; 가 써져있으니까요.
 그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?" />
-<meta name="keywords" content="iOS, Swift, SwiftUI" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, SwiftUI" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/" />
@@ -17,59 +17,59 @@
 
     <title>
         
-            SwiftUI Basics - Text 와 Image 생성하기 :: Developer Kas  — Part of My Brain
+            SwiftUI Basics - Text 와 Image 생성하기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="SwiftUI Basics - Text 와 Image 생성하기">
 <meta itemprop="description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
- Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
-그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?">
-<meta itemprop="datePublished" content="2020-07-31T10:38:35+09:00" />
+이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
+Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
+그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?"><meta itemprop="datePublished" content="2020-07-31T10:38:35+09:00" />
 <meta itemprop="dateModified" content="2020-07-31T10:38:35+09:00" />
-<meta itemprop="wordCount" content="475">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="475"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="SwiftUI," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="SwiftUI Basics - Text 와 Image 생성하기"/>
 <meta name="twitter:description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
- Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
+이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
+Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
 그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?"/>
 
 
 
     <meta property="og:title" content="SwiftUI Basics - Text 와 Image 생성하기" />
 <meta property="og:description" content="본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
- 이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
- Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
+이번 포스팅에서는 Text, Image, Stack, Button, List 를 SwiftUI 환경에서 생성하는 법을 간단하게 알아보도록 하겠습니다. SwiftUI 의 코드가 얼마나 간결해졌냐면 저 instance 들을 생성하기 위해 우리가 알아야하는 단어는 정말 저게 끝이에요. 저 단어들과 괄호를 조합하여 간단하게 instance 를 생성할 수 있습니다. 레이아웃도 자동으로 잡아주고요!
+Text 텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.
 그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-07-31T10:38:35+09:00" />
-<meta property="article:modified_time" content="2020-07-31T10:38:35+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-07-31T10:38:35+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -87,9 +87,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -97,7 +115,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -111,7 +129,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -122,13 +140,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -154,6 +165,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-text-image/">SwiftUI Basics - Text 와 Image 생성하기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -178,23 +193,23 @@
 <p>텍스트를 생성하는 법은 Xcode 를 실행하자마자 바로 알 수 있습니다. 기본적으로 &ldquo;Hello World&rdquo; 가 써져있으니까요.</p>
 <p>그럼 텍스트를 표시하기 위해 필요한 과정을 UIKit 과 한번 비교해볼까요? UIKit 에서는 UILabel 을 생성하고 생성된 instance 에 원하는 텍스트를 붙이고 View 에 올린 다음 레이아웃까지 따로 잡아줘야 하잖아요? 그런데 이 모든 과정이 SwiftUI 에서는 Text(&ldquo;Hello World&rdquo;) 한 문장으로 끝납니다. 🙀</p>
 <p>그럼 이제 조금 더 깊게 들어가볼게요. 다음 코드를 같이 살펴봅시다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    <span style="color:#66d9ef">var</span> body: some View {
-        Text(<span style="color:#e6db74">&#34;Netflix&#34;</span>)
-            .font(.custom(<span style="color:#e6db74">&#34;AppleGothic-bold&#34;</span>, size: <span style="color:#ae81ff">50</span>))
-            .foregroundColor(.red)
-            .kerning(<span style="color:#ae81ff">5</span>)
-    }
-}
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
-        ContentView().preferredColorScheme(.dark)
-    }
-}
-</code></pre></div><p>Text 로 화면에 Netflix 가 표시되도록 구현했고 추가로 폰트 종류와 색상, 자간 크기도 조절을 했습니다. UIKit 에서는 이런 세부 조절과정을 method 를 사용해 진행했다면, SwiftUI 에서는 modifier 를 사용해 조절한다고 표현합니다. 내부적으로 구현되는 방법이 달라지고 적용 순서가 더 중요해졌지만 결과적으로 코드 내에서 맡는 역할은 method 와 modifier 가 비슷합니다. 일단은 거의 같다고 생각하면 될 것 같아요</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        Text(<span style="color:#e6db74">&#34;Netflix&#34;</span>)
+</span></span><span style="display:flex;"><span>            .font(.custom(<span style="color:#e6db74">&#34;AppleGothic-bold&#34;</span>, size: <span style="color:#ae81ff">50</span>))
+</span></span><span style="display:flex;"><span>            .foregroundColor(.red)
+</span></span><span style="display:flex;"><span>            .kerning(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+</span></span><span style="display:flex;"><span>        ContentView().preferredColorScheme(.dark)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Text 로 화면에 Netflix 가 표시되도록 구현했고 추가로 폰트 종류와 색상, 자간 크기도 조절을 했습니다. UIKit 에서는 이런 세부 조절과정을 method 를 사용해 진행했다면, SwiftUI 에서는 modifier 를 사용해 조절한다고 표현합니다. 내부적으로 구현되는 방법이 달라지고 적용 순서가 더 중요해졌지만 결과적으로 코드 내에서 맡는 역할은 method 와 modifier 가 비슷합니다. 일단은 거의 같다고 생각하면 될 것 같아요</p>
 <p>Preview 에서 텍스트는 좌측 이미지와 같이 표시됩니다. 이쯤되면 웬만한 개발환경에서 처음에 Hello Wolrd Print 찍고 Console 에서 입력된 내용 확인하는 것과 비슷한 난이도가 아닐까 싶어요. 이보다 더 쉬워질 수가 있을까요?</p>
 <p>마지막으로 PreviewProvider 부분에서 .preferredColorScheme(.dark) 를 지정해놓고 실제 넷플릭스 화면처럼 배경을 어둡게 만들어줬어요. 다만 이건 실제 배경이 검은색으로 변한게 아니라 단순히 다크모드가 적용된 것이니까 light 모드에서도 검은 화면을 만드려면 다른 방법을 써야합니다. 이건 나중에.</p>
 <!-- raw HTML omitted -->
@@ -204,18 +219,18 @@
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FqsSK3%2FbtqF9lwXVit%2F4YK31FBZbDtOgDPWyQdK41%2Fimg.png" alt="Preview Assets.xcassets 화면"></p>
 <p>그러고보니 위 폴더도 UIKit 에 없던거에요. 이곳은 개발 중에만 사용하게되는 이미지를 넣어두는데 사용된다고 하네요. 기존부터 사용해 익숙한 Assets.xcassets 폴더에 넣어도 전혀 문제 없습니다.</p>
 <p>아래 코드를 입력하면 이미지가 Preview 에 이미지가 생성됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> body: some View {
-    Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
-}
-</code></pre></div><p>이미지를 넣는 것도 단 한줄로 끝났어요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>    Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이미지를 넣는 것도 단 한줄로 끝났어요.</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdEvKF9%2FbtqF9CSJQiI%2FDER7goFo44jNiSu8JkOUO0%2Fimg.png" alt="Image 삽입 결과"></p>
 <p>다만 Image 의 Attributes 를 조절해야할 때 반드시 알아야하는 부분이 있어요. 이미지에 frame 을 늘리고 색상을 넣어볼게요.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> body: some View {
-    Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
-        .frame(width: <span style="color:#ae81ff">200</span>, height: <span style="color:#ae81ff">200</span>)
-        .background(Color.green)
-}
-</code></pre></div><p>결과를 봅시다. 이미지의 크기는 그대로고 정말로 frame 그 자체만 커졌어요. 보통 우리가 frame 을 늘린다는 것은 이렇게 사용하겠다는 의미가 아니잖아요? 그럼 이미지를 실제로 크게 만들려면 어떻게 해야할까요?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>    Image(<span style="color:#e6db74">&#34;SwiftUI&#34;</span>)
+</span></span><span style="display:flex;"><span>        .frame(width: <span style="color:#ae81ff">200</span>, height: <span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>        .background(Color.green)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>결과를 봅시다. 이미지의 크기는 그대로고 정말로 frame 그 자체만 커졌어요. 보통 우리가 frame 을 늘린다는 것은 이렇게 사용하겠다는 의미가 아니잖아요? 그럼 이미지를 실제로 크게 만들려면 어떻게 해야할까요?</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F4sbVi%2FbtqF8uH38vm%2FXojxvsJQHk2WfcauvdrlL0%2Fimg.png" alt="Result Image"></p>
 <p>간단합니다. .resizable() modifier 한줄만 추가해주면 돼요! 단 순서가 중요합니다. frame 을 먼저 설정해버리면 resizable 을 적용할 수가 없거든요. 왜 그런지 이유를 한번 알아볼까요?</p>
 <p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fmc78M%2FbtqF7tbKqxW%2F2a6b92IgM41SluCCz0urok%2Fimg.png" alt=".frame 의 Description"></p>
@@ -229,12 +244,22 @@
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/swiftui/">SwiftUI</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/swiftui/">SwiftUI</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/framework/">Framework</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -254,7 +279,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-07-31 10:38 &#43;0900
+        
+          2020-07-31 10:38 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -352,34 +383,37 @@
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-stacks-spacer/">
-                <span class="button__icon">←</span>
-                <span class="button__text">SwiftUI Basics - Stacks 와 Spacer 사용하기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200731-swiftui-basics-stacks-spacer/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">SwiftUI Basics - Stacks 와 Spacer 사용하기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20200730-swiftui-basics-create-project-analyze-code/">
-                <span class="button__text">SwiftUI Basics - 프로젝트 생성 및 기본제공 코드 분석</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200730-swiftui-basics-create-project-analyze-code/">
+                    <span class="button__text">SwiftUI Basics - 프로젝트 생성 및 기본제공 코드 분석</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -389,22 +423,8 @@
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -414,22 +434,7 @@
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 

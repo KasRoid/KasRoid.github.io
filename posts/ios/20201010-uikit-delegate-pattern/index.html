@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~" />
-<meta name="keywords" content="iOS, Swift, UIKit, Delegate" />
+Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~" />
+<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, UIKit, Delegate" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/" />
@@ -15,53 +15,53 @@
 
     <title>
         
-            UIKit - Delegate Pattern 이해하기 :: Developer Kas  — Part of My Brain
+            UIKit - Delegate Pattern 이해하기 :: SDY  — Dev Log
         
     </title>
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
     type="text/css">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="UIKit - Delegate Pattern 이해하기">
 <meta itemprop="description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~">
-<meta itemprop="datePublished" content="2020-10-10T21:34:44+09:00" />
+Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~"><meta itemprop="datePublished" content="2020-10-10T21:34:44+09:00" />
 <meta itemprop="dateModified" content="2020-10-10T21:34:44+09:00" />
-<meta itemprop="wordCount" content="1314">
-<meta itemprop="image" content="https://kasroid.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="1322"><meta itemprop="image" content="https://kasroid.github.io"/>
 <meta itemprop="keywords" content="UIKit,Delegate," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://kasroid.github.io"/>
 
 <meta name="twitter:title" content="UIKit - Delegate Pattern 이해하기"/>
 <meta name="twitter:description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~"/>
+Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~"/>
 
 
 
     <meta property="og:title" content="UIKit - Delegate Pattern 이해하기" />
 <meta property="og:description" content="본 포스팅은 Swift 5.3 기준으로 작성되었습니다.
- Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~" />
+Intro 약 두달간 진행하던 Market Kurly 서비스를 클론하는 프로젝트가 끝나, 오늘부터는 기존에 어느정도 공부하고 사용도하고 있었지만 완벽하게 숙지를 한 것은 아닌 부분들을 다시 복습하고 이해도를 높이는 것을 목표로 한동안 공부해보려고 합니다. 그럼 오늘은 처음 배울 때 이해하기 까다로웠던 부분 중 하나인 Delegate Pattern 에 대해 복습하는 시간을 가져보도록 하겠습니다. iOS 개발 에서는 정말 자주 쓰이고 중요한 개념이므로 여러분들도 혹시 아직 완벽히 이해한게 아니라면 같이 공부해보도록 해요~" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/" />
-<meta property="og:image" content="https://kasroid.github.io"/>
+<meta property="og:url" content="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-10-10T21:34:44+09:00" />
-<meta property="article:modified_time" content="2020-10-10T21:34:44+09:00" /><meta property="og:site_name" content="Developer Kas" />
+<meta property="article:modified_time" content="2020-10-10T21:34:44+09:00" /><meta property="og:site_name" content="SDY" />
+
 
 
 
@@ -79,9 +79,27 @@
 
 
 
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177150852-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -89,7 +107,7 @@
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">Developer Kas</span>
+            <span class="logo__text">SDY&#39;s Dev Log</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -103,7 +121,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://kasroid.github.io/posts/ios">iOS</a></li><li><a href="https://kasroid.github.io/posts/swift">Swift</a></li><li><a href="https://kasroid.github.io/posts/developertools">Tools</a></li>
+    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
     </ul>
 </nav>
 
@@ -114,13 +132,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -146,6 +157,10 @@
       <h1 class="post-title">
         <a href="https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/">UIKit - Delegate Pattern 이해하기</a>
       </h1>
+
+      
+
+      
         <hr />
         <aside id="toc">
           <div class="toc-title">Table of Contents</div>
@@ -209,104 +224,104 @@
 </ul>
 <p>을 배치했습니다.</p>
 <p><strong>FirstViewController</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">let</span> label = UILabel()
-    <span style="color:#66d9ef">let</span> button = UIButton()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        view.backgroundColor = .white
-        setAttributes()
-        setContraints()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        label.text = <span style="color:#e6db74">&#34;Sample Text&#34;</span>
-
-        button.setTitle(<span style="color:#e6db74">&#34;Present&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [label, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
-
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            button.bottomAnchor.constraint(equalTo: label.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
-        ])
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
-        <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-    }
-}
-</code></pre></div><p><strong>SecondViewController</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecondViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">let</span> textField = UITextField()
-    <span style="color:#66d9ef">let</span> button = UIButton()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        view.backgroundColor = .white
-        setAttributes()
-        setContraints()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = <span style="color:#ae81ff">0.5</span>
-
-        button.setTitle(<span style="color:#e6db74">&#34;Dismiss&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [textField, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-
-        NSLayoutConstraint.activate([
-            textField.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">50</span>),
-            textField.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">350</span>),
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
-
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            button.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
-        ])
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-    }
-}
-</code></pre></div><p>저는 이렇게 기본 세팅을 해주었는데요.  함께 실습하고 싶은 분은 위 코드를 복사해서 사용하세요~</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> label = UILabel()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        view.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;Sample Text&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Present&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [label, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            button.bottomAnchor.constraint(equalTo: label.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>SecondViewController</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecondViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> textField = UITextField()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        view.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        textField.layer.borderColor = UIColor.lightGray.cgColor
+</span></span><span style="display:flex;"><span>        textField.layer.borderWidth = <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Dismiss&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [textField, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            textField.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>            textField.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">350</span>),
+</span></span><span style="display:flex;"><span>            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            button.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>저는 이렇게 기본 세팅을 해주었는데요.  함께 실습하고 싶은 분은 위 코드를 복사해서 사용하세요~</p>
 <hr>
 <h2 id="delegate-pattern-연습하기">Delegate Pattern 연습하기</h2>
 <p>이제 기본적인 세팅을 마쳤으니 <strong>Delegate Pattern 개념 이해하기</strong>에서 설명했었던 <strong>6가지 단계</strong>를 직접 구현해보도록 하겠습니다. <strong>Delegate Pattern</strong> 을 구현할 때는 지금 실습할 이 단계들만 잘 기억한다면 어려울 것이 없습니다.</p>
@@ -314,173 +329,184 @@
 <h3 id="protocol-구현하기">Protocol 구현하기</h3>
 <p>가장 먼저 우리가 구현하고자하는 method 를 <strong>Protocol</strong> 을 생성하고 그 내부에 만들어 주어야 하는데요. <strong>Protocol</strong> 은 class 를 Type 으로 가집니다. 이것은 <strong>ARC</strong>, 메모리 관리와 관련이 있는 부분이며 지금 설명하기에는 복잡한 내용이라 나중에 다른 포스팅에서 자세히 알아보도록 하겠습니다. 아무튼 <strong>class</strong> Type 을 가지게되면 이후 생성할 delegate 인스턴스를 <strong>weak</strong> 형태로 생성할 수 있게 됩니다.</p>
 <p>이 실습에서는 <strong>SecondViewController</strong> 의 <strong>UITextField</strong> 에 입력받은 내용을 <strong>FirstViewController</strong> 의 <strong>UILabel</strong> 에 전달해야하므로 우리가 구현할 method 는 <strong>String</strong> 을 <strong>Parameter</strong> 로 전달 받습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">CustomTextFieldDelegate</span>: <span style="color:#66d9ef">class</span> {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String)
-}
-</code></pre></div><p>간단하죠? <strong>method</strong> 에 구현될 코드는 나중에 우리가 <strong>Protocol 을 채택하고</strong> 입력하는 형식이므로 지금 당장은 어떤 내용도 입력할 필요가 없습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">CustomTextFieldDelegate</span>: <span style="color:#66d9ef">class</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>간단하죠? <strong>method</strong> 에 구현될 코드는 나중에 우리가 <strong>Protocol 을 채택하고</strong> 입력하는 형식이므로 지금 당장은 어떤 내용도 입력할 필요가 없습니다.</p>
 <hr>
 <h3 id="delegate-인스턴스-생성하기">Delegate 인스턴스 생성하기</h3>
 <p><strong>SecondViewController</strong> 에 <strong>delegate</strong> 인스턴스를 생성합니다. <strong>delegate</strong> 인스턴스는 <strong>CustomTextFieldDelegate</strong> 를 <strong>Type</strong> 을 가짐으로서 이 인스턴스에 접근해서 우리가 <strong>Protocol</strong> 내부에 작성해두었던 함수에 접근할 수 있게 됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> delegate: CustomTextFieldDelegate?
-</code></pre></div><p>위에서 한번 설명했듯이 <strong>weak</strong> 을 사용해 <strong>ARC 가 증가하지 않도록</strong> 만들어줌으로서 <strong>메모리 Leak</strong> 이 발생하지 않도록 방지해주는 것이 중요합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> delegate: CustomTextFieldDelegate?
+</span></span></code></pre></div><p>위에서 한번 설명했듯이 <strong>weak</strong> 을 사용해 <strong>ARC 가 증가하지 않도록</strong> 만들어줌으로서 <strong>메모리 Leak</strong> 이 발생하지 않도록 방지해주는 것이 중요합니다.</p>
 <hr>
 <h3 id="protocol-채택-및-필수-method-구현하기">Protocol 채택 및 필수 method 구현하기</h3>
 <p>이제 <strong>FirstViewController</strong> 로 돌아와서 우리가 생성한 <strong>Protocol</strong> 을 채택하고 method 까지 함께 구현해보도록 할게요.</p>
 <p><strong>Protocol</strong> 을 채택할 때는 반드시 <strong>Extension</strong> 을 통해 만들어 주어야하는 것은 아니지만 저는 <strong>Extension</strong> 으로 <strong>Delegate</strong> 를 채택하는 것을 선호하고, 실제로도 많은 개발자들이 이 형식을 따르므로, 이번 실습에서도 <strong>extension</strong> 을 사용해 <strong>CustomTextFieldDelegate</strong> 를 채택했습니다. <strong>Protocol</strong> 이 채택되고 나면 경고창이 뜨면서 필수 함수를 구현하라고 나오는데요. 이 때 Xcode 가 지원하는 자동에러처리를 사용하면 함수 하나가 생성됩니다.</p>
 <p>이 함수는 우리가 <strong>Protocol 생성 시</strong>에 만들어 둔 함수로, 실제로 <strong>UITableView</strong> 등에서 Delegate Protocol 을 채택했을 때 필수로 구현해야하는 함수도 이런 방식으로 자동완성이 되는 것입니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FirstViewController</span>: CustomTextFieldDelegate {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String) {
-        label.text = text
-    }
-}
-</code></pre></div><p>함수 내부의 코드를 간단하게 설명해보면, 함수가 실제로 호출되는 곳에서 어떤 <strong>String</strong> 값을 가지고 들어오게되고, 우리는 <strong>Parameter</strong> 를 전달받아 사용하기만 하면 됩니다. 이 실습에서는 전달받은 값을 <strong>UILabel</strong> 에 표현하는 것이 목적이므로 위와 같이 코드를 구현했습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FirstViewController</span>: CustomTextFieldDelegate {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String) {
+</span></span><span style="display:flex;"><span>        label.text = text
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>함수 내부의 코드를 간단하게 설명해보면, 함수가 실제로 호출되는 곳에서 어떤 <strong>String</strong> 값을 가지고 들어오게되고, 우리는 <strong>Parameter</strong> 를 전달받아 사용하기만 하면 됩니다. 이 실습에서는 전달받은 값을 <strong>UILabel</strong> 에 표현하는 것이 목적이므로 위와 같이 코드를 구현했습니다.</p>
 <hr>
 <h3 id="delegate-위임하기">Delegate 위임하기</h3>
 <p>우리가 이전에 <strong>delegate</strong> 인스턴스를 생성했을 때 <strong>optional</strong> 형태로 생성해주었잖아요? 이제 이 값에 <strong>CustomTextFieldDelegate</strong> 를 채택한 Controller 를 할당해주면 됩니다. 실제 <strong>Input</strong> 은 <strong>SecondViewController</strong> 에서 이루어지지만 그 값에 대한 처리는 <strong>FirstViewController</strong> 에서 대행하겠다하는 일종의 명시입니다. 위임방법은  <strong>FirstViewController</strong> 에서 화면을 <strong>present</strong> 할 때 구현해 놓은 <strong>nextVC</strong> 의 delegate 에 접근해서 설정할 수 있습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">@objc</span>
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-    <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
-    nextVC.delegate = <span style="color:#66d9ef">self</span>
-    <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-}
-</code></pre></div><p><strong>Present</strong> 할 <strong>Controller</strong> 를 생성하고 present 되기 직전 <strong>delegate 에 값을 넣어주는</strong> 방식입니다. 넘어갈 View 에 데이터를 전송할 떄 많이 써봤던 방식일 거에요 ㅎㅎ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
+</span></span><span style="display:flex;"><span>    nextVC.delegate = <span style="color:#66d9ef">self</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Present</strong> 할 <strong>Controller</strong> 를 생성하고 present 되기 직전 <strong>delegate 에 값을 넣어주는</strong> 방식입니다. 넘어갈 View 에 데이터를 전송할 떄 많이 써봤던 방식일 거에요 ㅎㅎ</p>
 <hr>
 <h3 id="함수가-동작해야하는-시점-설정하기">함수가 동작해야하는 시점 설정하기</h3>
 <p>이제 우리가 원하는 타이밍에 함수가 작동할 수 있도록 코드를 구현해볼게요. 화면이 내려가면서 값을 전달하면 되니까 <strong>Dismiss</strong> 되는 타이밍에 작동할 수 있도록 만들어 주었습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">@objc</span>
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-    <span style="color:#66d9ef">let</span> text = textField.text ?? <span style="color:#e6db74">&#34;&#34;</span>
-    <span style="color:#66d9ef">self</span>.delegate?.textDidInput(didInput: text)
-    <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-}
-</code></pre></div><p><strong>delegate</strong> 의 <strong>textDidInput()</strong> 함수를 호출하는 시점이 결정되었고, 이제 버튼이 눌리게 되면 <strong>View 가 Dismiss 되기 전</strong> 이 함수를 호출하며 <strong>FirstViewController</strong>  가 값을 전달받게 됩니다. 이게 가능한 이유는 <strong>SecondViewController</strong> 가 present 되기 전 우리가 <strong>FirstViewController</strong> 를 delegate 로 설정해주었기 때문입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> text = textField.text ?? <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">self</span>.delegate?.textDidInput(didInput: text)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>delegate</strong> 의 <strong>textDidInput()</strong> 함수를 호출하는 시점이 결정되었고, 이제 버튼이 눌리게 되면 <strong>View 가 Dismiss 되기 전</strong> 이 함수를 호출하며 <strong>FirstViewController</strong>  가 값을 전달받게 됩니다. 이게 가능한 이유는 <strong>SecondViewController</strong> 가 present 되기 전 우리가 <strong>FirstViewController</strong> 를 delegate 로 설정해주었기 때문입니다.</p>
 <hr>
 <h2 id="wrap-up">Wrap Up</h2>
 <p>이렇게 <strong>Delegate Pattern</strong> 실습을 마쳤습니다. 이 개념이 이해하고나면 의외로 간단하지만 초반에는 완전히 이해하는 것이 생각보다 까다롭더라고요. 처음배울 때는 왜 그렇게 어려웠었는지&hellip;ㅎㅎ 아무튼 만약 지금 이 개념이 잘 이해가 가지 않더라도 지속적으로 반복 연습하다보면 어느순간 당연하게 생각되는 부분이니까 열심히 공부해보세요!</p>
 <hr>
 <h3 id="entire-code">Entire Code</h3>
 <p><strong>FirstViewController</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">let</span> label = UILabel()
-    <span style="color:#66d9ef">let</span> button = UIButton()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        view.backgroundColor = .white
-        setAttributes()
-        setContraints()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        label.text = <span style="color:#e6db74">&#34;Sample Text&#34;</span>
-
-        button.setTitle(<span style="color:#e6db74">&#34;Present&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [label, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
-
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            button.bottomAnchor.constraint(equalTo: label.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
-        ])
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
-        nextVC.delegate = <span style="color:#66d9ef">self</span>
-        <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-    }
-}
-
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FirstViewController</span>: CustomTextFieldDelegate {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String) {
-        label.text = text
-    }
-}
-</code></pre></div><p><strong>SecondViewController</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecondViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> delegate: CustomTextFieldDelegate?
-
-    <span style="color:#66d9ef">let</span> textField = UITextField()
-    <span style="color:#66d9ef">let</span> button = UIButton()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        configureUI()
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-        view.backgroundColor = .white
-        setAttributes()
-        setContraints()
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = <span style="color:#ae81ff">0.5</span>
-
-        button.setTitle(<span style="color:#e6db74">&#34;Dismiss&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
-        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
-        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
-        [textField, button].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-        }
-
-        NSLayoutConstraint.activate([
-            textField.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">50</span>),
-            textField.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">350</span>),
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
-
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
-            button.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
-        ])
-    }
-
-    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
-    <span style="color:#66d9ef">@objc</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        <span style="color:#66d9ef">let</span> text = textField.text ?? <span style="color:#e6db74">&#34;&#34;</span>
-        <span style="color:#66d9ef">self</span>.delegate?.textDidInput(didInput: text)
-        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> label = UILabel()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        view.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        label.text = <span style="color:#e6db74">&#34;Sample Text&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Present&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [label, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            button.bottomAnchor.constraint(equalTo: label.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> nextVC = SecondViewController()
+</span></span><span style="display:flex;"><span>        nextVC.delegate = <span style="color:#66d9ef">self</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.present(nextVC, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FirstViewController</span>: CustomTextFieldDelegate {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">textDidInput</span>(didInput text: String) {
+</span></span><span style="display:flex;"><span>        label.text = text
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>SecondViewController</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecondViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> delegate: CustomTextFieldDelegate?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> textField = UITextField()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> button = UIButton()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        configureUI()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
+</span></span><span style="display:flex;"><span>        view.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        setAttributes()
+</span></span><span style="display:flex;"><span>        setContraints()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setAttributes</span>() {
+</span></span><span style="display:flex;"><span>        textField.layer.borderColor = UIColor.lightGray.cgColor
+</span></span><span style="display:flex;"><span>        textField.layer.borderWidth = <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        button.setTitle(<span style="color:#e6db74">&#34;Dismiss&#34;</span>, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.setTitleColor(.systemBlue, <span style="color:#66d9ef">for</span>: .normal)
+</span></span><span style="display:flex;"><span>        button.addTarget(<span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleButton(<span style="color:#66d9ef">_</span>:)), <span style="color:#66d9ef">for</span>: .touchUpInside)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setContraints</span>() {
+</span></span><span style="display:flex;"><span>        [textField, button].forEach {
+</span></span><span style="display:flex;"><span>            view.addSubview($0)
+</span></span><span style="display:flex;"><span>            $0.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
+</span></span><span style="display:flex;"><span>            textField.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>            textField.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">350</span>),
+</span></span><span style="display:flex;"><span>            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            button.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Selectors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleButton</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> text = textField.text ?? <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.delegate?.textDidInput(didInput: text)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
       </div>
     </article>
 
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://kasroid.github.io/tags/uikit/">UIKit</a></span><span class="tag"><a href="https://kasroid.github.io/tags/delegate/">Delegate</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/tags/uikit/">UIKit</a></span>
+        <span class="tag"><a href="https://kasroid.github.io/tags/delegate/">Delegate</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kasroid.github.io/categories/ios/">iOS</a></span>
+        
+    </p>
+
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
@@ -490,7 +516,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1314 Words
+        1322 Words
       </p>
 
       <p>
@@ -500,7 +526,13 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2020-10-10 21:34 &#43;0900
+        
+          2020-10-10 21:34 &#43;0900
+        
+
+         
+          
+        
       </p>
     </div>
       <hr />
@@ -598,34 +630,37 @@
       </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">
-                <span class="button__icon">←</span>
-                <span class="button__text">UIKit - Calendar 와 Date 기초 익히기</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">UIKit - Calendar 와 Date 기초 익히기</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/">
-                <span class="button__text">WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://kasroid.github.io/posts/ios/20200916-webkit-search-address-with-kakao-with-uikit/">
+                    <span class="button__text">WebKit - 카카오 우편번호 서비스 구현하기 with UIKit</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -635,22 +670,8 @@
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            
-            <span> <a href="https://kasroid.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -660,22 +681,7 @@
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
 
 
 
