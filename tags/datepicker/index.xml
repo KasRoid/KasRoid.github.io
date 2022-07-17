@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>DatePicker on SDY</title>
+    <title>DatePicker on SDY - Dev Log</title>
     <link>https://kasroid.github.io/tags/datepicker/</link>
-    <description>Recent content in DatePicker on SDY</description>
+    <description>Recent content in DatePicker on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 07 Nov 2020 10:42:13 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/datepicker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/datepicker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UIKit - Date Picker 를 이용해 Timer 구현하기</title>
       <link>https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/</link>
-      <pubDate>Sat, 07 Nov 2020 10:42:13 +0900</pubDate>
+      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
       
       <guid>https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/</guid>
       <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.

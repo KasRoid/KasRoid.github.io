@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>CocoaPods on SDY</title>
+    <title>CocoaPods on SDY - Dev Log</title>
     <link>https://kasroid.github.io/tags/cocoapods/</link>
-    <description>Recent content in CocoaPods on SDY</description>
+    <description>Recent content in CocoaPods on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 05 Sep 2020 11:06:30 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/cocoapods/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CocoaPods - 명령어 알아보기</title>
@@ -17,6 +19,16 @@
       <description>Intro CocoaPods - 설치 및 라이브러리 적용하기 포스팅에서 간단하게 CocoaPods 를 설치하고 Library 를 적용하는 법가지 알아보았었는데요. 이번에는 CocoaPods 에서 사용할 수 있는 커맨드들을 같이 한번 공부해보도록 하겠습니다.
 Podfile 생성하기 우리가 CocoaPods 를 설치하는 이유는 외부 라이브러리를 적용해서 사용하기 위해서잖아요? 그렇다면 가장 먼저할 일은 당연히 어떤 라이브러리를 설치하고 싶은지 CocoaPods 에게 알려주는 것입니다. 그래서 CocoaPods 는 그 목록을 Podfile 을 통해서 받게되는데요. 다음은 이 Podfile 을 생성하는 명령어입니다.
 pod init 설치를 희망하는 프로젝트 폴더 내에서 위 커맨드를 실행해보면 Podfile 이 생성된 것을 확인할 수 있을거에요.</description>
+    </item>
+    
+    <item>
+      <title>CocoaPods - 설치 및 라이브러리 적용하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</link>
+      <pubDate>Sun, 23 Aug 2020 19:14:16 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/</guid>
+      <description>오늘은 CocoaPods 가 무엇인지 알아보도록 하겠습니다.
+개발을 할 때 모든 것을 스스로 만드는 것도 좋지만 필요에 따라 Library 를 써서 시간과 노력을 절약하고 다른 곳에 좀 더 신경을 쓰는 것이 좋을 때도 있을겁니다. 하지만 그렇게 Library 사용 빈도가 점점 늘게되면 나중에는 Library 를 찾거나 관리하는데 시간이 많이 소모되게 됩니다. 그럼 아무래도 Library 를 쓰는 의미가 많이 퇴색되겠죠? 그래서 Xcode 에서 이런 Library 관리를 쉽게 할 수 있도록 도와주는 것이 CocoaPods 입니다.</description>
     </item>
     
   </channel>

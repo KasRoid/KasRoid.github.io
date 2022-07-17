@@ -1,43 +1,14 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on SDY</title>
-        <link>https://kasroid.github.io/posts/</link>
-        <description>Recent content in Posts on SDY</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 07 Nov 2020 10:42:13 +0900</lastBuildDate>
-        <atom:link href="https://kasroid.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Swift</title>
-            <link>https://kasroid.github.io/posts/swift/</link>
-            <pubDate>Tue, 25 Aug 2020 01:35:55 +0900</pubDate>
-            
-            <guid>https://kasroid.github.io/posts/swift/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
-        </item>
-        
-        <item>
-            <title>Developer Tools</title>
-            <link>https://kasroid.github.io/posts/developertools/</link>
-            <pubDate>Tue, 25 Aug 2020 01:27:47 +0900</pubDate>
-            
-            <guid>https://kasroid.github.io/posts/developertools/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
-        </item>
-        
-        <item>
-            <title>iOS</title>
-            <link>https://kasroid.github.io/posts/ios/</link>
-            <pubDate>Tue, 25 Aug 2020 01:25:02 +0900</pubDate>
-            
-            <guid>https://kasroid.github.io/posts/ios/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
-        </item>
-        
-    </channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on SDY - Dev Log</title>
+    <link>https://kasroid.github.io/posts/</link>
+    <description>Recent content in Posts on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>

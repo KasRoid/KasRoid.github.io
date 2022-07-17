@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://kasroid.github.io/sitemap.xml

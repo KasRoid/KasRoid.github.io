@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on SDY - Dev Log</title>
+    <link>https://kasroid.github.io/categories/</link>
+    <description>Recent content in Categories on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://kasroid.github.io/categories/ios/</link>
+      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://kasroid.github.io/categories/terminal/</link>
+      <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/categories/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://kasroid.github.io/categories/blog/</link>
+      <pubDate>Sun, 06 Sep 2020 13:09:05 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

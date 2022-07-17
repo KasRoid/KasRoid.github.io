@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on SDY</title>
+    <title>Tags on SDY - Dev Log</title>
     <link>https://kasroid.github.io/tags/</link>
-    <description>Recent content in Tags on SDY</description>
+    <description>Recent content in Tags on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 07 Nov 2020 10:42:13 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DatePicker</title>
       <link>https://kasroid.github.io/tags/datepicker/</link>
-      <pubDate>Sat, 07 Nov 2020 10:42:13 +0900</pubDate>
+      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/datepicker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UIKit</title>
+      <link>https://kasroid.github.io/tags/uikit/</link>
+      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/tags/uikit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Calendar</title>
+      <link>https://kasroid.github.io/tags/calendar/</link>
+      <pubDate>Mon, 26 Oct 2020 22:57:17 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/tags/calendar/</guid>
       <description></description>
     </item>
     
@@ -36,15 +56,6 @@
     </item>
     
     <item>
-      <title>UIKit</title>
-      <link>https://kasroid.github.io/tags/uikit/</link>
-      <pubDate>Sat, 10 Oct 2020 21:34:44 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/tags/uikit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Kakao</title>
       <link>https://kasroid.github.io/tags/kakao/</link>
       <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
@@ -54,7 +65,7 @@
     </item>
     
     <item>
-      <title>WebKit</title>
+      <title>Webkit</title>
       <link>https://kasroid.github.io/tags/webkit/</link>
       <pubDate>Wed, 16 Sep 2020 19:04:53 +0900</pubDate>
       
@@ -81,20 +92,20 @@
     </item>
     
     <item>
-      <title>Terminal</title>
-      <link>https://kasroid.github.io/tags/terminal/</link>
-      <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/tags/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>UITableView</title>
       <link>https://kasroid.github.io/tags/uitableview/</link>
       <pubDate>Tue, 08 Sep 2020 11:14:25 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/uitableview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>System</title>
+      <link>https://kasroid.github.io/tags/system/</link>
+      <pubDate>Tue, 08 Sep 2020 08:28:46 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/tags/system/</guid>
       <description></description>
     </item>
     
@@ -113,15 +124,6 @@
       <pubDate>Mon, 07 Sep 2020 02:46:53 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/vundle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://kasroid.github.io/tags/blog/</link>
-      <pubDate>Sun, 06 Sep 2020 13:09:05 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/tags/blog/</guid>
       <description></description>
     </item>
     
@@ -158,15 +160,6 @@
       <pubDate>Fri, 04 Sep 2020 11:32:51 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/keyboard-maestro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Plugin</title>
-      <link>https://kasroid.github.io/tags/plugin/</link>
-      <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/tags/plugin/</guid>
       <description></description>
     </item>
     

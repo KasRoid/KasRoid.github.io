@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>UIKit on SDY</title>
+    <title>UIKit on SDY - Dev Log</title>
     <link>https://kasroid.github.io/tags/uikit/</link>
-    <description>Recent content in UIKit on SDY</description>
+    <description>Recent content in UIKit on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 10 Oct 2020 21:34:44 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/uikit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/uikit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UIKit - Date Picker 를 이용해 Timer 구현하기</title>
+      <link>https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/</link>
+      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20201107-uikit-timer-with-date-picker/</guid>
+      <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+Swift 5.3 iOS 14.1 Intro 오늘은 DatePicker 에서 제공하는 Mode 중 하나인 .countDownTimer 를 사용해 실제로 구동 가능한 타이머를 만들어보겠습니다.
+Prerequisite 타이머 구현 및 실습을 위해 DatePicker 를 배치하고, 상단에는 타이머의 남은 시간을 표시할 UILabel 을, 하단에는 사용자가 설정한 시간을 기준으로 타이머 구동을 시작할 UIButton 을 배치했습니다.
+import UIKit class CountDownViewController: UIViewController { let label = UILabel() let picker = UIDatePicker() let button = UIButton(type: .</description>
+    </item>
+    
+    <item>
+      <title>UIKit - Date Picker 사용하기, iOS 14 변경사항 정리</title>
+      <link>https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/</link>
+      <pubDate>Fri, 30 Oct 2020 17:12:51 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20201030-uikit-date-picker/</guid>
+      <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
+Swift 5.3 iOS 14.1 Intro 이전 포스트에서 Date 에 관해 알아보았으니 이번에는 사용자가 아이폰에서 날짜를 고를 때 자주 마주치게되는 인터페이스 중 하나인 DatePicker 에 대해 같이 공부해보겠습니다.
+iOS 14 가 업데이트 되면서 기존까지와는 다른 스타일의 DatePicker 가 추가되었는데요. 아이폰 기본 알람앱을 자주 사용하는 분이라면 이미 알고 계셨을거에요 ㅎㅎ 아무튼 공부하는 김에 이 새로운 스타일의 DatePicker 도 함께 알아보도록 할게요.
+Prerequisite 먼저 실습을 위해 간단하게 ViewController 위에 DatePicker 를 올려놓았습니다.</description>
+    </item>
+    
+    <item>
+      <title>UIKit - Calendar 와 Date 기초 익히기</title>
+      <link>https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/</link>
+      <pubDate>Mon, 26 Oct 2020 22:57:17 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20201026-uikit-handling-date/</guid>
+      <description>Intro App 을 만들다보면 날짜를 다뤄야하는 상황을 종종 마주치게 되는데요. 그동안은 원하는 정보를 적당히 구글에서 찾아 문제를 해결하고 따로 공부하는 시간을 가져본 적이 없었습니다. 날짜는 여러가지 앱에서 사용되는 빈도가 높은만큼 제대로 공부하고 지나가면 앞으로 도움이 많이 될 것 같아 공부해 봅니다.
+Prerequisite Cocoa Touch Framework 에는 날짜를 구현할 수 있는 다양한 방법이 존재하는데요. Swift 언어 이전에는 class 타입으로 구성되어 있는 구현방식을 제공했습니다. 아마 개발을 시작한지 어느정도 되었다면 자주 보았을 만한 NS 접두어로 시작하는 것들이 바로 그것이에요 ㅎㅎ</description>
+    </item>
+    
     <item>
       <title>UIKit - Delegate Pattern 이해하기</title>
       <link>https://kasroid.github.io/posts/ios/20201010-uikit-delegate-pattern/</link>
@@ -41,6 +77,19 @@ import UIKit class ViewController: UIViewController { private var textField = UI
     </item>
     
     <item>
+      <title>UIKit - UITableView 셀 크기가 자동으로 세팅되도록 구현하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</link>
+      <pubDate>Tue, 08 Sep 2020 11:14:25 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200913-uitableview-self-sizing-cells/</guid>
+      <description>Intro UITableView 를 사용하면서 그동안은 항상 RowHeight 값을 설정하여 높이를 지정해주었었는데요. 이번 프로젝트 진행하면서 셀 크기가 상황에 따라 유동적으로 변하는 케이스가 있어 자동으로 세팅하는 방법에 대해 공부를 해봅니다 ㅎㅎ
+Setup 실습을 위해 UITableViewCell 을 상속받은 CustomTableViewCell 을 생성하고 ViewController 위에 TableView 를 올려놓았습니다.
+기본 세팅은 아래 코드를 참고하세요.
+ViewController.swift
+import UIKit class ViewController: UIViewController { // MARK: - Properties private let tableView = UITableView() override func viewDidLoad() { super.viewDidLoad() configureUI() } // MARK: - UI private func configureUI() { view.</description>
+    </item>
+    
+    <item>
       <title>UIKit - UITableView 를 Grouped Style 로 지정했을 때 생기는 Footer 없에기</title>
       <link>https://kasroid.github.io/posts/ios/20200905-uikit-deleting-unwanted-spaces-in-grouped-style-uitableview/</link>
       <pubDate>Sat, 05 Sep 2020 16:17:28 +0900</pubDate>
@@ -71,6 +120,18 @@ CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면
 이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
 Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
 이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요.</description>
+    </item>
+    
+    <item>
+      <title>Firebase - Xcode 프로젝트와 연동하기</title>
+      <link>https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/</link>
+      <pubDate>Mon, 10 Aug 2020 01:19:46 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/</guid>
+      <description>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
+· Firebase 6.29.0
+· Swift 5.2.4
+Intro Firebase 한 번쯤 들어보지 않으셨나요? 초보 개발자가 모바일 앱을 개발하고 개인 앱 서버를 운영하는데 있어 빠질 수 없는 것이 Firebase 가 아닐까 합니다. 속도에 조금 불만이 있긴 하지만 사실 백엔드를 모르는 개발자가 이렇게 쉽고 간편하게 회원가입부터 데이터 관리까지 할 수 있는 서버를 그것도 일정수준까지는 무료로 운영할 수 있게 해주는 서비스가 또 어디있을까요? 이 서비스가 없었으면 저는 지금 Python 도 같이 배우고 있었을 것 같네요.</description>
     </item>
     
   </channel>

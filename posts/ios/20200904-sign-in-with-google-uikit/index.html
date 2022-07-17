@@ -1,557 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
-<meta name="description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Firebase - Sign in with Google 구현하기 with UIKit | SDY - Dev Log</title><meta name=keywords content="UIKit,Firebase"><meta name=description content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
 Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
-CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요." />
-<meta name="keywords" content="iOS, Swift, SwiftUI, UIKit, UIKit, Firebase" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="" />
-<link rel="canonical" href="https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/" />
-
-
-    <title>
-        
-            Firebase - Sign in with Google 구현하기 with UIKit :: SDY  — Dev Log
-        
-    </title>
-
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
-
-
-
-<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
-
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="">
-
-
-<meta itemprop="name" content="Firebase - Sign in with Google 구현하기 with UIKit">
-<meta itemprop="description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
+CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요."><meta name=author content="Doyoung Song"><link rel=canonical href=https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/><meta name=google-site-verification content="43_MOEW0diGtfoxWtXZ65iT24CFf_i63QMcMBiLkAUs"><link crossorigin=anonymous href=/assets/css/stylesheet.8b523f1730c922e314350296d83fd666efa16519ca136320a93df674d00b6325.css integrity="sha256-i1I/FzDJIuMUNQKW2D/WZu+hZRnKE2MgqT32dNALYyU=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://kasroid.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://kasroid.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://kasroid.github.io/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://kasroid.github.io/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://kasroid.github.io/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-177150852-1","auto"),ga("send","pageview"))</script><meta property="og:title" content="Firebase - Sign in with Google 구현하기 with UIKit"><meta property="og:description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
 Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
-CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요."><meta itemprop="datePublished" content="2020-09-04T22:22:20+09:00" />
-<meta itemprop="dateModified" content="2020-09-04T22:22:20+09:00" />
-<meta itemprop="wordCount" content="1201"><meta itemprop="image" content="https://kasroid.github.io"/>
-<meta itemprop="keywords" content="UIKit,Firebase," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://kasroid.github.io"/>
-
-<meta name="twitter:title" content="Firebase - Sign in with Google 구현하기 with UIKit"/>
-<meta name="twitter:description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
+CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요."><meta property="og:type" content="article"><meta property="og:url" content="https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/"><meta property="og:image" content="https://kasroid.github.io/%3Cimage%20path/url%3E"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-09-04T22:22:20+09:00"><meta property="article:modified_time" content="2020-09-04T22:22:20+09:00"><meta property="og:site_name" content="SDY - Dev Log"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://kasroid.github.io/%3Cimage%20path/url%3E"><meta name=twitter:title content="Firebase - Sign in with Google 구현하기 with UIKit"><meta name=twitter:description content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
 Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
-CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요."/>
-
-
-
-    <meta property="og:title" content="Firebase - Sign in with Google 구현하기 with UIKit" />
-<meta property="og:description" content="본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0
-Intro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!
-CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/" /><meta property="og:image" content="https://kasroid.github.io"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-09-04T22:22:20+09:00" />
-<meta property="article:modified_time" content="2020-09-04T22:22:20+09:00" /><meta property="og:site_name" content="SDY" />
-
-
-
-
-
-    <meta property="article:section" content="iOS" />
-
-
-
-    <meta property="article:published_time" content="2020-09-04 22:22:20 &#43;0900 KST" />
-
-
-
-
-
-
-
-
-
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-177150852-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-    </head>
-
-    
-        <body>
-    
-    
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="/posts" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text">SDY&#39;s Dev Log</span>
-            <span class="logo__cursor" style=
-                  "
-                   
-                   ">
-            </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="/posts/ios">iOS</a></li><li><a href="/posts/swift">Swift</a></li><li><a href="/posts/developertools">Tools</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-        </span>
-    </span>
-</header>
-
-
-            <div class="content">
-                
-  <main class="post">
-
-    <div class="post-info">
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        6 minutes
-
-        
-      </p>
-    </div>
-
-    <article>
-      <h1 class="post-title">
-        <a href="https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/">Firebase - Sign in with Google 구현하기 with UIKit</a>
-      </h1>
-
-      
-
-      
-        <hr />
-        <aside id="toc">
-          <div class="toc-title">Table of Contents</div>
-          <nav id="TableOfContents">
-  <ul>
-    <li><a href="#intro">Intro</a>
-      <ul>
-        <li><a href="#cocoapods-설치">CocoaPods 설치</a></li>
-        <li><a href="#importing-firebase">Importing Firebase</a></li>
-      </ul>
-    </li>
-    <li><a href="#pod-libraries-설치하기">Pod Libraries 설치하기</a></li>
-    <li><a href="#google-로그인-프로세스-구현하기">Google 로그인 프로세스 구현하기</a></li>
-    <li><a href="#google-로그인-버튼-생성하기">Google 로그인 버튼 생성하기</a></li>
-    <li><a href="#firebase-에-로그인-데이터-저장하기">Firebase 에 로그인 데이터 저장하기</a></li>
-  </ul>
-</nav>
-        </aside>
-        <hr />
-
-      
-
-      <div class="post-content">
-        <blockquote>
-<p>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
+CocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kasroid.github.io/posts/"},{"@type":"ListItem","position":3,"name":"iOS","item":"https://kasroid.github.io/posts/ios/"},{"@type":"ListItem","position":4,"name":"Firebase - Sign in with Google 구현하기 with UIKit","item":"https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Firebase - Sign in with Google 구현하기 with UIKit","name":"Firebase - Sign in with Google 구현하기 with UIKit","description":"본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0\nIntro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!\nCocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요.","keywords":["UIKit","Firebase"],"articleBody":" 본 포스팅은 이하 버전을 기준으로 작성되었습니다. · Swift 5.2.4 · Firebase 6.29.0\nIntro 이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!\nCocoaPods 설치 만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 CocoaPods - 설치 및 라이브러리 적용하기 포스팅을 참고해주세요.\nImporting Firebase 기초적인 Firebase 와 Xcode 의 연동방법은 Firebase - Xcode 프로젝트와 연동하기 포스팅을 통해 공부했었습니다. 그래서 이번 포스팅에서는 지난 글과 달라지는 부분에 대해서만 공부해보도록 할게요. Firebase 연동과정에서 Pod 를 설치하라는 메세지가 나오는 부분에까지 진행해주세요.\nPod Libraries 설치하기 Terminal 에서 Xcode 에 Firebase 파일 설치를 위해 터미널에서 내 프로젝트가 있는 폴더 내부로 이동해주세요. 이동을 완료했다면 pod init 을 진행해주세요. 그러면 새롭게 Podfile 이 생성되었을 거에요.\nPodfile 을 열고 아래처럼 입력해주세요. 우리가 입력한 부분은 총 3가지에요.\npod ‘Firebase/Analytics’ pod ‘Firebase/Auth’ pod ‘GoogleSignIn’ 이 중 첫번째 Firebase/Analytics 는 우리가 처음에 프로젝트 설정할 때 Analytics 를 등록했으니까 설치 해주는 것이고 Google 로그인에 필수 항목은 아닙니다. 혹시 체크 해제하고 진행하신 분들은 첫번째 항목은 설치할 필요가 없어요~\n# Uncomment the next line to define a global platform for your project # platform :ios, '9.0' target 'SignInWithGoogle_Example' do # Comment the next line if you don't want to use dynamic frameworks use_frameworks! # Pods for SignInWithGoogle_Example pod 'Firebase/Analytics' pod 'Firebase/Auth' pod 'GoogleSignIn' end Podfile 수정 후 꼭 저장하고 다시 터미널로 돌아가서 pod install 을 진행해 주세요. 인스톨을 마치고 폴더를 열어보면 기존 Xcode 프로젝트 파일과는 조금 다른 흰색 .workspace 파일이 생성되어 있습니다. 앞으로 우리는 기존 파일이 아닌 이 파일에서 코드 작업을 진행할 거에요. 그럼 기존 파일을 종료하고 새로운 파일을 열어볼게요.\n파일을 실행하고 Firebase 홈페이지로 돌아가 Next 를 누르면 다음과 같은 화면을 볼 수 있습니다.\n먼저 AppDelegate 파일에서 Firebase 와 GoogleSignIn 을 import 해주도록 합시다.\nimport Firebase import GoogleSignIn 그 다음에는 기본제공 함수 중 첫번째 내부에 FirebaseApp.configure() 함수를 입력해 주세요.\nfunc application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -\u003e Bool { // Override point for customization after application launch. FirebaseApp.configure() return true } 마지막으로 ViewController 로 돌아가 다시 한번 Firebase 와 GoogleSignIn 을 import 해줍니다. 이제 몇 가지 설정만 더하면 됩니다 ㅎㅎ\n다시 Firebase 로 돌아가 Next 를 누르면 마지막으로 아래와 같은 화면이 뜰텐데 Xcode 에서 시뮬레이터를 실행하고 잠시 기다리시면 Continue to console 버튼이 활성화 될거에요. 만약에 계속 활성화되지 않으면 Skip this step 버튼으로 그냥 넘어가주세요.\n자 다들 이제 이렇게 생긴 Firebase 프로젝트 내의 메인화면으로 오셨죠?\n여기서 좌측의 Authentication 버튼을 누르고 Sign-in method 탭을 클릭합니다. 리스트에서 Google 을 선택하고 Enabled 로 바꿔주세요. 참고로 상태를 바꾸려면 이메일을 반드시 선택해야 합니다.\nGoogle 로그인 프로세스 구현하기 이제 Firebase 홈페이지에서 세팅은 모두 마쳤습니다. 다음으로는 Xcode 로 다시 돌아와 GoogleService-Info.plist 파일의 REVERSED_CLIENT_ID 의 항목을 복사합니다.\n복사가 되었으면 좌측의 Navigator 에서 프로젝트 파일을 클릭하고 Info 탭으로 들어가보면 하단에 URL Types 가 있습니다. 이 곳을 펼치고 + 버튼을 눌러 URL Schemes 칸에 복사한 REVERSED_CLIENT_ID 값을 붙여넣어 주세요.\n다음으로는 이제 GIDSignInDelegate 를 AppDelegate 로 돌아가 채택해주어야 합니다.\nclass AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate 그리고 GIDSignInDelegate 의 필수구현 method 인 sign() 도 함께 구현해줍니다. 함수의 내부 코드는 다른 부분부터 먼저 끝내고 마지막에 입력해주도록 할게요.\nfunc sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) { } 이제부터 우리는 GIDSignIn 이라는 인스턴스를 사용할 수 있게되는데 이것은 사용자가 구글 아이디로 로그인할 수 있도록 도와주는 인스턴스입니다.\n다음으로 기본제공 함수인 application:didFinishLaunchingWithOptions: 안에 우리가 조금 전 작성해놓은 FirebaseApp.configure() 코드 아래 다음 내용을 작성합니다. 두번째 줄은 우리가 프로토콜을 채택했으니 당연히 delegate 설정을 해주어야 하는 부분이고, 첫번째 줄은 sign-in method 가 동작하기 위해 반드시 필요한 코드라고하네요. 그냥 외워버리거나 자주 안쓴다면 필요할 때마다 찾아서 쓰는걸로…\nGIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID GIDSignIn.sharedInstance().delegate = self 추가적으로 application:openURL:options: 함수를 구현하고 내부에 handle() method 를 구현합니다. 이 method 는 GIDSignIn 인스턴스의 handleURL method 를 호출하여 인증 프로세스가 끝날 때 애플리케이션이 수신하는 URL을 적절히 처리해준다고 합니다. 인증 프로세스의 결과에 따라 다른 URL 을 받는건지 어쩐건지… 알 수 없지만 아무튼 해야한다니까 그냥 구현해줍니다.\n@available(iOS 9.0, *) func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -\u003e Bool { return GIDSignIn.sharedInstance().handle(url) } 위 함수는 대놓고 iOS 9.0 이상에서만 구현이 된다고 써있잖아요? 만약에 거의 쓸 일은 없겠지만 정말 만약에 iOS 8.0 이상부터 지원해야할 일이 있다면 다음 함수도 구현해주세요.\nfunc application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -\u003e Bool { return GIDSignIn.sharedInstance().handle(url) } 그리고 사용자가 앱에서 disconnect 되었을 때 호출되는 함수인 sign:didDisconnectWith 함수도 구현해 줍니다. 우리는 지금 Google 로그인을 구현하는 것이 목적이므로, 일단 함수를 구현만 하고 이곳에는 코드를 따로 작성하지 않겠습니다. 앱이 disconnect 되었을 때 추가적인 action 이 필요하다면 이곳에 작성해주세요.\nfunc sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) { // Perform any operations when the user disconnects from app here. } 마지막으로 우리가 초반에 작성해 놓았던 필수구현 함수 sign() 의 내부 코드를 작성해볼게요. 에러가 날 경우 print 와 함께 함수가 종료되도록했고, 성공적으로 로그인 했을 경우에는 credential 이 print 될 수 있도록 작성했습니다. 여러분은 이곳에서 로그인 결과에 따라 원하는 ViewController 로 이동하거나 하는 등의 액션을 추가한다거나 하는 코드를 입력해봐도 좋을 것 같아요 ㅎㅎ\nfunc sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) { if let error = error { print(error) return } guard let authentication = user.authentication else { return } let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken) print(credential.provider) } 이제 거의 다 끝났으니까 조금만 더 힘내서 마무리 해볼게요!!\nGoogle 로그인 버튼 생성하기 드디어 이것으로 AppDelegate 에서 작성할 코드는 모두 끝났고 이제 ViewController 로 넘어가서 나머지 작업과 버튼을 추가해서 실제로 Google 로그인이 동작하는지 확인해보도록 할게요. 거의 다 왔으니까 조금만 더 힘내봅시다!!\n먼저 viewDidLoad() 에 다음 코드를 작성해볼게요. 첫번째 줄의 코드는 GIDSignIn 객체의 프레젠테이션 뷰 컨트롤러를 설정하고(Google 로그인 안내창을 어떤 뷰 컨트롤러에 띄울지 설정), 두번째 줄의 코드는 가능한 경우 자동으로 로그인을 할 수 있도록 도와주는 코드입니다. 두번째 줄의 코드는 자동 로그인이 필요하지 않다면 구현해주지 않아도 무방합니다.\nGIDSignIn.sharedInstance()?.presentingViewController = self GIDSignIn.sharedInstance().signIn() 다음으로 Google 로그인 버튼을 생성하고 View 의 가운데에 위치하도록 배치해 보겠습니다. 당연히 일반 버튼을 사용하면 안되고 GIDSignInButton() 을 상속받아 사용해야 합니다.\nlet googleLoginButton = GIDSignInButton() ViewController 에 적힌 코드는 아래와 같습니다. 우리가 작업을 미리 다른 곳에서 많이 해둬서인지 Controller 에서 구현할 부분은 많지 않네요 ㅎㅎ\nimport UIKit import Firebase import GoogleSignIn class ViewController: UIViewController { let googleLoginButton = GIDSignInButton() override func viewDidLoad() { super.viewDidLoad() configureUI() GIDSignIn.sharedInstance()?.presentingViewController = self } private func configureUI() { view.addSubview(googleLoginButton) googleLoginButton.translatesAutoresizingMaskIntoConstraints = false NSLayoutConstraint.activate([ googleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor), googleLoginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor) ]) } } 이제 실행시켜보면 버튼이 보이고 눌러보면 구글 로그인하는 화면이 보일거에요~ 해냈다!!\nFirebase 에 로그인 데이터 저장하기 하지만 아직 끝이 아니에요. 사용자가 정상적으로 로그인 했을 때 그 정보를 우리가 저장해야하니까요. AppDelegate 로 돌아가 sign:didSignInFor 함수에 Auth.auth().signIn(with: credential) method 를 작성해야 합니다.\nAuth 함수에서 else 쪽으로 빠지면 Firebase 에 로그인 데이터가 저장되게 됩니다. 가져올 수 있는 데이터는 사용자의 email 주소가 전부인 것 같네요.\nfunc sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) { // ... if let error = error { print(error) return } guard let authentication = user.authentication else { return } let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken) Auth.auth().signIn(with: credential) { (authResult, error) in if let error = error { print(error.localizedDescription) } else { print(\"Login Successful\") } } } 마지막으로 로그아웃을 도와주는 method 입니다. 로그인을 했으니까 당연히 로그아웃이 있어야하잖아요? ㅎㅎ 근데 오늘은 구현하지 않을거에요. 그냥 버튼하나 만들어서 @objc method 로 넘겨주면 잘 작동될겁니다!\nlet firebaseAuth = Auth.auth() do { try firebaseAuth.signOut() } catch let signOutError as NSError { print (\"Error signing out: %@\", signOutError) } 이번 포스팅은 내용이 정말 많이 길어졌네요. 여기까지 따라오신 분들 정말 수고많으셨습니다!! 그럼 이만~\n","wordCount":"1201","inLanguage":"en","image":"https://kasroid.github.io/%3Cimage%20path/url%3E","datePublished":"2020-09-04T22:22:20+09:00","dateModified":"2020-09-04T22:22:20+09:00","author":{"@type":"Person","name":"Doyoung Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://kasroid.github.io/posts/ios/20200904-sign-in-with-google-uikit/"},"publisher":{"@type":"Organization","name":"SDY - Dev Log","logo":{"@type":"ImageObject","url":"https://kasroid.github.io/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://kasroid.github.io accesskey=h title="SDY (Alt + H)">SDY</a><div class=logo-switches></div></div><ul id=menu><li><a href=https://kasroid.github.io/categories/ title=categories><span>categories</span></a></li><li><a href=https://kasroid.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://kasroid.github.io>Home</a>&nbsp;»&nbsp;<a href=https://kasroid.github.io/posts/>Posts</a>&nbsp;»&nbsp;<a href=https://kasroid.github.io/posts/ios/>iOS</a></div><h1 class=post-title>Firebase - Sign in with Google 구현하기 with UIKit</h1><div class=post-meta><span title='2020-09-04 22:22:20 +0900 KST'>July 97, 4044</span>&nbsp;·&nbsp;Doyoung Song</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#intro>Intro</a><ul><li><a href=#cocoapods-설치>CocoaPods 설치</a></li><li><a href=#importing-firebase>Importing Firebase</a></li></ul></li><li><a href=#pod-libraries-설치하기>Pod Libraries 설치하기</a></li><li><a href=#google-로그인-프로세스-구현하기>Google 로그인 프로세스 구현하기</a></li><li><a href=#google-로그인-버튼-생성하기>Google 로그인 버튼 생성하기</a></li><li><a href=#firebase-에-로그인-데이터-저장하기>Firebase 에 로그인 데이터 저장하기</a></li></ul></nav></div></details></div><div class=post-content><blockquote><p>본 포스팅은 이하 버전을 기준으로 작성되었습니다.
 · Swift 5.2.4
-· Firebase 6.29.0</p>
-</blockquote>
-<h2 id="intro">Intro</h2>
-<p>이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!</p>
-<h3 id="cocoapods-설치">CocoaPods 설치</h3>
-<p>만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 <a href="https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/">CocoaPods - 설치 및 라이브러리 적용하기</a> 포스팅을 참고해주세요.</p>
-<h3 id="importing-firebase">Importing Firebase</h3>
-<p>기초적인 Firebase 와 Xcode 의 연동방법은 <a href="https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/">Firebase - Xcode 프로젝트와 연동하기</a> 포스팅을 통해 공부했었습니다. 그래서 이번 포스팅에서는 지난 글과 달라지는 부분에 대해서만 공부해보도록 할게요. Firebase 연동과정에서 Pod 를 설치하라는 메세지가 나오는 부분에까지 진행해주세요.</p>
-<hr>
-<h2 id="pod-libraries-설치하기">Pod Libraries 설치하기</h2>
-<p>Terminal 에서 Xcode 에 Firebase 파일 설치를 위해 터미널에서 내 프로젝트가 있는 폴더 내부로 이동해주세요. 이동을 완료했다면 <code>pod init</code> 을 진행해주세요. 그러면 새롭게 <strong>Podfile</strong> 이 생성되었을 거에요.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcqjmPU%2FbtqGdEDvpDs%2FJdkYOimUDKEvWR13xRONB0%2Fimg.png" alt="Terminal 에서 pod init"></p>
-<p><strong>Podfile</strong> 을 열고 아래처럼 입력해주세요. 우리가 입력한 부분은 총 3가지에요.</p>
-<ul>
-<li>pod &lsquo;Firebase/Analytics&rsquo;</li>
-<li>pod &lsquo;Firebase/Auth&rsquo;</li>
-<li>pod &lsquo;GoogleSignIn&rsquo;</li>
-</ul>
-<p>이 중 첫번째 <strong>Firebase/Analytics</strong> 는 우리가 처음에 프로젝트 설정할 때 Analytics 를 등록했으니까 설치 해주는 것이고 Google 로그인에 필수 항목은 아닙니다. 혹시 체크 해제하고 진행하신 분들은 첫번째 항목은 설치할 필요가 없어요~</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># Uncomment the next line to define a global platform <span style="color:#66d9ef">for</span> your project
-</span></span><span style="display:flex;"><span># platform :ios, <span style="color:#e6db74">&#39;9.0&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>target &#39;SignInWithGoogle_Example&#39; do
-</span></span><span style="display:flex;"><span>  # Comment the next line if you don&#39;t want to use dynamic frameworks
-</span></span><span style="display:flex;"><span>  use_frameworks!
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  # Pods for SignInWithGoogle_Example
-</span></span><span style="display:flex;"><span>  pod &#39;Firebase/Analytics&#39;
-</span></span><span style="display:flex;"><span>  pod &#39;Firebase/Auth&#39;
-</span></span><span style="display:flex;"><span>  pod &#39;GoogleSignIn&#39;
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>end
-</span></span></code></pre></div><p><strong>Podfile</strong> 수정 후 꼭 저장하고 다시 터미널로 돌아가서 <code>pod install</code> 을 진행해 주세요. 인스톨을 마치고 폴더를 열어보면 기존 Xcode 프로젝트 파일과는 조금 다른 흰색 <code>.workspace</code> 파일이 생성되어 있습니다. 앞으로 우리는 기존 파일이 아닌 이 파일에서 코드 작업을 진행할 거에요. 그럼 기존 파일을 종료하고 새로운 파일을 열어볼게요.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsOBKL%2FbtqGc8ykNAc%2FNgqqDbzpMOYXtD6wcsyI71%2Fimg.png" alt="Finder 의 workspace 파일"></p>
-<p>파일을 실행하고 <strong>Firebase 홈페이지</strong>로 돌아가 Next 를 누르면 다음과 같은 화면을 볼 수 있습니다.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FskVh0%2FbtqGfaaqioU%2FCbqRXgBenJygPe35E7qsOK%2Fimg.png" alt="Firebase 홈페이지 AppDelegate 화면"></p>
-<p>먼저 <strong>AppDelegate</strong> 파일에서 <strong>Firebase</strong> 와 <strong>GoogleSignIn</strong> 을 import 해주도록 합시다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">GoogleSignIn</span>
-</span></span></code></pre></div><p>그 다음에는 기본제공 함수 중 첫번째 내부에 <code>FirebaseApp.configure()</code> 함수를 입력해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Override point for customization after application launch.</span>
-</span></span><span style="display:flex;"><span>    FirebaseApp.configure()
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>마지막으로 ViewController 로 돌아가 다시 한번 <strong>Firebase</strong> 와 <strong>GoogleSignIn</strong> 을 import 해줍니다. 이제 몇 가지 설정만 더하면 됩니다 ㅎㅎ</p>
-<p>다시 Firebase 로 돌아가 Next 를 누르면 마지막으로 아래와 같은 화면이 뜰텐데 Xcode 에서 시뮬레이터를 실행하고 잠시 기다리시면 <strong>Continue to console</strong> 버튼이 활성화 될거에요. 만약에 계속 활성화되지 않으면 <strong>Skip this step</strong> 버튼으로 그냥 넘어가주세요.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcn7Szc%2FbtqGfsvor5k%2FUuWVRYDSvULq0Kg9FS3QDK%2Fimg.png" alt="Firebase Verification"></p>
-<p>자 다들 이제 이렇게 생긴 Firebase 프로젝트 내의 메인화면으로 오셨죠?</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbJz3Gi%2FbtqGdEXNcjC%2FJzaKd63COxABwRxECaiji0%2Fimg.png" alt="Firebase 프로젝트 메인화면"></p>
-<p>여기서 좌측의 <strong>Authentication</strong> 버튼을 누르고 <strong>Sign-in method</strong> 탭을 클릭합니다. 리스트에서 <strong>Google</strong> 을 선택하고 <strong>Enabled</strong> 로 바꿔주세요. 참고로 상태를 바꾸려면 이메일을 반드시 선택해야 합니다.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcLPQHu%2FbtqGfuteUoK%2FoQ5vlBK07aetFftfy40syK%2Fimg.png" alt="Firebase Google 활성화"></p>
-<hr>
-<h2 id="google-로그인-프로세스-구현하기">Google 로그인 프로세스 구현하기</h2>
-<p>이제 Firebase 홈페이지에서 세팅은 모두 마쳤습니다. 다음으로는 Xcode 로 다시 돌아와 <strong>GoogleService-Info.plist</strong> 파일의 <strong>REVERSED_CLIENT_ID</strong> 의 항목을 복사합니다.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmKAQy%2FbtqGdzJiPQ4%2FEnHmeffYQJ1k9POT8qkx31%2Fimg.png" alt="Xcode GoogleService-Info.plist"></p>
-<p>복사가 되었으면 좌측의 Navigator 에서 프로젝트 파일을 클릭하고 <strong>Info</strong> 탭으로 들어가보면 하단에 <strong>URL Types</strong> 가 있습니다. 이 곳을 펼치고 <strong>+</strong> 버튼을 눌러 <strong>URL Schemes</strong> 칸에 복사한 <strong>REVERSED_CLIENT_ID</strong> 값을 붙여넣어 주세요.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlvykU%2FbtqGdzJiUs4%2FDkZN9MBSkxxd3RXMfRDnc0%2Fimg.png" alt="Xcode Info Tab"></p>
-<p>다음으로는 이제 <strong>GIDSignInDelegate</strong> 를 <strong>AppDelegate</strong> 로 돌아가 채택해주어야 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppDelegate</span>: UIResponder, UIApplicationDelegate, GIDSignInDelegate
-</span></span></code></pre></div><p>그리고 <strong>GIDSignInDelegate</strong> 의 필수구현 method 인 <code>sign()</code> 도 함께 구현해줍니다. 함수의 내부 코드는 다른 부분부터 먼저 끝내고 마지막에 입력해주도록 할게요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sign</span>(<span style="color:#66d9ef">_</span> signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {   
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이제부터 우리는 <strong>GIDSignIn</strong> 이라는 인스턴스를 사용할 수 있게되는데 이것은 사용자가 구글 아이디로 로그인할 수 있도록 도와주는 인스턴스입니다.</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FclC0GB%2FbtqGgE3gbdO%2FARmjkbjb1ODxqPHaFjLUu0%2Fimg.png" alt="GIDSignIn Summary"></p>
-<p>다음으로 기본제공 함수인 <code>application:didFinishLaunchingWithOptions:</code> 안에 우리가 조금 전 작성해놓은 <code>FirebaseApp.configure()</code> 코드 아래 다음 내용을 작성합니다. 두번째 줄은 우리가 프로토콜을 채택했으니 당연히 delegate 설정을 해주어야 하는 부분이고, 첫번째 줄은 sign-in method 가 동작하기 위해 반드시 필요한 코드라고하네요. 그냥 외워버리거나 자주 안쓴다면 필요할 때마다 찾아서 쓰는걸로&hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-</span></span><span style="display:flex;"><span>GIDSignIn.sharedInstance().delegate = <span style="color:#66d9ef">self</span>
-</span></span></code></pre></div><p>추가적으로 <code>application:openURL:options:</code> 함수를 구현하고 내부에 <code>handle()</code> method 를 구현합니다. 이 method 는 <strong>GIDSignIn</strong> 인스턴스의 <code>handleURL</code> method 를 호출하여 인증 프로세스가 끝날 때 애플리케이션이 수신하는 URL을 적절히 처리해준다고 합니다. 인증 프로세스의 결과에 따라 다른 URL 을 받는건지 어쩐건지&hellip; 알 수 없지만 아무튼 해야한다니까 그냥 구현해줍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>@available(iOS <span style="color:#ae81ff">9.0</span>, <span style="color:#f92672">*</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -&gt; Bool {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> GIDSignIn.sharedInstance().handle(url)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>위 함수는 대놓고 <strong>iOS 9.0</strong> 이상에서만 구현이 된다고 써있잖아요? 만약에 거의 쓸 일은 없겠지만 정말 만약에 <strong>iOS 8.0</strong> 이상부터 지원해야할 일이 있다면 다음 함수도 구현해주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -&gt; Bool {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> GIDSignIn.sharedInstance().handle(url)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>그리고 사용자가 앱에서 disconnect 되었을 때 호출되는 함수인 <code>sign:didDisconnectWith</code> 함수도 구현해 줍니다. 우리는 지금 <strong>Google 로그인</strong>을 구현하는 것이 목적이므로, 일단 함수를 구현만 하고 이곳에는 코드를 따로 작성하지 않겠습니다. 앱이 disconnect 되었을 때 추가적인 action 이 필요하다면 이곳에 작성해주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sign</span>(<span style="color:#66d9ef">_</span> signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Perform any operations when the user disconnects from app here.</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>마지막으로 우리가 초반에 작성해 놓았던 필수구현 함수 <strong>sign()</strong> 의 내부 코드를 작성해볼게요. 에러가 날 경우 print 와 함께 함수가 종료되도록했고, 성공적으로 로그인 했을 경우에는 <strong>credential</strong> 이 print 될 수 있도록 작성했습니다. 여러분은 이곳에서 로그인 결과에 따라 원하는 ViewController 로 이동하거나 하는 등의 액션을 추가한다거나 하는 코드를 입력해봐도 좋을 것 같아요 ㅎㅎ</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sign</span>(<span style="color:#66d9ef">_</span> signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error {
-</span></span><span style="display:flex;"><span>        print(error)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> authentication = user.authentication <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-</span></span><span style="display:flex;"><span>                                                   accessToken: authentication.accessToken)
-</span></span><span style="display:flex;"><span>    print(credential.provider)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이제 거의 다 끝났으니까 조금만 더 힘내서 마무리 해볼게요!!</p>
-<hr>
-<h2 id="google-로그인-버튼-생성하기">Google 로그인 버튼 생성하기</h2>
-<p>드디어 이것으로 <strong>AppDelegate</strong> 에서 작성할 코드는 모두 끝났고 이제 ViewController 로 넘어가서 나머지 작업과 버튼을 추가해서 실제로 <strong>Google 로그인</strong>이 동작하는지 확인해보도록 할게요. 거의 다 왔으니까 조금만 더 힘내봅시다!!</p>
-<p>먼저 <code>viewDidLoad()</code> 에 다음 코드를 작성해볼게요. 첫번째 줄의 코드는 <strong>GIDSignIn</strong> 객체의 프레젠테이션 뷰 컨트롤러를 설정하고(Google 로그인 안내창을 어떤 뷰 컨트롤러에 띄울지 설정), 두번째 줄의 코드는 가능한 경우 자동으로 로그인을 할 수 있도록 도와주는 코드입니다. 두번째 줄의 코드는 자동 로그인이 필요하지 않다면 구현해주지 않아도 무방합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>GIDSignIn.sharedInstance()?.presentingViewController = <span style="color:#66d9ef">self</span>
-</span></span><span style="display:flex;"><span>GIDSignIn.sharedInstance().signIn()
-</span></span></code></pre></div><p>다음으로 Google 로그인 버튼을 생성하고 View 의 가운데에 위치하도록 배치해 보겠습니다. 당연히 일반 버튼을 사용하면 안되고 <strong>GIDSignInButton()</strong> 을 상속받아 사용해야 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> googleLoginButton = GIDSignInButton()
-</span></span></code></pre></div><p>ViewController 에 적힌 코드는 아래와 같습니다. 우리가 작업을 미리 다른 곳에서 많이 해둬서인지 Controller 에서 구현할 부분은 많지 않네요 ㅎㅎ</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Firebase</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">GoogleSignIn</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> googleLoginButton = GIDSignInButton()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
-</span></span><span style="display:flex;"><span>        configureUI()
-</span></span><span style="display:flex;"><span>        GIDSignIn.sharedInstance()?.presentingViewController = <span style="color:#66d9ef">self</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">configureUI</span>() {
-</span></span><span style="display:flex;"><span>        view.addSubview(googleLoginButton)
-</span></span><span style="display:flex;"><span>        googleLoginButton.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        NSLayoutConstraint.activate([
-</span></span><span style="display:flex;"><span>            googleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-</span></span><span style="display:flex;"><span>            googleLoginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-</span></span><span style="display:flex;"><span>        ])
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이제 실행시켜보면 버튼이 보이고 눌러보면 구글 로그인하는 화면이 보일거에요~ 해냈다!!</p>
-<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FddvGZV%2FbtqGgwKTjwy%2F3IYOtCbcTqBQXy3E552hF0%2Fimg.gif" alt="Simulator GoogleSignIn"></p>
-<hr>
-<h2 id="firebase-에-로그인-데이터-저장하기">Firebase 에 로그인 데이터 저장하기</h2>
-<p>하지만 아직 끝이 아니에요. 사용자가 정상적으로 로그인 했을 때 그 정보를 우리가 저장해야하니까요. <strong>AppDelegate</strong> 로 돌아가 <code>sign:didSignInFor</code> 함수에 <code>Auth.auth().signIn(with: credential)</code> method 를 작성해야 합니다.</p>
-<p>Auth 함수에서 else 쪽으로 빠지면 Firebase 에 로그인 데이터가 저장되게 됩니다. 가져올 수 있는 데이터는 사용자의 email 주소가 전부인 것 같네요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sign</span>(<span style="color:#66d9ef">_</span> signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error {
-</span></span><span style="display:flex;"><span>        print(error)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> authentication = user.authentication <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-</span></span><span style="display:flex;"><span>                                                   accessToken: authentication.accessToken)
-</span></span><span style="display:flex;"><span>    Auth.auth().signIn(with: credential) { (authResult, error) <span style="color:#66d9ef">in</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error {
-</span></span><span style="display:flex;"><span>            print(error.localizedDescription)
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Login Successful&#34;</span>)
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>마지막으로 로그아웃을 도와주는 method 입니다. 로그인을 했으니까 당연히 로그아웃이 있어야하잖아요? ㅎㅎ 근데 오늘은 구현하지 않을거에요. 그냥 버튼하나 만들어서 <strong>@objc</strong> method 로 넘겨주면 잘 작동될겁니다!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> firebaseAuth = Auth.auth()
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> firebaseAuth.signOut()
-</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> <span style="color:#66d9ef">let</span> signOutError <span style="color:#66d9ef">as</span> NSError {
-</span></span><span style="display:flex;"><span>    print (<span style="color:#e6db74">&#34;Error signing out: %@&#34;</span>, signOutError)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이번 포스팅은 내용이 정말 많이 길어졌네요. 여기까지 따라오신 분들 정말 수고많으셨습니다!! 그럼 이만~</p>
-
-      </div>
-    </article>
-
-    <hr />
-
-    <div class="post-info">
-      
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-
-        <span class="tag"><a href="https://kasroid.github.io/tags/uikit/">UIKit</a></span>
-        <span class="tag"><a href="https://kasroid.github.io/tags/firebase/">Firebase</a></span>
-        
-    </p>
-
-      
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-
-        <span class="tag"><a href="https://kasroid.github.io/categories/ios/">iOS</a></span>
-        
-    </p>
-
-
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
-        1201 Words
-      </p>
-
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-        
-          2020-09-04 22:22 &#43;0900
-        
-
-         
-          
-        
-      </p>
-    </div>
-      <hr />
-      <div class="sharing-buttons">
-        
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
-  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
-  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
-      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;caption=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;canonicalUrl=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
-  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
-    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="mailto:?subject=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;body=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
-  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f&amp;media=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f;description=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
-  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f&amp;title=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;summary=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;source=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
-  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f&amp;resubmit=true&amp;title=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
-  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f;title=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit" target="_blank" rel="noopener" aria-label="" title="Share on xing">
-  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="whatsapp://send?text=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit%20https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
-  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f&amp;t=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
-  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Firebase%20-%20Sign%20in%20with%20Google%20%ea%b5%ac%ed%98%84%ed%95%98%ea%b8%b0%20with%20UIKit&amp;url=https%3a%2f%2fkasroid.github.io%2fposts%2fios%2f20200904-sign-in-with-google-uikit%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
-  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-    </div>
-  </div>
-</a>
-
-      </div>
-
-    
-    <div class="pagination">
-        
-        <div class="pagination__title">
-            <span class="pagination__title-h">Read other posts</span>
-            <hr />
-        </div>
-        
-
-        <div class="pagination__buttons">
-            
-            <span class="button previous">
-                <a href="https://kasroid.github.io/posts/ios/20200905-cocoapods-basic-commands/">
-                    <span class="button__icon">←</span>
-                    <span class="button__text">CocoaPods - 명령어 알아보기</span>
-                </a>
-            </span>
-            
-
-            
-            <span class="button next">
-                <a href="https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/">
-                    <span class="button__text">System - Sign in With Apple 구현하기 with UIKit</span>
-                    <span class="button__icon">→</span>
-                </a>
-            </span>
-            
-        </div>
-    </div>
-
-
-    
-
-    
-
-  </main>
-
-            </div>
-
-            
-                <footer class="footer">
-    
-    
-</footer>
-
-            
-        </div>
-
-        
-
-
-
-<script type="text/javascript" src="/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
-
-
-
-    </body>
-</html>
+· Firebase 6.29.0</p></blockquote><h2 id=intro>Intro<a hidden class=anchor aria-hidden=true href=#intro>#</a></h2><p>이번에는 Google 아이디로 로그인할 수 있도록 구현해볼거에요. Apple 로그인은 Xcode 에서 Native 로 지원이 되지만 Google 로그인은 그렇지 않기 때문에 Firebase 를 사용해야 해서 조금 더 복잡한 편입니다. 그래도 천천히 따라해보시면 문제없을 거에요!</p><h3 id=cocoapods-설치>CocoaPods 설치<a hidden class=anchor aria-hidden=true href=#cocoapods-설치>#</a></h3><p>만약에 여러분이 CocoaPods 를 설치한 적이 없다면 Xcode 프로젝트에 Firebase 를 연동하기 위해 CocoaPods 가 우선적으로 설치되어 있어야합니다. 설치 방법은 <a href=https://kasroid.github.io/posts/ios/20200823-install-cocoapods-libraries/>CocoaPods - 설치 및 라이브러리 적용하기</a> 포스팅을 참고해주세요.</p><h3 id=importing-firebase>Importing Firebase<a hidden class=anchor aria-hidden=true href=#importing-firebase>#</a></h3><p>기초적인 Firebase 와 Xcode 의 연동방법은 <a href=https://kasroid.github.io/posts/ios/20200810-firebase-importing-to-xcode-project/>Firebase - Xcode 프로젝트와 연동하기</a> 포스팅을 통해 공부했었습니다. 그래서 이번 포스팅에서는 지난 글과 달라지는 부분에 대해서만 공부해보도록 할게요. Firebase 연동과정에서 Pod 를 설치하라는 메세지가 나오는 부분에까지 진행해주세요.</p><hr><h2 id=pod-libraries-설치하기>Pod Libraries 설치하기<a hidden class=anchor aria-hidden=true href=#pod-libraries-설치하기>#</a></h2><p>Terminal 에서 Xcode 에 Firebase 파일 설치를 위해 터미널에서 내 프로젝트가 있는 폴더 내부로 이동해주세요. 이동을 완료했다면 <code>pod init</code> 을 진행해주세요. 그러면 새롭게 <strong>Podfile</strong> 이 생성되었을 거에요.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcqjmPU%2FbtqGdEDvpDs%2FJdkYOimUDKEvWR13xRONB0%2Fimg.png" alt="Terminal 에서 pod init"></p><p><strong>Podfile</strong> 을 열고 아래처럼 입력해주세요. 우리가 입력한 부분은 총 3가지에요.</p><ul><li>pod &lsquo;Firebase/Analytics&rsquo;</li><li>pod &lsquo;Firebase/Auth&rsquo;</li><li>pod &lsquo;GoogleSignIn&rsquo;</li></ul><p>이 중 첫번째 <strong>Firebase/Analytics</strong> 는 우리가 처음에 프로젝트 설정할 때 Analytics 를 등록했으니까 설치 해주는 것이고 Google 로그인에 필수 항목은 아닙니다. 혹시 체크 해제하고 진행하신 분들은 첫번째 항목은 설치할 필요가 없어요~</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>#</span> Uncomment the next line to define a global platform <span class=k>for</span> your project
+</span></span><span class=line><span class=cl><span class=gp>#</span> platform :ios, <span class=s1>&#39;9.0&#39;</span>
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=go>target &#39;SignInWithGoogle_Example&#39; do
+</span></span></span><span class=line><span class=cl><span class=go>  # Comment the next line if you don&#39;t want to use dynamic frameworks
+</span></span></span><span class=line><span class=cl><span class=go>  use_frameworks!
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=go>  # Pods for SignInWithGoogle_Example
+</span></span></span><span class=line><span class=cl><span class=go>  pod &#39;Firebase/Analytics&#39;
+</span></span></span><span class=line><span class=cl><span class=go>  pod &#39;Firebase/Auth&#39;
+</span></span></span><span class=line><span class=cl><span class=go>  pod &#39;GoogleSignIn&#39;
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=go>end
+</span></span></span></code></pre></div><p><strong>Podfile</strong> 수정 후 꼭 저장하고 다시 터미널로 돌아가서 <code>pod install</code> 을 진행해 주세요. 인스톨을 마치고 폴더를 열어보면 기존 Xcode 프로젝트 파일과는 조금 다른 흰색 <code>.workspace</code> 파일이 생성되어 있습니다. 앞으로 우리는 기존 파일이 아닌 이 파일에서 코드 작업을 진행할 거에요. 그럼 기존 파일을 종료하고 새로운 파일을 열어볼게요.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsOBKL%2FbtqGc8ykNAc%2FNgqqDbzpMOYXtD6wcsyI71%2Fimg.png" alt="Finder 의 workspace 파일"></p><p>파일을 실행하고 <strong>Firebase 홈페이지</strong>로 돌아가 Next 를 누르면 다음과 같은 화면을 볼 수 있습니다.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FskVh0%2FbtqGfaaqioU%2FCbqRXgBenJygPe35E7qsOK%2Fimg.png" alt="Firebase 홈페이지 AppDelegate 화면"></p><p>먼저 <strong>AppDelegate</strong> 파일에서 <strong>Firebase</strong> 와 <strong>GoogleSignIn</strong> 을 import 해주도록 합시다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>import</span> <span class=nc>Firebase</span>
+</span></span><span class=line><span class=cl><span class=kd>import</span> <span class=nc>GoogleSignIn</span>
+</span></span></code></pre></div><p>그 다음에는 기본제공 함수 중 첫번째 내부에 <code>FirebaseApp.configure()</code> 함수를 입력해 주세요.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>application</span><span class=p>(</span><span class=kc>_</span> <span class=n>application</span><span class=p>:</span> <span class=n>UIApplication</span><span class=p>,</span> <span class=n>didFinishLaunchingWithOptions</span> <span class=n>launchOptions</span><span class=p>:</span> <span class=p>[</span><span class=n>UIApplication</span><span class=p>.</span><span class=n>LaunchOptionsKey</span><span class=p>:</span> <span class=nb>Any</span><span class=p>]?)</span> <span class=p>-&gt;</span> <span class=nb>Bool</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// Override point for customization after application launch.</span>
+</span></span><span class=line><span class=cl>    <span class=n>FirebaseApp</span><span class=p>.</span><span class=n>configure</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>마지막으로 ViewController 로 돌아가 다시 한번 <strong>Firebase</strong> 와 <strong>GoogleSignIn</strong> 을 import 해줍니다. 이제 몇 가지 설정만 더하면 됩니다 ㅎㅎ</p><p>다시 Firebase 로 돌아가 Next 를 누르면 마지막으로 아래와 같은 화면이 뜰텐데 Xcode 에서 시뮬레이터를 실행하고 잠시 기다리시면 <strong>Continue to console</strong> 버튼이 활성화 될거에요. 만약에 계속 활성화되지 않으면 <strong>Skip this step</strong> 버튼으로 그냥 넘어가주세요.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcn7Szc%2FbtqGfsvor5k%2FUuWVRYDSvULq0Kg9FS3QDK%2Fimg.png" alt="Firebase Verification"></p><p>자 다들 이제 이렇게 생긴 Firebase 프로젝트 내의 메인화면으로 오셨죠?</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbJz3Gi%2FbtqGdEXNcjC%2FJzaKd63COxABwRxECaiji0%2Fimg.png" alt="Firebase 프로젝트 메인화면"></p><p>여기서 좌측의 <strong>Authentication</strong> 버튼을 누르고 <strong>Sign-in method</strong> 탭을 클릭합니다. 리스트에서 <strong>Google</strong> 을 선택하고 <strong>Enabled</strong> 로 바꿔주세요. 참고로 상태를 바꾸려면 이메일을 반드시 선택해야 합니다.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcLPQHu%2FbtqGfuteUoK%2FoQ5vlBK07aetFftfy40syK%2Fimg.png" alt="Firebase Google 활성화"></p><hr><h2 id=google-로그인-프로세스-구현하기>Google 로그인 프로세스 구현하기<a hidden class=anchor aria-hidden=true href=#google-로그인-프로세스-구현하기>#</a></h2><p>이제 Firebase 홈페이지에서 세팅은 모두 마쳤습니다. 다음으로는 Xcode 로 다시 돌아와 <strong>GoogleService-Info.plist</strong> 파일의 <strong>REVERSED_CLIENT_ID</strong> 의 항목을 복사합니다.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmKAQy%2FbtqGdzJiPQ4%2FEnHmeffYQJ1k9POT8qkx31%2Fimg.png" alt="Xcode GoogleService-Info.plist"></p><p>복사가 되었으면 좌측의 Navigator 에서 프로젝트 파일을 클릭하고 <strong>Info</strong> 탭으로 들어가보면 하단에 <strong>URL Types</strong> 가 있습니다. 이 곳을 펼치고 <strong>+</strong> 버튼을 눌러 <strong>URL Schemes</strong> 칸에 복사한 <strong>REVERSED_CLIENT_ID</strong> 값을 붙여넣어 주세요.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlvykU%2FbtqGdzJiUs4%2FDkZN9MBSkxxd3RXMfRDnc0%2Fimg.png" alt="Xcode Info Tab"></p><p>다음으로는 이제 <strong>GIDSignInDelegate</strong> 를 <strong>AppDelegate</strong> 로 돌아가 채택해주어야 합니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>class</span> <span class=nc>AppDelegate</span><span class=p>:</span> <span class=n>UIResponder</span><span class=p>,</span> <span class=n>UIApplicationDelegate</span><span class=p>,</span> <span class=n>GIDSignInDelegate</span>
+</span></span></code></pre></div><p>그리고 <strong>GIDSignInDelegate</strong> 의 필수구현 method 인 <code>sign()</code> 도 함께 구현해줍니다. 함수의 내부 코드는 다른 부분부터 먼저 끝내고 마지막에 입력해주도록 할게요.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>sign</span><span class=p>(</span><span class=kc>_</span> <span class=n>signIn</span><span class=p>:</span> <span class=n>GIDSignIn</span><span class=p>!,</span> <span class=n>didSignInFor</span> <span class=n>user</span><span class=p>:</span> <span class=n>GIDGoogleUser</span><span class=p>!,</span> <span class=n>withError</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>!)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>이제부터 우리는 <strong>GIDSignIn</strong> 이라는 인스턴스를 사용할 수 있게되는데 이것은 사용자가 구글 아이디로 로그인할 수 있도록 도와주는 인스턴스입니다.</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FclC0GB%2FbtqGgE3gbdO%2FARmjkbjb1ODxqPHaFjLUu0%2Fimg.png" alt="GIDSignIn Summary"></p><p>다음으로 기본제공 함수인 <code>application:didFinishLaunchingWithOptions:</code> 안에 우리가 조금 전 작성해놓은 <code>FirebaseApp.configure()</code> 코드 아래 다음 내용을 작성합니다. 두번째 줄은 우리가 프로토콜을 채택했으니 당연히 delegate 설정을 해주어야 하는 부분이고, 첫번째 줄은 sign-in method 가 동작하기 위해 반드시 필요한 코드라고하네요. 그냥 외워버리거나 자주 안쓴다면 필요할 때마다 찾아서 쓰는걸로&mldr;</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>().</span><span class=n>clientID</span> <span class=p>=</span> <span class=n>FirebaseApp</span><span class=p>.</span><span class=n>app</span><span class=p>()?.</span><span class=n>options</span><span class=p>.</span><span class=n>clientID</span>
+</span></span><span class=line><span class=cl><span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>().</span><span class=n>delegate</span> <span class=p>=</span> <span class=kc>self</span>
+</span></span></code></pre></div><p>추가적으로 <code>application:openURL:options:</code> 함수를 구현하고 내부에 <code>handle()</code> method 를 구현합니다. 이 method 는 <strong>GIDSignIn</strong> 인스턴스의 <code>handleURL</code> method 를 호출하여 인증 프로세스가 끝날 때 애플리케이션이 수신하는 URL을 적절히 처리해준다고 합니다. 인증 프로세스의 결과에 따라 다른 URL 을 받는건지 어쩐건지&mldr; 알 수 없지만 아무튼 해야한다니까 그냥 구현해줍니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=p>@</span><span class=n>available</span><span class=p>(</span><span class=n>iOS</span> <span class=mf>9.0</span><span class=p>,</span> <span class=o>*</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>application</span><span class=p>(</span><span class=kc>_</span> <span class=n>app</span><span class=p>:</span> <span class=n>UIApplication</span><span class=p>,</span> <span class=n>open</span> <span class=n>url</span><span class=p>:</span> <span class=n>URL</span><span class=p>,</span> <span class=n>options</span><span class=p>:</span> <span class=p>[</span><span class=n>UIApplication</span><span class=p>.</span><span class=n>OpenURLOptionsKey</span> <span class=p>:</span> <span class=nb>Any</span><span class=p>]</span> <span class=p>=</span> <span class=p>[:])</span> <span class=p>-&gt;</span> <span class=nb>Bool</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>().</span><span class=n>handle</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>위 함수는 대놓고 <strong>iOS 9.0</strong> 이상에서만 구현이 된다고 써있잖아요? 만약에 거의 쓸 일은 없겠지만 정말 만약에 <strong>iOS 8.0</strong> 이상부터 지원해야할 일이 있다면 다음 함수도 구현해주세요.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>application</span><span class=p>(</span><span class=kc>_</span> <span class=n>application</span><span class=p>:</span> <span class=n>UIApplication</span><span class=p>,</span> <span class=n>open</span> <span class=n>url</span><span class=p>:</span> <span class=n>URL</span><span class=p>,</span> <span class=n>sourceApplication</span><span class=p>:</span> <span class=nb>String</span><span class=p>?,</span> <span class=n>annotation</span><span class=p>:</span> <span class=nb>Any</span><span class=p>)</span> <span class=p>-&gt;</span> <span class=nb>Bool</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>().</span><span class=n>handle</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>그리고 사용자가 앱에서 disconnect 되었을 때 호출되는 함수인 <code>sign:didDisconnectWith</code> 함수도 구현해 줍니다. 우리는 지금 <strong>Google 로그인</strong>을 구현하는 것이 목적이므로, 일단 함수를 구현만 하고 이곳에는 코드를 따로 작성하지 않겠습니다. 앱이 disconnect 되었을 때 추가적인 action 이 필요하다면 이곳에 작성해주세요.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>sign</span><span class=p>(</span><span class=kc>_</span> <span class=n>signIn</span><span class=p>:</span> <span class=n>GIDSignIn</span><span class=p>!,</span> <span class=n>didDisconnectWith</span> <span class=n>user</span><span class=p>:</span> <span class=n>GIDGoogleUser</span><span class=p>!,</span> <span class=n>withError</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>!)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// Perform any operations when the user disconnects from app here.</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>마지막으로 우리가 초반에 작성해 놓았던 필수구현 함수 <strong>sign()</strong> 의 내부 코드를 작성해볼게요. 에러가 날 경우 print 와 함께 함수가 종료되도록했고, 성공적으로 로그인 했을 경우에는 <strong>credential</strong> 이 print 될 수 있도록 작성했습니다. 여러분은 이곳에서 로그인 결과에 따라 원하는 ViewController 로 이동하거나 하는 등의 액션을 추가한다거나 하는 코드를 입력해봐도 좋을 것 같아요 ㅎㅎ</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>sign</span><span class=p>(</span><span class=kc>_</span> <span class=n>signIn</span><span class=p>:</span> <span class=n>GIDSignIn</span><span class=p>!,</span> <span class=n>didSignInFor</span> <span class=n>user</span><span class=p>:</span> <span class=n>GIDGoogleUser</span><span class=p>!,</span> <span class=n>withError</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=kd>let</span> <span class=nv>error</span> <span class=p>=</span> <span class=n>error</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=bp>print</span><span class=p>(</span><span class=n>error</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>guard</span> <span class=kd>let</span> <span class=nv>authentication</span> <span class=p>=</span> <span class=n>user</span><span class=p>.</span><span class=n>authentication</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nv>credential</span> <span class=p>=</span> <span class=n>GoogleAuthProvider</span><span class=p>.</span><span class=n>credential</span><span class=p>(</span><span class=n>withIDToken</span><span class=p>:</span> <span class=n>authentication</span><span class=p>.</span><span class=n>idToken</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                   <span class=n>accessToken</span><span class=p>:</span> <span class=n>authentication</span><span class=p>.</span><span class=n>accessToken</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=bp>print</span><span class=p>(</span><span class=n>credential</span><span class=p>.</span><span class=n>provider</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>이제 거의 다 끝났으니까 조금만 더 힘내서 마무리 해볼게요!!</p><hr><h2 id=google-로그인-버튼-생성하기>Google 로그인 버튼 생성하기<a hidden class=anchor aria-hidden=true href=#google-로그인-버튼-생성하기>#</a></h2><p>드디어 이것으로 <strong>AppDelegate</strong> 에서 작성할 코드는 모두 끝났고 이제 ViewController 로 넘어가서 나머지 작업과 버튼을 추가해서 실제로 <strong>Google 로그인</strong>이 동작하는지 확인해보도록 할게요. 거의 다 왔으니까 조금만 더 힘내봅시다!!</p><p>먼저 <code>viewDidLoad()</code> 에 다음 코드를 작성해볼게요. 첫번째 줄의 코드는 <strong>GIDSignIn</strong> 객체의 프레젠테이션 뷰 컨트롤러를 설정하고(Google 로그인 안내창을 어떤 뷰 컨트롤러에 띄울지 설정), 두번째 줄의 코드는 가능한 경우 자동으로 로그인을 할 수 있도록 도와주는 코드입니다. 두번째 줄의 코드는 자동 로그인이 필요하지 않다면 구현해주지 않아도 무방합니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>()?.</span><span class=n>presentingViewController</span> <span class=p>=</span> <span class=kc>self</span>
+</span></span><span class=line><span class=cl><span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>().</span><span class=n>signIn</span><span class=p>()</span>
+</span></span></code></pre></div><p>다음으로 Google 로그인 버튼을 생성하고 View 의 가운데에 위치하도록 배치해 보겠습니다. 당연히 일반 버튼을 사용하면 안되고 <strong>GIDSignInButton()</strong> 을 상속받아 사용해야 합니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>let</span> <span class=nv>googleLoginButton</span> <span class=p>=</span> <span class=n>GIDSignInButton</span><span class=p>()</span>
+</span></span></code></pre></div><p>ViewController 에 적힌 코드는 아래와 같습니다. 우리가 작업을 미리 다른 곳에서 많이 해둬서인지 Controller 에서 구현할 부분은 많지 않네요 ㅎㅎ</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>import</span> <span class=nc>UIKit</span>
+</span></span><span class=line><span class=cl><span class=kd>import</span> <span class=nc>Firebase</span>
+</span></span><span class=line><span class=cl><span class=kd>import</span> <span class=nc>GoogleSignIn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>ViewController</span><span class=p>:</span> <span class=n>UIViewController</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nv>googleLoginButton</span> <span class=p>=</span> <span class=n>GIDSignInButton</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>override</span> <span class=kd>func</span> <span class=nf>viewDidLoad</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kc>super</span><span class=p>.</span><span class=n>viewDidLoad</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>configureUI</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>GIDSignIn</span><span class=p>.</span><span class=n>sharedInstance</span><span class=p>()?.</span><span class=n>presentingViewController</span> <span class=p>=</span> <span class=kc>self</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kd>func</span> <span class=nf>configureUI</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>view</span><span class=p>.</span><span class=n>addSubview</span><span class=p>(</span><span class=n>googleLoginButton</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>googleLoginButton</span><span class=p>.</span><span class=n>translatesAutoresizingMaskIntoConstraints</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>NSLayoutConstraint</span><span class=p>.</span><span class=n>activate</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>            <span class=n>googleLoginButton</span><span class=p>.</span><span class=n>centerXAnchor</span><span class=p>.</span><span class=n>constraint</span><span class=p>(</span><span class=n>equalTo</span><span class=p>:</span> <span class=n>view</span><span class=p>.</span><span class=n>centerXAnchor</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>            <span class=n>googleLoginButton</span><span class=p>.</span><span class=n>centerYAnchor</span><span class=p>.</span><span class=n>constraint</span><span class=p>(</span><span class=n>equalTo</span><span class=p>:</span> <span class=n>view</span><span class=p>.</span><span class=n>centerYAnchor</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>이제 실행시켜보면 버튼이 보이고 눌러보면 구글 로그인하는 화면이 보일거에요~ 해냈다!!</p><p><img loading=lazy src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FddvGZV%2FbtqGgwKTjwy%2F3IYOtCbcTqBQXy3E552hF0%2Fimg.gif" alt="Simulator GoogleSignIn"></p><hr><h2 id=firebase-에-로그인-데이터-저장하기>Firebase 에 로그인 데이터 저장하기<a hidden class=anchor aria-hidden=true href=#firebase-에-로그인-데이터-저장하기>#</a></h2><p>하지만 아직 끝이 아니에요. 사용자가 정상적으로 로그인 했을 때 그 정보를 우리가 저장해야하니까요. <strong>AppDelegate</strong> 로 돌아가 <code>sign:didSignInFor</code> 함수에 <code>Auth.auth().signIn(with: credential)</code> method 를 작성해야 합니다.</p><p>Auth 함수에서 else 쪽으로 빠지면 Firebase 에 로그인 데이터가 저장되게 됩니다. 가져올 수 있는 데이터는 사용자의 email 주소가 전부인 것 같네요.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>func</span> <span class=nf>sign</span><span class=p>(</span><span class=kc>_</span> <span class=n>signIn</span><span class=p>:</span> <span class=n>GIDSignIn</span><span class=p>!,</span> <span class=n>didSignInFor</span> <span class=n>user</span><span class=p>:</span> <span class=n>GIDGoogleUser</span><span class=p>!,</span> <span class=n>withError</span> <span class=n>error</span><span class=p>:</span> <span class=n>Error</span><span class=p>?)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=kd>let</span> <span class=nv>error</span> <span class=p>=</span> <span class=n>error</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=bp>print</span><span class=p>(</span><span class=n>error</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>guard</span> <span class=kd>let</span> <span class=nv>authentication</span> <span class=p>=</span> <span class=n>user</span><span class=p>.</span><span class=n>authentication</span> <span class=k>else</span> <span class=p>{</span> <span class=k>return</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nv>credential</span> <span class=p>=</span> <span class=n>GoogleAuthProvider</span><span class=p>.</span><span class=n>credential</span><span class=p>(</span><span class=n>withIDToken</span><span class=p>:</span> <span class=n>authentication</span><span class=p>.</span><span class=n>idToken</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                   <span class=n>accessToken</span><span class=p>:</span> <span class=n>authentication</span><span class=p>.</span><span class=n>accessToken</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>Auth</span><span class=p>.</span><span class=n>auth</span><span class=p>().</span><span class=n>signIn</span><span class=p>(</span><span class=n>with</span><span class=p>:</span> <span class=n>credential</span><span class=p>)</span> <span class=p>{</span> <span class=p>(</span><span class=n>authResult</span><span class=p>,</span> <span class=n>error</span><span class=p>)</span> <span class=k>in</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=kd>let</span> <span class=nv>error</span> <span class=p>=</span> <span class=n>error</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=bp>print</span><span class=p>(</span><span class=n>error</span><span class=p>.</span><span class=n>localizedDescription</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=bp>print</span><span class=p>(</span><span class=s>&#34;Login Successful&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>마지막으로 로그아웃을 도와주는 method 입니다. 로그인을 했으니까 당연히 로그아웃이 있어야하잖아요? ㅎㅎ 근데 오늘은 구현하지 않을거에요. 그냥 버튼하나 만들어서 <strong>@objc</strong> method 로 넘겨주면 잘 작동될겁니다!</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=line><span class=cl><span class=kd>let</span> <span class=nv>firebaseAuth</span> <span class=p>=</span> <span class=n>Auth</span><span class=p>.</span><span class=n>auth</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>do</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>try</span> <span class=n>firebaseAuth</span><span class=p>.</span><span class=n>signOut</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>catch</span> <span class=kd>let</span> <span class=nv>signOutError</span> <span class=k>as</span> <span class=n>NSError</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=bp>print</span> <span class=p>(</span><span class=s>&#34;Error signing out: %@&#34;</span><span class=p>,</span> <span class=n>signOutError</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>이번 포스팅은 내용이 정말 많이 길어졌네요. 여기까지 따라오신 분들 정말 수고많으셨습니다!! 그럼 이만~</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://kasroid.github.io/tags/uikit/>UIKit</a></li><li><a href=https://kasroid.github.io/tags/firebase/>Firebase</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2022 <a href=https://kasroid.github.io>SDY - Dev Log</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

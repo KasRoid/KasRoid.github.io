@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>System on SDY - Dev Log</title>
+    <link>https://kasroid.github.io/tags/system/</link>
+    <description>Recent content in System on SDY - Dev Log</description>
+    <image>
+      <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 08 Sep 2020 08:28:46 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminal - Mac 의 파일권한 시스템 이해하기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/</link>
+      <pubDate>Tue, 08 Sep 2020 08:28:46 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/</guid>
+      <description>Intro Mac 시스템 내부의 모든 파일은 User 라고하는 파일의 관리자가 명시되어 있으며, 관리자 외의 다른 User 는 파일의 읽기 및 쓰기 권한에 제한을 받을 수 있습니다. 사실 맥북같은 경우 혼자 사용하기 때문에 이런 권한들에 대해 거의 관심을 가져본 적이 없지만, 그래도 기본 개념정도로 알아두고 지나가면 좋을 것 같아 정리를 해볼려고요! ㅎㅎ
+Finder 에서 User 및 권한 확인하기 먼저 내 맥북에는 어떤 User 가 있는지 확인을 해보겠습니다. Finder 를 열고 최상위 루트로 가보면 아래 스크린샷처럼 유저 목록이 보일거에요.</description>
+    </item>
+    
+    <item>
+      <title>Terminal - 기본적인 사용법 알아보기</title>
+      <link>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</link>
+      <pubDate>Mon, 07 Sep 2020 11:49:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</guid>
+      <description>Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip;
+그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
+그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요.</description>
+    </item>
+    
+    <item>
+      <title>System - Sign in With Apple 구현하기 with UIKit</title>
+      <link>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/</link>
+      <pubDate>Sat, 29 Aug 2020 11:00:14 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20200829-sign-in-with-apple-uikit/</guid>
+      <description>본 포스팅은 Swift 5.2.4 기준으로 작성되었습니다.
+이번 새로운 프로젝트 진행 중에 소셜 로그인 서비스를 제공하기로 결정되었는데요. 앱에서 소셜 로그인을 하나라도 제공하게 되면 Apple 로그인도 반드시 지원해야 합니다. 요즘 로그인이 필요한 앱들은 웬만하면 소셜 로그인도 지원하는 추세니까 Apple 로그인도 구현해야되고&amp;hellip; 그러니까 지금 구현하는 방법을 알아두면 쓸 일이 많을거에요. 그럼 같이 한번 공부해볼까요~~
+Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문서를 먼저 살펴봐야겠죠!
+이런저런 내용이 있긴한데 우리에게 필요한 부분은 App 과 Services 에 유저가 쉽게 로그인 할 수 있도록 도와주는 Framework 라는 정도인 것 같아요.</description>
+    </item>
+    
+  </channel>
+</rss>
