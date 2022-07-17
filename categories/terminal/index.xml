@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Terminal on SDY - Dev Log</title>
+    <title>Terminal on SDY - Developer Kas</title>
     <link>https://kasroid.github.io/categories/terminal/</link>
-    <description>Recent content in Terminal on SDY - Dev Log</description>
+    <description>Recent content in Terminal on SDY - Developer Kas</description>
     <image>
       <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -12,30 +12,30 @@
     <lastBuildDate>Sun, 13 Sep 2020 09:53:32 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ranger - CLI File Browser 설치 및 사용법</title>
-      <link>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200915-ranger-installation-and-basics/</link>
       <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200915-ranger-installation-and-basics/</guid>
       <description>Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
 그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐.</description>
     </item>
     
     <item>
       <title>Terminal - Mac 의 파일권한 시스템 이해하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200908-terminal-understanding-of-organization-of-files-in-mac/</link>
       <pubDate>Tue, 08 Sep 2020 08:28:46 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200908-terminal-understanding-of-organization-of-files-in-mac/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200908-terminal-understanding-of-organization-of-files-in-mac/</guid>
       <description>Intro Mac 시스템 내부의 모든 파일은 User 라고하는 파일의 관리자가 명시되어 있으며, 관리자 외의 다른 User 는 파일의 읽기 및 쓰기 권한에 제한을 받을 수 있습니다. 사실 맥북같은 경우 혼자 사용하기 때문에 이런 권한들에 대해 거의 관심을 가져본 적이 없지만, 그래도 기본 개념정도로 알아두고 지나가면 좋을 것 같아 정리를 해볼려고요! ㅎㅎ
 Finder 에서 User 및 권한 확인하기 먼저 내 맥북에는 어떤 User 가 있는지 확인을 해보겠습니다. Finder 를 열고 최상위 루트로 가보면 아래 스크린샷처럼 유저 목록이 보일거에요.</description>
     </item>
     
     <item>
       <title>Terminal - 기본적인 사용법 알아보기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200907-terminal-first-fundamental-commands/</link>
       <pubDate>Mon, 07 Sep 2020 11:49:00 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200907-terminal-first-fundamental-commands/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200907-terminal-first-fundamental-commands/</guid>
       <description>Intro 제가 개발은 iOS 만 해봤지만 그래도 공부하다보니 느낀 것이 어떤 개발을 하더라도 한가지 꼭 사용할 줄 알아야하는 툴이 Terminal 이 아닐까 싶습니다. Git 만 사용하려고해도 Terminal 을 사용해야 하잖아요? 대체방법이 없는 것은 아니지만&amp;hellip;
 그래서 이왕 사용하는거 좀 더 체계적으로 제대로 사용할 수 있으면 좋겠다 싶어서 공부를 시작했습니다. 그리고 터미널 잘 쓰면 왠지 멋있어 보이기도 하잖아요 ㅋㅋㅋ 그러니까 오늘부터 같이 공부해서 터미널 고수가 되어보아요~
 그럼 Terminal 의 커맨드는 어떻게 구성되는지, 그리고 알아두면 좋을만한 매우 기초적인 커맨드를 공부해 볼게요.</description>
@@ -43,10 +43,10 @@ Finder 에서 User 및 권한 확인하기 먼저 내 맥북에는 어떤 User �
     
     <item>
       <title>Vim - 코드블럭에 Swift Syntax 적용하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200907-vim-applying-swfit-syntax-in-code-block/</link>
       <pubDate>Mon, 07 Sep 2020 02:46:53 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
       <description>Intro 그래도 명색이 iOS 개발자인데 여태 Vim 을 사용할 때 Swift Syntax Highlighting 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 Vim 에 Swift Syntax 를 적용할 수 있는 방법을 공부해볼까 합니다. Plugin 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.
 Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
 swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
@@ -54,38 +54,38 @@ swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</descri
     
     <item>
       <title>Vim - Normal Mode 에서 자동으로 영문전환하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200904-vim-switching-language-inputs/</link>
       <pubDate>Fri, 04 Sep 2020 11:32:51 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200904-vim-switching-language-inputs/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200904-vim-switching-language-inputs/</guid>
       <description>Intro 주력 Text Editor 로 Vim 을 사용하면서 매일 마주치는 문제점 하나가 바로 Insert Mode 에서 한글을 작성하다 Normal Mode 로 돌아오면 다시 영문으로 전환해주지 않는 이상 어떤 커맨드도 먹히지 않는다는 것 이었습니다. 제 경우에는 블로그 글을 Vim 에서 작성하고 있고, 글을 쓸 때 한글의 비중이 압도적으로 높다보니 Insert Mode 에서 Normal Mode 로 돌아올 때마다 항상 언어상태를 확인해줘야하고 이것은 Work Flow 에 치명적인 영향을 줘서 생산성을 떨어뜨리는 결과를 낳게되더라고요.</description>
     </item>
     
     <item>
       <title>Vim Plugin - Vim Airline</title>
-      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-vim-airline/</link>
       <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-vim-airline/</guid>
       <description>또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</description>
     </item>
     
     <item>
       <title>Vim Plugin - NERDTree</title>
-      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-nerdtree/</link>
       <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-nerdtree/</guid>
       <description>Vim 을 쓰다보니 또 VSCode 보다 불편한 점을 발견할 수 있었는데요. 바로 VSCode 에서 애용하던 File Navigattion System 이 없다는 것이었습니다. 바로 이미지 좌측에 보이는 저것이에요.
 자주 여러 파일을 이동해야하는 경우에 Navigation System 이 없다는 이유만으로 자꾸 다시 VSCode 로 손이 가게 되더라고요. 그래서 Vim 에서는 해결방법이 없을지 찾아보다가 알게된 것이 바로 NERDTree 입니다. 바로 Vim 만의 파일탐색기 같은 것이에요. 제가 메인 텍스트 에디터로 Vim 을 사용하려는 이유 중 한가지가 작업을 할 때 Terminal 에서 키보드만으로 거의 모든 작업을 진행할 수 있다는 것인데요.</description>
     </item>
     
     <item>
       <title>Vim - 여러가지 유용한 설정 적용하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200831-vim-bacis-configurations/</link>
       <pubDate>Mon, 31 Aug 2020 21:45:33 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200831-vim-bacis-configurations/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200831-vim-bacis-configurations/</guid>
       <description>오늘은 Vim 을 사용할 때 기본적으로 설정해두고 사용하면 좋을만한 간단면서도 유용한 설정들에 대해 공부해보도록 하겠습니다.
 Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서 설정할 수가 있습니다. 먼저 이 파일을 확인해보도록 할게요. cd 커맨드로 Home 으로 이동한 뒤에 이 파일이 존재하는지 확인해주세요. 혹시라도 이 파일이 존재하지 않는다면 그냥 만들어 주면 됩니다 ㅎㅎ 저는 처음에 이 파일이 없어서 직접 만들었어요.
 이제 기본적으로 추가해 놓으면 좋을만한 설정들을 추가해보록 할게요.</description>
@@ -93,10 +93,10 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     
     <item>
       <title>Vim - ColorScheme 적용 및 직접 색 변경하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</link>
       <pubDate>Sun, 30 Aug 2020 02:36:53 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200830-vim-appying-colorscheme-changing-backgroudn-colors/</guid>
       <description>이번에는 Vim 에서 외부 테마를 다운로드 받아 적용하고 Syntax Highlighting 색상을 좀 더 이쁘게 변경해보도록 하겠습니다. 그래도 Terminal 을 통해 글을 쓰는데 최소한 어느정도는 이뻐야 글 쓸 맛이 더 나겠죠?? ㅋㅋㅋ 그런데 지금 제가 사용하는 Vim 의 상태는&amp;hellip;
 이 모양입니다. 한 숨이 나옵니다&amp;hellip; 원색을 너무 많이 사용해서 그런건지 오히려 눈에 방해가 되는 그런 느낌도 들고요. 난 이제 그만 여기서 탈출해야겠어
 그럼 본격적으로 설치해볼까요~
@@ -105,19 +105,19 @@ Vim 의 기본 설정은 macOS 기준 Home Directory 에 위치한 .vimrc 에서
     
     <item>
       <title>Vim - Vundle 및 Markdown Plugin 설치하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200829-vim-vundle-markdown-plugin-installation/</link>
       <pubDate>Sat, 29 Aug 2020 16:12:11 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200829-vim-vundle-markdown-plugin-installation/</guid>
       <description>제가 Tistory 로 블로그를 시작했지만 Hugo 로 넘어오게된 이유가 몇 가지 있는데 그 중 가장 큰 비중을 차지하는 두가지가 하나는 Tistory 가 Markdown 을 제대로 지원하지 않고, 코드블럭 처리를 고려하면 글을 Tistory 전용 에디터에서 쓰는 것이 반 강제되는 것이었는데요. Tistory 에디터로 글을 쓰다보면 텍스트에 기본적인 강조 처리하는 것들도 전부 마우스로 처리해야하는데 매번 키보드에서 손이 움직이는게 여간 성가신 것이 아니었거든요. 그래서 포스트를 작성하는 와중에 이 모든걸 Terminal 에서 처리할 수 있으면 어떨까 하는 생각을 종종하게 되었고 결국 Hugo 로 블로그를 관리하는 것으로 결정했습니다.</description>
     </item>
     
     <item>
       <title>Homebrew - 설치 및 기본 사용법 익히기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200823-homebrew-installation-basics/</link>
       <pubDate>Sun, 23 Aug 2020 16:48:19 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200823-homebrew-installation-basics/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200823-homebrew-installation-basics/</guid>
       <description>오늘 소개할 Homebrew 는 여러가지 종류의 프로그램을 설치하고 삭제할 수 있게 도와주는 툴입니다. 제가 개발자로 커리어를 전환하고나서 알게된 가장 유용한 툴이고 가장 애용하는 툴이기도 합니다. 조금만 익숙해지면 정말 편리하고 강력한 툴이기 때문에 시간이 나면 언젠가 꼭 한번 소개하고 싶었는데요. 그게 오늘이네요! ㅎㅎ
 Homebrew 는 macOS 의 Package Manager 입니다. 쉽게 말해서 일종의 프로그램 관리자 같은 역할이라 생각하면 좋을 것 같아요. 왠만한 모든 상용 프로그램의 설치 및 삭제, 그리고 업데이트 관리까지 Terminal 을 통해 Homebrew 하나로 해결할 수 있습니다.</description>
     </item>

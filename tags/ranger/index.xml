@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ranger on SDY - Dev Log</title>
+    <title>Ranger on SDY - Developer Kas</title>
     <link>https://kasroid.github.io/tags/ranger/</link>
-    <description>Recent content in Ranger on SDY - Dev Log</description>
+    <description>Recent content in Ranger on SDY - Developer Kas</description>
     <image>
       <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -12,10 +12,10 @@
     <lastBuildDate>Sun, 13 Sep 2020 09:53:32 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/ranger/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ranger - CLI File Browser 설치 및 사용법</title>
-      <link>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200915-ranger-installation-and-basics/</link>
       <pubDate>Sun, 13 Sep 2020 09:53:32 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200915-ranger-installation-and-basics/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200915-ranger-installation-and-basics/</guid>
       <description>Intro GUI 환경 대신 Terminal 을 사용하게되면 대부분의 작업이 더 편리해지지만 분명히 불편한 점도 생기기 마련입니다. 그 중 가장 대표적인 예가 File Browsing 이 아닐까해요. 요즘은 컴퓨터로 작업을 할 때 어떤 작업을 하든 꼭 필수적으로 사용해야하는 Tool 이 있는 경우가 아니라면 모든 작업을 Terminal 에서 해결하려고 하는데 File Browsing 만큼은 아직도 Finder 에 의존할 때가 많습니다. 파일명을 변경하거나 복사, 이동하는 작업이 Terminal 에서는 좀 불편하더라고요.
 그럼 잘 만들어놓은 Finder 를 놔두고 왜 굳이 Terminal 에서 작업을 하려고 하느냐.</description>
     </item>

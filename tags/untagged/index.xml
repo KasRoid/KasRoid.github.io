@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>untagged on SDY - Dev Log</title>
+    <title>untagged on SDY - Developer Kas</title>
     <link>https://kasroid.github.io/tags/untagged/</link>
-    <description>Recent content in untagged on SDY - Dev Log</description>
+    <description>Recent content in untagged on SDY - Developer Kas</description>
     <image>
       <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -11,20 +11,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 25 Aug 2020 01:35:55 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Swift</title>
-      <link>https://kasroid.github.io/posts/swift/</link>
+      <title>Blog</title>
+      <link>https://kasroid.github.io/posts/blog/</link>
       <pubDate>Tue, 25 Aug 2020 01:35:55 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/swift/</guid>
+      <guid>https://kasroid.github.io/posts/blog/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Developer Tools</title>
-      <link>https://kasroid.github.io/posts/developertools/</link>
+      <title>Terminal</title>
+      <link>https://kasroid.github.io/posts/terminal/</link>
       <pubDate>Tue, 25 Aug 2020 01:27:47 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/</guid>
       <description></description>
     </item>
     

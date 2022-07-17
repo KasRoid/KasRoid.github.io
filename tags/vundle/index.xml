@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Vundle on SDY - Dev Log</title>
+    <title>Vundle on SDY - Developer Kas</title>
     <link>https://kasroid.github.io/tags/vundle/</link>
-    <description>Recent content in Vundle on SDY - Dev Log</description>
+    <description>Recent content in Vundle on SDY - Developer Kas</description>
     <image>
       <url>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 07 Sep 2020 02:46:53 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/vundle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim - 코드블럭에 Swift Syntax 적용하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200907-vim-applying-swfit-syntax-in-code-block/</link>
       <pubDate>Mon, 07 Sep 2020 02:46:53 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200907-vim-applying-swfit-syntax-in-code-block/</guid>
       <description>Intro 그래도 명색이 iOS 개발자인데 여태 Vim 을 사용할 때 Swift Syntax Highlighting 없이 글을 쓰고 있었어요 ㅎㅎ 그래서 오늘은 Vim 에 Swift Syntax 를 적용할 수 있는 방법을 공부해볼까 합니다. Plugin 하나만 설치해주면 끝나는거라 쉽게 해결할 수 있을 것 같아요.
 Prerequisite 이번 포스팅에서 Plugin 을 설치하는 과정은 Vundle 로 진행되므로 만약 Vundle 에 익숙하지 않다면 Vim - Vundle 및 Markdown Plugin 설치하기 포스팅을 먼저 참고해주세요.
 swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</description>
@@ -23,29 +23,29 @@ swift.vim 설치하기 Swift Syntax 를 적용하기 위해서는 swift.</descri
     
     <item>
       <title>Vim Plugin - Vim Airline</title>
-      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-vim-airline/</link>
       <pubDate>Wed, 02 Sep 2020 22:07:46 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-vim-airline/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-vim-airline/</guid>
       <description>또 새로운 Vim Plugin 을 소개해드리려고 왔어요 ㅎㅎㅎ 요즘 Vim 의 매력에 푹 빠져서 열심히 연습 중이고 기본적인 사용법들도 점점 손에 익어가니까 키보드를 무릎 위에 올려놓고 글을 쓰는 맛이 있습니다. 그래서 오늘 소개할 Plugin 은 Vim-Airline 이라는 플러그인이에요. Vim 아래쪽에 Status Bar 를 좀 더 보기 좋게 만들어주고 윗쪽에 Tab Bar 와 비슷한 Buffer 라는 것을 만들어서 우리가 이번 작업에서 열어본 파일을 기억하여 파일 간의 이동을 쉽게할 수 있도록 도와줍니다. 설치해서 손해볼게 없는 Plugin 인 것 같으니까 바로 설치해보도록 할게요.</description>
     </item>
     
     <item>
       <title>Vim Plugin - NERDTree</title>
-      <link>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-nerdtree/</link>
       <pubDate>Wed, 02 Sep 2020 10:16:39 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200902-vim-plugin-nerdtree/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200902-vim-plugin-nerdtree/</guid>
       <description>Vim 을 쓰다보니 또 VSCode 보다 불편한 점을 발견할 수 있었는데요. 바로 VSCode 에서 애용하던 File Navigattion System 이 없다는 것이었습니다. 바로 이미지 좌측에 보이는 저것이에요.
 자주 여러 파일을 이동해야하는 경우에 Navigation System 이 없다는 이유만으로 자꾸 다시 VSCode 로 손이 가게 되더라고요. 그래서 Vim 에서는 해결방법이 없을지 찾아보다가 알게된 것이 바로 NERDTree 입니다. 바로 Vim 만의 파일탐색기 같은 것이에요. 제가 메인 텍스트 에디터로 Vim 을 사용하려는 이유 중 한가지가 작업을 할 때 Terminal 에서 키보드만으로 거의 모든 작업을 진행할 수 있다는 것인데요.</description>
     </item>
     
     <item>
       <title>Vim - Vundle 및 Markdown Plugin 설치하기</title>
-      <link>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</link>
+      <link>https://kasroid.github.io/posts/terminal/20200829-vim-vundle-markdown-plugin-installation/</link>
       <pubDate>Sat, 29 Aug 2020 16:12:11 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/posts/developertools/20200829-vim-vundle-markdown-plugin-installation/</guid>
+      <guid>https://kasroid.github.io/posts/terminal/20200829-vim-vundle-markdown-plugin-installation/</guid>
       <description>제가 Tistory 로 블로그를 시작했지만 Hugo 로 넘어오게된 이유가 몇 가지 있는데 그 중 가장 큰 비중을 차지하는 두가지가 하나는 Tistory 가 Markdown 을 제대로 지원하지 않고, 코드블럭 처리를 고려하면 글을 Tistory 전용 에디터에서 쓰는 것이 반 강제되는 것이었는데요. Tistory 에디터로 글을 쓰다보면 텍스트에 기본적인 강조 처리하는 것들도 전부 마우스로 처리해야하는데 매번 키보드에서 손이 움직이는게 여간 성가신 것이 아니었거든요. 그래서 포스트를 작성하는 와중에 이 모든걸 Terminal 에서 처리할 수 있으면 어떨까 하는 생각을 종종하게 되었고 결국 Hugo 로 블로그를 관리하는 것으로 결정했습니다.</description>
     </item>
     
