@@ -9,22 +9,22 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 07 Nov 2020 10:42:03 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Dec 2020 07:38:09 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just 10-Sec Privacy Policy</title>
-      <link>https://kasroid.github.io/just-10-sec-privacy-policy/</link>
+      <link>https://kasroid.github.io/pages/just-10-sec-privacy-policy/</link>
       <pubDate>Mon, 28 Dec 2020 07:38:09 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/just-10-sec-privacy-policy/</guid>
+      <guid>https://kasroid.github.io/pages/just-10-sec-privacy-policy/</guid>
       <description>Privacy Policy Doyoung Song built the Just 10-Sec app as a Free app. This SERVICE is provided by Doyoung Song at no cost and is intended for use as is. This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service. If you choose to use my Service, then you agree to the collection and use of information in relation to this policy.</description>
     </item>
     
     <item>
       <title>Just 10-Sec: Support</title>
-      <link>https://kasroid.github.io/just-10-sec/</link>
+      <link>https://kasroid.github.io/pages/just-10-sec/</link>
       <pubDate>Sat, 26 Dec 2020 23:53:30 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/just-10-sec/</guid>
+      <guid>https://kasroid.github.io/pages/just-10-sec/</guid>
       <description>Intro Just 10-Sec is made for users who wants AR-Gaming experience.</description>
     </item>
     
@@ -277,10 +277,10 @@ Apple Developer Documentation 처음 접하는 내용은 무엇보다 공식문�
     
     <item>
       <title>About Me</title>
-      <link>https://kasroid.github.io/about-me/</link>
+      <link>https://kasroid.github.io/pages/about-me/</link>
       <pubDate>Mon, 24 Aug 2020 17:04:22 +0900</pubDate>
       
-      <guid>https://kasroid.github.io/about-me/</guid>
+      <guid>https://kasroid.github.io/pages/about-me/</guid>
       <description>This is About Me Page. I&amp;rsquo;m going to upload my career.</description>
     </item>
     
@@ -379,6 +379,7 @@ SwiftUI 에서 사용자가 확인할 화면을 생성하는 것은 UIKit 과 �
       <guid>https://kasroid.github.io/naver4322329b60b9ef8fa8632e9af72cd83b/</guid>
       <description>naver-site-verification: naver4322329b60b9ef8fa8632e9af72cd83b.</description>
     </item>
+    
     
   </channel>
 </rss>
