@@ -9,7 +9,17 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 28 Dec 2020 07:38:09 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jul 2022 07:35:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS - Program 이란?</title>
+      <link>https://kasroid.github.io/posts/cs/20220725-program/</link>
+      <pubDate>Mon, 25 Jul 2022 07:35:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/cs/20220725-program/</guid>
+      <description>Intro 여러분 안녕하세요!! 무려 1년 6개월만에 새로운 포스팅으로 돌아왔습니다. 포스팅을 본격적으로 재개해 보려고 블로그 디자인도 개편했어요 ㅎㅎ 사실 그동안 블로그 디자인이 마음에 안들어서 안왔.. 그동안 바쁘다는 핑계로 블로그를 사실상 방치했지만, 너무 감사하게도 지속적으로 찾아와 주시는 분들이 많아 다시 글을 쓰고자하는 의지가 불타오르기 시작했습니다.🔥
+복귀 기념으로 야심차게 준비한 주제는 iOS Concurrent Programming 이였지만&amp;hellip; 글을 쓰다보니 미리 알아두어야 이해가 수월한 개념들이 많아 이 포스팅을 먼저 작성하게 되었습니다. 바로 프로그램, 프로세스, 그리고 스레드&amp;hellip; 항상 확실하게 공부하지 않고 넘어가 헷갈렸던 개념이에요.</description>
+    </item>
+    
     <item>
       <title>Just 10-Sec Privacy Policy</title>
       <link>https://kasroid.github.io/pages/just-10-sec-privacy-policy/</link>
