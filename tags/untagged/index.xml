@@ -9,25 +9,7 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 25 Aug 2020 01:35:55 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Blog</title>
-      <link>https://kasroid.github.io/posts/blog/</link>
-      <pubDate>Tue, 25 Aug 2020 01:35:55 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/posts/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terminal</title>
-      <link>https://kasroid.github.io/posts/terminal/</link>
-      <pubDate>Tue, 25 Aug 2020 01:27:47 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/posts/terminal/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Tue, 25 Aug 2020 01:25:02 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS</title>
       <link>https://kasroid.github.io/posts/ios/</link>
