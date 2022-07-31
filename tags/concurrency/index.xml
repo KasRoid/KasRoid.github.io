@@ -18,8 +18,8 @@
       <guid>https://kasroid.github.io/posts/ios/20220731-concurrency-async-await-task/</guid>
       <description>본 포스팅은 다음 버전을 기준으로 작성되었습니다.
 iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro 이번에 함께 공부하려고 들고 온 주제는 대망의 async / await 입니다. 이전 포스팅에서 얘기했었지만 원래는 GCD 와 관련된 내용을 먼저 작성하려고 했었어요. 근데 마음이 바뀌었습니다 ㅎㅎ
-왜냐? 일단 최근에 Async, Await 을 공부할 필요성이 생겼어요. 그래서 공부를 하다보니 아직까지 우리나라에 제대로 된 포스팅이 없더라고요?
-네 저도 Async, Await 참 좋아하는데요. 그렇다면 제가 제일 먼저 작성해 보겠습니다. 개드립 그만</description>
+왜냐? 일단 최근에 Async, Await 을 공부할 필요성이 생겼어요. 그래서 공부를 하다보니 아직까지 우리나라에 마음에 드는 포스트가 없더라고요?
+네 저도 Async, Await 참 좋아하는데요. 그렇다면 제가 한번 작성해 보겠습니다. 개드립 그만</description>
     </item>
     
   </channel>
