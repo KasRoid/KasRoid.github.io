@@ -9,22 +9,22 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Jul 2022 09:28:32 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Jul 2022 10:35:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://kasroid.github.io/categories/ios/</link>
+      <pubDate>Sun, 31 Jul 2022 10:35:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CS</title>
       <link>https://kasroid.github.io/categories/cs/</link>
       <pubDate>Sat, 30 Jul 2022 09:28:32 +0900</pubDate>
       
       <guid>https://kasroid.github.io/categories/cs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://kasroid.github.io/categories/ios/</link>
-      <pubDate>Sat, 07 Nov 2020 10:42:03 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/categories/ios/</guid>
       <description></description>
     </item>
     
