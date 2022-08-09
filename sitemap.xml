@@ -3,24 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kasroid.github.io/categories/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/tags/concurrency/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
-    <loc>https://kasroid.github.io/posts/ios/20220804-concurrency-continuation/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <loc>https://kasroid.github.io/posts/ios/20220809-concurrency-async-let/</loc>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/categories/ios/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/</loc>
-    <lastmod>2022-08-04T08:17:00+09:00</lastmod>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2022-08-09T11:43:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/posts/ios/20220804-concurrency-continuation/</loc>
     <lastmod>2022-08-04T08:17:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/posts/ios/20220731-concurrency-async-await-task/</loc>

@@ -11,13 +11,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 25 Aug 2020 01:25:02 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/posts/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Concurrency - async let 알아보기</title>
+      <link>https://kasroid.github.io/posts/ios/20220809-concurrency-async-let/</link>
+      <pubDate>Tue, 09 Aug 2022 11:43:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/20220809-concurrency-async-let/</guid>
+      <description>이 포스트는 다음 버전을 기준으로 작성되었습니다.
+iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro 이번 글에서는 async let 에 대해 공부해 보겠습니다. 이전 포스트 Concurrency - Async, Await, 그리고 Task 알아보기 와 Concurrency - Continuation 활용하기 에서 학습한 내용들을 어느정도 이해하셨다면, async let 은 상대적으로 간단하게 느껴질 거에요. 만약 아직 async/await 이 익숙하지 않다면 이전 포스트를 먼저 읽어주세요.
+우선 async let 은 언제 사용하면 되는지를 알아봅시다. 그동안 우리가 사용한 비동기 함수에는 공통적인 부분이 있었어요.</description>
+    </item>
+    
+    <item>
       <title>Concurrency - Continuation 활용하기: Async/Await</title>
       <link>https://kasroid.github.io/posts/ios/20220804-concurrency-continuation/</link>
       <pubDate>Thu, 04 Aug 2022 08:17:00 +0900</pubDate>
       
       <guid>https://kasroid.github.io/posts/ios/20220804-concurrency-continuation/</guid>
       <description>이 포스트는 다음 버전을 기준으로 작성되었습니다.
-iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro 오늘은 Continuation 이라는 것을 공부해 보겠습니다. 본격적으로 설명을 시작하기 전에 왜 이것을 사용해야 하는지를 알아야 공부에 대한 동기부여가 될테니, Continuation 이 언제 필요한지를 먼저 알아보도록 할게요.
+iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro 오늘은 Continuation 이라는 것을 공부해 보겠습니다. 본격적으로 설명을 시작하기 전에 이것을 어디에 사용하는지를 알아야 공부에 대한 동기부여가 될테니, Continuation 이 언제 필요한지를 먼저 알아보도록 할게요.
 우리는 이전 포스트에서 async/await 의 기본적인 사용법을 익혔습니다. 기존 @escaping 키워드를 사용해 콜백 스타일로 비동기 작업을 처리하는 함수를, 새로운 Async, Await API 를 적용시킨 함수로 리팩토링하여 훨씬 간결하고 가독성 좋은 비동기 함수를 만들 수 있었어요.</description>
     </item>
     
