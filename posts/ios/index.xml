@@ -22,7 +22,7 @@ iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro 이번 글에서는 async let 에 대해
     </item>
     
     <item>
-      <title>Concurrency - Continuation 활용하기: Async/Await</title>
+      <title>Concurrency - Continuation 활용하기</title>
       <link>https://kasroid.github.io/posts/ios/20220804-concurrency-continuation/</link>
       <pubDate>Thu, 04 Aug 2022 08:17:00 +0900</pubDate>
       
