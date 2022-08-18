@@ -9,7 +9,19 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Aug 2022 11:43:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Aug 2022 18:33:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Concurrency - TaskGroup 사용하기</title>
+      <link>https://kasroid.github.io/posts/ios/concurrency-task-group/</link>
+      <pubDate>Thu, 18 Aug 2022 18:33:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/posts/ios/concurrency-task-group/</guid>
+      <description>이 포스트는 다음 버전을 기준으로 작성되었습니다.
+iOS 15.6 Swift 5.6.1 Xcode 13.4.1 Intro TaskGroup 은 동시성 프레임워크의 일부로, Swift 5.5 버전 업데이트에서 공개되었습니다. 그리고 그 이름에서부터 Task 의 모음이라는 것을 유추해 볼 수 있습니다. 그렇다면 먼저 Task 가 무엇인지 알아야 겠네요.
+하지만 이 포스트는 TaskGroup 이 주제이므로 길게 설명하지는 않겠습니다. Task 란 비동기 작업의 단위 정도라고만 알아두세요.
+공식문서 살펴보기 그럼 공식문서를 보며 TaskGroup 에 대해 더 자세히 알아봅시다. 공식문서는 Task Group 을 다음과 같이 설명합니다.</description>
+    </item>
+    
     <item>
       <title>Concurrency - async let 알아보기</title>
       <link>https://kasroid.github.io/posts/ios/20220809-concurrency-async-let/</link>
