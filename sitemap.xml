@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kasroid.github.io/categories/</loc>
-    <lastmod>2022-08-18T18:33:00+09:00</lastmod>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/categories/cs/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/posts/cs/20220821-thread/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/posts/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/tags/process/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/tags/program/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/tags/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
+  </url><url>
+    <loc>https://kasroid.github.io/tags/thread/</loc>
+    <lastmod>2022-08-21T09:40:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/tags/concurrency/</loc>
     <lastmod>2022-08-18T18:33:00+09:00</lastmod>
@@ -12,15 +36,6 @@
     <lastmod>2022-08-18T18:33:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/categories/ios/</loc>
-    <lastmod>2022-08-18T18:33:00+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/posts/</loc>
-    <lastmod>2022-08-18T18:33:00+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/</loc>
-    <lastmod>2022-08-18T18:33:00+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/tags/</loc>
     <lastmod>2022-08-18T18:33:00+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/posts/ios/20220809-concurrency-async-let/</loc>
@@ -32,19 +47,7 @@
     <loc>https://kasroid.github.io/posts/ios/20220731-concurrency-async-await-task/</loc>
     <lastmod>2022-07-31T10:35:00+09:00</lastmod>
   </url><url>
-    <loc>https://kasroid.github.io/categories/cs/</loc>
-    <lastmod>2022-07-30T09:28:32+09:00</lastmod>
-  </url><url>
     <loc>https://kasroid.github.io/posts/cs/20220730-process/</loc>
-    <lastmod>2022-07-30T09:28:32+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/tags/process/</loc>
-    <lastmod>2022-07-30T09:28:32+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/tags/program/</loc>
-    <lastmod>2022-07-30T09:28:32+09:00</lastmod>
-  </url><url>
-    <loc>https://kasroid.github.io/tags/thread/</loc>
     <lastmod>2022-07-30T09:28:32+09:00</lastmod>
   </url><url>
     <loc>https://kasroid.github.io/posts/cs/20220725-program/</loc>

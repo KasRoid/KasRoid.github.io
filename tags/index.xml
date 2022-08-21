@@ -9,20 +9,11 @@
       <link>https://kasroid.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Aug 2022 18:33:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Concurrency</title>
-      <link>https://kasroid.github.io/tags/concurrency/</link>
-      <pubDate>Thu, 18 Aug 2022 18:33:00 +0900</pubDate>
-      
-      <guid>https://kasroid.github.io/tags/concurrency/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sun, 21 Aug 2022 09:40:00 +0900</lastBuildDate><atom:link href="https://kasroid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Process</title>
       <link>https://kasroid.github.io/tags/process/</link>
-      <pubDate>Sat, 30 Jul 2022 09:28:32 +0900</pubDate>
+      <pubDate>Sun, 21 Aug 2022 09:40:00 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/process/</guid>
       <description></description>
@@ -31,7 +22,7 @@
     <item>
       <title>Program</title>
       <link>https://kasroid.github.io/tags/program/</link>
-      <pubDate>Sat, 30 Jul 2022 09:28:32 +0900</pubDate>
+      <pubDate>Sun, 21 Aug 2022 09:40:00 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/program/</guid>
       <description></description>
@@ -40,9 +31,18 @@
     <item>
       <title>Thread</title>
       <link>https://kasroid.github.io/tags/thread/</link>
-      <pubDate>Sat, 30 Jul 2022 09:28:32 +0900</pubDate>
+      <pubDate>Sun, 21 Aug 2022 09:40:00 +0900</pubDate>
       
       <guid>https://kasroid.github.io/tags/thread/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Concurrency</title>
+      <link>https://kasroid.github.io/tags/concurrency/</link>
+      <pubDate>Thu, 18 Aug 2022 18:33:00 +0900</pubDate>
+      
+      <guid>https://kasroid.github.io/tags/concurrency/</guid>
       <description></description>
     </item>
     
